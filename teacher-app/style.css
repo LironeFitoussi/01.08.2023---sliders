@@ -12,6 +12,16 @@ header, footer{
 div {
     height: 100%;
 }
+
+h1 {
+    font: 25px bold;
+    color: #920898;
+}
+
+h2 {
+    font: 17px italic;
+}
+
 footer{
     position: fixed;
     left: 0;
