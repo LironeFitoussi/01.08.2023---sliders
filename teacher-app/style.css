@@ -1,3 +1,20 @@
 body {
     background-image: url(https://images.unsplash.com/photo-1604147706283-d7119b5b822c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2hpdGUlMjAlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww&w=1000&q=80);
 }
+
+header, footer{
+    height: 10%;
+    border: solid 1px #ffffff;
+    background-color: #54e95e;
+    color: #ffffff;
+}
+
+div {
+    height: 100%;
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
