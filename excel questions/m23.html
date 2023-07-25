@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 1px #000 solid;
+            background-color: #d66000;
+            animation-name: transition;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        
+        @keyframes transition {
+        from {background-color: #d66000;}
+        to {background-color: #d600a0;}
+
+        0% {left: 0;}
+        50% {left: 90%;}
+        100% {left: 0;}
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
