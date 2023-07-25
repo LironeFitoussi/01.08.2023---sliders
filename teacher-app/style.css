@@ -16,7 +16,8 @@ div {
 }
 
 h1 {
-    font: 25px bold;
+    font-size: 25px;
+    font-weight: bold;
     color: #920898;
 }
 
@@ -27,6 +28,22 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+input[type="email"], input[type="text"] {
+    width: 30%;
+}
+
+button {
+    width: 50px;
+    height: 25px;
+    background-color: #c3158e;
+    color: #ffffff;
 }
 
 footer{
