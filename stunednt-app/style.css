@@ -57,11 +57,12 @@ th {
     background-color: #261dcd;
 }
 
-p {
+li > p {
     font-weight: bold;
     background-color: #0e72f0;
     color: #0ef047;
 }
+
 footer{
     position: fixed;
     left: 0;
