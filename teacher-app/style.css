@@ -1,5 +1,6 @@
 body {
     background-image: url(https://images.unsplash.com/photo-1604147706283-d7119b5b822c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2hpdGUlMjAlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww&w=1000&q=80);
+    margin-bottom: 150px;
 }
 
 header, footer{
@@ -12,7 +13,7 @@ header, footer{
 div {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: fit-content;
 }
 
 h1 {
@@ -46,6 +47,27 @@ button {
     color: #ffffff;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    background-color: #3ab15c;
+    color: #ffffff;
+}
+
+p {
+    color: #00e72f;
+    font-style: italic;
+}
+
+.topic {
+    font-weight: bold;
+    color: #0047ef;
+}
 footer{
     position: fixed;
     left: 0;
