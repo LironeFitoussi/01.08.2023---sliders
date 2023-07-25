@@ -53,6 +53,10 @@ table, th, td {
     border-collapse: collapse;
 }
 
+th {
+    background-color: #261dcd;
+}
+
 footer{
     position: fixed;
     left: 0;
