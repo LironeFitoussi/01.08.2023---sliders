@@ -14,7 +14,9 @@ h1 {
 }
 
 div {
-    height: 100%;
+    margin: auto;
+    margin-bottom: 150px;
+    width: fit-content;
 }
 
 form {
@@ -38,6 +40,17 @@ button {
     background-color: #1667dc;
     color: #ffffff;
     align-self: center;
+}
+
+table {
+    width: 90%;
+    overflow: auto;
+    margin: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 footer{
