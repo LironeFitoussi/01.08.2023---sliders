@@ -4,6 +4,12 @@
     <meta name="viewport" content="width=i, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         div {
             background-color: aqua;
             width: 300px;
@@ -11,12 +17,11 @@
             animation-duration: 5s;
             animation-name: grow;
             animation-iteration-count: infinite;
-            scale: 
         }
 
         @keyframes grow {
-            from {scale: ;}
-            to {filter: blur(0) grayscale(0%);}            
+            from {scale: 100%;}
+            to {scale: 200%;}            
         }
     </style>
 
