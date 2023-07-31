@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1600px;
+    height: 800px;
+    border: 3px solid #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/365/933/106/action-arena-arts-battle-wallpaper-preview.jpg);
+}
+
+img {
+    position: absolute;
+    height: 300px;
+    bottom: 15px;
+}
+
+img.luffy {
+    left: 20%;
+    animation: luffyMove1 2s, luffyMove2 2s 4s, luffyMove3 1s 6s 2 alternate;
+}
+
+img.ryu {
+    right: 20%;
+    animation: ryuMove1 2s 2s, ryuMove2 2s 4s, ryuMove3 1s 8s;
+    animation-fill-mode: forwards;
+}
+
+img.ko {
+    position: static;
+    opacity: 0;
+    animation: final 3s 8.5s;
+    animation-fill-mode: forwards;
+}
+
+/*First Move*/
+@keyframes luffyMove1  {
+    0%, 100% {transform: translate(0);}
+    50% {transform: translate(270%);}
+}
+
+@keyframes ryuMove1  {
+    0%, 100%{transform: translate(0);}
+    25% {transform: translate(-130%, -150%);}
+    75% {transform: translate(-270%, 0%);}
+}
+
+/*Second Move*/
+@keyframes luffyMove2  {
+    0%, 100%{transform: translate(0);}
+    50% {transform: translate(270%);}
+}
+
+@keyframes ryuMove2  {
+    0%, 100%{transform: translate(0);}
+    50% {transform: translate(0, -200%);}
+}
+
+/*Luffy K.O. Attack*/
+@keyframes luffyMove3  {
+    0%, 100%{transform: translate(0);}
+    50% {transform: translate(270%);}
+}
+
+@keyframes ryuMove3  {
+    0% {transform: rotateZ(0)}
+    100% {transform: rotateZ(90deg)}
+}
+
+@keyframes final {
+    from {transform: scale(1); opacity: 0;}
+    to {transform: scale(3); opacity: 1;}
+    
+}
+
