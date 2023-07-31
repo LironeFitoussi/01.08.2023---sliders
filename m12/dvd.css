@@ -1,0 +1,30 @@
+body {
+}
+
+section {
+    height: 50vh;
+    width: 50vh;
+    background-color: #000;
+    padding: 5px;
+}
+svg {
+    height: 10%;
+    width: 10%;
+    fill: #00f;
+    animation: dvdAnimation 10s 0s infinite alternate linear;
+}
+
+@keyframes dvdAnimation {
+
+    25% {transform: translate(22.5vw, 45vh);}
+    50% {transform: translate(45vw, 22.5vh);}
+    75% {transform: translate(22.5vw, 0vh);}
+    100% {transform: translate(0vw, 22.5vh);}
+    
+    0%, 24% {fill: #00f}
+    25%, 49% {fill: #f94;}
+    50%, 74% {fill: #394;}
+    75%, 99%{fill: #ef4;}
+    100% {fill: #f04;}
+
+}
