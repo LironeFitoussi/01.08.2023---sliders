@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: url(https://img.freepik.com/premium-photo/grass-land-background-scenery-anime-image-generative-ai_849906-5311.jpg);
+        }
+
+        img {
+            transform: translate(23vw, 40vh);
+            animation: wlak 6s infinite;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes wlak {
+            0% {transform: translate(23vw, 40vh) scale(1);}
+            70% {transform: translate(53vw, 33vh) scale(0.3);}
+            100% {transform: translate(45vw, 32.5vh) scale(0.1);}
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <img src="./luffy-one.gif" alt="luffy walking">
+    </section>
+</body>
+</html>
