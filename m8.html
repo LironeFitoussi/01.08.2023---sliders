@@ -1,13 +1,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
     <title>Document</title>
     <style>
         div {
-            height: 30vh;
-            aspect-ratio: 1 / 1 ;
-            background-color: ;
+            width: 30vh;
+            aspect-ratio: 1 / 1;
+            background-color: #f00;
+            border: 1px solid #000;
+            animation-name: turnYourself;
+            animation-duration: 4s;
+        }
+
+        @keyframes turnYourself {
+            from {transform: rotatex(50deg);}
+            to {transform: rotatex(-50deg)}
         }
     </style>
 </head>
