@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #333;
+            padding-top: 5em;
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            width: 0;
+            color: #fff;
+            text-align: center;
+            overflow: hidden; 
+            border-right: 1px solid transparent; 
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 2s steps(22, end), type-line 0.5s 7 alternate;
+            animation-fill-mode: forwards;
+        }
+
+        .second-line {
+            animation-delay: 2s;
+        }
+
+        .third-line {
+            animation-delay: 4s;
+        }
+
+        .fourth-line {
+            animation-delay: 6s;
+        }
+        @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+        }
+
+        @keyframes type-line {
+        from, to { border-color: transparent }
+        50% { border-color: #f0f }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="first-line">do you have something to eat?</h1>
+        <h1 class="second-line">dude im realy hungry</h1>
+        <h1 class="third-line">- so what order a pizza!</h1>
+        <h1 class="fourth-line">okay then order a burger</h1>
+    </div>
+</body>
+</html>
