@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 45vw;
+    background-color: rgba(34, 210, 4, 0.267);
+    padding: 2rem;
+    gap: 5%;
+}
+
+.slider1, .slider2, .slider3 {
+    width: 50%;
+    height: 20vh;
+    background-image: url(./images/image-slide1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.slider2 {
+    background-image: url(./images/image-slide4.jpeg);
+}
+
+.slider3 {
+    background-image: url(./images/image-slide7.jpeg);
+}
+
+.fa-solid {
+    cursor: pointer;
+}
+
+.move-right {
+    position: absolute;
+    right: 1%;
+}
+
+.move-left {
+    position: absolute;
+    left: 1%;
+}
+
+div.move-left:hover ~ .slider1 {
+    animation: slideAnimate1 3s 2 alternate;
+}
+
+div.move-left:hover ~ .slider2 {
+    animation: slideAnimate2 3s 2 alternate;
+} 
+
+div.move-left:hover ~ .slider3 {
+    animation: slideAnimate3 3s 2 alternate;
+} 
+
+div.move-right:hover ~ .slider1 {
+    animation: slideAnimate1 3s 2 alternate-reverse;
+}
+
+div.move-right:hover ~ .slider2 {
+    animation: slideAnimate2 3s 2 alternate-reverse;
+}
+
+div.move-right:hover ~ .slider3 {
+    animation: slideAnimate3 3s 2 alternate-reverse;
+}
+
+@keyframes slideAnimate1 {
+    0%, 100% {background-image: url(./images/image-slide1.jpg);}
+    33% {background-image: url(./images/image-slide2.jpeg);}
+    66% {background-image: url(./images/image-slide3.jpeg);}
+}
+
+@keyframes slideAnimate2 {
+    0%, 100% {background-image: url(./images/image-slide4.jpeg);}
+    33% {background-image: url(./images/image-slide5.jpeg);}
+    66% {background-image: url(./images/image-slide6.jpeg);}
+}
+
+@keyframes slideAnimate3 {
+    0%, 100% {background-image: url(./images/image-slide7.jpeg);}
+    33% {background-image: url(./images/image-slide8.jpeg);}
+    66% {background-image: url(./images/image-slide9.jpeg);}
+}
