@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 45vw;
+    background-color: #8884;
+    padding: 2rem;
+}
+
+div {
+    width: 50%;
+    height: 100%;
+    background-image: url(./images/image-slide1.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: imageSlide 15s;
+}
+
+@keyframes imageSlide {
+    0%, 10%, 100% {background-image: url(./images/image-slide1.jpg);}
+    20% {background-image: url(./images/image-slide2.jpeg);}
+    30% {background-image: url(./images/image-slide3.jpeg);}
+    40% {background-image: url(./images/image-slide4.jpeg);}
+    50% {background-image: url(./images/image-slide5.jpeg);}
+    60% {background-image: url(./images/image-slide6.jpeg);}
+    70% {background-image: url(./images/image-slide7.jpeg);}
+    80% {background-image: url(./images/image-slide8.jpeg);}
+    90% {background-image: url(./images/image-slide9.jpeg);}
+}
