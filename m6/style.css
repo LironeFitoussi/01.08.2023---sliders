@@ -1,0 +1,75 @@
+/*Structure Design*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 45vw;
+    background-color: rgba(34, 210, 4, 0.267);
+    padding: 2rem;
+    gap: 5%;
+}
+
+.sld-container {
+    position: relative;
+    height: 70vh;
+    width: 70%;
+    overflow: hidden;
+}
+
+.move-right {
+    position: absolute;
+    right: 5%;
+}
+
+.move-left {
+    position: absolute;
+    left: 5%;
+}
+
+/*Slider Styling*/
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sld-3 {
+    background-image: url(./images/image-slide1.jpg);
+}
+
+.sld-2 {
+    background-image: url(./images/image-slide2.jpeg);
+}
+
+.sld-1 {
+    background-image: url(./images/image-slide3.jpeg);
+}
+
+
+div.move-left:hover ~ .sld-container > .sld-3 {
+    animation: moveLeft 2s forwards;
+}
+
+div.move-left:hover ~ .sld-container > .sld-2 {
+    animation: moveLeft 2s 2s forwards;
+}
+
+div.move-left:hover ~ .sld-container > .sld-1 {
+    animation: moveLeft 2s 4s forwards;
+}
+
+@keyframes moveLeft {
+   from {transform: translateX(0);}
+   to {transform: translateX(-100%);   } 
+}
