@@ -14,7 +14,7 @@ section {
     padding: 2rem;
 }
 
-.slider1 {
+.slider {
     width: 50%;
     height: 100%;
     background-image: url(./images/image-slide1.jpg);
@@ -31,11 +31,11 @@ section {
     cursor: pointer;
 }
 
-div.move-left:hover + .slider1 {
+div.move-left:hover + .slider {
     animation: slideAnimate 15s;
 }
 
-div.move-right:hover + .slider2 {
+div.move-right:hover + .slider {
     animation: slideAnimate 15s reverse;
 }
 
