@@ -24,13 +24,13 @@ div {
 }
 
 @keyframes imageSlide {
-    0%, 10%, 100% {background-image: url(./images/image-slide1.jpg);}
-    20% {background-image: url(./images/image-slide2.jpeg);}
-    30% {background-image: url(./images/image-slide3.jpeg);}
-    40% {background-image: url(./images/image-slide4.jpeg);}
-    50% {background-image: url(./images/image-slide5.jpeg);}
-    60% {background-image: url(./images/image-slide6.jpeg);}
-    70% {background-image: url(./images/image-slide7.jpeg);}
-    80% {background-image: url(./images/image-slide8.jpeg);}
-    90% {background-image: url(./images/image-slide9.jpeg);}
+    10%,19%, 100% {background-image: url(./images/image-slide1.jpg);}
+    20%, 29% {background-image: url(./images/image-slide2.jpeg);}
+    30%, 39%{background-image: url(./images/image-slide3.jpeg);}
+    40%, 49%{background-image: url(./images/image-slide4.jpeg);}
+    50%, 59% {background-image: url(./images/image-slide5.jpeg);}
+    60%, 69% {background-image: url(./images/image-slide6.jpeg);}
+    70%, 79% {background-image: url(./images/image-slide7.jpeg);}
+    80%, 89% {background-image: url(./images/image-slide8.jpeg);}
+    90%, 99% {background-image: url(./images/image-slide9.jpeg);}
 }
