@@ -39,11 +39,11 @@ section {
 }
 
 div.move-left:hover ~ .slider {
-    animation: slideAnimate 15s;
+    animation: slideAnimate 15s 2 alternate;
 }
 
 div.move-right:hover ~ .slider {
-    animation: slideAnimate 15s reverse;
+    animation: slideAnimate 15s 2 alternate-reverse;
 }
 
 @keyframes slideAnimate {
