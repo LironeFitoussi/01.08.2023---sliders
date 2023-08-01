@@ -6,6 +6,7 @@ body {
 
 section {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     height: 70vh;
@@ -23,19 +24,25 @@ section {
     background-position: center;
 }
 
-.slider1:hover {
-    animation: slideAnimate 15s;
-}
-
 .fa-solid {
     cursor: pointer;
 }
 
-div.move-left:hover + .slider {
+.move-right {
+    position: absolute;
+    right: 15%;
+}
+
+.move-left {
+    position: absolute;
+    left: 15%;
+}
+
+div.move-left:hover ~ .slider {
     animation: slideAnimate 15s;
 }
 
-div.move-right:hover + .slider {
+div.move-right:hover ~ .slider {
     animation: slideAnimate 15s reverse;
 }
 
