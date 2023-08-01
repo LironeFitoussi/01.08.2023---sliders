@@ -1,3 +1,4 @@
+/*Structure Design*/
 body {
     display: flex;
     justify-content: center;
@@ -16,9 +17,10 @@ section {
     gap: 5%;
 }
 
+/*Sliders Styling*/
 .slider1, .slider2, .slider3 {
     width: 50%;
-    height: 20vh;
+    height: 40vh;
     background-image: url(./images/image-slide1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,6 +35,7 @@ section {
     background-image: url(./images/image-slide7.jpeg);
 }
 
+/*Arrows Styiling*/
 .fa-solid {
     cursor: pointer;
 }
@@ -47,28 +50,14 @@ section {
     left: 1%;
 }
 
+
+/*Slider 1 Settings*/
 div.move-left:hover ~ .slider1 {
     animation: slideAnimate1 3s 2 alternate;
 }
 
-div.move-left:hover ~ .slider2 {
-    animation: slideAnimate2 3s 2 alternate;
-} 
-
-div.move-left:hover ~ .slider3 {
-    animation: slideAnimate3 3s 2 alternate;
-} 
-
 div.move-right:hover ~ .slider1 {
     animation: slideAnimate1 3s 2 alternate-reverse;
-}
-
-div.move-right:hover ~ .slider2 {
-    animation: slideAnimate2 3s 2 alternate-reverse;
-}
-
-div.move-right:hover ~ .slider3 {
-    animation: slideAnimate3 3s 2 alternate-reverse;
 }
 
 @keyframes slideAnimate1 {
@@ -77,14 +66,39 @@ div.move-right:hover ~ .slider3 {
     66% {background-image: url(./images/image-slide3.jpeg);}
 }
 
+/*Slider 2 Settings*/
+
+div.move-left:hover ~ .slider2 {
+    animation: slideAnimate2 3s 2 alternate;
+} 
+
+div.move-right:hover ~ .slider2 {
+    animation: slideAnimate2 3s 2 alternate-reverse;
+}
+
 @keyframes slideAnimate2 {
     0%, 100% {background-image: url(./images/image-slide4.jpeg);}
     33% {background-image: url(./images/image-slide5.jpeg);}
     66% {background-image: url(./images/image-slide6.jpeg);}
 }
 
+/*Slider 3 Settings*/
+
+div.move-left:hover ~ .slider3 {
+    animation: slideAnimate3 3s 2 alternate;
+} 
+
 @keyframes slideAnimate3 {
     0%, 100% {background-image: url(./images/image-slide7.jpeg);}
     33% {background-image: url(./images/image-slide8.jpeg);}
     66% {background-image: url(./images/image-slide9.jpeg);}
 }
+
+div.move-right:hover ~ .slider3 {
+    animation: slideAnimate3 3s 2 alternate-reverse;
+}
+
+
+
+
+
