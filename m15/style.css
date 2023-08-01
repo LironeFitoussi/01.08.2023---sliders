@@ -12,9 +12,7 @@ section {
     width: 1600px;
     height: 800px;
     border: 3px solid #000;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(https://c4.wallpaperflare.com/wallpaper/365/933/106/action-arena-arts-battle-wallpaper-preview.jpg);
+    background: url(https://c4.wallpaperflare.com/wallpaper/365/933/106/action-arena-arts-battle-wallpaper-preview.jpg) no-repeat center/cover;
 }
 
 img {
@@ -41,43 +39,41 @@ img.ko {
     animation-fill-mode: forwards;
 }
 
-/*First Move*/
-@keyframes luffyMove1  {
-    0%, 100% {transform: translate(0);}
-    50% {transform: translate(270%);}
+/* First Move */
+@keyframes luffyMove1 {
+    0%, 100% { transform: translate(0); }
+    50% { transform: translate(270%); }
 }
 
-@keyframes ryuMove1  {
-    0%, 100%{transform: translate(0);}
-    25% {transform: translate(-130%, -150%);}
-    75% {transform: translate(-270%, 0%);}
+@keyframes ryuMove1 {
+    0%, 100% { transform: translate(0); }
+    25% { transform: translate(-130%, -150%); }
+    75% { transform: translate(-270%, 0%); }
 }
 
-/*Second Move*/
-@keyframes luffyMove2  {
-    0%, 100%{transform: translate(0);}
-    50% {transform: translate(270%);}
+/* Second Move */
+@keyframes luffyMove2 {
+    0%, 100% { transform: translate(0); }
+    50% { transform: translate(270%); }
 }
 
-@keyframes ryuMove2  {
-    0%, 100%{transform: translate(0);}
-    50% {transform: translate(0, -200%);}
+@keyframes ryuMove2 {
+    0%, 100% { transform: translate(0); }
+    50% { transform: translate(0, -200%); }
 }
 
-/*Luffy K.O. Attack*/
-@keyframes luffyMove3  {
-    0%, 100%{transform: translate(0);}
-    50% {transform: translate(270%);}
+/* Luffy K.O. Attack */
+@keyframes luffyMove3 {
+    0%, 100% { transform: translate(0); }
+    50% { transform: translate(270%); }
 }
 
-@keyframes ryuMove3  {
-    0% {transform: rotateZ(0)}
-    100% {transform: rotateZ(90deg)}
+@keyframes ryuMove3 {
+    0% { transform: rotateZ(0); }
+    100% { transform: rotateZ(90deg); }
 }
 
 @keyframes final {
-    from {transform: scale(1); opacity: 0;}
-    to {transform: scale(3); opacity: 1;}
-    
+    from { transform: scale(1); opacity: 0; }
+    to { transform: scale(3); opacity: 1; }
 }
-
