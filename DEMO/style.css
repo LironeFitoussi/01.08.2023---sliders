@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 10%;
+    height: 100vh;
+}
+
+#box {
+    width: 20vw;
+    height: 90vh;
+    border: 1px #000 solid;
+    background-size: cover;
+    background-image: url(https://ms.yugipedia.com//thumb/e/e5/Back-EN.png/257px-Back-EN.png);
+    /* transform: rotateX(30deg) rotateY(30deg) rotateZ(30deg); */
+    /* transform: skewX(10deg); */
+    animation: spin 4s 5s forwards;
+}
+
+@keyframes spin {
+    0%{
+        background-image: url(https://ms.yugipedia.com//thumb/e/e5/Back-EN.png/257px-Back-EN.png);
+        transform: rotateY(0);
+    }
+
+    51%{
+        background-image: url(https://images.ygoprodeck.com/images/cards/89631139.jpg);
+    }
+
+    100% {
+        background-image: url(https://images.ygoprodeck.com/images/cards/89631139.jpg);
+        transform: rotateY(180deg);
+    }
+}

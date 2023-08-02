@@ -1,0 +1,9 @@
+body {
+    color: blue;
+}
+
+div {
+    border: 3px;
+    width: 30vw;
+    height: 30vh;
+}
