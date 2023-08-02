@@ -3,6 +3,6 @@ body {
 }
 
 div {
-    border: dotted #00f;
+    border: 10px dotted #00f;
     border-radius: 100%;
 }
