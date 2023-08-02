@@ -1,0 +1,169 @@
+/*Structure Design*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    width: 55vw;
+    background-color: rgba(34, 210, 4, 0.267);
+    padding: 4rem;
+    gap: 20px;
+}
+
+.sld-container {
+    position: relative;
+    height: 70vh;
+    width: 50%;
+    overflow: hidden;
+}
+
+.move-right {
+    position: absolute;
+    right: 1%;
+}
+
+.move-left {
+    position: absolute;
+    left: 1%;
+}
+
+/*Slider Styling*/
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sld-9 {
+    background-image: url(./images/image-slide9.jpeg);
+}
+
+.sld-8 {
+    background-image: url(./images/image-slide8.jpeg);
+}
+
+.sld-7 {
+    background-image: url(./images/image-slide7.jpeg);
+}
+
+.sld-6 {
+    background-image: url(./images/image-slide6.jpeg);
+}
+
+.sld-5 {
+    background-image: url(./images/image-slide5.jpeg);
+}
+
+.sld-4 {
+    background-image: url(./images/image-slide4.jpeg);
+}
+
+.sld-3 {
+    background-image: url(./images/image-slide3.jpeg);
+}
+
+.sld-2 {
+    background-image: url(./images/image-slide2.jpeg);
+}
+
+.sld-1 {
+    background-image: url(./images/image-slide1.jpg);
+}
+
+
+div.move-left:hover ~ .sld-container > .sld-3 {
+    animation: moveLeft 8s;
+}
+
+div.move-left:hover ~ .sld-container > .sld-2 {
+    animation: moveLeft 5s 2s;
+}
+
+div.move-left:hover ~ .sld-container > .sld-1 {
+    animation: moveLeft 2s 4s;
+}
+
+
+
+div.move-left:hover ~ .sld-container > .sld-6 {
+    animation: moveLeft 8s;
+}
+
+div.move-left:hover ~ .sld-container > .sld-5 {
+    animation: moveLeft 5s 2s;
+}
+
+div.move-left:hover ~ .sld-container > .sld-4 {
+    animation: moveLeft 2s 4s;
+}
+
+
+
+div.move-left:hover ~ .sld-container > .sld-9 {
+    animation: moveLeft 8s;
+}
+
+div.move-left:hover ~ .sld-container > .sld-8 {
+    animation: moveLeft 5s 2s;
+}
+
+div.move-left:hover ~ .sld-container > .sld-7 {
+    animation: moveLeft 2s 4s;
+}
+
+@keyframes moveLeft {
+   0%, 100% {transform: translateX(0);}
+   25%, 75% {transform: translateX(-100%);} 
+}
+
+
+div.move-right:hover ~ .sld-container > .sld-3 {
+    animation: moveRight 8s;
+}
+
+div.move-right:hover ~ .sld-container > .sld-2 {
+    animation: moveRight 5s 2s;
+}
+
+div.move-right:hover ~ .sld-container > .sld-1 {
+    animation: moveRight 2s 4s;
+}
+
+div.move-right:hover ~ .sld-container > .sld-6 {
+    animation: moveRight 8s;
+}
+
+div.move-right:hover ~ .sld-container > .sld-5 {
+    animation: moveRight 5s 2s;
+}
+
+div.move-right:hover ~ .sld-container > .sld-4 {
+    animation: moveRight 2s 4s;
+}
+
+div.move-right:hover ~ .sld-container > .sld-9 {
+    animation: moveRight 8s;
+}
+
+div.move-right:hover ~ .sld-container > .sld-8 {
+    animation: moveRight 5s 2s;
+}
+
+div.move-right:hover ~ .sld-container > .sld-7 {
+    animation: moveRight 2s 4s;
+}
+
+@keyframes moveRight {
+   0%, 100% {transform: translateX(0);}
+   25%, 75% {transform: translateX(+100%);} 
+}
