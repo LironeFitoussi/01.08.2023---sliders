@@ -4,7 +4,7 @@ body {
     align-items: center;
 }
 
-section {
+.section {
     display: flex;
     position: relative;
     align-items: center;
@@ -28,21 +28,21 @@ section {
     cursor: pointer;
 }
 
-.move-right {
+#move-right {
     position: absolute;
     right: 15%;
 }
 
-.move-left {
+#move-left {
     position: absolute;
     left: 15%;
 }
 
-div.move-left:hover ~ .slider {
+#move-left:hover + div.slider {
     animation: slideAnimate 15s 2 alternate;
 }
 
-div.move-right:hover ~ .slider {
+#move-right:hover + div.slider {
     animation: slideAnimate 15s 2 alternate-reverse;
 }
 
