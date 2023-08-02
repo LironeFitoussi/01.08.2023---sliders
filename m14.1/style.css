@@ -23,7 +23,8 @@ img {
 }
 
 @keyframes walk {
-    0% {transform: translate(0);}
-    70% {transform: translate(100%, -5%) scale(.3);}
-    100% {transform: translate(80%, -5%) scale(.1);}
+    0% {transform: translate(0) rotateY(0deg);}
+    70% {transform: translate(100%, -5%) scale(.3) rotateY(0deg);}
+    71% {transform: translate(100%, -5%) scale(.3) rotateY(180deg);}
+    100% {transform: translate(80%, -5%) scale(.1) rotateY(180deg);;}
 }
