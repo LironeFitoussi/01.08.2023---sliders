@@ -1,68 +1,72 @@
-/*Structure Design*/
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-items: center;
+	align-items: center;
+	display: grid;
 }
 
-div {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    width: 70vh;
-    overflow: hidden;
-    background-color: rgba(34, 210, 4, 0.267);
-}
-
-section {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-    height: 35vh;
-    width: fit-content;
-    gap: 20px;
-}
-
-section > img {
-    height: 30vh;
-}
-
-div {
-    height: 200px;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    transform: translate3d(0, 0, 0);
-}
-
-div > section {
-    height: 200px;
-    width: 2526px;
+i.fa-arrow-left {
+    cursor: pointer;
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    transform: translate3d(0, 0, 0);
+    left: 15vw;
+    top: 50vh;
 }
-div .mover-1 {
-    animation:  moveSlideshow 12s linear infinite;
-}
-div .mover-2 {
-    opacity: 0;
-    transition: opacity 0.5s ease-out;
-    background-position: 0 -200px;
-    animation: moveSlideshow 15s linear infinite;
-  }
 
-div:hover .mover-2 {
-    opacity: 1;
-  }
+i.fa-arrow-right {
+    cursor: pointer;
+    position: absolute;
+    right: 15vw;
+    top: 50vh;
+}
+
+.slideron  {
+	display: grid;
+	overflow: hidden;
+}
+
+.slideron > img {
+	grid-area: 1/1;
+	height: 50vh;
+	width: 30vw;
+	animation: slider 12s linear infinite;
+}
+
+i.fa-arrow-right:hover ~ .slideron > *img {
+    animation: slider 12s infinite ;
+}
+
+i.fa-arrow-left:hover + .slideron > *img {
+    animation: slider 12s  infinite reverse;
+}
+
+.slideron > img:nth-child(2) {
+	animation-delay: calc(1*12s/-9)
+}
+.slideron > img:nth-child(3) {
+	animation-delay: calc(2*12s/-9)
+}
+.slideron > img:nth-child(4) {
+	animation-delay: calc(3*12s/-9)
+}
+.slideron > img:nth-child(5) {
+	animation-delay: calc(4*12s/-9)
+}
+.slideron > img:nth-child(6) {
+	animation-delay: calc(5*12s/-9)
+}
+.slideron > img:nth-child(7) {
+	animation-delay: calc(6*12s/-9)
+}
+.slideron > img:nth-child(8) {
+	animation-delay: calc(7*12s/-9)
+}
+.slideron > img:nth-child(9) {
+	animation-delay: calc(8*12s/-9)
+}
+
+@keyframes slider {
+	75%    {transform: translate(-900%)}
+	75.01% {transform: translate( 300%)}
+}
   
-  @keyframes moveSlideshow {
-    100% { 
-      transform: translateX(-66.6666%);  
-    }
-  }
+  
