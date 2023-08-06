@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            border-radius: 50px;
+            animation-name: shrinkandbig, upanddown;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes shrinkandbig {
+            25% {scale: 100%;}
+            50% {scale: 60%;}
+            75% {scale:100%}
+            100% {scale: 60%;}
+        }
+
+        @keyframes upanddown {
+            25% {top: 400px;}
+            50% {top: 0px}
+            75% {top: 400px;}
+            100% {top: 0px;} 
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

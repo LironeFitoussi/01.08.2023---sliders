@@ -1,0 +1,264 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, th, td {
+        border: solid;
+        border-radius: 10px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        margin: auto;
+        gap: 10px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .buttons > input {
+        display: flex;
+        min-width: 30%;
+    }
+</style>
+<body>
+    <!--1-->
+    <div>
+        <h1>Wix.com</h1>
+    </div>
+
+    <!--2-->
+    <div>
+        <p>Wix.com is a web development platform that allows users to create and design their own websites without any coding knowledge.</p>
+    </div>
+
+    <!--3-->    
+    <div>
+        <span><small>Tel Aviv, 40 Namal Tel-Aviv st., Israel</small></span>
+    </div>
+
+    <!--4-->
+    <div>
+        <p>List of 5 Tech Companies in Israel:</p>
+        <ol>
+            <li>Wix.com</li>
+            <li>Mobileye</li>
+            <li>Check Point Software Technologies</li>
+            <li>Fiverr</li>
+            <li>Mellanox Technologies</li>
+        </ol>
+    </div>
+    
+    <!--5-->
+    <div>
+        <p>List of 5 Tech Companies Abroad:</p>
+        <ul>
+            <li>Google</li>
+            <li>Apple</li>
+            <li>Microsoft</li>
+            <li>Amazon</li>
+            <li>Facebook</li>
+        </ul>
+    </div>
+    
+    <!--6-->
+    <div>
+        <ol>
+            <li>
+                <p>&lt;p&gt; Tag</p>
+                <ul>
+                    <li>"align": Aligns the content of the paragraph.	</li>
+                    <li>"class": Sets one or more CSS classes to be applied to the paragraph.</li>
+                    <li>"id": Defines a unique identifier for the paragraph.</li>
+                </ul>
+            </li>
+            <li>
+                <p>&lt;img&gt; Tag</p>
+                <ul>
+                    <li>"src": URL or path of the image to be displayed</li>
+                    <li>"alt": Alternate text for when image cannot be displayed</li>
+                    <li>"loading": Loading attribute on an &lt;img&gt; element specifies when to load the image. The 2 options are eager and lazy.</li>
+                </ul>
+            </li>
+            <li>
+                <p>&lt;input&gt; Tag</p>
+                <ul>
+                    <li>"type:" Specifies the type of input </li>
+                    <li>"data-*": Defines additional data that can be used by JavaScript.</li>
+                    <li>"hidden": Specifies whether the div element is hidden.</li>
+                </ul>
+            </li>
+            <li>
+                <p>&lt;table&gt; Tag</p>
+                <ul>
+                    <li>"border:" Sets the width of the border around the table and its cells.</li>
+                    <li>"caption:" Adds a caption above or below the table.</li>
+                    <li>"width:"" Defines the width of the table.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <!--7-->
+    <div>
+        <ul>
+            <li>
+                <p>&lt;form&gt; Tag</p>
+                <ol>
+                    <li>"action:" Specifies the URL where the form data will be submitted.</li>
+                    <li>"method:" Defines the HTTP method to be used for sending form data (e.g., "GET" or "POST").</li>
+                    <li>"enctype: Sets the encoding type for sending the form data to the server (e.g., "multipart/form-data").</li>
+                </ol>
+            </li>
+            <li>
+                <p>&lt;a&gt; Tag</p>
+                <ol>
+                    <li>"href:" Specifies the URL or destination the link points to</li>
+                    <li>"target:" Defines where to open the linked document (e.g., _blank for a new tab).</li>
+                    <li>"title:" Provides additional information about the link (shown as a tooltip).</li>
+                </ol>
+            </li>
+            <li>
+                <p>&lt;button&gt; Tag</p>
+                <ol>
+                    <li>"type:" Specifies the type of button (e.g., "button", "submit", "reset", etc.)</li>
+                    <li>"disabled: Disables the button, preventing user interaction.</li>
+                    <li>"form: Associates the button with a specific form element.</li>
+                </ol>
+            </li>
+            <li>
+                <p>&lt;ul&gt; Tag</p>
+                <ol>
+                    <li>"type:" Specifies the type of the list (e.g., "disc", "circle", or "square").</li>
+                    <li>"start:" Defines the starting number of the first list item.</li>
+                    <li>"compact:" Removes extra spacing between list items.</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    
+    <!--8--> 
+    <div>
+        <table>
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone number</th>
+                <th>Jop Title</th>
+                <th>Email</th>
+                <th>Age</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Smith</td>
+                    <td>555-123-4567</td>
+                    <td>Developer</td>
+                    <td>john.smith@wix.com</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Sarah</td>
+                    <td>Johnson</td>
+                    <td>555-987-6543</td>
+                    <td>Designer</td>
+                    <td>sarah.johnson@wix.com</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td>David</td>
+                    <td>Brown</td>
+                    <td>555-456-7890</td>
+                    <td>Manager</td>
+                    <td>david.brown@wix.com</td>
+                    <td>35</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!--9-->
+    <div>
+        <ol>
+            <li style="font-weight: bold;">Maya Bargig</li>
+            <li style="color: rgb(0, 129, 101);">Nir Gluskin</li>
+            <li style="font-size: 18px">Uri Ben-Gaib</li>
+            <li style="font-variant: small-caps;">Ramin Aliev</li>
+            <li style="text-shadow: 3px 2px 2px rgb(0, 0, 0)">Noa Zelinger</li>
+            <li style="background-color: rgb(255, 255, 0)">Uri Livneh</li>
+            <li style="font-style: italic">Yuval Azulai</li>
+            <li style="font-family: Arial, Helvetica, sans-serif ">Sagai Pacharkovski</li>
+            <li style="font-weight: 100;">Eran Toledano</li>
+            <li style="text-decoration: underline;">Omer Goldberger</li>
+        </ol>
+    </div>
+    
+    <!--10. Div Aplied to all Exercise-->
+
+    <!--11-->
+    <form action="">
+        <input type="search" placeholder="Serach something">
+
+        <label for="Habbit">Food</label>
+        <input type="checkbox">
+        <label for="Habbit">Sport</label>
+        <input type="checkbox">
+        <label for="Habbit">TV</label>
+        <input type="checkbox">
+        <label for="Habbit">Sleep</label>
+        <input type="checkbox">
+
+        <label for="Habbit">Morning</label>
+        <input type="radio">
+        <label for="Habbit">Evening</label>
+        <input type="radio">
+        <label for="Habbit">Midnight</label>
+        <input type="radio">
+        <label for="Habbit">Sunset</label>
+        <input type="radio">
+
+        <input type="color">
+
+        <label for="Habbit">Pick a Date</label>
+        <input type="date">
+        <input type="datetime-local">
+        <input type="week">
+        <input type="time">
+        <input type="month">
+
+        <label for="Habbit">Log-In</label>
+        <input type="email" placeholder="E-mail">
+        <input type="password" placeholder="Password">
+
+        <p>Upload something</p>
+        <input type="file">
+
+        <!--
+            <input type="image" >
+            <input type="hidden">
+        -->
+
+        <input type="number" placeholder="YOUR Age">
+        <label for="">How much do you love CSS?</label>
+        <input type="range">
+        <input type="tel" placeholder="YOUR Phone">
+        <input type="text" placeholder="TYPE Something">
+        <input type="url" placeholder="YOUR Website">
+        <input type="email" placeholder="YOUR Mail">
+
+        <div class="buttons">
+            <input type="submit">
+            <input type="button">
+            <input type="reset">
+        </div>
+    </form>
+    
+</body>
+</html>

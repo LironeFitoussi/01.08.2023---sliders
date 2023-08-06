@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/9630cfcb36.js" crossorigin="anonymous"></script>
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        i {
+            display: none;
+        }
+        @media screen and (max-width: 850px){
+            div {
+                display: none;
+            }
+
+            i {
+                display: block;
+            }
+
+            i:hover + div {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article>
+    <i class="fa-solid fa-bars"></i>
+    <div>
+        <a href="">1st element</a>
+        <a href="">2nd element</a>
+        <a href="">3rd element</a>
+        <a href="">4th element</a>
+        <a href="">5th element</a>
+    </div>
+    </article>
+    
+</body>
+</html>
