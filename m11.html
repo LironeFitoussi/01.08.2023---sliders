@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            width: 50vw;
+            height: 50vh;
+            background-color: #f0f;
+            padding: 10px;
+        }
+
+        div {
+            height: 10%;
+            width: 10%;
+            background-color: #f92;
+            animation: moveThere 4s 0s infinite alternate;
+        }
+
+        @keyframes moveThere {
+            25% {transform: translate(45vw);}
+            50% {transform: translate(45vw, 45vh);}
+            75% {transform: translate(0vw, 45vh);}
+            100% {transform: translate(0vw, 0vh);}
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div></div>
+    </section>
+</body>
+</html>

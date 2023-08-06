@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+        div {
+            height: 30vh;
+            aspect-ratio: 1 / 1;
+            background-color: #f0f;
+            border-radius: 100%;
+            animation-name: fallFront;
+            animation-duration:  2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes fallFront {
+            from {transform: translateY(0); scale: 100%;}
+            to {transform: translateY(300px); scale: 200%;}
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

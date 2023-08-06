@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            border-radius: 100px;
+            background-color: antiquewhite;
+            animation-name: getBigger;
+            animation-duration: 3s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            transform: translate(10vh, 10vw);
+        }
+
+        @keyframes getBigger {
+            from {scale: 100%;}
+            to {scale: 200%;}
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

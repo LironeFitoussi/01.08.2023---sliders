@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            width: 30vh;
+        }
+        div {
+            width: 30vh;
+            height: 30vh;
+            background-color: aqua;
+            animation-duration: 4s;
+        }
+
+        section:hover div{
+            animation-name: moveLeft;
+        }
+
+        @keyframes moveLeft {
+            0% {transform: translateX(0);}
+            50%{transform: translateX(100vw);}    
+            100% {transform: translateX(0);}        
+        }
+
+    </style>
+</head>
+<body>
+    <section>    
+        <div></div>
+    </section>
+</body>
+</html>
