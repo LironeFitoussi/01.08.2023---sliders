@@ -18,9 +18,15 @@ body {
         'sidebar main main '
         'footer footer footer';
 }
+.header, .footer {
+    background-color: #224fe3;
+}
+
+.header, .footer:{
+    background-color: #224fe3;
+}
 
 .header {
-    background-color: #f00;
     grid-area: header;
 }
 
@@ -30,11 +36,10 @@ body {
 }
 
 .main {
-    background-color: #00f;
+    background-color: #ff0000;
     grid-area: main;
 }
 
 .footer {
-    background-color: #f0f;
     grid-area: footer;
 }
