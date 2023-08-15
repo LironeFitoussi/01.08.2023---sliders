@@ -17,16 +17,25 @@
         //     alert("Your number is not 0");
         // }
         
-        // Task2
-        var num1 = prompt("Type a number");
-        var num2 = prompt("Type another Number");
+        // // Task2
+        // var num1 = prompt("Type a number");
+        // var num2 = prompt("Type another Number");
 
-        if (num1 >= num2) {
-            console.log(`${num1} is higher or equal to ${num2}`);
+        // if (num1 >= num2) {
+        //     console.log(`${num1} is higher or equal to ${num2}`);
+        // } else {
+        //     console.log(`${num1} is less than ${num2}`);
+        // }
+
+        // Task3
+        var userInput = +prompt("Type a number");
+        if (userInput > 0) {
+            alert("Your number is positive");
+        } else if (userInput < 0) {
+            console.log("Your number is negative");
         } else {
-            console.log(`${num1} is less than ${num2}`);
+            alert("Your number is 0")
         }
-
 
     </script>
 </body>
