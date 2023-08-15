@@ -70,51 +70,63 @@
         // }
 
 
-        // Task7
-        var userInput = Math.floor(parseFloat( +prompt("Type a number between 1 to 100")));
-        if (isNaN(userInput)) {
-            alert("Bruhhhhh its not a number!!");
-        } else if (userInput == 1 ) {
-            alert("1 is special...");
-        } else if (userInput > 100) {
-            alert("Your number is above 100...");
-        } else if (userInput < 1) {
-            alert("Your number is below 1...");
-        } else if (userInput < 100){
-            if (userInput % 2 == 0) {
-                if (userInput == 2) {
-                    console.log(userInput + " is a Prime Number");
-                } else {
-                    console.log(userInput + " is not a Prime Number");
-                }
-            } else if (userInput % 3 == 0) {
-                if (userInput == 3) {
-                    console.log(userInput + " is a Prime Number");
-                } else {
-                    console.log(userInput + " is not a Prime Number");
-                }
-            } else if (userInput % 5 == 0) {
-                if (userInput == 5) {
-                    console.log(userInput + " is a Prime Number");
-                } else {
-                    console.log(userInput + " is not a Prime Number");
-                }
-            } else if (userInput % 7 == 0) {
-                if (userInput == 7) {
-                    console.log(userInput + " is a Prime Number");
-                } else {
-                    console.log(userInput + " is not a Prime Number");
-                }
-            } else if (userInput % 11 == 0) {
-                if (userInput == 11) {
-                    console.log(userInput + " is a Prime Number");
-                } else {
-                    console.log(userInput + " is not a Prime Number");
-                }
-            } else {
-                console.log(userInput + " is a Prime Number");
-            }
-        } 
+        // // Task7
+        // var userInput = Math.floor(parseFloat( +prompt("Type a number between 1 to 100")));
+        // if (isNaN(userInput)) {
+        //     alert("Bruhhhhh its not a number!!");
+        // } else if (userInput == 1 ) {
+        //     alert("1 is special...");
+        // } else if (userInput > 100) {
+        //     alert("Your number is above 100...");
+        // } else if (userInput < 1) {
+        //     alert("Your number is below 1...");
+        // } else if (userInput < 100){
+        //     if (userInput % 2 == 0) {
+        //         if (userInput == 2) {
+        //             console.log(userInput + " is a Prime Number");
+        //         } else {
+        //             console.log(userInput + " is not a Prime Number");
+        //         }
+        //     } else if (userInput % 3 == 0) {
+        //         if (userInput == 3) {
+        //             console.log(userInput + " is a Prime Number");
+        //         } else {
+        //             console.log(userInput + " is not a Prime Number");
+        //         }
+        //     } else if (userInput % 5 == 0) {
+        //         if (userInput == 5) {
+        //             console.log(userInput + " is a Prime Number");
+        //         } else {
+        //             console.log(userInput + " is not a Prime Number");
+        //         }
+        //     } else if (userInput % 7 == 0) {
+        //         if (userInput == 7) {
+        //             console.log(userInput + " is a Prime Number");
+        //         } else {
+        //             console.log(userInput + " is not a Prime Number");
+        //         }
+        //     } else if (userInput % 11 == 0) {
+        //         if (userInput == 11) {
+        //             console.log(userInput + " is a Prime Number");
+        //         } else {
+        //             console.log(userInput + " is not a Prime Number");
+        //         }
+        //     } else {
+        //         console.log(userInput + " is a Prime Number");
+        //     }
+        // } 
+
+        // Task8
+        var num1 = +prompt("Type a number");
+        var num2 = +prompt("Type another Number");
+        var num3 = +prompt("Type another Number");
+
+        if (num1 >= 0 || num2 >= 0 || num3 >= 0) {
+            alert("At least one number is positive");
+        } else {
+            alert("All of the numbers are Negative");
+        }
+
     </script>
 </body>
 </html>
