@@ -1,85 +1,223 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=], initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <script>
-        // Task1
-        function sayHello() {
-            console.log("Hello World!");
-        }
+        // // Task1
+        // function sayHello() {
+        //     console.log("Hello World!");
+        // }
 
-        // Task2
-        function printMyName() {
-            console.log ("Lirone Fitoussi")
-        }
+        // // Task2
+        // function printMyName() {
+        //     console.log ("Lirone Fitoussi")
+        // }
 
-        // Task3
-        function getMyName() {
-            return "Lirone Fitoussi"
-        }
+        // // Task3
+        // function getMyName() {
+        //     return "Lirone Fitoussi"
+        // }
 
-        // Task4 
-        function sum() {
-            return 3+7
-        }
+        // // Task4 
+        // function sum() {
+        //     return 3+7
+        // }
 
-        // Task5
-        function calculateNumber() {
-            var num1 = 4;
-            var num2 = 6;
-            return num1 + num2;
-        }
+        // // Task5
+        // function calculateNumber() {
+        //     var num1 = 4;
+        //     var num2 = 6;
+        //     return num1 + num2;
+        // }
 
-        //Task6
-        function sumNumber(num1, num2) {
-            return num1 + num2;
-        }
+        // //Task6
+        // function sumNumber(num1, num2) {
+        //     return num1 + num2;
+        // }
 
-        //Task7
-        function multiplyNumber(num1, num2) {
-            return num1 * num2;
-        }
+        // //Task7
+        // function multiplyNumber(num1, num2) {
+        //     return num1 * num2;
+        // }
 
-        //Task8
-        function testAndSubNumber(num1, num2) {
-            if (num1 < num2) {
-                return num2 - num1
-            } else if (num1 > num2) {
-                return num1 - num2;
+        // //Task8
+        // function testAndSubNumber(num1, num2) {
+        //     if (num1 < num2) {
+        //         return num2 - num1
+        //     } 
+        //     return num1 - num2;
+        // }
+        
+        // //Task8.1
+        // function testAndDivNumber(num1, num2) {
+        //     return Math.abs(num1 - num2);
+        // }
+        
+        // //Task9
+        // function testAndDivNumber(num1, num2) {
+        //     if (num1 < num2) {
+        //         return num2 / num1
+        //     }
+        //     return num1 / num2;
+        // }
+
+        // //Task9.1
+        // function testAndDivNumber(num1, num2) {
+        //     return Math.abs(num1/ num2);
+        // }
+
+        // //Task10
+        // function sumUserNumber () {
+        //     return +prompt("Type First number") + +prompt("Type Second number")
+        // }
+
+        // //Task11
+        // function getNameAndAge (Age, Name) {
+        //     console.log("Name: " + Name + " Age: " + Age)
+        // }
+        // getNameAndAge("Lirone", 23)
+
+        // //Task12
+        // function findMaxNumber(num1, num2) {
+        //     if (num1 > num2) {
+        //         return num1
+        //     }
+        //     return num2
+        // }
+        // console.log(findMaxNumber(87, 43));
+
+        // // Task13
+        // function sumAndPrintNumbers(num1, num2) {
+        //     return num1 + num2;
+        // }
+        // console.log(sumAndPrintNumbers(2,7));
+
+        // // Task14
+        // function sumNumbers (num) {
+        //     return num+1+2
+        // }
+
+        // console.log(sumNumbers(3))
+
+        // // Task15
+        //     var num1 = 2; 
+        //     var num2 = 7;
+        //     console.log(num1, num2);
+
+        //     function changeNumbers() {
+        //         var changer = num1;
+        //         num1 = num2;
+        //         num2 = changer;
+        //     }
+        //     changeNumbers()
+        //     console.log(num1, num2);
+        //     changeNumbers()
+        //     console.log(num1, num2);
+            
+        // Task16
+
+        // // Task17
+        // function sayHello() {
+        //     for (var i = 0; i < 5; i++ ) {
+        //         console.log("Hello world!")
+        //     }
+        // } 
+        // sayHello();
+
+        // // Task18
+        // function findMinNumber(num1, num2) {
+        //     if (num1 < num2) {
+        //         return num1
+        //     }
+        //     return num2
+        // }
+        // console.log(findMinNumber(87, 43));
+        
+        // // Task19
+        // function findMinNumber(num1, num2, num3) {
+        //     if (num1 < num2 && num1 < num3) {
+        //         return num1
+        //     } else if (num2 < num1 && num2 < num3) {
+        //         return num2
+        //     }
+        //     return num3
+        // }
+        // console.log(findMinNumber(87, 12, 34));
+        
+        // // Task 20
+        // function avgNumber (num1, num2, num3) {
+        //     return (num1 + num2 + num3)/3
+        // }
+        // console.log(avgNumber(23, 37, 100))
+
+        // // Task 21
+        // function sumFourNumbers(num1, num2, num3, num4) {
+        //     return num1+num2+num3+num4;
+        // }
+        // console.log(sumFourNumbers(3, 5, 23, 50));
+        
+        // // Task 22
+        // function calcExponent (base, exponent) {
+        //     return base**exponent;
+        // }
+        // console.log(calcExponent(2,3));
+
+        // Task 23
+        function splitNumber(num) {
+            numSlice = num.split('')
+            console.log(numSlice[2])
+            var newNum = 0;
+            for (var i = num.length; i > 0; i++ ){
+                newNum =+ numSlice[num.length-i];
             }
+            return newNum 
         }
-        //Task9
-        function testAndDivNumber(num1, num2) {
-            if (num1 < num2) {
-                return num2 / num1
-            } else if (num1 > num2) {
-                return num1 / num2;
-            }
-        }
+        console.log(splitNumber("123"))
+        // function () {}
+        // getNameAndAge("Lirone", 23)
+        // function getMaxNumber() {
+        //     var temp = Number.MIN_SAFE_INTEGER;
+        //     for (var i = 0; i < 5; i++) {
+        //         var num = +prompt("Type a number");
+        //         if (num > temp) {
+        //             temp = num
+        //         }
+        //     }
+        //     return temp
+        // } 
 
-        //Task10
-        function sumUserNumber () {
-            var num1 = +prompt("Type First number");
-            var num2 = +prompt("Type Second number");
-            return num1+num2
-        }
+        // function getMinNumber() {
+        //     var temp = Number.MAX_SAFE_INTEGER;
+        //     for (var i = 0; i < 5; i++) {
+        //         var num = +prompt("Type a number");
+        //         if (num < temp) {
+        //             temp = num
+        //         }
+        //     }
+        //     return temp
+        // } 
 
-        // My Plus :)
-        sayHello();
+        // function printMaxAndMinNumbers () {
+        //     var maxNumber = getMaxNumber();
+        //     var minNumber = getMinNumber();
+        //     console.log("Max Number is: " + maxNumber + " and Min Number is : " + minNumber)
+        // }
 
-        function printMyName(times) {
-            for (i=0; i < times; i++) {
-                console.log ("Lirone Fitoussi")
-            }
-        }
-        printMyName(30);
+        // // My Plus :)
+        // sayHello();
 
-        function calculateNumber(num1, num2) {
-            return num1 + num2;
-        }
+        // function printMyName(times) {
+        //     for (i=0; i < times; i++) {
+        //         console.log ("Lirone Fitoussi")
+        //     }
+        // }
+        // printMyName(30);
+
+        // function calculateNumber(num1, num2) {
+        //     return num1 + num2;
+        // }
 
     </script>
 </body>
