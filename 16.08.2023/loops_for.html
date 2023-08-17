@@ -99,7 +99,7 @@
         //     }
         // }
 
-        // // Task13.1
+        // Task13.1
         // var min = Number.MAX_SAFE_INTEGER;
         // var max = Number.MIN_SAFE_INTEGER;
         // for (var i = 1; i <= 5; i++) {
@@ -111,8 +111,8 @@
         //     max = input;
         //     }
         // }
-        // console.log("Minimum num: " + min);
-        // console.log("Maximum num: " + max);
+        // console.log("Minimum is: " + min);
+        // console.log("Maximum is: " + max);
         
         // //Task 13.2
         // var num = [];
@@ -155,27 +155,24 @@
         // }
 
         //Task19 - Done
-        Task20
-        var randomNum = Math.floor(Math.random() * 100);
-        var userGuess;
-        var startTime = new Date();
+        // Task20
+        // var randomNum = Math.floor(Math.random() * 100);
+        // var userGuess;
+        // var startTime = new Date();
 
-        for (var i = 0; userGuess !== randomNum; i++) {
-            userGuess = +prompt("Guess the number");
-            if (userGuess < randomNum) {
-                console.log("Try higher!");
-            } else if (userGuess > randomNum){
-                console.log("Try lower!");
-            } else if (userGuess === randomNum) {
-                var endTime = new Date();
-                var timeElapsed = endTime - startTime;
-                console.log("Correct! You guessed the number in only " + (i + 1) + " attempts.");
-                console.log("Time taken: " + (timeElapsed/1000).toFixed(2) + " Seconds");
-            }
-         }
-
-
-
+        // for (var i = 0; userGuess !== randomNum; i++) {
+        //     userGuess = +prompt("Guess the number");
+        //     if (userGuess < randomNum) {
+        //         console.log("Try higher!");
+        //     } else if (userGuess > randomNum){
+        //         console.log("Try lower!");
+        //     } else if (userGuess === randomNum) {
+        //         var endTime = new Date();
+        //         var timeElapsed = endTime - startTime;
+        //         console.log("Correct! You guessed the number in only " + (i + 1) + " attempts.");
+        //         console.log("Time taken: " + (timeElapsed/1000).toFixed(2) + " Seconds");
+        //     }
+        //  }
         </script>
 </body>
 </html>
