@@ -68,10 +68,21 @@
         // }
         // console.log(userInput)
 
-        // // Task10
+        // // Task10.1
         // for (var i = prompt("Type Your Name"); i != "STOP";  i = prompt("Type Your Name")){
         //     console.log(i);
         // } console.log (i + " Command Recived")
+
+        // //Task10.2
+        // for (var i = 1; i > 0; i++) {
+        //     var userInput = prompt("Type Your Name");
+        //     if (userInput !== "STOP") {
+        //         console.log(userInput);
+        //     } else {
+        //         console.log(userInput + " Command recived")
+        //         break;
+        //     }
+        // }
 
         // // Task11
         // for (var i = 0; i < 10; i) {
@@ -136,7 +147,22 @@
         
         // Task 16 - done
 
-        // Task 17
+        // Task 17.1
+        // var min = Number.MAX_SAFE_INTEGER;
+        // var max = Number.MIN_SAFE_INTEGER;
+        // for (var i = 0; i < 10; i) {
+        //     var userInput = +prompt("Type a number");
+        //     if (userInput < 0) {
+        //         break;
+        //     } else if (userInput > max) {
+        //         max = userInput;
+        //     } else if (userInput < min) {
+        //         min = userInput;
+        //     } 
+        // }
+        // console.log("The Hightest number is " + max + " and The Hightest number is " + min);
+
+        // Task17.2
         // var num = [0];
         // for (var i = num[num.length - 1]; i >= 0; console.log(num.slice(-1))) {
         //     var userInput = +prompt("Type a number");
@@ -145,8 +171,22 @@
         //     }
         //     num.push(userInput);
         // }
-        // console.log(num)
-        // console.log("The Hightest number is " + Math.max(...num) + " and the Lowest number is " + Math.min(...num.slice(1)));
+        // console.log("The Hightest number is " + max + "and The Hightest number is " + min);
+
+        // // Task17.3
+        // var min = null;
+        // var max = null;
+        // for (var i = 0; i < 10; i--) {
+        //     var userInput = +prompt("Type a number");
+        //     if (userInput < 0) {
+        //         break;
+        //     } else if ((userInput > max) || (max === null)) {
+        //         max = userInput;
+        //     } else if ((userInput < min) || (min === null)) {
+        //         min = userInput;
+        //     }
+        // }
+        // console.log("The Hightest number is " + max + " and The Lowest number is " + min);
 
         // // Task 18
         // var userInput = prompt("Type a number");
