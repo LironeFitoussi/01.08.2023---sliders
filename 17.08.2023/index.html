@@ -116,7 +116,15 @@
         //     changeNumbers()
         //     console.log(num1, num2);
             
-        // Task16
+        // // Task16
+        // function printTriangle (stars) {
+        //     for (i=0; i <= stars; i++) {
+        //         var star = "*"
+ 
+        //         console.log(star.repeat(i));
+        //     }
+        // }
+        // printTriangle(10);
 
         // // Task17
         // function sayHello() {
@@ -164,17 +172,141 @@
         // }
         // console.log(calcExponent(2,3));
 
-        // Task 23
-        function splitNumber(num) {
-            numSlice = num.split('')
-            console.log(numSlice[2])
-            var newNum = 0;
-            for (var i = num.length; i > 0; i++ ){
-                newNum =+ numSlice[num.length-i];
-            }
-            return newNum 
-        }
-        console.log(splitNumber("123"))
+        // // Task 23.0
+        // function splitNumber(num) {
+        //     var newNam = 0;
+        //     for (var i = 1; i < num.length+1; i++ ){
+        //         numSlice = num.split('')
+        //         newNam += +(numSlice[num.length-i])
+        //     } 
+        //     return newNam
+        // }
+        // console.log(splitNumber("15215"));
+
+        //  // Task 23.0
+        //  function splitNumber(num) {
+        //     var newNam = 0;
+        //     var num = num.toString()
+        //     for (var i = 1; i < num.length+1; i++ ){
+        //         numSlice = num.split('')
+        //         newNam += +(numSlice[num.length-i])
+        //     } 
+        //     return newNam
+        // }
+        // console.log(splitNumber(156434));
+
+        // // Task 24
+        // function fibonacci(num) {
+        //     var startNum = 1;
+        //     var secondNum = 1;
+        //     var newNum;
+        //     console.log(startNum)
+        //     console.log(secondNum)
+        //     for (var i = 0; i < num-2; i++ ) {
+        //         newNum = startNum + secondNum;
+        //         startNum = secondNum
+        //         secondNum = newNum
+        //         console.log(newNum);
+        //     }
+        // }
+        // fibonacci(5)
+
+        // // Task 25
+        // function printNumbers(num) {
+        //     for (i=1; i <= num; i++)
+        //     console.log(i);
+        // }
+        // printNumbers(100);
+
+        // // Task 26
+        // function combineText(logText) {
+        //     userText = prompt("Type Something")
+        //     for (var i = 0; i < 10; i++) {
+        //         console.log(logText + userText) ;
+        //     } 
+        // }
+        // console.log(combineText("How "));
+
+        // // Task 27
+        // function printUserNumber() {
+        //     userNum = +prompt("type Any number");
+        //     if (userNum>10) {
+        //         for (var i = 0; i < userNum; i++) {
+        //             console.log("Hello World!");
+        //         }
+        //         return;
+        //     }
+        //     return userNum
+        // }
+
+        // console.log(printUserNumber());
+        
+        // // Task 28 
+        // function getNumberTimesNumber(userNum) {
+        //     for (i=0; i < userNum; i++) {
+        //         console.log(userNum);
+        //     }
+        // } 
+        
+        // // Task 29
+        // function numAvg() {
+        //     var avg = 0;
+        //     for (var i = 0; i < 5; i++) {
+        //         avg += +prompt("Type a number");
+        //     }
+        //     return avg/5;
+        // }
+        // console.log(numAvg());
+
+        // // Task 30
+        // function printEven(logNum) {
+        //     for (i=0; i <= logNum; i+=2){
+        //         console.log(i);
+        //     }
+        // }
+        // console.log(printEven(50));
+        
+        // // Task 31
+        // function printEvenOrThird(logNum) {
+        //     var increment = logNum % 2 === 0 ? 2 : 3;
+        //     for (let i = increment; i <= logNum; i += increment) {
+        //         console.log(i);
+        //     }
+        // }
+        // printEvenOrThird(10); // Example usage
+
+        // // Task 32
+        // function printDividable(logNum) {
+        //     for (var i=logNum; i > 0; i--) {
+        //         if (logNum%i == 0) {
+        //             console.log(logNum/i)
+        //         }
+        //     }
+        //     return;
+        // }
+        // printDividable(120)
+        
+        // // Task 33
+        // function factorialCalc(logNum) {
+        //     var atseret = logNum
+        //     for (var i = logNum; i > 1; i-- ) {
+        //         logNum = logNum * --atseret;
+        //     }
+        //     return logNum
+        // }
+        // console.log(factorialCalc(5));
+        
+        // // Task34
+        // function getNameToText (anyText) {
+        //     var userText = prompt("Type a Number:");
+        //     if (anyText !== userText) {
+        //         return userText;
+        //     }
+        // }
+        // console.log(getNameToText("ANYWORD"));
+
+        // Task 35 
+        // getNumberTimesNumber(10);
         // function () {}
         // getNameAndAge("Lirone", 23)
         // function getMaxNumber() {
@@ -187,6 +319,47 @@
         //     }
         //     return temp
         // } 
+
+        // // Task 36
+        // function minMaxNumber() {
+        //     var min = Number.MAX_SAFE_INTEGER;
+        //     var max = Number.MIN_SAFE_INTEGER;
+        //     for (var i = 1; i <= 5; i++) {
+        //     var input = +prompt("Please enter " + i + "st number");
+        //         if (input < min) {
+        //         min = input;
+        //         }
+        //         if (input > max) {
+        //         max = input;
+        //         }
+        //     }
+        //     return "Minimum is: " + min + " and Maximum is: " + max
+        // }
+        // minMaxNumber()
+
+        // // Task 37
+        // function dontPrintAname() {
+        //     userName = prompt("Type your Name:")
+        //     if (userName.split('')[0] !== "A"){
+        //         return userName
+        //     }
+        // }
+        // console.log(dontPrintAName())
+
+        // // Task 38
+        // function dontPrintAsName() {
+        //     var userName = prompt("Type your Name:");
+        //     if (userName.split('')[0] !== "A" && userName.split('')[0] !== "a") {
+        //         return userName
+        //     }
+        // }
+        // console.log(dontPrintAsName())
+        
+        // Task 39
+        // done?
+
+        // Task 40
+        
 
         // function getMinNumber() {
         //     var temp = Number.MAX_SAFE_INTEGER;
