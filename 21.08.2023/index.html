@@ -38,24 +38,47 @@
         // }
 
         // T6
-        var yearsArr= [1990, 1995, 2000, 2005, 2010, 2020];
+        // var yearsArr= [1990, 1995, 2000, 2005, 2010, 2020];
         
-        // ES5
-        function printYears() {
-            for (var i = 0; i < yearsArr.length; i++){
-                console.log(yearsArr[i])
-            }
-        }
+        // // ES5
+        // function printYears() {
+        //     for (var i = 0; i < yearsArr.length; i++){
+        //         console.log(yearsArr[i])
+        //     }
+        // }
 
-        // ES6
-        function printYears2() {
-            for (let i of yearsArr){
-                console.log(i);
-            }
-        }
+        // // ES6
+        // function printYears2() {
+        //     for (let i of yearsArr){
+        //         console.log(i);
+        //     }
+        // }
 
-        printYears()
-        printYears2()
+        // printYears()
+        // printYears2()
+
+        // T7 
+            // ES5
+            var yearsArr= [1990, 1995, 2000, 2005, 2010, 2020];
+            function printYearsUnder99() {
+                for (var i = 0; i < yearsArr.length; i++){
+                    if (yearsArr[i] > 1999){
+                        console.log(yearsArr[i])
+                    }
+                }
+            }
+            printYearsUnder99()
+
+            // ES6 
+            function printOnEs6() {
+                for (var i of yearsArr) {
+                    if (i > 1999) {
+                        console.log(i)
+                    }
+                }
+            }
+            printOnEs6()
+    
         // console.log(changeIfBlue("Green"));
         // console.log(colorsArray)
 
