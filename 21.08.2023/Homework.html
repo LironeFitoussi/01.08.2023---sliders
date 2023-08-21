@@ -110,15 +110,294 @@
         // kitcheAid(7, "Bowl")
         // kitcheAid(3, "Bowl")
 
-        // T12
-        function buildUserArr() {
-            var userInput = prompt("What is the length of Your Array");
-            var newArr = [];
-            for (var i = 0; i < (userInput+"1"); i++) {
-                newArr.push(i);
-            }
-            return newArr
+        // // T12
+        // function buildUserArr() {
+        //     var userInput = +prompt("What is the length of Your Array");
+        //     var newArr = [];
+        //     for (var i = 0; i < (userInput+1); i++) {
+        //         newArr.push(i);
+        //     }
+        //     return newArr
+        // }
+
+        // console.log(buildUserArr());
+
+        // // T13
+        // function buildUserArr() {
+        // var userInput = +prompt("What is the length of Your Array");
+        // var newArr = [];
+        //     for (var i = userInput; i >= 0; i--) {
+        //         newArr.push(i);
+        //     }
+        //     return newArr
+        // }
+
+        // console.log(buildUserArr());
+        
+        // // T14
+        // function getFamilyArray() {
+        //     var familyArr = []
+        //     for (var i = 0; i < 4; i++){
+        //         familyArr.push(prompt("Add Family: " + (i+1))) 
+        //     }
+        //     return familyArr
+        // }
+
+        // // T15
+        // function seriesArray(){
+        //     var userLimit = +prompt("Set the number of series you want to add:");
+        //     var seriesArray = [];
+        //     for (var i = 0; i < userLimit; i++) {
+        //         seriesArray.push(prompt("Add a TV Serie"))
+        //     }
+        //     return seriesArray
+        // }
+
+        // console.log(seriesArray())
+
+        // // T16
+        // var numbersArr = [5, 3, 7, 8, 11];
+        // var arrSum = 0;
+        // for (var i = 0; i < numbersArr.length; i++) {
+        //     arrSum = arrSum + numbersArr[i];
+        // }
+
+        // var arrAvg = arrSum/numbersArr.length
+
+        // console.log(arrSum)
+        // console.log(arrAvg)
+
+        // // T17
+        // var names = ["Lirone", "David", "Yinon", "Jacob", "Nitsan"];
+        // for (var i = 0; i < names.length; i++){
+        //     console.log(names[i]);
+        // }
+
+        // // T18 + 19
+        // var numbersArr = [5, 3, 7, 8, 11];
+
+        // function numAndArr(arr, num){
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (num == arr[i]) {
+        //             return true;
+        //         }
+        //     }
+        //     return false
+        // }
+
+        // console.log(numAndArr(numbersArr, 11)); 
+
+        // // T20
+        // var numbers = [2, 7, 4, 11, 6, 9, 14, 21, 8, 15, 10, 3, 16, 23, 18, 27];
+        // function printEvenNum(arr){
+        //     for(var i = 0; i < arr.length; i++){
+        //         if (arr[i] % 2 == 0){
+        //             console.log(arr[i]);
+        //         }
+        //     }
+        // }
+
+        // printEvenNum(numbers);
+
+        // // T21+22
+        // var numbers1 = [12, 17, 22, 9, 6, 31, 28, 15, 20, 5, 16, 3, 8, 25, 14, 19, 4, 11, 26, 7];
+        // var numbers2 = [2, 7, 4, 11, 6, 9, 14, 21, 8, 15, 10, 3, 16, 23, 18, 27];
+        // var numbers3 = [12, 17, 60, 9, 8, 31, 28, 6, 20, 5, 16, 3, 8, 25, 14, 19, 4, 11, 26, 7];
+
+        // function mergeArrs(arr1, arr2) {
+        //     if (arr1.length == arr2.length) {
+        //         console.log("arr1 and arr2 are comptible")
+        //         console.log("Starting merge...")
+        //         for (var i = 0; i < arr2.length; i++){
+        //             arr1.push(arr2[i])
+        //         }
+        //         return true
+        //     }
+        //     return flase 
+        // }
+
+        // // T23+24
+        
+        //     function sortArr() {
+        //     var numbers1 = [12, 17, 22, 9, 6, 31, 28, 15, 20, 5, 16, 3, 8, 25, 14, 19, 4, 11, 26, 7];
+        //     var newArr = [numbers1[0]];
+            
+        //     for (var i = 1; i < numbers1.length; i++) {
+        //         var used = false;
+
+        //         for (var j = 0; j < newArr.length; j++) {
+        //             if (newArr[j] > numbers1[i]) {
+        //                 newArr.splice(j, 0, numbers1[i]);
+        //                 used = true;
+        //                 break;
+        //             }
+        //         }
+
+        //         if (used = false) {
+        //             newArr.push(numbers1[i]);
+        //         }
+        //     }
+
+        //     console.log(newArr);
+        // }
+
+        // // sortArr();
+        // var numbers1 = [12, 17, 22, 9, 6, 31, 28, 15, 20, 5, 16, 3, 8, 25, 14, 19, 4, 11, 26, 7];
+
+        // numbers1.sort(function(a, b) {
+        //     return a - b;
+        // });
+
+        // console.log(numbers1)
+
+        // // T25
+        // var numbers1 = [12, 17, 22, 9, 6, 31, 28, 15, 20, 5, 16, 3, 8, 25, 14, 19, 4, 11, 26, 7];
+        // function findMaxNum(arr) {
+        //     var maxNumber = Number.MIN_SAFE_INTEGER;
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] > maxNumber) {
+        //             maxNumber = arr[i] 
+        //         }
+        //     }
+        //     return maxNumber;
+        // }
+        // console.log(findMaxNum(numbers1));
+
+        // // T25.1
+        // function findMaxNum1(arr) {
+        //     return Math.max(...arr);    
+        // }
+
+        // console.log(findMaxNum1(numbers1));
+
+        // // T26
+        // var numbers1 = [12, 17, 22, 9, 6, 31, 28, 15, 20, 5, 16, 3, 8, 25, 14, 19, 4, 11, 26, 7];
+        // function findMinNum(arr) {
+        //     var minIndex;
+        //     var minNumber = Number.MAX_SAFE_INTEGER;
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] < minNumber) {
+        //             minNumber = arr[i];
+        //             minIndex = i;
+        //         }
+        //     }
+        //     return minIndex
+        // }
+
+        // console.log(findMinNum(numbers1));
+
+        // // T27
+        // function sumArr(arr) {
+        //     var sum = arr[0];
+        //     for (var i = 1; i < arr.length; i++) {
+        //         sum = sum + arr[i];
+        //     }
+        //     return sum
+        // }
+        
+        // // T28
+        // function dupMaxWithMin(arr) {
+        //     var maxNumber = Number.MIN_SAFE_INTEGER;
+        //     var minNumber = Number.MAX_SAFE_INTEGER;
+
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] > maxNumber) {
+        //             maxNumber = arr[i];
+        //         } else if (arr[i] < minNumber) {
+        //             minNumber = arr[i];
+        //         }
+        //     }
+
+        //     return maxNumber * minNumber;
+        // }
+
+        // // T29
+        // function findHighestEven(arr) {
+        //     var maxNumber = Number.MIN_SAFE_INTEGER;
+        //     var minIndex;
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] % 2 == 0){
+        //             if (arr[i] > maxNumber) {
+        //                 maxNumber = arr[i]
+        //                 minIndex = i
+        //             }
+        //         }
+        //     }
+        //     console.log("Highest number is " + maxNumber + " and the index is " + minIndex) 
+        // }
+
+        // // T30
+        // var numbers2 = [2, 5, 6, 9, 12, 15]
+        // function sumEvenNumber(arr){
+        //     var evenSum = 0
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] % 2 == 0) {
+        //             evenSum = evenSum + arr[i]
+        //         }
+        //     }
+
+        //     return evenSum
+        // }
+
+        // // T31
+        // var namesArray = ["Alice", "Bob", "Charlie", "David", "Eva", "Frank"];
+
+        // function addNameToArray(arr, name) {
+        //     arr.push(name)
+        //     return arr
+        // }
+        
+        // console.log(addNameToArray(namesArray, "John"))
+
+        // // T32
+        // var emailsArray = [
+        //     "user1@example.com",
+        //     "user2@example.com",
+        //     "user3@example.com",
+        //     "user4@example.com",
+        //     "user5@example.com",
+        //     "user6@example.com"
+        // ];
+
+        // function addMailToArray(arr, mail){
+        //     arr.unshift(mail)
+        //     return arr
+        // }
+
+        // console.log(addMailToArray(emailsArray, "user7@example.com"))
+
+        // // T33
+        // var numbersArray = [10, 25, 42, 7, 18, 31];
+        
+        // function addNumberToArray(arr, num){
+        //     if (num % 2 == 0) {
+        //         arr.unshift(num)
+        //     } else {
+        //         arr.push(num)
+        //     }
+        //     return arr
+        // }
+
+        // console.log(addNumberToArray(numbersArray, 47));
+        // console.log(addNumberToArray(numbersArray, 48));
+
+        // T34
+        var numbersArray = [10, 25, 42, 7, 18, 31];
+
+        function checkIfNumExist(arr, num) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == num) {
+                    arr.splice(i, 1)
+                    return arr
+                } else {
+                    arr.push(num)
+                    return arr
+                }
+            }    
         }
+
+
+
 
     </script>
 </body>
