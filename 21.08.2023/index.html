@@ -6,17 +6,17 @@
 </head>
 <body>
     <script>
-        // T1
-        var colorsArray = ["red", "Green", "Yellow", "Blue", "Yellow"];
+        // // T1
+        // var colorsArray = ["red", "Green", "Yellow", "Blue", "Yellow"];
 
-        // T2
-        var studentsArray = ["Lirone", "Nir", "Uriel", "Shahaf"];
+        // // T2
+        // var studentsArray = ["Lirone", "Nir", "Uriel", "Shahaf"];
 
-        // T3
-        var animalsArray = ["Cat", "Dog", "Rat", "Dolphin"];
+        // // T3
+        // var animalsArray = ["Cat", "Dog", "Rat", "Dolphin"];
 
-        // T4
-        var citiesArray = ["Netanaya", "Tel-Aviv", "Jerusalem", "Ashdod"];
+        // // T4
+        // var citiesArray = ["Netanaya", "Tel-Aviv", "Jerusalem", "Ashdod"];
         
         // // T5
                 
@@ -25,6 +25,7 @@
         // console.log(colorsArray[1])
         // console.log(colorsArray[2])
         // console.log(colorsArray[3])
+
 
         // // T6
         // function changeIfBlue(color) {
@@ -36,6 +37,9 @@
 
         //     return "Check if color has been changed =>";
         // }
+        // console.log(changeIfBlue("Green"));
+        // console.log(colorsArray)
+
 
         // T6
         // var yearsArr= [1990, 1995, 2000, 2005, 2010, 2020];
@@ -57,30 +61,106 @@
         // printYears()
         // printYears2()
 
-        // T7 
-            // ES5
-            var yearsArr= [1990, 1995, 2000, 2005, 2010, 2020];
-            function printYearsUnder99() {
-                for (var i = 0; i < yearsArr.length; i++){
-                    if (yearsArr[i] > 1999){
-                        console.log(yearsArr[i])
-                    }
-                }
-            }
-            printYearsUnder99()
+        // // T7 
+        //     // ES5
+        //     var yearsArr= [1990, 1995, 2000, 2005, 2010, 2020];
+        //     function printYearsUnder99() {
+        //         for (var i = 0; i < yearsArr.length; i++){
+        //             if (yearsArr[i] > 1999){
+        //                 console.log(yearsArr[i])
+        //             }
+        //         }
+        //     }
+        //     printYearsUnder99()
 
-            // ES6 
-            function printOnEs6() {
-                for (var i of yearsArr) {
-                    if (i > 1999) {
-                        console.log(i)
-                    }
-                }
-            }
-            printOnEs6()
-    
-        // console.log(changeIfBlue("Green"));
-        // console.log(colorsArray)
+        //     // ES6 
+        //     function printOnEs6() {
+        //         for (var i of yearsArr) {
+        //             if (i > 1999) {
+        //                 console.log(i)
+        //             }
+        //         }
+        //     }
+        //     printOnEs6()
+
+        // T8.1
+        // var studentsArray = ["Lirone", "Nir", "Uriel", "Shahaf"];
+
+        // function checkName(name) {
+        //     for (var i = 0; i < studentsArray.length; i++){
+        //         if (studentsArray[i] == name){
+        //             console.log(name + " found in the Array");
+        //             return
+        //         }
+        //     } 
+        //     console.log(name + " not found in the Array");             
+        // }
+
+        // checkName("Lirone");
+
+        // T8.2
+        // var studentsArray = ["Lirone", "Nir", "Uriel", "Shahaf"];
+        // function checkName2(name) {
+        //     var isTextExist = false;
+        //     for (var i = 0; i < studentsArray.length; i++){
+        //         if (studentsArray[i] == name){
+        //             isTextExist = true;
+        //         }
+        //     }
+        //     return isTextExist;     
+        // }
+        // console.log(checkName2("Lirone"));
+
+        // // T9
+        // var studentsArray = ["Lirone", "Nir", "Uriel", "Shahaf"];
+
+        // function checkArr(arr, check) {
+        //     var isInArr = false;
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] == check){
+        //             isInArr = true;
+        //         }
+        //     }
+        //     return isInArr
+        // }
+
+        // // T10
+        // function arrCreator() {
+        //     var userInput = prompt("Set Array Length:");
+        //     var newArr = [];
+        //     for (var i = 0; i < userInput; i++) {
+        //         newArr[i] = prompt("Type " + (i+1) + " Number:");
+        //     }
+        //     console.log(newArr);
+        // } 
+        
+        // T11 
+        
+
+        // // Personal
+        // function limitedArrCretor() {
+        //     var newArr = [];
+        //     var userInput = prompt("Set Array Length higher than 10:");
+        //     if (userInput > 10) {
+        //         for (var i = 0; i < userInput; i++) {
+        //             var userArrNum = prompt("Type " + (i+1) + " Number:");
+        //             if (userArrNum <= 10) {
+        //                 newArr[i] = userArrNum;
+                        
+        //             } else {
+        //                 alert("Input Number higher than 10, Try Again");
+        //                 i--
+        //             }
+        //         }
+        //     } else {
+        //         userInput = prompt("Number must be higher than 10");
+        //     }
+            
+
+        //     return newArr
+        // }
+
+
 
     </script>
 </body>
