@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // T1
+        // Project created Successfuly
+
+        // T2 
+        var countries = ["Israel", "France", "USA", "Italy", "Poland", "Russia"];
+
+        var vegetables = ["Tomato", "Cucambre", "Onion", "Gralic", "Carrot", "Potato"];
+
+        var fruits = ["Banana", "Apple", "Pineapple", "Blueberry", "Mango", "Pear"];
+
+        var vehicules = ["Car", "Motorcycle", "Tractor", "Bus", "Ambulance", "Limo"];
+
+        var kitchenUtilities = ["Coffe Maker", "Meat Mincer", "Porcelain", "Knives", "Cutlery", "Strainers"];
+
+        // T3
+        // console.log(countries[1]);
+
+        // console.log(vegetables[3]);
+
+        // console.log(fruits[5]);
+
+        // console.log(vehicules[4]);
+
+        // console.log(kitchenUtilities[5]);
+
+        // // T4
+        // countries[0] = "Bolivia"
+
+        // vegetables[2] = "Artichoc"
+
+        // fruits[3] = "Strewberry"
+
+        // vehicules[1] = "Police Car"
+
+        // kitchenUtilities[kitchenUtilities.length] = "Spoons"
+
+        // // T5
+        // function printCountries() {
+        //     console.log(countries);
+        // }
+
+        // printCountries();
+
+        // // T6
+        // function printEachContry() {
+        //     for (var i = 0; i < countries.length; i++) {
+        //         console.log(countries[i]);
+        //     }
+        // }
+
+        // printEachContry();
+
+        // // T7
+        // function addFruit(newFruit) {
+        //     fruits.push(newFruit)
+        // }
+
+        // addFruit("Kiwi");
+
+        // // T8
+        // function checkFruit(givenFruit) {
+        //     for (var i = 0; i < fruits.length; i++) {
+        //         if (fruits[i] == givenFruit) {
+        //             console.log(givenFruit + " appears in the array");
+        //             return
+        //         }
+        //     }
+        //     console.log(givenFruit + " doesn't appear in the array");
+        // }
+
+        // checkFruit("Banana");
+
+        // T9
+        // function compareArray(givenArr){
+        //     var isSameLength = false;
+        //     if (kitchenUtilities.lenght == givenArr.lenght) {
+        //         isSameLength = true;
+        //     }
+        //     return isSameLength
+        // }
+
+        // // T10
+        // function addCountryIf(country, check){
+        //     if (check >= 5) {
+        //         countries.push(country)
+        //     }
+        //     return countries
+        // }
+
+        // console.log(addCountryIf("Denmark", 6));
+        // console.log(addCountryIf("England", 5));
+
+        // // T11
+        // function addKitcheUtl(num, kitchenUtl) {
+        //     if (num >= kitchenUtilities.length) {
+        //         kitchenUtilities.push(kitchenUtl)
+        //         return console.log(kitchenUtilities)
+        //     }
+        //     console.log("Failed to Load " + kitchenUtl);
+        // }
+
+        // kitcheAid(7, "Bowl")
+        // kitcheAid(3, "Bowl")
+
+        // T12
+        function buildUserArr() {
+            var userInput = prompt("What is the length of Your Array");
+            var newArr = [];
+            for (var i = 0; i < (userInput+"1"); i++) {
+                newArr.push(i);
+            }
+            return newArr
+        }
+
+    </script>
+</body>
+</html>
