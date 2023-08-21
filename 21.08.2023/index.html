@@ -25,28 +25,39 @@
         // console.log(colorsArray[1])
         // console.log(colorsArray[2])
         // console.log(colorsArray[3])
-        
-        // for (var i = colorsArray.length; i > 0; i--){
-        //     console.log(colorsArray[i-1])
-        // }
 
-        // for (let i of colorsArray){
-        //     console.log(i);
+        // // T6
+        // function changeIfBlue(color) {
+        //     if (colorsArray[2] == "Blue") {
+        //         colorsArray[2] = color;
+        //     } else {
+        //         console.log("It's Another Color");
+        //     }
+
+        //     return "Check if color has been changed =>";
         // }
 
         // T6
-        function changeIfBlue(color) {
-            if (colorsArray[2] == "Blue") {
-                colorsArray[2] = color;
-            } else {
-                console.log("It's Another Color");
-            }
-
-            return "Check if color has been changed =>";
-        }
+        var yearsArr= [1990, 1995, 2000, 2005, 2010, 2020];
         
-        console.log(changeIfBlue("Green"));
-        console.log(colorsArray)
+        // ES5
+        function printYears() {
+            for (var i = 0; i < yearsArr.length; i++){
+                console.log(yearsArr[i])
+            }
+        }
+
+        // ES6
+        function printYears2() {
+            for (let i of yearsArr){
+                console.log(i);
+            }
+        }
+
+        printYears()
+        printYears2()
+        // console.log(changeIfBlue("Green"));
+        // console.log(colorsArray)
 
     </script>
 </body>
