@@ -381,24 +381,257 @@
         // console.log(addNumberToArray(numbersArray, 47));
         // console.log(addNumberToArray(numbersArray, 48));
 
-        // T34
-        var numbersArray = [10, 25, 42, 7, 18, 31];
+        // // T34
+        // function checkIfNumExist(arr, num) {
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] === num) {
+        //             arr.splice(i, 1)
+        //             return arr
+        //         }  
+        //     }  
+        //     arr.push(num)
+        //     return arr  
+        // }
 
-        function checkIfNumExist(arr, num) {
-            for (var i = 0; i < arr.length; i++) {
-                if (arr[i] == num) {
-                    arr.splice(i, 1)
-                    return arr
-                } else {
-                    arr.push(num)
-                    return arr
-                }
-            }    
-        }
+        // // T35
+        // function chkIfHigh(arr, num) {
+        //     var isHigher = false
+        //     for (var i = 0; i < arr.length; i++) {
+        //         if (arr[i] <= num) {
+        //             isHigher = true
+        //         } else {
+        //             isHigher = false
+        //             break
+        //         }
+        //     }
 
+        //     if (isHigher) {
+        //         arr.unshift(num)
+        //         return arr  
+        //     }
 
+        //     arr.push(num)
+        //     return arr  
+        // }   
 
+        // console.log(chkIfHigh(numbersArray, 55));
+        // console.log(chkIfHigh(numbersArray, 55));
+        // console.log(chkIfHigh(numbersArray, 12));
 
+        // // T36.0
+        // function lowRmoverEnd(arr, num){
+        //     console.log(arr)
+        //     if (num < arr.length){
+        //         for (var i = 0; i < num; i++){
+        //             arr.pop();
+        //         }
+        //     }
+        //     return arr
+        // } 
+
+        // // T36.1
+
+        // function lowRmoverStart(arr, num){
+        //     console.log(arr)
+        //     if (num < arr.length){
+        //         for (var i = 0; i < num; i++){
+        //             arr.shift();
+        //         }
+        //     }
+        //     return arr
+        // }
+
+        // // 37 
+        // var arraySum13 = [5, 4, 3, 1];
+
+        // var arraySum12 = [6, 4, 2];
+
+        // var arraySum9 = [4, 3, 2];
+
+        // function chkIfKid(arr) {
+        //     arrSum = arr[0];
+        //     for (var i = 1; i < arr.length; i++) {
+        //         arrSum = arrSum + arr[i];
+        //     }
+            
+        //     if (arrSum >= 13) {
+        //         console.log("bar-mitzva")
+        //     } else if (arrSum == 12) {
+        //         console.log("bat-mitzva")
+        //     } else {
+        //         console.log("kid")
+        //     }
+        // }
+
+        // // T38
+        // function getPersonInfo(age, firstName, lastName, number) {
+        //     if (age >= 18) {
+        //         for (i = 0; i < number; i++) {
+        //             console.log(firstName + "" + lastName);
+        //         }
+        //         return
+        //     }
+        //     console.log(firstName + "" + lastName);
+        // }
+        // getPersonInfo(18, "Lirone", "Fitoussi", 5)
+        // getPersonInfo(15, "Lirone", "Fitoussi", 5)
+        
+        // // T39
+        // function printTheTruth() {
+        //     for (var i = 0; i < 1000; i++){
+        //         console.log("JavaScript IS NOT Java");    
+        //     }
+        // }
+        
+        // printTheTruth() 
+
+        // // T40
+        // function printUserName() {
+        //     var userName = prompt("Please enter Your Name:")
+        //     var userNum = prompt("Please enter Print Number:")
+
+        //     for(var i = 0; i < userNum; i++){
+        //         console.log("Hello: " + userName)
+        //     }
+        // }
+
+        // printUserName()
+
+        // // T41
+        // var userName = prompt("Please enter Your Name:")
+        // var userMail = prompt("Please enter Your Mail:")
+        // var userAge = prompt("Please enter Your Age:")
+
+        // console.log("Hello " + userName + " " + "Your Age is: " + userAge + " " + "and Your E-mail is:" + userMail);
+
+        // // T42
+        // var userInput = +prompt("Enter a Number:")
+        // var devName = "Lirone"
+        // for (var i = 0; i < userInput; i++) {
+        //     userNameInput = prompt("Enter a Name:")
+        //     if (userNameInput == devName){
+        //         console.log(devName);
+        //     }
+        // }
+
+        // // T43
+        // var userInput1 = +prompt("Enter 1st Number:")
+        // var userInput2 = +prompt("Enter 2nd Number:")
+
+        // for (var i = 1; i <= userInput1; i++){
+        //     for (var j = 1; j <= userInput2; j++){
+        //         console.log(i*j)
+        //     }
+        // }
+
+        // // T44
+        // var numberArr = [1, 5, 6, 8, 10]
+        // for (var i = 0; i < numberArr.length; i++){
+        //     console.log(numberArr[i])
+        // }
+        
+        // // T45
+        // var namesArray = ["Lirone", "Shayli", "Arie", "Eden", "Eythan"]
+        // for (var i = 0; i < namesArray.length; i++) {
+        //     console.log(namesArray[i]);
+        // }
+
+        // // T46
+        // function buildArray() {
+        //     var namesArr = [];
+        //     for (var i = 0; i < 5; i++) {
+        //         namesArr.push(prompt("Please enter Name " + [i+1]))
+        //     }
+        //     return console.log("This is the new Array: " + namesArr); 
+        // }
+        
+        // buildArray()
+
+        // // T47
+        // function getOddNumbers() {
+        //     numArr = [];
+        //     for (var i = 0; i < 7; i++) {
+        //         numArr.push(prompt("Please enter a Number:"))
+        //     }
+        //     console.log(numArr)
+        //     for (var i = 0; i < numArr.length; i++) {
+        //         if (numArr[i] % 2 == 1) {
+        //             console.log(numArr[i])
+        //         }
+        //     } 
+        // }
+
+        // getEvenNumbers()
+
+        // // T48
+        // var mixedArray = [1, 'two', 3, 'four', 5, 'six', 7];
+        // for (var i = 0; i < mixedArray.length; i++) {
+        //     if (typeof mixedArray[i] != "number" ) {
+        //         console.log(mixedArray[i]+ " is not a number")
+        //     }
+        // }
+
+        // // T49
+        // function getRandomEvenArray()  {
+        //     var userInput = +prompt("Pleas enter a Number:")
+        //     evenArr = [];
+        //     for (var i = 0; i < userInput; i) {
+        //         newNum = Math.floor(Math.random()*100) + 1
+        //         if (newNum % 2 == 0) {
+        //             evenArr.push(newNum)
+        //             i++
+        //         }
+        //     }
+        //     return evenArr
+        // }
+
+        // // T50
+        // function calcSquare() {
+        //     var height = +prompt("Please Enter the Square's Height")
+        //     var width = +prompt("Please Enter the Square's Width")
+
+        //     circleCalc = (height*2) + (width*2);
+        //     areaCalc = (height*width);
+        //     console.log ("The Square Area is:" + areaCalc + " and The Square Circle is: " + circleCalc)
+        // }
+
+        // // T51
+        // function chkIfOrderArra() {
+        //     var num1 = +prompt("Enter digit 1");
+        //     var num2 = +prompt("Enter digit 2");
+        //     var num3 = +prompt("Enter digit 3");
+            
+        //     if (num1<num2 && num2<num3) {
+        //         console.log("סדר עולה")
+        //     } else if (num1>num2 && num2>num3) {
+        //         console.log("סדר יורד")
+        //     } else {
+        //         console.log("אין סדר");
+        //     }
+        // }
+
+        // // T52
+        // function splitNumInput() {
+        //     userInput = prompt("Type Any number");
+        //     var newArr = userInput.split("");
+        //     for (var i = 0; i < userInput.length; i++) {
+        //         console.log(newArr[i]);
+        //     }
+        // }
+
+        // // T53
+        // function arrCreator(){
+        //     var newArr = [];
+        //     var userInput;
+        //     do {
+        //         var userInput = +prompt("Input a Number:")
+        //         if (userInput <= 10){
+        //             newArr.push(userInput)
+        //         }
+        //     } while (userInput <=10)
+        //     return newArr
+        // }
+        
     </script>
 </body>
 </html>
