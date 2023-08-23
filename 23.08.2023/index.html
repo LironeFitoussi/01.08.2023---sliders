@@ -1,0 +1,204 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+        // // T1
+        // function printEachLetter(string){
+        //     for (var i = 0; i < string.length; i++){
+        //         console.log(string[i])
+        //     }
+        // }
+
+        // printEachLetter("Lirone")
+
+        // // T2
+        // function printLetterAndString(string) {
+        //     var newWord = " ";
+        //     for (var i = 0; i < string.length; i++) {
+        //         newWord = newWord + " " + string[i] + ": " + i;
+        //     }
+        //     return console.log(newWord);
+        // }
+        // printLetterAndString("Lirone");
+
+        // // T3
+        // function printEvenTwo(string) {
+        //     var newWord = " ";
+        //     for (var i = 0; i < string.length; i++) {
+        //         if (i % 2 == 0){
+        //             newWord = newWord + "2";
+        //         } else {
+        //             newWord = newWord + string[i];
+        //         }
+        //     }
+
+        //     return console.log(newWord);
+        // }
+
+        // printEvenTwo("string")
+
+        // // T4
+        // function greetAName(){
+        //     var userInput = prompt("Please enter your Name");
+        //     if (userInput[0] == "A") {
+        //         console.log("Hello")
+        //     } else {
+        //         console.log("bye")
+        //     }
+        // }
+
+        // greetAName()
+        
+        // // T5
+        // function greetLastNameAtE() {
+        //     var familyName = prompt("Please Type Your Last Name")
+        //     if (familyName.lastIndexOf("E") == familyName.length-1) {
+        //         console.log("Yes")
+        //     } else {
+        //         console.log("No");
+        //     }
+        // }
+
+        // greetLastNameAtE()
+        
+        // // T6
+        // function UpperCaseString(string) {
+        //     return console.log(string.toUpperCase());
+        // }
+
+        // UpperCaseString("lirone");
+
+        // T7
+        // function turnStringToArr(string) {
+        //     var newArr = [];
+        //     for (var i = 0; i < string.length; i++) {
+        //         if (string[i]/1 > 0 && (string[i]/1) != NaN) {
+        //             newArr.push(string[i])
+        //         }
+        //     }
+
+        //     return console.log(newArr);
+        // } 
+
+        // turnStringToArr("1, 5, 8, 3, d, 124")
+
+        // // T7 ((indexOf, Substr))
+        // function turnStringToArr(string) {
+        //     var newArr = [];
+        //     var index = 0;
+
+        //     while (index < string.length) {
+        //         var commaIndex = string.indexOf(",", index);
+        //         if (commaIndex !== -1) {
+        //             var value = string.substr(index, commaIndex - index).trim();
+        //             newArr.push(value);
+        //             index = commaIndex + 1; // Move index after the comma
+        //         } else {
+        //             var lastValue = string.substr(index).trim();
+        //             newArr.push(lastValue);
+        //             break; // Exit the loop since no more commas are found
+        //         }
+        //     }
+
+        //     return newArr;
+        // }
+
+        // var result = turnStringToArr("1, 5, 8, 3, 3, 124");
+        // console.log(result);
+
+        // // T8
+        // function getRandomNumber() {
+        //    var newNum = Math.floor(Math.random()*10+1)
+        //    return console.log(newNum);
+        // }
+
+        // getRandomNumber()
+        // getRandomNumber()
+        // getRandomNumber()
+        // getRandomNumber()
+        // getRandomNumber()
+
+        // // T9
+        // function randomUpTo(maxNumber){
+        //     var newNum = Math.floor(Math.random()*maxNumber+1)
+        //     return console.log(newNum);
+        // }
+        // for (var i = 0; i < 8; i++) {
+        //     randomUpTo(5)
+        // }
+
+        // // T10
+        // function matchRandomNumber() {
+        //     var userInput = +prompt("Type Any Number")
+        //     var newNum = Math.floor(Math.random()*10+1)
+        //     if (newNum == userInput) {
+        //         console.log("Success");
+        //     } else {
+        //         console.log("Failure");
+        //     }
+        // }
+
+        // matchRandomNumber()
+
+        // // T11
+        // function createRandomArray() {
+        //     var newArr = [];
+        //     for (var i = 0; i < 10; i++) {
+        //         var newNum = Math.floor(Math.random()*10+1)
+        //         newArr.push(newNum)
+        //     }
+        //     return console.log(newArr);
+        // }
+
+        // createRandomArray()
+
+        // // T12
+        // function userVsRandomNumber() {
+        //     var userInput = +prompt("Type a Number:");
+        //     var randomNumber = Math.floor(Math.random()*10+1);
+        //     var highest = Math.max(userInput, randomNumber)
+        //     return console.log(highest);
+        // }
+
+        // userVsRandomNumber()
+
+        // // T13
+        // function whosTheLowest() {
+        //     var minNum = Number.MAX_SAFE_INTEGER
+        //     for (var i = 0; i < 5; i++) {
+        //         var userInput = +prompt("Type Here a Number:")
+        //         if (userInput < minNum) {
+        //             minNum = userInput;
+        //         }
+        //     }
+
+        //     console.log(minNum);
+        // }
+
+        // whosTheLowest()
+
+        // // T14
+        // function userAndRandomCompare() {
+        //     var userInput = +prompt("Type a Number:");
+        //     console.log(userInput);
+        //     var randomNumber = Math.floor(Math.random()*100+1);
+        //     console.log(randomNumber);
+        //     if (userInput % 2 == 0) {
+        //         return Math.min(userInput, randomNumber)
+        //     }
+        //     return Math.max(userInput, randomNumber)
+            
+        // }
+
+        // console.log(userAndRandomCompare());
+
+        // T15
+
+
+    </script>
+</body>
+</html>
