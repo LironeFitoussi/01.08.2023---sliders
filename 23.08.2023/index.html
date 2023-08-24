@@ -84,7 +84,6 @@
         //     return console.log(newArr);
         // } 
 
-        // turnStringToArr("1, 5, 8, 3, d, 124")
 
         // // T7 ((indexOf, Substr))
         // function turnStringToArr(string) {
@@ -93,19 +92,24 @@
 
         //     while (index < string.length) {
         //         var commaIndex = string.indexOf(",", index);
-        //         if (commaIndex !== -1) {
-        //             var value = string.substr(index, commaIndex - index).trim();
-        //             newArr.push(value);
-        //             index = commaIndex + 1; // Move index after the comma
+        //         console.log(commaIndex);
+                
+        //         if (commaIndex > 0) {
+        //             var newIndex = string.substring(index, commaIndex);
+        //             newArr.push(newIndex);
+        //             index = commaIndex + 1;
         //         } else {
-        //             var lastValue = string.substr(index).trim();
-        //             newArr.push(lastValue);
-        //             break; // Exit the loop since no more commas are found
+        //             var correctValue = string.substring(index);
+        //             newArr.push(correctValue);
+        //             break;
         //         }
         //     }
 
         //     return newArr;
         // }
+
+        // console.log(turnStringToArr("1,5,8,3,d,124"));
+
 
         // var result = turnStringToArr("1, 5, 8, 3, 3, 124");
         // console.log(result);
@@ -398,21 +402,21 @@
 
         // printUserDate();
 
-        // T32
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+    //     // T32
+    //     function getRandomInt(min, max) {
+    //         return Math.floor(Math.random() * (max - min + 1)) + min;
+    //     }
 
-        function generateRandomDate() {
-            var randomYear = getRandomInt(1990, 2022);
-            var randomMonth = getRandomInt(0, 11); // ינואר הוא חודש 0
-            var randomDay = getRandomInt(1, 31);
+    //     function generateRandomDate() {
+    //         var randomYear = getRandomInt(1990, 2022);
+    //         var randomMonth = getRandomInt(0, 11); // ינואר הוא חודש 0
+    //         var randomDay = getRandomInt(1, 31);
 
-            var randomDate = new Date(randomYear, randomMonth, randomDay);
-            return randomDate;
-        }
+    //         var randomDate = new Date(randomYear, randomMonth, randomDay);
+    //         return randomDate;
+    //     }
 
-       console.log(generateRandomDate()); 
+    //    console.log(generateRandomDate()); 
 
 
         
