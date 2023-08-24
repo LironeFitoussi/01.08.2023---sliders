@@ -6,15 +6,18 @@
 </head>
 <body>
     <script>
-        // // T70
-        // var user = {
-        //     firstName: "Lirone",
-        //     lastName: "Fitoussi",
-        //     age: 23,
-        //     mail: "lironefot@icloud.com"
-        // }
+        // 32
+        
 
-        // console.log(user);
+        // T70
+        var user = {
+            firstName: "Lirone",
+            lastName: "Fitoussi",
+            age: 23,
+            mail: "lironefot@icloud.com"
+        }
+
+        console.log(user);
 
         // T71
         var dog = {
@@ -24,6 +27,82 @@
             breed: "Malinois"
         }
         console.log(dog);
+
+        // T72
+        var car = {
+            color: "blue",
+            numOfWheels: 4, 
+            company: "Renault"
+        }
+        console.log(car);
+
+        // T73
+        console.log(user.firstName);
+
+        // T74
+        console.log(dog.age);
+
+        // T75
+        console.log(car.company + ", " + car.color);
+
+        // T76
+        function changeLastName() {
+            var newLastName = prompt("Give Me a new Last Name");
+            user.lastName = newLastName;
+            return console.log(user);
+        }
+
+        // changeLastName()
+
+        // T77
+        function changeDogBreed() {
+            var newDogBreed = prompt("Change " + dog.name + "'s breed");
+            dog.breed = newDogBreed;
+            return console.log(dog);
+        }
+
+        // changeDogBreed()
+        
+        // T78
+        function changeWheelsNumber() {
+            var carNewWheelsNum = +prompt("Chane the number of Wheels");
+            car.numOfWheels = carNewWheelsNum;
+            return console.log(car);
+        }
+
+        // changeWheelsNumber()
+
+        // T79
+        function changeUserByUser() {
+            var userKey = prompt("Choose a key");
+            var userKeyValue = prompt("Set a key Value");
+
+            user[userKey] = userKeyValue
+            return console.log(user);
+        }
+
+        // changeUserByUser()
+
+        // T80
+        function modifyDogByUser() {
+            var userKey = prompt("Choose " + dog.name + "'s' value")
+            var userKeyValue = prompt("Set a key Value");
+
+            dog[userKey] = userKeyValue
+            return console.log(dog);
+        }
+        // modifyDogByUser()
+
+        // T81
+        function modifyCarByUser() {
+            var userKey = prompt("Choose a Car Key");
+            var userKeyValue = prompt("Set a key Value");
+            
+            car[userKey] = userKeyValue
+            return console.log(car);
+        }
+
+        // modifyCarByUser() 
 
     </script>
 </body>
