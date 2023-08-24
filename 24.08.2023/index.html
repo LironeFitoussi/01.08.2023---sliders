@@ -6,44 +6,437 @@
 </head>
 <body>
     <script>
-        // 32
-        
+        // 33
+        var arrKeyAndValue = "name:Lirone, lastName:Fitoussi, proffesion:developer,";
+        function findLongestValue(string) {
+            var maxValue = 0;
+            var highestValue = "";
 
+            for (var i = 0; i < string.length; i++) {
+                if (string[i] == ":") {
+                    var currentWord = string.substring(i + 1, string.indexOf(",", i));
+                    if (currentWord.length > maxValue) {
+                        maxValue = currentWord.length;
+                        highestValue = currentWord;
+                    }
+                }
+            }
+
+            console.log(highestValue); 
+        }
+
+        // findLongestValue(arrKeyAndValue);
+
+        // T34
+        function stringToObject(string) {
+            var result = {};
+            var startIndex = 0;
+
+            for (var i = 0; i < string.length; i++) {
+                if (string[i] == ":") {
+                    var key = string.substring(startIndex, i);
+
+                    startIndex = i + 1;
+                    var endIndex = string.indexOf(",", startIndex);
+                    if (endIndex == -1) {
+                        endIndex = string.length;
+                    }
+
+                    var value = string.substring(startIndex, endIndex);
+
+                    result[key] = value;
+
+                    startIndex = endIndex + 1;
+                    i = endIndex;
+                }
+            }
+            return result;
+        }
+
+        // var userId = "name:jacob,id:44";
+        // console.log(stringToObject(userId));
+
+        // T35
+        function totalExtractedKeys(string) {
+            var startIndex = 0;
+            var totalLength = 0;
+            for (var i = 0; i < string.length; i++) {
+                if (string[i] === ":") {
+                    var endIndex = string.indexOf(",", i);
+                    if (endIndex === -1) {
+                        endIndex = string.length;
+                    }
+                    var value = string.substring(i + 1, endIndex); 
+                    totalLength = totalLength + value.length
+                    startIndex = endIndex + 1;
+                }
+            }
+            console.log(totalLength);
+        }
+
+        // var userId = "name:jacob,id:44";
+        // printExtractedKeys(userId);
+
+        // T36
+        function sumKeyLengths(string) {
+            var totalLength = 0;
+            for (var i = 0; i < string.length;) {
+                var colonIndex = string.indexOf(":", i);
+                if (colonIndex !== -1) {
+                    var key = string.substring(i, colonIndex);
+                    totalLength = totalLength + key.length;
+                    i = colonIndex + 1; 
+                } else {
+                    return
+                }
+            }
+
+            return totalLength;
+        }
+
+        var userId = "name:jacob,id:44";
+        var keysTotalLength = sumKeyLengths(userId);
+        console.log(keysTotalLength);
+
+
+    
+        // T37
+        function checkStringLength(string) {
+            if (string.length >= 5) {
+                console.log("long");
+            } else {
+                console.log("short");
+            }
+        }
+
+        // checkStringLength("lirone")
+        // checkStringLength("hey") 
+
+        // T38
+        function findAInString(string) {
+            if (string.indexOf("a") > -1) {
+                console.log(string.indexOf("a"));
+            } else {
+                console.log("Not Found");
+            }
+        }
+
+        // findAInString("America")
+        // findAInString("string")
+
+        // T39
+        function isLettrRInString(string) {
+            if (string.indexOf("r") > -1) {
+                console.log(true);
+            } else {
+                console.log(false);
+            }
+        }
+
+        // isLettrRInString("string")
+        // isLettrRInString("alpha")
+
+        // T40
+        function findAnyLetter(string, letter) {
+            if (string.indexOf(letter) > -1) {
+                console.log(true);
+            } else {
+                console.log(false);
+            }
+        }
+
+        // findAnyLetter("Whats Up Bruuu", "U")
+        // findAnyLetter("Whats Up Bruuu", "c")
+
+        // T41
+        function findLetterInString(string, letter) {
+            if (string.lastIndexOf(letter) > -1) {
+                console.log("The index of " + letter + " is " + string.indexOf(letter));
+            } else {
+                console.log("No such letter in the string");
+            }
+        }
+
+        // findLetterInString("Whats Up Bruuu", "U")
+        // findLetterInString("Whats Up Bruuu", "c")
+
+        // T42 + 43
+        function getPartWord(word) {
+            cutedWord = word.substr(0,3)
+            return console.log(cutedWord);
+        }
+
+        // getPartWord("sayonara")
+
+        // T44
+        function getPartWordFrom(word) {
+            cutedWord = word.substr(word.indexOf("y"),4)
+            return console.log(cutedWord);
+        }
+
+        // getPartWordFrom("sayonara")
+
+        // T45
+        function getWordFrom(word) {
+            cutedWord = word.substr(word.indexOf("o"))
+            return console.log(cutedWord);
+        }
+
+        // getWordFrom("sayonara")
+
+        // T46 + 47
+        function func(string, index){
+            if (index > string.length) {
+                console.log("Cannot perform substrcting with high index");
+                return
+            }
+            var cuttedWord = string.substr(index)
+            return console.log(cuttedWord);
+        }
+
+        var myString = "Whats up bruuu?"
+        var myIndex = 5
+
+        // func(myString, myIndex)
+
+        // T48-49
+        function func(string, index){
+            if (index > string.length) {
+                console.log("Cannot perform substrcting with high index");
+                return
+            }
+            var cuttedWord = string.substr(index, 3)
+            return console.log(cuttedWord);
+        }
+
+        var myString = "Whats up bruuu?"
+        var myIndex = 9
+
+        // func(myString, myIndex)
+
+        // T50
+        function splitString(string, index, end) {
+            if (parseInt(index) !== index) {
+                console.log("Wrong Number");
+                return;
+            } 
+            var cuttedString = string.substr(index, end);
+            console.log(cuttedString);
+        }
+
+        var myString = "Whats up bruuu?";
+        var myIndex = "g";
+        var lastIndex = 6;
+
+        // splitString(myString, myIndex, lastIndex);
+
+        // T51+52
+        function getWithSubstring(word) {
+            var newWord = word.substring(3)
+            console.log(newWord);
+        }
+
+        // getWithSubstring("sayonara")
+
+        // T53
+        function getWithSubstring(word) {
+            var newWord = word.substring(word.indexOf("y"), word.length - word.indexOf("y"))
+            console.log(newWord);
+        }
+
+        // getWithSubstring("sayonara")
+
+        // T54
+        function getWithSubstring(word) {
+            var newWord = word.substring(word.indexOf("o"))
+            console.log(newWord);
+        }
+
+        // getWithSubstring("sayonara")
+
+        // T55
+        function inspectName() {
+            userFullName = prompt("Please Type Your Full Name:") //Lirone Fitoussi
+            console.log(userFullName.length);
+            if (userFullName.indexOf(" ") > -1){
+                console.log("User Inputed a Space");
+            }
+            var firstName = userFullName.substr(0, userFullName.indexOf(" "))
+            console.log("First Name: " + firstName);
+            var lastName = userFullName.substr(userFullName.indexOf(" ") + 1, userFullName.length)
+            console.log("Last Name: " + lastName);
+        }
+        // inspectName()
+
+        // T56
+        function compareStrings(firstString, secondString) {
+            if (firstString.toLowerCase() === secondString.toLowerCase()) {
+                console.log("Strings are indentical");
+            }
+        }
+
+        // compareStrings("Lirone", "lirone")
+
+        // T57
+        function compareStrings(firstString, secondString) {
+            if (firstString.toUpperCase() === secondString.toUpperCase()) {
+                console.log("Strings are identical");
+            } else {
+                console.log("String are not identical");
+            }
+        }
+
+        // compareStrings("Lirone", "lirone")
+        // compareStrings("Lirone", "liroe")
+
+        // T58
+        function comapraFullName() {
+            userFirstName = prompt("Please Type Your First Name:")
+            userLastName = prompt("Please Type Your Last Name:")
+            if (userFirstName.length > userLastName.length) {
+                console.log(userFirstName);
+            } else {
+                console.log(userLastName);
+            }
+        }
+
+        // comapraFullName()
+
+        // T59+60
+        function checkIfNameContains() {
+            var userFirstName = prompt("Please Type Your First Name:")
+            var userLastName = prompt("Please Type Your Last Name:")
+            if (userFirstName.indexOf("a") > -1) {
+                console.log("First Name Contains an 'a'");
+            } else {
+                console.log("First Name doesn't Contains an 'a'");
+
+            }
+            if (userLastName.indexOf("api") > -1) {
+                console.log("Last Name Contains an 'api'");
+            } else {
+                console.log("Last Name doesn't Contains an 'a'");
+            }
+        }
+
+        // checkIfNameContains()
+
+        // T61 - Same as 37
+
+        // T62
+        function checkCountryName(countryName) {
+            if (countryName.length < 3) {
+                console.log("Yes");
+            } else {
+                console.log("No");
+            }
+        }
+        // checkCountryName("US")
+        // checkCountryName("FRA")
+
+        // T63
+        function analizeStirng(string, indexNote) {
+            if (string.length > 6) {
+                console.log(string);
+            } else {
+                console.log(string.indexOf(indexNote)); 
+            }
+        }
+
+        // analizeStirng("Your on My Mind", "o")
+        // analizeStirng("fggfdg", "d")
+
+        // T64
+        function analizeStirng(string, indexNote) {
+            if (string.indexOf(indexNote) > -1) {
+                console.log(string.indexOf(indexNote));
+            } else {
+                console.log(string);
+            }
+        }
+
+        // analizeStirng("Lirone", "o")
+        // analizeStirng("Lirone", "f")
+
+        // T65+T66
+        function printNameInitial(firstName, lastName) {
+            console.log(firstName.substr(0,1) + ". " + lastName.toUpperCase());
+        }
+        // printNameInitial("Lirone", "fitoussi")
+
+        // T67
+        function sortLastNames(lastName1, lastName2) {
+            if (lastName1.length < lastName2.length) {
+                console.log(lastName1.toLowerCase());
+                return lastName2
+            } else {
+                console.log(lastName2.toLowerCase());
+                return lastName1
+            }
+             
+        }
+
+        // sortLastNames("Fitoussi", "Gluskin")
+
+        // T68
+        function checkNameNote(name, note) {
+            if (name.indexOf(note) > -1) {
+                console.log(name);
+            } else {
+                console.log(name + " doesn't include the letter '" + note + "'");
+            }
+        }
+
+        // checkNameNote("Lirone", "f")
+
+        // T69
+        function checkNameOfOneWord(name) {
+            if (name.indexOf(" ") == -1) {
+                newName = name.substr(0, 1).toUpperCase() + name.substr(1,name.length);
+                return newName;
+            }
+            return "Name contains a space.";
+        }
+
+        // console.log(checkNameOfOneWord("lirone"));
         // T70
         var user = {
             firstName: "Lirone",
             lastName: "Fitoussi",
             age: 23,
-            mail: "lironefot@icloud.com"
+            mail: "lironefot@icloud.com",
+            ID: 1
         }
 
-        console.log(user);
+        // console.log(user);
 
         // T71
         var dog = {
             name: "Nalla",
             age: 3.5,
             gender: "Female",
-            breed: "Malinois"
+            breed: "Malinois",
+            ID: 2
         }
-        console.log(dog);
+        // console.log(dog);
 
         // T72
         var car = {
             color: "blue",
             numOfWheels: 4, 
-            company: "Renault"
+            company: "Renault",
+            ID: 3
         }
-        console.log(car);
+        // console.log(car);
 
         // T73
-        console.log(user.firstName);
+        // console.log(user.firstName);
 
         // T74
-        console.log(dog.age);
+        // console.log(dog.age);
 
         // T75
-        console.log(car.company + ", " + car.color);
+        // console.log(car.company + ", " + car.color);
 
         // T76
         function changeLastName() {
@@ -104,6 +497,107 @@
 
         // modifyCarByUser() 
 
+        // T82 - Done
+
+        // T83
+        var allObjectsArr = [user, dog, car]
+        // console.log(allObjectsArr);
+
+        // T84
+        // console.log(allObjectsArr[1].ID);
+
+        // T85
+        function printId(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                console.log(arr[i].ID);
+            }
+        }
+
+        // printId(allObjectsArr)
+
+        // T86
+        function createIdCard() {
+            var userCard = {
+                firstName: +prompt("Please Type your Phone:"),
+                lastName: prompt("Please Type your Last Name:"),
+                phone: +prompt("Please Type your Phone:"),
+                mail: prompt("Please Type your Mail:"),
+            }
+            return console.log(userCard);
+        }
+
+        // buildIdCard()
+
+        // T87
+        function buildDogFamily() {
+            var dogsArr = [];
+            for (var i = 1; i <= 3; i++) {
+                var dogIdCard = {
+                    ID: i,
+                    Name: prompt("Pleas enter a dog " + [i] + " Name:"),
+                    Breed: prompt("Set Dog " + [i] + " Breed"),
+                    age: +prompt("Set Dog " + [i] + " Age")
+                }
+                dogsArr.push(dogIdCard)
+            }
+
+            return console.log(dogsArr);
+        }
+
+        // buildDogFamily()
+
+        // T88
+        function buildCarRepertouar() {
+            var carsArr = [];
+            var maxCars = +prompt("How Many Cars do you want to Add?");
+            for (var i = 1; i <= maxCars; i++) {
+                var newCar = {
+                    ID: i,
+                    color: prompt("Set Car " + i + " color"),
+                    Brand: prompt("Set Car " + i + " brand")
+                }
+               carsArr.push(newCar) 
+            }
+            return console.log(carsArr);
+        }
+
+        // buildCarRepertouar()
+
+        // T89
+        function createCustomObject() {
+            var customObject = {}
+
+            for (var i = 1; i <= 3; i++) {
+                var newKey = prompt("set a Key")
+                var newValue = prompt("Set a Value")
+                customObject[newKey] = newValue
+            }
+
+            
+
+            return console.log(customObject); 
+        }
+
+        // createCustomObject()
+
+        // T90
+        function createCustomObjects() {
+            var maxObjects = +prompt("How Many objects do you want to Add?");
+            var objectsArr = []
+            for (var i = 0; i < maxObjects; i++) {
+                var numOfValues = +prompt("How Many Values do You Want to set?")
+                for (var j = 1; j <= numOfValues; j++) {
+                    var customObject = {}
+                    var newKey = prompt("set a Key")
+                    var newValue = prompt("Set a Value")
+                    customObject[newKey] = newValue
+                    objectsArr.push(customObject)
+                }
+            }
+            return console.log(objectsArr); 
+        }
+
+        // createCustomObjects()
     </script>
 </body>
 </html>
