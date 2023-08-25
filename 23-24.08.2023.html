@@ -266,8 +266,8 @@
 
         // printMyDate("12/12/2012")
 
-        // T22
-        function printUserString() {
+        // T23
+        function printUserDate() {
             var userDate = prompt("Choose a date in MM/DD/YYYY Format");
             var newDate = new Date(userDate);
             console.log(newDate);
@@ -275,8 +275,96 @@
 
         // printUserString()
         
-        // T23
-        function 
+        // T24
+        function printUserMonth() {
+            var userDate = prompt("Choose a date in MM/DD/YYYY Format");
+            var newDate = new Date(userDate);
+            console.log(newDate.getMonth()+1);
+        }
+
+        // printUserMonth()
+
+        // T25
+        function printUserHour() {
+            var userDate = prompt("Choose a date in MM/DD/YYYY Format");
+            var newDate = new Date(userDate);
+            console.log(newDate.getHours());
+        }
+
+        // printUserHour()
+
+        // T26
+        function printUserYear() {
+            var userDate = prompt("Choose a date in MM/DD/YYYY Format");
+            var newDate = new Date(userDate);
+            console.log(newDate.getFullYear());
+        }
+
+        // printUserYear()
+        
+        // T27
+        function printUserMinuts() {
+            var userDate = prompt("Choose a date in MM/DD/YYYY Format");
+            var newDate = new Date(userDate);
+            console.log(newDate.getMinutes());
+        }
+
+        // printUserMinuts()
+
+        // T28
+        function getEarlierDate() {
+            var userDate1 = prompt("Enter the first date (in format YYYY-MM-DD):");
+            var userDate2 = prompt("Enter the second date (in format YYYY-MM-DD):");
+
+            var date1 = new Date(userDate1);
+            var date2 = new Date(userDate2);
+
+            var earlierDate = "";
+ 
+            if (date1 < date2) {
+                earlierDate = date1;
+            } else {
+                earlierDate = date2;
+            }
+
+            console.log(earlierDate)
+        }
+
+        // getEarlierDate()
+
+        // T29
+        function birthdayCalc() {
+            var userInput = prompt("What is Your BirthDay?");
+            var userBirthDay = new Date(userInput)
+            var today = new Date();
+
+            var userAge = (today.getFullYear() - userBirthDay.getFullYear())
+            if (today.getMonth() < userBirthDay.getMonth()) {
+                userAge -= 1
+            }
+
+            return userAge;
+        }
+
+        // console.log(birthdayCalc()); 
+
+        // T31
+        function chekIfUserMature() {
+            userAge = birthdayCalc()
+            if (userAge > 18) {
+                alert("Youv'e got Arppouved")
+            } else{
+                alert("Youv'e got Rejected")
+            }
+        }
+
+        // chekIfUserMature()
+
+
+
+
+
+
 
 
 
