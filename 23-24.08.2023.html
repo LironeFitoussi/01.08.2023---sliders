@@ -27,9 +27,236 @@
         // splitStringToNew("Lirone")
 
         // T3
-        function splitStringToEven(string) {}
+        function splitStringToEven(string) {
+            for (var i = 0; i < string.length; i++) {
+                if (i % 2 == 0 && i > 0) {
+                    console.log(2);
+                    
+                } else {
+                    console.log(string[i]);
+                }
+            }     
+        }
+
+        // splitStringToEven("Lirone")
+
+        // T4
+        function checkHowNameStarts(string) {
+            if (string.indexOf("A") == 0) {
+                console.log("Hey!");
+            } else {
+                console.log("Bye...");
+            }
+        }
+
+        // checkHowNameStarts("Lirone")
+        // checkHowNameStarts("Alvin")
+
+        // T5
+        function checkHowNameEnds(string) {
+            if (string[string.length-1] == "E") {
+                console.log("Yes!");
+            } else {
+                console.log("No...");
+            }
+        }
+
+        // checkHowNameEnds("string")
+        // checkHowNameEnds("stringE")
+
+        // T6
+        function upperCaseString(string) {
+            console.log(string.toUpperCase());
+        }
+
+        // upperCaseString("string")
+        
+        // T7
+        function NumStringToArray(numString) {
+            numArr = []
+            for (var i = 0; i < numString.length; i++) {
+                if (numString[i] / 1 == numString[i]) {
+                    var endIndex = numString.indexOf(",",i)
+                    if (endIndex === -1) {
+                        endIndex = numString.length;
+                    }
+                    var currrentNumber = numString.substring(i, endIndex)
+                    i = endIndex
+                    numArr.push(currrentNumber)
+                }
+            }
+            console.log(numArr);
+        }
+        
+        // NumStringToArray("66,255,6,55,87")
+
+        // T8
+        function getRandomNumberUpTo10() {
+            return Math.floor((Math.random()*10)+1)
+        }
+
+        // console.log(getRandomNumberUpTo10());
+
+        // T9
+        function getLimitedRandomNumber(limit) {
+            return Math.floor((Math.random()*limit)+1)
+        }
+
+        // console.log(getLimitedRandomNumber(8));
+
+        // T10
+        function guessRandomNumber() {
+            var randomNum = getRandomNumberUpTo10();
+            var userInput = +prompt("Choose a Number")
+            if (randomNum == userInput) {
+                console.log("Success");
+            } else {
+                console.log("Failure");
+            }
+        }
+
+        // guessRandomNumber()
+       
+        // T11
+        function builtRandomTo100Array() {
+            newArr = [];
+            for (var i = 0; i < 10; i++) {
+                randomNum = Math.floor((Math.random()*100)+1);
+                newArr.push(randomNum)
+            };
+
+            console.log(newArr);
+        }
+
+        // builtRandomTo100Array()
+
+        // T12
+        function comareUserNumToRandomNum() {
+            var randomNum = getRandomNumberUpTo10();
+            var userInput = +prompt("Choose a Number")
+            if (randomNum > userInput) {
+                console.log(randomNum);
+            } else {
+                console.log(userInput);
+            }
+        }
+
+        // comareUserNumToRandomNum()
+
+        // T13
+        function printLowestNumber() {
+            var lowest = Number.MAX_SAFE_INTEGER
+            for (var i = 0; i < 5; i++) {
+                var userInput = +prompt("Choose a Number")
+                if (userInput < lowest) {
+                    lowest = userInput
+                }  
+            }
+            console.log(lowest);
+        }
+
+        // printLowestNumber()
+
+        // T14
+        function checkIfInputIsEven() {
+            var randomNum = Math.floor((Math.random()*100)+1);
+            var userInput = +prompt("Choose a Number")
+            if (userInput % 2 == 0) {
+               return Math.max(userInput, randomNum)
+            }
+
+            return  Math.min(userInput, randomNum)
+        }
+
+        // console.log(checkIfInputIsEven());
+
+        // T15
+        function getRandomArray() {
+            var newArr = [];
+            for (var i = 0; i < 364; i++) {
+                var randomNum = Math.floor((Math.random()*873)+1);
+                newArr.push(randomNum)
+            } 
+
+            console.log(newArr);
+        }
+
+        // getRandomArray()
+
+        // T16
+        function chooseRandomIndex(string) {
+            var randomIndex = Math.floor((Math.random()*string.length));
+            console.log(string[randomIndex]);
+        }
+
+        // chooseRandomIndex("string")
+
+        // T17
+        function upperCaseRandomIndex() {
+            var userInput = prompt("Please Type Your Name:");
+            var randomIndex = Math.floor((Math.random()*userInput.length));
+            var letterToChange = userInput[randomIndex];
+            var changedLetter = letterToChange.toLocaleUpperCase();
+            var newString = userInput.substring(0, userInput.indexOf(letterToChange)) + changedLetter + userInput.substring(userInput.indexOf(letterToChange)+1)
+
+            console.log(newString);
+        }
+
+        // upperCaseRandomIndex()
+
+        // T18
+        function compareNamesAndAges(){
+            var name1 = prompt("Please Type the First Name");
+            var age1 = prompt("Please Type the First age");
+
+            var name2 = prompt("Please Type the Second Name");
+            var age2 = prompt("Please Type the Second age");
+
+            var randomNum = getRandomNumberUpTo10();
+
+            if (name1[0] == name2[0]) {
+                console.log(randomNum);
+            }
+
+            if (name1[name1.length-1] == name2[name2.length-1]) {
+                console.log(age1 + ", " + age2);
+            }
+        }
+
+        // compareNamesAndAges()
+
+        // T19
+        function printStringToRandomIndex() {
+            name1 = prompt("Please Type the First Name");
+
+        }
 
 
+
+
+
+
+
+
+
+
+
+
+
+        // function NumStringToArray(string) {
+        //     var newArr = [];
+        //     for (var i = 0; i < string.length; i++) {
+        //         var extracteWord = "";
+        //         if (string[i] / 1 == string[i]) {
+        //             lastIndex = (string.indexOf(","));
+        //             if (lastIndex == -1) {
+        //                 lastIndex = string.length
+        //             }
+        //             extracteWord = string.substr(i, lastIndex-1)
+        //             newArr.push(extractedWord)
+        //         }
+        //     }
+        //     console.log(newArr);
     </script>
 </body>
 </html>
