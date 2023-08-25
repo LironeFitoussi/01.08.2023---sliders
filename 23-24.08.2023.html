@@ -227,10 +227,33 @@
 
         // T19
         function printStringToRandomIndex() {
-            name1 = prompt("Please Type the First Name");
-
+            var userInput = prompt("Please Type some text:");
+            var randomNum = Math.floor((Math.random()*5)+1)
+            console.log(randomNum);
+            var newString = userInput.substring(0, randomNum+1)
+            console.log(newString);
         }
 
+        // printStringToRandomIndex() 
+
+        // T20
+        function printRandomFunction() {
+            var maxNumber = prompt("Please Choose Max Random Number");
+            var randomNum = Math.floor((Math.random()*maxNumber)+1);
+            if (maxNumber % 3 == 0) {
+                for (let i = 0; i < maxNumber; i++) {
+                    console.log(maxNumber);
+                }
+            } else {
+                console.log(randomNum*2);
+                console.log(Math.PI);
+            }
+        }
+
+        // printRandomFunction()
+
+        // T21
+        function 
 
 
 
