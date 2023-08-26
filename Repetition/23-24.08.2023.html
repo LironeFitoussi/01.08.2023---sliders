@@ -395,7 +395,6 @@
 
         // T33
         var myString = "name:jacob, id:44, hobby:animes";
-        console.log(myString);
 
         function stringToLongestValue(string) {
             var longestValue = "";
@@ -418,10 +417,75 @@
                 }
             }
 
-            console.log(longestValue);
+            console.log(longestValue + ": " + longestValue.length);
         }
 
-        stringToLongestValue(myString);
+        // stringToLongestValue(myString);
+
+        // T34
+        function getKeyValue(string, key) {
+            var frstIndex = string.indexOf(key) + key.length+1;
+            console.log(frstIndex);
+            var lstIndex = string.indexOf(", ", frstIndex)
+            if (lstIndex == -1) {
+                lstIndex = string.length
+            }
+            var value = string.substring(frstIndex, lstIndex)
+            console.log(value);
+        }
+
+        // getKeyValue(myString, "id")
+
+        // T35
+        function getAllKeysLength(string) {
+            var allKeysLength = 0;
+            var i = 0;
+
+            while (i < string.length) {
+                var frstIndex = i;
+                var lstIndex = string.indexOf(":", i);
+
+                var key = string.substring(frstIndex, lstIndex);
+                frstIndex = string.indexOf(", ", i);
+                i = frstIndex;
+
+                if (i === -1) {
+                    i = string.length;
+                }
+
+                console.log(key);
+                allKeysLength = allKeysLength + key.length;
+            }
+
+            console.log(allKeysLength);
+        }
+
+
+        // getAllKeysLength(myString)
+
+        // T36
+        var myString = "name:jacob,id:44,hobby:animes";
+
+        function getAllValuesLength(string) {
+            var allValuesLength = 0;
+            var i = 0;
+
+            while (i < string.length) {
+                var frstIndex = string.indexOf(":", i) + 1;
+                var lstIndex = string.indexOf(",", frstIndex);
+                if (lstIndex === -1) {
+                    lstIndex = string.length;
+                }
+
+                var value = string.substring(frstIndex, lstIndex);
+                i = lstIndex + 1;
+                allValuesLength = allValuesLength + value.length
+            }
+            console.log("alll Values length is equal to: " + allValuesLength);
+        }
+
+        getAllValuesLength(myString)
+
 
 
 
