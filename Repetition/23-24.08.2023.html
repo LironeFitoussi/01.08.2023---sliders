@@ -348,7 +348,7 @@
 
         // console.log(birthdayCalc()); 
 
-        // T31
+        // T30
         function chekIfUserMature() {
             userAge = birthdayCalc()
             if (userAge > 18) {
@@ -360,6 +360,72 @@
 
         // chekIfUserMature()
 
+        // T31
+        function printLocationByDate() {
+            var myDate = new Date();
+            var stringedDate = myDate.toString();
+            console.log(stringedDate);
+
+            var start = stringedDate.indexOf("(")+6;  // Adding 2 to skip the "(("
+            console.log(start);
+            var end = stringedDate.indexOf(")")-5;
+
+            var location = stringedDate.substring(start, end);
+            console.log("Your Location is: " + location);
+        }
+
+        // printLocationByDate();
+
+        // T32
+        function getRandomDate() {
+            var randomYear = Math.floor(Math.random() * (2022-1990+1) + 1990);
+            console.log(randomYear);
+
+            var randomMonth = Math.floor(Math.random() * 12 + 1);
+            console.log(randomMonth);
+
+            var randomDay = Math.floor(Math.random() * 30 + 1);
+            console.log(randomDay);
+
+            var randomDate = new Date(randomMonth + "/" + randomDay + "/" + randomYear)
+            console.log(randomDate);
+        }
+
+        // getRandomDate()
+
+        // T33
+        var myString = "name:jacob, id:44, hobby:animes";
+        console.log(myString);
+
+        function stringToLongestValue(string) {
+            var longestValue = "";
+            var i = 0;
+
+            while (i < string.length) {
+                var firstIndex = string.indexOf(":", i) + 1;
+                var lastIndex = string.indexOf(", ", i);
+                
+                if (lastIndex == -1) {
+                    lastIndex = string.length;
+                }
+
+                var currentValue = string.substring(firstIndex, lastIndex);
+
+                i = lastIndex + 2 ;
+
+                if (currentValue.length > longestValue.length) {
+                    longestValue = currentValue;
+                }
+            }
+
+            console.log(longestValue);
+        }
+
+        stringToLongestValue(myString);
+
+
+
+        
 
 
 
