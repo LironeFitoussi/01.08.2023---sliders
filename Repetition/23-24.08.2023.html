@@ -499,14 +499,36 @@
             if (string.indexOf("a") > -1) {
                 return string.indexOf("a");
             }
-            return "Error"
+            return `"a" Not found`
         }
 
         // console.log(findaLetter("alooowww"));
         // console.log(findaLetter("loooawww"));
         // console.log(findaLetter("looowww"));
 
-        
+        // 39
+        function findRLetter(string) {
+            if (string.indexOf("r") > -1) {
+                return true;
+            }
+            return false
+        }
+
+        // console.log(findRLetter("loroawww"));
+        // console.log(findRLetter("looowww"));
+
+        // T40
+        function checkStringLetter(string, letter) {
+            if (string.indexOf(letter) > -1) {
+                return true
+            }
+            return false
+        }
+
+        // console.log(checkStringLetter("aloooo", "a"));
+        // console.log(checkStringLetter("loooo", "a"));
+
+
 
 
 
