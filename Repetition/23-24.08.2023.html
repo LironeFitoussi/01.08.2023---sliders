@@ -490,7 +490,7 @@
                 return "long"
             }
             return "short"
-        }
+        };
 
         // console.log(checkIfstringLong(myString));
 
@@ -500,7 +500,7 @@
                 return string.indexOf("a");
             }
             return `"a" Not found`
-        }
+        };
 
         // console.log(findaLetter("alooowww"));
         // console.log(findaLetter("loooawww"));
@@ -512,7 +512,7 @@
                 return true;
             }
             return false
-        }
+        };
 
         // console.log(findRLetter("loroawww"));
         // console.log(findRLetter("looowww"));
@@ -523,7 +523,7 @@
                 return true
             }
             return false
-        }
+        };
 
         // console.log(checkStringLetter("aloooo", "a"));
         // console.log(checkStringLetter("loooo", "a"));
@@ -535,7 +535,7 @@
             } else {
                 console.log("The index of " + letter + " wasn't found");
             }
-        }
+        };
         
         // checkStringLetter2("aloooo", "a");
         // checkStringLetter2("loooo", "a");
@@ -543,21 +543,21 @@
         // T42
         function return3FirstLetters(string) {
             return string.substr(0, 3)
-        }
+        };
 
         // console.log(return3FirstLetters("sayonara"));
 
         // T43
         function return4lettersFrom(string, letter) {
             return string.substr(string.indexOf(letter), 4)
-        }
+        };
 
         // console.log(return4lettersFrom("sayonara", "y"));
 
         // T44
         function returnAllLettersFrom(string, letter) {
             return string.substr(string.indexOf(letter))
-        }
+        };
 
         // console.log(returnAllLettersFrom("sayonara", "o"));
 
@@ -567,7 +567,7 @@
                 return "Index to hight"
             }
             return string.substr(index)
-        }
+        };
 
         // console.log(cutStringFrom("Lirone", 6));
         // console.log(cutStringFrom("Lirone", 3));
@@ -578,7 +578,7 @@
                 return "Index to hight"
             }
             return string.substr(index, 3)
-        }
+        };
 
         // console.log(cut3StringFrom("mikmakondo", 6));
         // console.log(cut3StringFrom("Lirone", 8));
@@ -589,21 +589,21 @@
                 return string.substr(frstIndex, lengthCut)
             }
             return "One of the numbers is invalid"
-        }
+        };
 
         // console.log(cutStringbyNumbers ("liroere", 4, 6));
 
         // T48
         function get3FirstLetters(string) {
             return string.substring(0,3)
-        }
+        };
 
         // console.log(get3FirstLetters("sayonara"));
 
         // T49
         function get3FirstLettersFrom(string) {
             return string.substring(string.indexOf("y"), string.indexOf("y")+4)
-        }
+        };
 
         // console.log(get3FirstLettersFrom("sayonara"));
 
@@ -611,7 +611,7 @@
         function getAllLettersFrom() {
             var string = "sayonara"
             return string.substring(string.indexOf("o"), string.length)
-        }
+        };
 
         // console.log(getAllLetter]sFrom());
 
@@ -631,7 +631,7 @@
                 console.log(firstName);
                 console.log(false);;
             }  
-        }
+        };
 
         // printUserName();
 
@@ -641,7 +641,7 @@
                 return true
             }
             return false
-        }
+        };
 
         // console.log(checkIfStringIdentical1("Lirone", "lironE"));
         // console.log(checkIfStringIdentical1("Noya", "alyosn"));
@@ -652,7 +652,7 @@
                 return true
             }
             return false
-        }
+        };
 
         // console.log(checkIfStringIdentical2("Lirone", "lironE"));
         // console.log(checkIfStringIdentical2("Noya", "alyosn"));
@@ -668,7 +668,7 @@
                 console.log(lName);
             }
 
-        }
+        };
 
         // chkLstNdFrstName()
 
@@ -688,7 +688,7 @@
             } else {
                 console.log(false);
             }
-        }
+        };
 
         // chkLstNdFrstName()
 
@@ -699,7 +699,7 @@
             } else {
                 return "short";
             }
-        }
+        };
 
         // console.log(checkStringLength("apple"));
         // console.log(checkStringLength("banana"));
@@ -711,7 +711,7 @@
                 return "yes"
             }
             return "no"
-        }
+        };
 
         // console.log(chkCountryName("יפן"));
         // console.log(chkCountryName("צרפת"));
@@ -726,7 +726,7 @@
                 }
                 return string.indexOf(letter)
             }
-        }
+        };
 
         // console.log(checkStringLengthByLetter("Liron", "s"));
         // console.log(checkStringLengthByLetter("Liron", "n"));
@@ -739,7 +739,7 @@
             } else {
                 return string
             }
-        }
+        };
 
         // console.log(checkStringLetter("Lirone", "l"));
         // console.log(checkStringLetter("Lirone", "s"));
@@ -748,7 +748,7 @@
         function getNameInitial(fName, lName) {
             var initialName = fName.substring(0,1) + ". " + lName.toLowerCase(); 
             return initialName
-        }
+        };
 
         // console.log(getNameInitial("Lirone", "Fitoussi"));
 
@@ -761,7 +761,7 @@
                 console.log(lastName1.toLowerCase());
                 return lastName2;
             }
-        }
+        };
 
         // var result1 = compareLastNames("Cohen", "Levi");
         // var result2 = compareLastNames("Goldman", "Smith");
@@ -774,7 +774,7 @@
             } else {
                 console.log("The character '" + char +  "' is not present in the name.");
             }
-        }
+        };
 
         // checkNameForCharacter("Lirone", "l");
 
@@ -797,7 +797,7 @@
                 return newArr;
             }
             
-        }
+        };
 
         // console.log(formatName("lirone"));
         // console.log(formatName("lirone fitoussi"));
@@ -809,7 +809,7 @@
             lastName: "Fitoussi",
             age: 23,
             mail: "lironefit@gmail.com"
-        }
+        };
 
         // console.log(user);
 
@@ -819,10 +819,18 @@
             age: 2.6,
             gender: "Female",
             breed: "Malinois"
-        }
+        };
         // console.log(dog);
 
-        
+        // T66
+        var car = {
+            color: "Red",
+            numberOfWheels: 4,
+            manufacturer: "Mazda",
+        };
+
+        // console.log(car);
+
 
 
 
