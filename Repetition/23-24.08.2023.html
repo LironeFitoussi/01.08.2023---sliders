@@ -713,9 +713,26 @@
             return "no"
         }
 
-        console.log(chkCountryName("יפן"));
-        console.log(chkCountryName("צרפת"));
+        // console.log(chkCountryName("יפן"));
+        // console.log(chkCountryName("צרפת"));
 
+        // T58
+        function checkStringLengthByLetter(string, letter) {
+            if (string.length >= 6) {
+                return string 
+            } else {
+                if (string.indexOf(letter) === -1) {
+                    return "¡Invalid Letter Index!"
+                }
+                return string.indexOf(letter)
+            }
+        }
+
+        // console.log(checkStringLengthByLetter("Liron", "s"));
+        // console.log(checkStringLengthByLetter("Liron", "n"));
+        // console.log(checkStringLengthByLetter("Lirone", "e"));
+
+        
 
 
 
