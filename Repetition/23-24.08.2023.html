@@ -732,7 +732,17 @@
         // console.log(checkStringLengthByLetter("Liron", "n"));
         // console.log(checkStringLengthByLetter("Lirone", "e"));
 
-        
+        // T59
+        function checkStringLetter(string, letter) {
+            if (string.indexOf(letter) > -1) {
+                return string.indexOf(letter)
+            } else {
+                return string
+            }
+        }
+
+        console.log(checkStringLetter("Lirone", "l"));
+        console.log(checkStringLetter("Lirone", "s"));
 
 
 
