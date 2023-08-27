@@ -584,6 +584,14 @@
         // console.log(cut3StringFrom("Lirone", 8));
 
         // T47
+        function cutStringbyNumbers (string, frstIndex, lengthCut) {
+            if (frstIndex > -1 && lengthCut > -1) {
+                return string.substr(frstIndex, lengthCut)
+            }
+            return "One of the numbers is invalid"
+        }
+
+        // console.log(cutStringbyNumbers ("liroere", 4, 6));
     </script>
 </body>
 </html>
