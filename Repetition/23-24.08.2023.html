@@ -690,7 +690,7 @@
             }
         }
 
-        chkLstNdFrstName()
+        // chkLstNdFrstName()
 
         // T56
         function checkStringLength(str) {
@@ -701,9 +701,21 @@
             }
         }
 
-        console.log(checkStringLength("apple"));
-        console.log(checkStringLength("banana"));
-        console.log(checkStringLength("grape"));
+        // console.log(checkStringLength("apple"));
+        // console.log(checkStringLength("banana"));
+        // console.log(checkStringLength("grape"));
+
+        // T57
+        function chkCountryName(country) {
+            if (country.length <= 3) {
+                return "yes"
+            }
+            return "no"
+        }
+
+        console.log(chkCountryName("יפן"));
+        console.log(chkCountryName("צרפת"));
+
 
 
 
