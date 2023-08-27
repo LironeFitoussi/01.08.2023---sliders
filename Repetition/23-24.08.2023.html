@@ -919,9 +919,75 @@
 
         // printAllIdKeys()
 
+        // T80
+        function createIdCard() {
+            var userCard = {
+                firstName: +prompt("Please Type your Phone:"),
+                lastName: prompt("Please Type your Last Name:"),
+                phone: +prompt("Please Type your Phone:"),
+                mail: prompt("Please Type your Mail:"),
+            }
+            return console.log(userCard);
+        }
 
+        // T81
+        function buildDogFamily() {
+            var dogsArr = [];
+            for (var i = 1; i <= 3; i++) {
+                var dogIdCard = {
+                    ID: i,
+                    Name: prompt("Pleas enter a dog " + [i] + " Name:"),
+                    Breed: prompt("Set Dog " + [i] + " Breed"),
+                    age: +prompt("Set Dog " + [i] + " Age")
+                }
+                dogsArr.push(dogIdCard)
+            }
 
+            return console.log(dogsArr);
+        }
 
+        // T82
+        function buildCarRepertouar() {
+            var carsArr = [];
+            var maxCars = +prompt("How Many Cars do you want to Add?");
+            for (var i = 1; i <= maxCars; i++) {
+                var newCar = {
+                    ID: i,
+                    color: prompt("Set Car " + i + " color"),
+                    Brand: prompt("Set Car " + i + " brand")
+                }
+               carsArr.push(newCar) 
+            }
+            return console.log(carsArr);
+        }
+
+        // T83
+        function createCustomObject() {
+            var customObject = {}
+            for (var i = 1; i <= 3; i++) {
+                var newKey = prompt("set a Key")
+                var newValue = prompt("Set a Value")
+                customObject[newKey] = newValue
+            } 
+            return console.log(customObject); 
+        }
+
+        // T84
+        function createCustomObjects() {
+            var maxObjects = +prompt("How Many objects do you want to Add?");
+            var objectsArr = []
+            for (var i = 0; i < maxObjects; i++) {
+                var numOfValues = +prompt("How Many Values do You Want to set?")
+                for (var j = 1; j <= numOfValues; j++) {
+                    var customObject = {}
+                    var newKey = prompt("set a Key")
+                    var newValue = prompt("Set a Value")
+                    customObject[newKey] = newValue
+                    objectsArr.push(customObject)
+                }
+            }
+            return console.log(objectsArr); 
+        }
 
     </script>
 </body>
