@@ -763,8 +763,8 @@
             }
         }
 
-        var result1 = compareLastNames("Cohen", "Levi");
-        var result2 = compareLastNames("Goldman", "Smith");
+        // var result1 = compareLastNames("Cohen", "Levi");
+        // var result2 = compareLastNames("Goldman", "Smith");
 
 
         // T62
@@ -776,7 +776,32 @@
             }
         }
 
-        checkNameForCharacter("Lirone", "l");
+        // checkNameForCharacter("Lirone", "l");
+
+        // T63
+        function formatName(name) {
+            if (name.indexOf(" ") === -1) {
+                var firstChar = (name.substr(0,1)).toUpperCase();
+                var restName = (name.substring(1)).toLowerCase();
+                var formatedName = firstChar + restName;
+                return formatedName;
+            } else if (name.indexOf(" ", name.indexOf(" ")+1) > -1) {
+                var firstName = name.substring(0, name.indexOf(" "))
+                var midName = name.substring(name.indexOf(" ")+1, name.lastIndexOf(" "))
+                var lastName = name.substring(name.lastIndexOf(" ")+1)
+                return "First Name: " + firstName + ", Middle Name: " + midName + ", Last Name: " + lastName;
+            } else {
+                var firstName = name.substring(0, name.indexOf(" "))
+                var lastName = name.substring(name.indexOf(" ")+1)
+                var newArr = [firstName, lastName]
+                return newArr;
+            }
+            
+        }
+
+        console.log(formatName("lirone"));
+        console.log(formatName("lirone fitoussi"));
+        console.log(formatName("Lirone Simon Fitoussi"));
 
 
 
