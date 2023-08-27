@@ -636,6 +636,45 @@
         // printUserName();
 
         // T52
+        function checkIfStringIdentical1(string1, string2) {
+            if (string1.toLowerCase() === string2.toLowerCase()) {
+                return true
+            }
+            return false
+        }
+
+        // console.log(checkIfStringIdentical1("Lirone", "lironE"));
+        // console.log(checkIfStringIdentical1("Noya", "alyosn"));
+
+        // T53
+        function checkIfStringIdentical2(string1, string2) {
+            if (string1.toUpperCase() === string2.toUpperCase()) {
+                return true
+            }
+            return false
+        }
+
+        // console.log(checkIfStringIdentical2("Lirone", "lironE"));
+        // console.log(checkIfStringIdentical2("Noya", "alyosn"));
+
+        // T54
+        function chkLstNdFrstName() {
+            var fName = prompt("Please Type Your First Name: ");
+            var lName = prompt("Please Type Your Last Name: ");
+
+            if (fName.length > lName.length) {
+                console.log(fName);
+            } else {
+                console.log(lName);
+            }
+
+        }
+
+        // chkLstNdFrstName()
+
+        // T55
+        
+
 
 
 
