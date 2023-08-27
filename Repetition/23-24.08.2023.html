@@ -753,7 +753,30 @@
         // console.log(getNameInitial("Lirone", "Fitoussi"));
 
         // T61
+        function compareLastNames (lastName1, lastName2) {
+            if (lastName1.length > lastName2.length) {
+                console.log(lastName2.toLowerCase());
+                return lastName1;
+            } else {
+                console.log(lastName1.toLowerCase());
+                return lastName2;
+            }
+        }
 
+        var result1 = compareLastNames("Cohen", "Levi");
+        var result2 = compareLastNames("Goldman", "Smith");
+
+
+        // T62
+        function checkNameForCharacter(name, char) {
+            if (name.indexOf(char) > -1) {
+                console.log(name);
+            } else {
+                console.log("The character '" + char +  "' is not present in the name.");
+            }
+        }
+
+        checkNameForCharacter("Lirone", "l");
 
 
 
