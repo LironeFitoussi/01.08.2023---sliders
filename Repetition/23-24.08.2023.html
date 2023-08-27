@@ -617,15 +617,31 @@
 
         // T51
         function printUserName() {
-            userName = prompt("Type Here Uour Name");
+            userName = prompt("Type Here Your Name");
             console.log(userName.length);
-            if (userName.indexOf(" ") === -1) {
-                return console.log(false);;
-            }
-            return console.log(true);;
+            if (userName.indexOf(" ") > -1) {
+                var firstName = userName.substring(0, userName.indexOf(" "))
+                var lastName = userName.substring(userName.indexOf(" ")+1, userName.length)
+                console.log(firstName); 
+                console.log(lastName); 
+                console.log(true);
+            } else {
+                var firstName = userName.substring(0, userName.length)
+                console.log();
+                console.log(firstName);
+                console.log(false);;
+            }  
         }
 
-        // printUserName();
+        printUserName();
+
+        // T52
+
+
+
+
+
+
     </script>
 </body>
 </html>
