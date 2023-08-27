@@ -554,46 +554,36 @@
 
         // console.log(return4lettersFrom("sayonara", "y"));
 
-        T44
+        // T44
+        function returnAllLettersFrom(string, letter) {
+            return string.substr(string.indexOf(letter))
+        }
 
+        // console.log(returnAllLettersFrom("sayonara", "o"));
 
+        // T45
+        function cutStringFrom(string, index) {
+            if (index > string.length-1) {
+                return "Index to hight"
+            }
+            return string.substr(index)
+        }
 
+        // console.log(cutStringFrom("Lirone", 6));
+        // console.log(cutStringFrom("Lirone", 3));
 
+        // T46
+        function cut3StringFrom(string, index) {
+            if (index > string.length-1) {
+                return "Index to hight"
+            }
+            return string.substr(index, 3)
+        }
 
+        // console.log(cut3StringFrom("mikmakondo", 6));
+        // console.log(cut3StringFrom("Lirone", 8));
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // function NumStringToArray(string) {
-        //     var newArr = [];
-        //     for (var i = 0; i < string.length; i++) {
-        //         var extracteWord = "";
-        //         if (string[i] / 1 == string[i]) {
-        //             lastIndex = (string.indexOf(","));
-        //             if (lastIndex == -1) {
-        //                 lastIndex = string.length
-        //             }
-        //             extracteWord = string.substr(i, lastIndex-1)
-        //             newArr.push(extractedWord)
-        //         }
-        //     }
-        //     console.log(newArr);
+        // T47
     </script>
 </body>
 </html>
