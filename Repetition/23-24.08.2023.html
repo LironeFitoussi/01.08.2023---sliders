@@ -82,7 +82,7 @@
                     }
                     var currrentNumber = numString.substring(i, endIndex)
                     i = endIndex
-                    numArr.push(currrentNumber)
+                    numArr.push(parseInt(currrentNumber))
                 }
             }
             console.log(numArr);
@@ -799,10 +799,19 @@
             
         }
 
-        console.log(formatName("lirone"));
-        console.log(formatName("lirone fitoussi"));
-        console.log(formatName("Lirone Simon Fitoussi"));
+        // console.log(formatName("lirone"));
+        // console.log(formatName("lirone fitoussi"));
+        // console.log(formatName("Lirone Simon Fitoussi"));
 
+        // 64
+        var user = {
+            firstName: "Lirone",
+            lastName: "Fitoussi",
+            age: 23,
+            mail: "lironefit@gmail.com"
+        }
+
+        // console.log(user);
 
 
 
