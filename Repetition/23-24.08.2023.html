@@ -692,6 +692,19 @@
 
         chkLstNdFrstName()
 
+        // T56
+        function checkStringLength(str) {
+            if (str.length > 5) {
+                return "long";
+            } else {
+                return "short";
+            }
+        }
+
+        console.log(checkStringLength("apple"));
+        console.log(checkStringLength("banana"));
+        console.log(checkStringLength("grape"));
+
 
 
 
