@@ -1,0 +1,48 @@
+Sure, here are 15 JavaScript variable questions and exercises at a beginner level (level 1 / 5) using only `var`:
+
+1. **Declaration Basics:**
+   Declare a variable named `age` and initialize it with the value `25`.
+
+2. **Updating Values:**
+   Declare a variable `count` with the value `10`. Increment its value by `1`.
+
+3. **String Variable:**
+   Create a variable named `greeting` and set its value to `"Hello, world!"`.
+
+4. **Math Operations:**
+   Declare a variable `num1` with the value `20` and another variable `num2` with the value `5`. Calculate their sum and store it in a variable `total`.
+
+5. **Concatenation:**
+   Create two variables, `firstName` with the value `"John"` and `lastName` with the value `"Doe"`. Concatenate them to form a full name and store it in a variable `fullName`.
+
+6. **Boolean Variable:**
+   Declare a variable `isLogged` and set its value to `true`.
+
+7. **Array Initialization:**
+   Create a variable `fruits` and initialize it as an array containing the elements `"apple"`, `"banana"`, and `"orange"`.
+
+8. **Accessing Array Elements:**
+   Using the `fruits` array from the previous question, access the second element and store it in a variable `secondFruit`.
+
+9. **Variable Swapping:**
+   Swap the values of two variables `x` and `y` using a temporary variable.
+
+10. **Undefined Variable:**
+    Declare a variable `undefinedVar` without assigning any value to it.
+
+11. **Null Variable:**
+    Create a variable `emptyVar` and assign `null` to it.
+
+12. **Type Coercion:**
+    Declare a variable `num` with the value `5` and a variable `text` with the value `"10"`. Add them together and store the result in a variable `result`.
+
+13. **Scope Understanding:**
+    Create a function that declares a variable `insideFunction` and another variable `outsideFunction` outside the function. Can you access both variables from inside the function?
+
+14. **Global vs Local:**
+    Declare a variable `globalVar` outside of any functions. Then, declare a variable with the same name `globalVar` inside a function. What happens when you try to access `globalVar` inside the function?
+
+15. **Redeclaration:**
+    Declare a variable `redeclareVar` and assign it a value. Later in the code, try to redeclare the same variable using `var`. What happens?
+
+Remember, using `var` is less common in modern JavaScript due to its scoping behavior. It's recommended to use `let` and `const` for better scoping and error prevention.
