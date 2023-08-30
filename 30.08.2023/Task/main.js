@@ -127,31 +127,185 @@
 // insertspanToParagraph("Lirone")
 
 // T14
-function userFucn() {
-    var userFrstName = prompt("Type Your First Name");
-    var userLstName = prompt("Type Your Last Name");
-    var userAge = +prompt("Type Here Your Age");
+// function userFucn() {
+//     var userFrstName = prompt("Type Your First Name");
+//     var userLstName = prompt("Type Your Last Name");
+//     var userAge = +prompt("Type Here Your Age");
 
-    var userData = document.getElementById("myDiv")
-    userData.innerHTML += 
-        `
-        <p>First Name: ${userFrstName}</p>
-        <p>Last Name: ${userLstName}</p>
-        <p>Age: ${userAge}</p>
-        `
-    ;
+//     var userData = document.getElementById("myDiv")
+//     userData.innerHTML += 
+//         `
+//         <p>First Name: ${userFrstName}</p>
+//         <p>Last Name: ${userLstName}</p>
+//         <p>Age: ${userAge}</p>
+//         `
+//     ;
 
-    if (userAge < 18) {
-        userData.innerHTML +=
-            `
-                <label>You're Under 18 :(</label>
-                <br>
-                <input type="text">    
-            `
-    }
+//     if (userAge < 18) {
+//         userData.innerHTML +=
+//             `
+//                 <label>You're Under 18 :(</label>
+//                 <br>
+//                 <input type="text">    
+//             `
+//     }
     
+// }
+// userFucn()
+
+// T15
+// function creatMovieCard() {
+//     var movie = {}
+//     movie.name = prompt("Add Movie Name");
+//     movie.views = prompt("Add Number of Views");
+//     movie.year = prompt("Add Release Date");
+//     movie.pic = prompt("Add a Poster Link");
+
+//     document.body.innerHTML = "<div id=movie-card></div>"
+//     var myMovie = document.getElementById("movie-card")
+//     console.log(myMovie);
+//     myMovie.innerHTML += 
+//         `
+//         <h1>Movie Name: ${movie.name}</h1>
+//         <p>Views: ${movie.views}</p>
+//         <span>Release Date: ${movie.year} </span>
+//         <br>
+//         <img src="${movie.pic}" alt="movie-poster">
+//         `
+//     ;
+
+//     myMovie.style = 
+//         `
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+//             border-radius: 3vh;
+//             padding: 3vh;
+//             width: fit-content;
+//             background-color: rgb(46 118 212);;
+//         `
+//     ;
+
+//     var myImage = document.getElementsByTagName("img");
+//     console.log(myImage[0]);
+//     myImage[0].style = 
+//         `
+//             width: 15vw;
+//         `
+//     ;
+// }
+// creatMovieCard()
+
+// T16
+// var employee = {};
+
+// employee.firstName = prompt("Please enter the employee's first name:");
+// employee.lastName = prompt("Please enter the employee's last name:");
+// employee.email = prompt("Please enter the employee's email address:");
+// employee.department = prompt("Please enter the employee's department:");
+
+// var employeeInfoHTML = `
+//     <div id="employee-info">
+//         <h1>New Employee</h1>
+//         <p><strong>First Name:</strong> ${employee.firstName}</p>
+//         <p><strong>Last Name:</strong> ${employee.lastName}</p>
+//         <p><strong>E-Mail:</strong> ${employee.email}</p>
+//         <p><strong>Department:</strong> ${employee.department}</p>
+//     </div>
+// `;
+
+// document.body.innerHTML = employeeInfoHTML;
+
+// // T17
+// function createNewBuildings() {
+//     var numOfBuildings = +(prompt("How many buildings to add?"));
+    
+//     for (var i = 0; i < numOfBuildings; i++) {
+//         var newStore = {};
+
+//         newStore.contractor = prompt("Enter contractor's name:");
+//         newStore.companyName = prompt("Enter company name:");
+//         newStore.numFloors = +(prompt("Enter number of floors:"));
+//         newStore.numApartmentsPerFloor = +(prompt("Enter number of apartments per floor:"));
+
+//         var newBuildingHTML = `
+//             <div class="myBuilding">
+//                 <h1>New Building</h1>
+//                 <p><strong>Contractor: </strong> ${newStore.contractor}</p>
+//                 <p><strong>Company Name: </strong> ${newStore.companyName}</p>
+//                 <p><strong>Num Of Floors: </strong> ${newStore.numFloors}</p>
+//                 <p><strong>Apartments Per Floor: </strong> ${newStore.numApartmentsPerFloor}</p>
+//             </div>
+//         `;
+        
+//         document.body.innerHTML += newBuildingHTML;
+//     }
+// }
+
+// createNewBuildings();
+
+// T18
+// function createNewStores() {
+//         var numOfStores = +(prompt("How many Stores to add?"));
+//         var storesArr = [];
+//         for (var i = 0; i < numOfStores; i++) {
+//             var newStore = {};
+    
+//             newStore.storeName = prompt("Enter Store's name:");
+//             newStore.address = prompt("Enter Store's address:");
+//             newStore.numOfDepartments = +(prompt("Enter number of departements:"));
+//             newStore.numOfWorkers = +(prompt("Enter number of workers:"));
+    
+//             storesArr.push(newStore)
+//             console.log(storesArr);
+
+//             if (newStore.numOfWorkers > 10) {
+//                 var newStoreHTML = `
+//                 <div class="myStore">
+//                     <h1>New Store</h1>
+//                     <p><strong>Store's address: </strong> ${newStore.storeName}</p>
+//                     <p><strong>Store's address: </strong> ${newStore.address}</p>
+//                     <p><strong>Num Of Departements: </strong> ${newStore.numOfDepartments}</p>
+//                     <p><strong>Num Of workers: </strong> ${newStore.numOfWorkers}</p>
+//                 </div>
+//             `;
+            
+//             document.body.innerHTML += newStoreHTML;
+//             }
+            
+//         }
+//     }
+    
+//     createNewStores()
+
+// T19
+// function numOfElementsCreated() {
+//     return document.getElementsByClassName("myBuilding").length
+// }
+
+// numOfElementsCreated()
+
+
+// T20
+function addContac() {
+    var numOfContacts = +prompt("Choose number of Contacts to add: ")
+    var contactsArr = [];
+    for (let i = 0; i < numOfContacts; i++) {
+        var newContact = {};
+        newContact.name = prompt("Add Contact's Name")
+        newContact.comapny = prompt("Add Contact's Copmpany")
+        newContact.phone = prompt("Add Contact's Phone")
+        newContact.mail = prompt("Add Contact's Mail")
+        contactsArr.push(newContact)
+
+        var contactNameHTML = `<li>Name: ${newContact.name} </li>`
+        document.getElementById("myList").innerHTML += contactNameHTML
+    }
+
+
+    return contactsArr
 }
-userFucn()
+
 
 // T22
 // function createContryList() {
