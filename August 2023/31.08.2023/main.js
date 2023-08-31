@@ -6,7 +6,8 @@ var bugsArray = [
 ];
 
 for (let i = 0; i < bugsArray.length; i++) {
-  document.getElementById("myTbody").innerHTML += `
+  document.getElementById("myTbody").innerHTML +=
+        `
           <tr>
             <td>${bugsArray[i].bugName}</td>
             <td>${bugsArray[i].type}</td>
