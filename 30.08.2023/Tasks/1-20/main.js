@@ -216,33 +216,34 @@
 
 // document.body.innerHTML = employeeInfoHTML;
 
-// // T17
-// function createNewBuildings() {
-//     var numOfBuildings = +(prompt("How many buildings to add?"));
+// T17
+function createNewBuildings() {
+    var numOfBuildings = +(prompt("How many buildings to add?"));
     
-//     for (var i = 0; i < numOfBuildings; i++) {
-//         var newStore = {};
+    for (var i = 0; i < numOfBuildings; i++) {
+        var newStore = {};
 
-//         newStore.contractor = prompt("Enter contractor's name:");
-//         newStore.companyName = prompt("Enter company name:");
-//         newStore.numFloors = +(prompt("Enter number of floors:"));
-//         newStore.numApartmentsPerFloor = +(prompt("Enter number of apartments per floor:"));
+        newStore.contractor = prompt("Enter contractor's name:");
+        newStore.companyName = prompt("Enter company name:");
+        newStore.numFloors = +(prompt("Enter number of floors:"));
+        newStore.numApartmentsPerFloor = +(prompt("Enter number of apartments per floor:"));
 
-//         var newBuildingHTML = `
-//             <div class="myBuilding">
-//                 <h1>New Building</h1>
-//                 <p><strong>Contractor: </strong> ${newStore.contractor}</p>
-//                 <p><strong>Company Name: </strong> ${newStore.companyName}</p>
-//                 <p><strong>Num Of Floors: </strong> ${newStore.numFloors}</p>
-//                 <p><strong>Apartments Per Floor: </strong> ${newStore.numApartmentsPerFloor}</p>
-//             </div>
-//         `;
+        var newBuildingHTML = `
+            <div class="myBuilding">
+                <h1>New Building</h1>
+                <p><strong>Contractor: </strong> ${newStore.contractor}</p>
+                <p><strong>Company Name: </strong> ${newStore.companyName}</p>
+                <p><strong>Num Of Floors: </strong> ${newStore.numFloors}</p>
+                <p><strong>Apartments Per Floor: </strong> ${newStore.numApartmentsPerFloor}</p>
+            </div>
+        `
+        ;
         
-//         document.body.innerHTML += newBuildingHTML;
-//     }
-// }
+        document.body.innerHTML += newBuildingHTML;
+    }
+}
 
-// createNewBuildings();
+createNewBuildings();
 
 // T18
 // function createNewStores() {
