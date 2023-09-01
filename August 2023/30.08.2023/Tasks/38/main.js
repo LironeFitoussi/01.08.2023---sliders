@@ -1,8 +1,6 @@
 var teachersArr = [];
 
-function getTecherByUser() {
-  var count = +prompt("Pick a Number of Teachers");
-
+function getTecherByUser(count) {
   for (let i = 0; i < count; i++) {
     teachersArr.push({
       name: prompt("Choose Teacher's Name"),
