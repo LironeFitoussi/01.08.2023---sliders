@@ -1,8 +1,9 @@
 function openSearch() {
     document.body.innerHTML += 
-    `<input type="text" id="searchInput" placeholder="Enter a name to search..."/>
+    `<input type="text" id="searchInput" placeholder="Enter a name to search..." oninput="showNames()" ">
     <div id="results"></div>
     `
+    document.getElementsByTagName("button")[0].setAttribute("onclick", "")
 }
 
 var names = [
@@ -17,34 +18,19 @@ var names = [
     "Mia Brown",
     "Elijah Miller"
   ];
-  
-  var searchInput = document.getElementById("searchInput");
-  var resultsDiv = document.getElementById("results");
-  
-  function handleInput() {
-    var searchTerm = searchInput.value.toLowerCase();
-    var filteredNames = names.filter(filterNames);
-    displayResults(filteredNames);
-  }
-  
-  function filterNames(name) {
-    return name.toLowerCase().indexOf(searchInput.value.toLowerCase()) !== -1;
-  }
-  
-  function displayResults(results) {
-    resultsDiv.innerHTML = "";
-  
-    if (results.length === 0) {
-      resultsDiv.textContent = "No results found.";
-      return;
+ 
+  function showNames() {
+    var findInput = searchInput.value;
+    for (let i = 0; i < names.length; i++) {
+      if (currentValue != findInput) {
+        results.innerHTML = ``;
+        currentValue = findInput;
+      } else if (names[i].indexOf(findInput) > -1 && findInput.length > 0) {
+        results.innerHTML += `
+        <p>${names[i]}</p>
+        `
+      } 
     }
-  
-    for (var i = 0; i < results.length; i++) {
-      var resultElement = document.createElement("p");
-      resultElement.textContent = results[i];
-      resultsDiv.appendChild(resultElement);
-    }
+    var currentValue = findInput;
   }
-  
-  searchInput.addEventListener("input", handleInput);
   
