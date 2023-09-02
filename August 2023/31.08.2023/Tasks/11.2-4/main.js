@@ -6,6 +6,10 @@ function openSearch() {
     document.getElementsByTagName("button")[0].setAttribute("onclick", "")
 }
 
+function logMsg() {
+  console.log("Mouse Over the Button");
+}
+
 var names = [
     "Sophia Johnson",
     "Liam Martinez",
