@@ -10,6 +10,16 @@ function logMsg() {
   console.log("Mouse Over the Button");
 }
 
+function displayByLength() {
+  names.sort((a, b) => a.length - b.length)
+  for (let i = 0; i < names.length; i++) {
+    document.body.innerHTML += `
+      <p>${names[i]} ${names[i].length} </p>
+    `
+  }
+}
+
+
 var names = [
     "Sophia Johnson",
     "Liam Martinez",
