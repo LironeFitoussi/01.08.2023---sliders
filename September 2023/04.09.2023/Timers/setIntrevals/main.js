@@ -34,28 +34,60 @@ function printCounter() {
 // }
 
 // T5
-t5.innerHTML = `
-    <label for="">Set Timer Countdown</label>
-    <input type="number">
-    <button>Start Countdown</button>
-`
+t5.innerHTML = '<label for="timerInput">Set Timer Countdown (in minutes)</label>' +
+    '<input type="number" id="timerInput">' +
+    '<button id="startButton">Start Countdown</button>' +
+    '<button id="pauseButton">⏸ / ▶</button>' +
+    '<p id="timerDisplay"></p>';
 
-t5.getElementsByTagName("button")[0].addEventListener("click", logTest)
+var countDown;
+var countSec = 0;
+var countMin = 0;
 
-function logTest() {
-    setInterval(countDown, 1000)
-    var countSec = 12
-    console.log(countSec);
-    var countMin = (t5.getElementsByTagName("input")[0].value)-1
-    function countDown() {
-        t5.innerHTML = `<p>${countMin}:${countSec}</p>`
-        countSec--
-        if (countSec < 10) {
-            countSec =  "0" + countSec
-        }
-        if (countSec == "0-1") {
-            countSec = 59;
-            countMin--
-        }
+document.getElementById("startButton").addEventListener("click", startTimer);
+document.getElementById("pauseButton").addEventListener("click", pauseTimer);
+
+var countDown;
+var countDownActive = false;
+
+function startTimer() {
+    if (t5.getElementsByTagName("input")[0].value > 0){
+        countMin = (t5.getElementsByTagName("input")[0].value)
+        countSec = 0
     }
+
+    if (!countDownActive && t5.getElementsByTagName("input")[0].value != "") {
+        countDown = setInterval(startCountdown, 1000);
+        t5.getElementsByTagName("input")[0].value = ""
+    }
+}
+
+function startCountdown() {
+    
+    countDownActive = true;
+    t5.getElementsByTagName("p")[0].innerHTML = `${countMin}:${countSec}`
+    countSec--
+    if (countSec < 10) {
+        countSec =  "0" + countSec
+    }
+
+    if (countSec == "0-1") {
+        countSec = 59;
+        countMin--
+    }
+
+    if (countMin === 0 && countSec === 0) {
+        clearInterval(countDown);
+        alert("Time's up!");
+    }
+}
+
+function pauseTimer() {
+    if (countDownActive) {
+        clearInterval(countDown)
+        countDownActive = false;
+    } else {
+        countDown = setInterval(startCountdown, 1000);
+        countDownActive = true;
+    } 
 }
