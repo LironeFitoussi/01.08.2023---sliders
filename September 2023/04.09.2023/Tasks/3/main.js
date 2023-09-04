@@ -1,14 +1,9 @@
 myDiv.innerHTML += `
-    <div>Click Me</div>
-    <p id="myTime"></p>
+    <h3 id="myH3">Click Me</h3>
 `
 
-document.body.getElementsByTagName("div")[0].addEventListener("mouseover", printHour)
+document.body.getElementsByTagName("h3")[0].addEventListener("mouseover", changeColor)
 
-function printHour() {
-    var actualDate = new Date()
-    myTime.innerHTML = 
-    `
-        ${actualDate.getHours()}:${actualDate.getMinutes()}
-    `
+function changeColor() {
+    myH3.style = "color: purple"
 }
