@@ -2,36 +2,38 @@ t6.innerHTML =
 `
     <label for="">Set Alarm Clock</label>
     <input id="timeInput" type="time">
-    <button id="setAlarmBtn">Set Alarm</button>
     <button id="pauseButton">⏸ / ▶</button>
     <p id=timeLeftP></p>
 `
-setAlarmBtn.addEventListener("click", startCountdown)
-pauseButton.addEventListener("click", stopCountdown)
+pauseButton.addEventListener("click", startPasueCountdown)
+timeInput.addEventListener("input", pasueCountdown)
 
 var mainInterval;
 var isCountDownActive = false;
 
-function startCountdown() {
-    isCountDownActive = true;
-    mainInterval = setInterval(printTime, 1000)
-}
-
-function stopCountdown() {
+function startPasueCountdown() {
     if (isCountDownActive == true) {
         clearInterval(mainInterval)
         isCountDownActive = false;
     } else {
         mainInterval = setInterval(printTime, 1000)
         isCountDownActive = true;
-    }
-    
+    } 
+}
+
+function pasueCountdown() {
+    clearInterval(mainInterval)
+    isCountDownActive = false;
 }
 
 function printTime() {
     timeLeftP.innerHTML = `
         ${setAlarm()}
     `
+    if (timeLeftP.innerText == "Error") {
+        alert("Time Alredy Passed")
+        location.reload()
+    }  
 }
 
 function setAlarm() {
@@ -55,6 +57,15 @@ function setAlarm() {
     var secondsDiffrence = Math.floor(timeDiffrence/1000)
     timeDiffrence -= secondsDiffrence*1000
     
+    if (hoursDiffrence == 0 && minutesDiffrence == 0 && secondsDiffrence == 0){
+        alert("Times Up!")
+        startPasueCountdown()
+    }
+
+    if (hoursDiffrence < 0) {
+        return `Error`
+    }
+
     return `Time Left: ${hoursDiffrence}:${minutesDiffrence}:${secondsDiffrence}`
 }
 
@@ -67,3 +78,4 @@ function extractMinutesFromUser() {
     var userMinutesInput = timeInput.value.substring(timeInput.value.indexOf(":")+1, timeInput.value.length);
     return parseInt(userMinutesInput);
 }
+
