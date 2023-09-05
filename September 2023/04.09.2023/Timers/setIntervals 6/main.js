@@ -3,12 +3,29 @@ t6.innerHTML =
     <label for="">Set Alarm Clock</label>
     <input id="timeInput" type="time">
     <button id="setAlarmBtn">Set Alarm</button>
+    <button id="pauseButton">⏸ / ▶</button>
     <p id=timeLeftP></p>
 `
-setAlarmBtn.addEventListener("click", printCountdown)
+setAlarmBtn.addEventListener("click", startCountdown)
+pauseButton.addEventListener("click", stopCountdown)
 
-function printCountdown() {
-    setInterval(printTime, 1000)
+var mainInterval;
+var isCountDownActive = false;
+
+function startCountdown() {
+    isCountDownActive = true;
+    mainInterval = setInterval(printTime, 1000)
+}
+
+function stopCountdown() {
+    if (isCountDownActive == true) {
+        clearInterval(mainInterval)
+        isCountDownActive = false;
+    } else {
+        mainInterval = setInterval(printTime, 1000)
+        isCountDownActive = true;
+    }
+    
 }
 
 function printTime() {
