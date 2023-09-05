@@ -21,6 +21,7 @@ document.head.innerHTML += `
     </style>  
 `
 var growInterval;
+
 function startAnimation() {
     growInterval = setInterval(heightGrow, 10)
 }
@@ -32,8 +33,18 @@ function stopAnimation() {
 
 function heightGrow() {
     if (heightCount <= 300) {
-        document.getElementsByClassName("colorDiv")[0].style =  `height:${heightCount++}px`
+        document.getElementsByClassName("colorDiv")[0].style = `height:${heightCount++}px`
     }
     
 }
+
+function handleKeyDown(event) {
+    if (event.keyCode === 13) {
+        stopAnimation();
+        heightCount = 5
+        document.getElementsByClassName("colorDiv")[0].style = `height:5px`
+    }
+}
+
+document.addEventListener("keydown", handleKeyDown);
 
