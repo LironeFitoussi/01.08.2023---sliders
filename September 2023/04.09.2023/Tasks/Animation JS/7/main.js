@@ -12,7 +12,8 @@ mainDiv.innerHTML = `
     <div id="output"></div>
 `
 printBtn.addEventListener("click", startPrint)
-// stopBtn.addEventListener("click", stopPrint)
+stopBtn.addEventListener("click", stopPrint)
+document.addEventListener("keydown", handleKeyDown)
 
 
 var colorArray = [] ;
@@ -37,7 +38,14 @@ function setColorArray() {
     }
 }
 
+function stopPrint() {
+    clearInterval(radnomColorPrint)
+}
 
-
+function handleKeyDown(event) {
+    if (event.keyCode === 16) {
+        stopPrint()
+    }
+}
 
 
