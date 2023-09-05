@@ -4,9 +4,13 @@ var heightCount = 0
 
 mainDiv.innerHTML = `
     <button id="startBtn">Start Animation</button>
+    <button id="stopBtn">Stop Animation</button>
+
     <div class="colorDiv""></div>
 `
 startBtn.addEventListener("click", startAnimation)
+stopBtn.addEventListener("click", stopAnimation)
+
 document.head.innerHTML += `
     <style> 
         .colorDiv {
@@ -16,9 +20,13 @@ document.head.innerHTML += `
         }
     </style>  
 `
-
+var growInterval;
 function startAnimation() {
-    setInterval(heightGrow, 1)
+    growInterval = setInterval(heightGrow, 10)
+}
+
+function stopAnimation() {
+    clearInterval(growInterval)
 }
 
 
