@@ -3,8 +3,19 @@ t6.innerHTML =
     <label for="">Set Alarm Clock</label>
     <input id="timeInput" type="time">
     <button id="setAlarmBtn">Set Alarm</button>
+    <p id=timeLeftP></p>
 `
-setAlarmBtn.addEventListener("click", setAlarm)
+setAlarmBtn.addEventListener("click", printCountdown)
+
+function printCountdown() {
+    setInterval(printTime, 1000)
+}
+
+function printTime() {
+    timeLeftP.innerHTML = `
+        ${setAlarm()}
+    `
+}
 
 function setAlarm() {
     //Set 2 times
@@ -26,8 +37,8 @@ function setAlarm() {
     // Set Seconds
     var secondsDiffrence = Math.floor(timeDiffrence/1000)
     timeDiffrence -= secondsDiffrence*1000
-
-    console.log(`Time Left: ${hoursDiffrence}:${minutesDiffrence}:${secondsDiffrence}`);
+    
+    return `Time Left: ${hoursDiffrence}:${minutesDiffrence}:${secondsDiffrence}`
 }
 
 function extractHoursFromUser() {
