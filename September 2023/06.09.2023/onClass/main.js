@@ -34,6 +34,7 @@ function identicalLength() {
     }
 }
 
+// Task 5
 function firstLetter() {
     if (text1.value[0] == text2.value[0]) {
         return true
