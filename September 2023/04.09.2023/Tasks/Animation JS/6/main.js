@@ -1,4 +1,4 @@
-console.log("test");
+§12console.log("test");
 
 document.head.innerHTML += `
     <style> 
@@ -60,11 +60,7 @@ function getuserInputs() {
     console.log(userWidthSet);
 }
 
-function handleKeyDown(event) {
-    if (event.keyCode === 32) {
-        clearInterval(growInterval)
-    }
-}
+11
 
 document.addEventListener("keydown", handleKeyDown);
 
