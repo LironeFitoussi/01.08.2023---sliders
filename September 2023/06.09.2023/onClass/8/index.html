@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #workerForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+      }
+
+      #timeSet {
+        position: absolute;
+        right: 5vw;
+        top: 5vh;
+        background-color: aqua;
+      }
+
+      #timerLeft, h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="Task8">
+      <h1>New Worker</h1>
+      <form id="workerForm" onsubmit="return validation()">
+        <label id="fNameLbl">First Name:</label>
+        <span id="fNameError"></span>
+        <input id="fNameInput" type="text" required />
+
+        <label id="lNameLbl">Last Name:</label>
+        <span id="lNameError"></span>
+        <input id="lNameInput" type="text" required />
+
+        <label id="ageLbl">Birthday:</label>
+        <span id="ageError"></span>
+        <input id="ageInput" type="date" required />
+
+        <label id="mailLbl">E-Mail:</label>
+        <span id="mailError"></span>
+        <input id="mailInput" type="email" required />
+
+        <label id="phoneLbl">Phone Number:</label>
+        <span id="phoneError"></span>
+        <input id="phoneInput" type="tel" required />
+
+        <label id="posLbl">Position:</label>
+        <span id="posError"></span>
+        <input id="posInput" type="text" required />
+
+        <button id="submitBtn" type="submit">Add Worker</button>
+      </form>
+      <div id="timeSet"></div>
+      <p id="timerLeft"></p>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>

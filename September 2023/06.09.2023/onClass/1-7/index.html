@@ -3,6 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #myForm{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
 </head>
 <body>
     <!-- Task 1 -->
@@ -47,23 +55,31 @@
 
     <!-- Task 5 -->
     <div id="Task5">
-        <p>Task5</p>
+        <!-- <p>Task5</p>
         <form onsubmit="return firstLetter()"> 
-            <input id="text1" type="text">
-            <input id="text2" type="text">
-            <button>Submit</button>
-        </form>
-    </div>
-
-    <!-- Task 6 -->
-    <div id="Task6">
-        <!-- <p>Task6</p>
-        <form onsubmit="return identicalLength()"> 
             <input id="text1" type="text">
             <input id="text2" type="text">
             <button>Submit</button>
         </form> -->
     </div>
+
+    <!-- Task 7 -->
+    <div id="container">
+        <!-- <form id="myForm" onsubmit="return validate()">
+            <label for="" id="fNameLbl">First Name</label>
+            <input type="text" id="fnameInput">
+            <label for="" id="ageLbl">Age</label>
+            <input type="date" name="" id="ageInput">
+            <label for="" id="emailLbl">Email</label>
+            <input type="email" name="" id="emailInput">
+            <label id="firstPassLbl">Password</label>
+            <input id="pass1Input" placeholder="password1" type="password">
+            <label id="secondPassLbl">Confirom password</label>
+            <input id="pass2Input" placeholder="password2" type="password">
+            <button id="btn">send</button>
+        </form> -->
+    </div>
+
 
 
     <script src="./main.js"></script>
