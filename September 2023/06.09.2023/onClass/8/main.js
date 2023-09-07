@@ -28,31 +28,45 @@ function validation() {
             fNameError.innerHTML = "*First letter must be capitalized"
             fNameError.style.color = "red"
             fNameInput.style.border = "1px dotted red"
+        } else {
+            fNameError.innerHTML = ``
         }
 
         if (!lNameValid) {
             lNameError.innerHTML = "*The Last Name input must be less than 20 characters long"
             lNameError.style.color = "red"
             lNameInput.style.border = "1px dotted red"
+        } else {
+            lNameError.innerHTML = ``
         }
 
         if (!ageValid) {
             ageError.innerHTML = "*Worker must be between 18 to 65 y.o."
             ageError.style.color = "red"
             ageInput.style.border = "1px dotted red"
+        } else {
+            ageError.innerHTML = ``
+            ageInput.style = ``
         }
 
         if (!mailValid) {
             mailError.innerHTML = `*E-Mail Must end With ".com" or ".co.il"`
             mailError.style.color = "red"
             mailInput.style.border = "1px dotted red"
+        } else {
+            mailError.innerHTML = ``
+            mailInput.style = ``
         }
 
         if (!phoneValid) {
             phoneError.innerHTML = "*The Phone Number input must start with a 0 and be 10 digits long."
             phoneError.style.color = "red"
             phoneInput.style.border = "1px dotted red"
-        }
+        } else {
+            phoneError.innerHTML = ``
+            phoneInputInput.style = ``
+        } 
+
         attemptCount++
         console.log(attemptCount);
         if (attemptCount >= 4) {
