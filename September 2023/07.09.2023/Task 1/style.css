@@ -12,6 +12,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1vh;
+  height: fit-content;
 }
 
 .site-header {
