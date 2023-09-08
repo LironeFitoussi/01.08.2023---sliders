@@ -50,6 +50,7 @@ main {
   gap: 1vh;
   height: fit-content;
   align-items: center;
+  width: fit-content;
 }
 
 h1 {
@@ -82,7 +83,7 @@ h1 {
 }
 
 table {
-    margin: auto;
+  width: 85vw;
 }
 
 td {
@@ -203,4 +204,47 @@ td {
   background-color: #ebda24;
   border-radius: .5rem;
   padding: 4%;
+}
+
+.Pending {
+  color: #ffffff;
+  background-color: #e73b15;
+  border-radius: .5rem;
+  padding: 4%;
+}
+
+.Completed {
+  color: #ffffff;
+  background-color: #12bb1a;
+  border-radius: .5rem;
+  padding: 4%;
+}
+
+.Progress {
+  color: #ffffff;
+  background-color: #ebda24;
+  border-radius: .5rem;
+  padding: 4%;
+}
+
+.passedDate {
+  background-color: #e73b15;
+  border-radius: .5rem;
+  padding: 4%;
+  color: #000000;
+}
+
+@media screen and (max-width: 425px) {
+  thead {
+    display: none;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  td.TaskName {
+    background-color: rgb(101, 180, 249);
+  }
 }
