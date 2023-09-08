@@ -91,6 +91,10 @@ td {
   text-align: center;
 }
 
+tr:hover > *{
+  background-color: #ebfbfe;
+}  
+
 
 /* CSS Button 53 */
 .button-53 {
@@ -185,7 +189,7 @@ td {
 }
 
 
-.Hight {
+.High {
   color: #ffffff;
   background-color: #e73b15;
   border-radius: .5rem;
