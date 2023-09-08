@@ -161,9 +161,11 @@ function loadSite() {
     for (let j = 0; j < userTasks.length; j++) {
       
       document.getElementById(`row${j}`).addEventListener("click", function (){
-        console.log("hello");
-        userTasks.splice(j, 1)
-        printUserTasks()
+        var confirmDelete = confirm("Are You sure you want to Delete this task?")
+        if (confirmDelete) {
+          userTasks.splice(j, 1)
+          printUserTasks()
+        }
       });
     }
 
