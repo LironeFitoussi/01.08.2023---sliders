@@ -10,11 +10,29 @@ body {
     background-image: url(https://img.freepik.com/free-vector/abstract-background_53876-90689.jpg?w=740&t=st=1694158222~exp=1694158822~hmac=93c204e418329aad1985013e5ad290223190c0fcf57351ee8be19f1813065dd7)
 }
 
+.youngUser {
+  background-image: url(https://img.freepik.com/free-vector/bokeh-defocused-background_23-2148497833.jpg?w=2000);
+}
+
+.adultUser {
+  background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg);
+}
+
+.oldUser {
+  background-image: url(https://images3.alphacoders.com/641/641481.jpg);
+}
+
 main {
   display: flex;
   flex-direction: column;
   gap: 1vh;
   height: fit-content;
+}
+
+h1 {
+  background: #E5E7EB;
+  border-radius: 5vw;
+  padding: 4vh;
 }
 
 .site-header {

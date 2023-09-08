@@ -1,17 +1,24 @@
-
 function loadSite() {
-    var season;
-    var userName = document.getElementById('logName').value;
-    var userBirthday = new Date(document.getElementById('userLogAge').value);
-    var currentTime = new Date();
+  var season;
+  var userName = document.getElementById("logName").value;
+  var userBirthday = new Date(document.getElementById("userLogAge").value);
+  var currentTime = new Date();
 
-    // Age calculator
-    var userAge = currentTime.getFullYear() - userBirthday.getFullYear();
-    console.log(userAge);
+  // Age calculator
+  var userAge = currentTime.getFullYear() - userBirthday.getFullYear();
+  console.log(userAge);
 
-    var mainContainer = document.getElementById('mainContainer');
+  // Set Background by Age
+  if (userAge < 18) {
+    document.body.classList.add("youngUser")
+  } else if (userAge > 18 && userAge < 30) {
+    document.body.classList.add("adultUser")
+  } else (
+    document.body.classList.add("oldUser")
+  )
 
-    mainContainer.innerHTML = `
+//   Build Form
+  mainContainer.innerHTML = `
     <h1 class="site-header display-1">Welcome back ${userName} <span><img src"${season}"></span></h1>
     <div id="userInput">
         <div class="input-group input-group-sm mb-3">
@@ -51,73 +58,81 @@ function loadSite() {
             <button class="button-35" onclick="printUserTasks()" >Print Tasks</button>
         </div>
     </div>
-    `
+    `;
 }
 
 var userTasks = [];
 
 function addTask() {
-    var invalidTaskName = userTaskInput.value == ``
-    var invalidTaskDesc = userTaskDescInput.value == ``
-    var invalidTaskName = userTaskInput.value == ``
-    var invalidTaskName = userTaskInput.value == ``
-    var invalidTaskName = userTaskInput.value == ``
+  var invalidTaskName = userTaskInput.value == ``;
+  var invalidTaskDesc = userTaskDescInput.value == ``;
+  var invalidTaskName = userTaskInput.value == ``;
+  var invalidTaskName = userTaskInput.value == ``;
+  var invalidTaskName = userTaskInput.value == ``;
 
-    if (invalidTaskName || invalidTaskDesc) {
-        console.log("Test");
-        return
-    }
-    var userDate = document.getElementById('userDateInput').value;
-    var userImportance = document.getElementById('inputGroupSelect01').value;
+  if (invalidTaskName || invalidTaskDesc) {
+    console.log("Test");
+    return;
+  }
+  var userDate = document.getElementById("userDateInput").value;
+  var userImportance = document.getElementById("inputGroupSelect01").value;
 
-    userTasks.push({
-      task: userTaskInput.value,
-      taskDesk: document.getElementById('userTaskDescInput').value,
-      date: userDate,
-      importance: userImportance,
-      status: document.getElementById('inputGroupSelect02').value
-    });
+  userTasks.push({
+    task: userTaskInput.value,
+    taskDesk: document.getElementById("userTaskDescInput").value,
+    date: userDate,
+    importance: userImportance,
+    status: document.getElementById("inputGroupSelect02").value,
+  });
 
-    userTaskInput.value = '';
-    userTaskDescInput.value = '';
-    userDateInput.value = '';
-    inputGroupSelect01.value = '';
-    inputGroupSelect02.value = '';
+  userTaskInput.value = "";
+  userTaskDescInput.value = "";
+  userDateInput.value = "";
+  inputGroupSelect01.value = "";
+  inputGroupSelect02.value = "";
 }
 
 var tableExist = false;
 
 function printUserTasks() {
-  if (!tableExist) {
-    mainContainer.innerHTML += `
-            <table class="table">
-                <thead class="thead-dark">
-                    <th scope="col">Task</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Day</th>
-                    <th scope="col">Importance</th>
-                    <th scope="col" >Status</th>
-                </thead>
-                <tbody id="userTasksOutput">
-                </tbody>
-            </table>
-        `;
-
-    tableExist = true;
-  } else {
-    userTasksOutput.innerHTML = '';
+    if (!tableExist) {
+      mainContainer.innerHTML += `
+              <table class="table">
+                  <thead class="thead-dark">
+                      <th scope="col">Task</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Day</th>
+                      <th scope="col">Importance</th>
+                      <th scope="col">Status</th>
+                  </thead>
+                  <tbody id="userTasksOutput">
+                  </tbody>
+              </table>
+          `;
+  
+      tableExist = true;
+    } else {
+      userTasksOutput.innerHTML = "";
+    }
+  
+    for (let i = 0; i < userTasks.length; i++) {
+      userTasksOutput.innerHTML += `
+              <tr id="row${i}">
+                  <td scope="row">${userTasks[i].task}</td>
+                  <td scope="row">${userTasks[i].taskDesk}</td>
+                  <td scope="row">${userTasks[i].date}</td>
+                  <td scope="row"><span class="${userTasks[i].importance}">${userTasks[i].importance}</span></td>
+                  <td scope="row">${userTasks[i].status}</td>
+              </tr>
+          `;
+  
+      var row = document.getElementById(`row${i}`);
+      row.addEventListener("click", function () {
+        var confirmDelete = confirm("Are Your Sure You Want to Delete this Row?");
+        if (confirmDelete) {
+            userTasks.splice(i, 1);
+            printUserTasks();
+        }
+      });
+    }
   }
-
-  for (let i = 0; i < userTasks.length; i++) {
-    userTasksOutput.innerHTML += `
-            <tr id="row${i}">
-                <td scope="row">${userTasks[i].task}</td>
-                <td scope="row">${userTasks[i].taskDesk}</td>
-                <td scope="row">${userTasks[i].date}</td>
-                <td scope="row"><span class="${userTasks[i].importance}">${userTasks[i].importance}</span></td>
-                <td scope="row">${userTasks[i].status}</td>
-            </tr>
-        `;
-  }
-}
-
