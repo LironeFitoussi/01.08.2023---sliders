@@ -7,8 +7,6 @@ function loadSite() {
     
     // Age calculator
     var userAge = currentTime.getFullYear() - userBirthday.getFullYear();
-    console.log(userAge);
-  
     // Set Background by Age
     if (userAge < 18) {
       document.body.classList.add("youngUser");
@@ -123,6 +121,7 @@ function loadSite() {
   
   function printUserTasks() {
     if (userTasks.length == 0) {
+      document.getElementsByTagName("table")[0].remove()
       return;
     }
   
@@ -157,15 +156,19 @@ function loadSite() {
                     <td scope="row"><span class="${userTasks[i].status}">${userTasks[i].status}</span></td>
                 </tr>
             `;
-  
-      var row = document.getElementById(`row${i}`);
-      row.addEventListener("click", function () {
-        var confirmDelete = confirm("Are You Sure You Want to Delete this Row?");
-        if (confirmDelete) {
-          userTasks.splice(i, 1);
-          printUserTasks();
-        }
+    }
+
+    for (let j = 0; j < userTasks.length; j++) {
+      
+      document.getElementById(`row${j}`).addEventListener("click", function (){
+        console.log("hello");
+        userTasks.splice(j, 1)
+        printUserTasks()
       });
     }
+
+
+
   }
+  
   
