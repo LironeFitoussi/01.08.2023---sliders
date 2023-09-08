@@ -10,16 +10,43 @@ function loadSite() {
 
   // Set Background by Age
   if (userAge < 18) {
-    document.body.classList.add("youngUser")
+    document.body.classList.add("youngUser");
   } else if (userAge > 18 && userAge < 30) {
-    document.body.classList.add("adultUser")
-  } else (
-    document.body.classList.add("oldUser")
-  )
+    document.body.classList.add("adultUser");
+  } else document.body.classList.add("oldUser");
 
-//   Build Form
+  // Find Day Time
+  var dayTime;
+  if (currentTime.getHours() < 12 && currentTime.getHours() > 5) {
+    dayTime = "Morning";
+  } else if (currentTime.getHours() >= 12 && currentTime.getHours() < 19) {
+    dayTime = "Afternoon";
+  } else if (currentTime.getHours() >= 19 && currentTime.getHours() > 19) {
+    dayTime = "Evening";
+  } else {
+    dayTime = "Night";
+  }
+
+  // Set Season Style
+  var currentMonth = currentTime.getMonth();
+  var seasonOfTheYear;
+  
+  if (currentMonth >= 0 && currentMonth <= 1) { // January and February
+      seasonOfTheYear = "winterDisplay";
+  } else if (currentMonth >= 2 && currentMonth <= 4) { // March, April, and May
+      seasonOfTheYear = "springDisplay";
+  } else if (currentMonth >= 5 && currentMonth <= 7) { // June, July, and August
+      seasonOfTheYear = "summerDisplay";
+  } else if (currentMonth >= 8 && currentMonth <= 10) { // September, October, and November
+      seasonOfTheYear = "autumnDisplay";
+  } else { // December
+      seasonOfTheYear = "winterDisplay";
+  }
+
+  //   Build Form
   mainContainer.innerHTML = `
-    <h1 class="site-header display-1">Welcome back ${userName} <span><img src"${season}"></span></h1>
+    <h1 class="site-header display-1">Good ${dayTime}, ${userName}!</h1>
+    <div id="yearSeason" class="${seasonOfTheYear}"></div>
     <div id="userInput">
         <div class="input-group input-group-sm mb-3">
             <span class="input-group-text" id="inputGroup-sizing-sm">Please insert the Task Name:</span>
@@ -95,8 +122,12 @@ function addTask() {
 var tableExist = false;
 
 function printUserTasks() {
-    if (!tableExist) {
-      mainContainer.innerHTML += `
+  if (userTasks.length == 0) {
+    return;
+  }
+
+  if (!tableExist) {
+    mainContainer.innerHTML += `
               <table class="table">
                   <thead class="thead-dark">
                       <th scope="col">Task</th>
@@ -109,14 +140,14 @@ function printUserTasks() {
                   </tbody>
               </table>
           `;
-  
-      tableExist = true;
-    } else {
-      userTasksOutput.innerHTML = "";
-    }
-  
-    for (let i = 0; i < userTasks.length; i++) {
-      userTasksOutput.innerHTML += `
+
+    tableExist = true;
+  } else {
+    userTasksOutput.innerHTML = "";
+  }
+
+  for (let i = 0; i < userTasks.length; i++) {
+    userTasksOutput.innerHTML += `
               <tr id="row${i}">
                   <td scope="row">${userTasks[i].task}</td>
                   <td scope="row">${userTasks[i].taskDesk}</td>
@@ -125,14 +156,14 @@ function printUserTasks() {
                   <td scope="row">${userTasks[i].status}</td>
               </tr>
           `;
-  
-      var row = document.getElementById(`row${i}`);
-      row.addEventListener("click", function () {
-        var confirmDelete = confirm("Are Your Sure You Want to Delete this Row?");
-        if (confirmDelete) {
-            userTasks.splice(i, 1);
-            printUserTasks();
-        }
-      });
-    }
+
+    var row = document.getElementById(`row${i}`);
+    row.addEventListener("click", function () {
+      var confirmDelete = confirm("Are Your Sure You Want to Delete this Row?");
+      if (confirmDelete) {
+        userTasks.splice(i, 1);
+        printUserTasks();
+      }
+    });
   }
+}
