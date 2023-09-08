@@ -5,6 +5,8 @@ body {
     justify-content: center;
     height: 100vh;
     padding: 10vw;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image: url(https://img.freepik.com/free-vector/abstract-background_53876-90689.jpg?w=740&t=st=1694158222~exp=1694158822~hmac=93c204e418329aad1985013e5ad290223190c0fcf57351ee8be19f1813065dd7)
 }
 
@@ -38,8 +40,9 @@ table {
     margin: auto;
 }
 
-th, td {
-  /* padding: 5% 5% !important; */
+td {
+  padding: 3% 2% !important;
+  text-align: center;
 }
 
 
@@ -133,4 +136,26 @@ th, td {
 .button-35:hover:after {
   bottom: 2px;
   left: 2px;
+}
+
+
+.Hight {
+  color: #ffffff;
+  background-color: #e73b15;
+  border-radius: .5rem;
+  padding: 4%;
+}
+
+.Low {
+  color: #ffffff;
+  background-color: #12bb1a;
+  border-radius: .5rem;
+  padding: 4%;
+}
+
+.Medium {
+  color: #ffffff;
+  background-color: #ebda24;
+  border-radius: .5rem;
+  padding: 4%;
 }
