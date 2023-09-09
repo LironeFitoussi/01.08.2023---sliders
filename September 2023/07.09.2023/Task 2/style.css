@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #000;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    font-size: 10vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 3vw;
+}
+
+#displayNumber {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    width: 100%;
+    border-radius: 0;
+}
+
+#zero {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: left;
+    width: 85%;
+    border-radius: 100vh;
+    justify-content: flex-start;
+    padding-left: 3vh;
+}
+
+.specialOperator {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #000;
+}
+
+.specialOperator:hover {
+    background-color: rgba(255, 255, 255, 0.56);
+}
+
+.calcNumber {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.calcNumber:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.calcOperator {
+    background-color: rgb(231, 155, 14);
+}
+
+.calcOperator:hover {
+    background-color: rgb(255, 166, 0);
+}
+
+
+main > div {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+}
+
+div > span.align {
+    position: relative;
+    top: 4px;
+}
