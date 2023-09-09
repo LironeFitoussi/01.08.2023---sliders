@@ -127,7 +127,6 @@ function addTask() {
   var invalidTaskDesc = userTaskDescInput.value == ``;
 
   if (invalidTaskName || invalidTaskDesc) {
-    console.log("Test");
     return;
   }
   var userDate = document.getElementById("userDateInput").value;
