@@ -10,6 +10,12 @@ body {
     background-image: url(https://img.freepik.com/free-vector/abstract-background_53876-90689.jpg?w=740&t=st=1694158222~exp=1694158822~hmac=93c204e418329aad1985013e5ad290223190c0fcf57351ee8be19f1813065dd7)
 }
 
+.log-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
 .youngUser {
   background-image: url(https://img.freepik.com/free-vector/bokeh-defocused-background_23-2148497833.jpg?w=2000);
 }
@@ -54,7 +60,7 @@ main {
 }
 
 h1 {
-  background: #E5E7EB;
+  background: #ffffffbc;
   border-radius: 5vw;
   padding: 4vh;
 }
@@ -91,7 +97,7 @@ td {
   text-align: center;
 }
 
-tr:hover > *{
+tr.user-task:hover > *{
   background-color: #ebfbfe;
 }  
 
