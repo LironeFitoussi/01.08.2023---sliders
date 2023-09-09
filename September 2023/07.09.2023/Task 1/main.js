@@ -28,7 +28,7 @@ function loadSite() {
     }
     return
   }
-
+  document.body.style = `background-size: cover`
   nameError = false;
   ageError = false;
 

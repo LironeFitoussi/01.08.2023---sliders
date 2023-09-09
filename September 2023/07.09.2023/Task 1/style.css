@@ -249,6 +249,11 @@ tr.user-task:hover > *{
 }
 
 @media screen and (max-width: 425px) {
+  body {
+    height: auto;
+    background-size: inherit;
+  }
+
   thead {
     display: none;
   }
@@ -260,5 +265,9 @@ tr.user-task:hover > *{
 
   td.TaskName {
     background-color: rgb(101, 180, 249);
+  }
+
+  td {
+    padding: 15px !important;
   }
 }
