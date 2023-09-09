@@ -16,6 +16,10 @@ body {
   gap: 2vh;
 }
 
+.error-msg {
+  color: #e73b15;
+}
+
 .youngUser {
   background-image: url(https://img.freepik.com/free-vector/bokeh-defocused-background_23-2148497833.jpg?w=2000);
 }

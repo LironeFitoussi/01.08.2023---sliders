@@ -28,6 +28,10 @@ function loadSite() {
     }
     return
   }
+
+  nameError = false;
+  ageError = false;
+
   var userName = document.getElementById("logName").value;
   var userBirthday = new Date(document.getElementById("userLogAge").value);
 
