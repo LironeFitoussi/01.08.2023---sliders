@@ -60,3 +60,11 @@ equal.addEventListener("click", function() {
     displayNumber.innerText = result;
     operator = undefined;
 });
+
+clearMath.addEventListener("click", function() {
+    firstNumber = undefined;
+    secondNumber = undefined;
+    operator = undefined;
+    result = undefined;
+    displayNumber.innerText = ``
+});
