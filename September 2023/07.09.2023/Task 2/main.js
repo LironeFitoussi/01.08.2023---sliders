@@ -58,6 +58,7 @@ equal.addEventListener("click", function() {
     
     // Display the result
     displayNumber.innerText = result;
+    firstNumber = result
     operator = undefined;
 });
 
