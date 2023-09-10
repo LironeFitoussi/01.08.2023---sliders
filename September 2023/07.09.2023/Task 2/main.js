@@ -1,6 +1,6 @@
 var firstNumber = ``;
 var operator;
-var secondNumber = null; 
+var secondNumber = ``; 
 var result;
 
 
@@ -14,8 +14,8 @@ for (let i = 0; i < 11; i++) {
             displayNumber.innerHTML += calcNumberElement.querySelector("span").innerText;
             firstNumber += calcNumberElement.querySelector("span").innerText;
         } else {
-            displayNumber.innerHTML = calcNumberElement.querySelector("span").innerText;
-            secondNumber = parseInt(calcNumberElement.querySelector("span").innerText);
+            displayNumber.innerHTML += calcNumberElement.querySelector("span").innerText;
+            secondNumber += calcNumberElement.querySelector("span").innerText;
         }
     });
 }
@@ -23,6 +23,7 @@ for (let i = 0; i < 11; i++) {
 for (let j = 0; j < 4; j++) {
     var calcOperatorElement = document.getElementsByClassName("calcOperator")[j];
     calcOperatorElement.addEventListener("click", function () {
+        displayNumber.innerHTML = ``
         calcOperatorElement = document.getElementsByClassName("calcOperator")[j]
         operator = calcOperatorElement.querySelector("span").innerText;
         if (operator == "X") {
@@ -33,23 +34,23 @@ for (let j = 0; j < 4; j++) {
 }
 
 equal.addEventListener("click", function() {
-    if (operator === null || secondNumber === null) {
+    if (operator === null || secondNumber === ``) {
         console.log("Invalid input");
         return;
     }
     
     switch (operator) {
         case "+":
-            result = parseFloat(firstNumber) + secondNumber;
+            result = parseFloat(firstNumber) + parseFloat(secondNumber);
             break;
         case "-":
-            result = parseFloat(firstNumber) - secondNumber;
+            result = parseFloat(firstNumber) - parseFloat(secondNumber);
             break;
         case "*":
-            result = parseFloat(firstNumber) * secondNumber;
+            result = parseFloat(firstNumber) * parseFloat(secondNumber);
             break;
         case "/":
-            result = parseFloat(firstNumber) / secondNumber;
+            result = parseFloat(firstNumber) / parseFloat(secondNumber);
             break;
         default:
             console.log("Invalid operator");
@@ -59,6 +60,7 @@ equal.addEventListener("click", function() {
     // Display the result
     displayNumber.innerText = result;
     firstNumber = result
+    secondNumber = ``
     operator = undefined;
 });
 
