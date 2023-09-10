@@ -1,4 +1,4 @@
-var firstNumber;
+var firstNumber = ``;
 var operator;
 var secondNumber = null; 
 var result;
@@ -11,8 +11,8 @@ for (let i = 0; i < 11; i++) {
     calcNumberElement.addEventListener("click", function () {
         calcNumberElement = document.getElementsByClassName("calcNumber")[i]
         if (operator == undefined) {
-            displayNumber.innerHTML = calcNumberElement.querySelector("span").innerText;
-            firstNumber = parseFloat(calcNumberElement.querySelector("span").innerText);
+            displayNumber.innerHTML += calcNumberElement.querySelector("span").innerText;
+            firstNumber += calcNumberElement.querySelector("span").innerText;
         } else {
             displayNumber.innerHTML = calcNumberElement.querySelector("span").innerText;
             secondNumber = parseInt(calcNumberElement.querySelector("span").innerText);
@@ -40,16 +40,16 @@ equal.addEventListener("click", function() {
     
     switch (operator) {
         case "+":
-            result = firstNumber + secondNumber;
+            result = parseFloat(firstNumber) + secondNumber;
             break;
         case "-":
-            result = firstNumber - secondNumber;
+            result = parseFloat(firstNumber) - secondNumber;
             break;
         case "*":
-            result = firstNumber * secondNumber;
+            result = parseFloat(firstNumber) * secondNumber;
             break;
         case "/":
-            result = firstNumber / secondNumber;
+            result = parseFloat(firstNumber) / secondNumber;
             break;
         default:
             console.log("Invalid operator");
