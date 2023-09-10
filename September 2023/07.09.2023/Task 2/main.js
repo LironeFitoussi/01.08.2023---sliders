@@ -63,8 +63,8 @@ equal.addEventListener("click", function() {
 });
 
 clearMath.addEventListener("click", function() {
-    firstNumber = undefined;
-    secondNumber = undefined;
+    firstNumber = ``;
+    secondNumber = ``;
     operator = undefined;
     result = undefined;
     displayNumber.innerText = ``
