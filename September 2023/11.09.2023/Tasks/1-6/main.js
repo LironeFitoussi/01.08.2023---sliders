@@ -32,7 +32,7 @@ document.querySelector("#mainContainer").innerHTML = `
         <button onclick="createNamesArray()">Load Form</button>
     `
 function createNamesArray() {
-    document.querySelector("#mainContainer").innerHTML = ``
+    // document.querySelector("#mainContainer").innerHTML = ``
     for (let i = 0; i < 10; i++) {
         document.querySelector("#mainContainer").innerHTML += `
             <input type="text" placeholder="type name ${i+1}">
