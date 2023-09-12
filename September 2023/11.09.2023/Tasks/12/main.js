@@ -8,6 +8,9 @@ const myObject = {
 const outputElement = document.getElementById("output");
 
 let outputHTML = "";
+for (const value of Object.values(myObject)) {
+    console.log(value);
+}
 
 for (const value of Object.values(myObject)) {
     outputHTML += `<p>${value}</p>`;
