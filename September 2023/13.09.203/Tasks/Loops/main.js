@@ -111,4 +111,60 @@ function getAllDogs() {
     }
 }
 
+// Task 10
+const studentsArray = [
+    {
+        "name": "Lirone Fitoussi",
+        "birthday": "26/10/1999",
+        "mail": "lironefit@gmail.com",
+        "passedTest": true
+    },
+    {
+        "name": "Sarah Johnson",
+        "birthday": "15/07/1990",
+        "mail": "sarah.j@example.com",
+        "passedTest": false
+    },
+    {
+        "name": "John Smith",
+        "birthday": "03/12/1985",
+        "mail": "john.smith@example.com",
+        "passedTest": true
+    },
+    {
+        "name": "Emily Brown",
+        "birthday": "21/04/2001",
+        "mail": "emily.b@example.com",
+        "passedTest": true
+    }
+];
 
+// 1
+function printEachStudent() {
+    for (const studentDiv of studentsArray) {
+        console.log(studentDiv);
+    }
+}
+
+// 2
+function getThirdStudent() {
+    for (const part of studentsArray) {
+        if (studentsArray.indexOf(part) == 2) {
+            console.log(part);
+        }
+    }
+}
+
+// 3
+function getAllStudents() {
+    for (const student of studentsArray) {
+        document.querySelector("#myDiv").innerHTML += `
+            <div id="student_div_${studentsArray.indexOf(student)}"></div> 
+        `
+        for (const key in student) {
+            document.querySelector(`#student_div_${studentsArray.indexOf(student)}`).innerHTML += `
+                <p>${student[key]}</p>
+            `
+        }
+    }
+}
