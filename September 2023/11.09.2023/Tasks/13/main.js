@@ -1,20 +1,18 @@
+let userData = {};
+
 document.querySelector("#printUserDataBtn").addEventListener("click", function() {
     console.log("Test");
-    let firstName = document.querySelector("#fName").value;
-    let lastName = document.querySelector("#lName").value;
-    let userAge = document.querySelector("#userAge").value;
-
-    let userData = {
-        firstName,
-        lastName,
-        userAge
+    userData = {
+        firstName: document.querySelector("#fName").value,
+        lastName: document.querySelector("#lName").value,
+        userAge: document.querySelector("#userAge").value
     }
 
-    document.querySelector("#mainContainer").innerHTML += `
-        <div>
-            <h1>${userData.firstName} ${userData.lastName}</h1>
-            <span>${userData.userAge}</span>
-        </div>
-    `
-});
+    const userCard = document.createElement("div");
+    userCard.innerHTML = `
+        <h1>${userData.firstName} ${userData.lastName}</h1>
+        <span>${userData.userAge}</span>
+    `;
 
+    document.querySelector("#mainContainer").appendChild(userCard);
+});
