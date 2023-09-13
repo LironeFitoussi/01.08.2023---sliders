@@ -35,9 +35,21 @@ for (const age of ageArray) {
 }
 
 // Task 6 
-let emptyFamily = []
+let emptyFamily = [];
 for (const fName of familyNames) {
     emptyFamily.push(fName.toUpperCase())
 }
 
 console.log(emptyFamily);
+
+// Task 7
+document.querySelector("#CaseBtn").addEventListener("click", () => {
+    let contryName = document.getElementsByTagName("li")
+        for (const country of contryName) {
+            if (country.innerHTML != country.innerHTML.toUpperCase()){
+                country.innerHTML = country.innerHTML.toUpperCase()
+            } else {
+                country.innerHTML = country.innerHTML.substring(0,1) + country.innerHTML.substring(1,country.innerHTML.length).toLowerCase()
+            }
+        }  
+    });
