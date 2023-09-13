@@ -4,9 +4,24 @@ const form = document.getElementById("textForm");
       
       const text = textInput.value;
       const color = colorInput.value;
-      const size = sizeInput.value;
+      const sizeFromUser = sizeInput.value;
+      let size;
+      switch (sizeFromUser) {
+        case "big":
+            size = "70px"
+            break;
+        case "medium":
+            size = "50px"
+            break;
+        case "small":
+            size = "30px"
+            break;
       
-      const styledText = `<div style="color: ${color}; font-size: ${size}px;">${text}</div>`;
+        default:
+            break;
+      }
+      
+      const styledText = `<div style="color: ${color}; font-size: ${size};">${text}</div>`;
 
       document.getElementById("output").innerHTML += styledText;
     });
