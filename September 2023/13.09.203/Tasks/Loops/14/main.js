@@ -36,8 +36,7 @@ const people = [
             </tbody>
         </table>
     `
-
-    // set th's
+    
     for (const key in people[0]) {
         document.querySelector("#tableHeader").innerHTML += `
             <th>${key}</th>
