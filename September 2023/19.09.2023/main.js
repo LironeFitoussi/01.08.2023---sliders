@@ -31,7 +31,7 @@ const peopleArr = [
         firstName: "Uriel",
         lastName: "Bengaev",
         age: 24
-    },
+    }
 ]
 
 peopleArr.forEach((name) => {
