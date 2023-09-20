@@ -36,3 +36,8 @@ booksInSale.forEach((item) => {
 
 console.table(booksInSale);
 
+5,299
+
+3,806.34
+
+4460
