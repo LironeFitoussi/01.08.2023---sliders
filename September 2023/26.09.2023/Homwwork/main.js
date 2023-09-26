@@ -207,3 +207,4 @@ document.getElementById("carForm").addEventListener("submit", (e) => {
         }
     }
 });
+
