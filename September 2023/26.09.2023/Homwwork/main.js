@@ -229,3 +229,25 @@ console.log(student1.canClub());
 console.log(student1.currentCourse);
 console.log(student1.getAvgGrade);
 
+class Teacher extends Person {
+    constructor(firstName, lastName, birthdate, profileImage, students){
+        super(firstName, lastName, birthdate, profileImage);
+        this.students = students;
+    }
+    set setStudents(students) {
+        if (typeof students === "number" || typeof students === "boolean"){
+            return console.log("Given Input Unvalid");
+        }else if(Array.isArray(students)) {
+            this.students = this.students.concat(students);
+        } else {
+            this.students.push(students);
+        }
+        
+    }
+}
+const teacher1 = new Teacher("Jacob", "Inggidou", "02/02/1990", "nullUrl", [])
+teacher1.setStudents = ["John","Emily","Michael","Sophia","William","Olivia","James","Emma","Benjamin","Ava"]
+teacher1.setStudents = "loko"
+teacher1.setStudents = 82
+teacher1.setStudents = true
+console.log(teacher1);
