@@ -47,6 +47,7 @@ function Person(firstName, lastName, birthdate, profileImage) {
         personComp.id = "personCard"
         personComp.innerHTML = personContent;
         document.body.appendChild(personComp)
+        return `item loaded to dom`
     };
 
 };
@@ -88,8 +89,9 @@ class Car {
     }
 
     set accelerate(speed) {
-        if (this.currentSpeed + speed <= this.maxSpeed) {
-            this.currentSpeed += speed
+        if (this.currentSpeed + speed <= this.maxSpeed-1) {
+            this.currentSpeed += speed;
+            return console.log(`Youre Current Speed is: ${this.currentSpeed}`);
         } else {
             this.currentSpeed = this.maxSpeed
             return console.log(`Car reached Maximum speed`);
@@ -97,18 +99,22 @@ class Car {
         
     } 
 
+    stop(){
+        this.currentSpeed = 0;
+        return `${this.model} has Stopped`
+    }
+
 }
 
 const myCar = new Car("Camry", 2023, "Toyota", 25000, 120, "car-image.jpg");
 console.log(myCar);
 console.log(myCar.accelerate = 20);
 console.log(myCar.accelerate = 20);
-console.log(myCar.accelerate = 20);
-console.log(myCar.accelerate = 20);
-console.log(myCar.accelerate = 20);
-console.log(myCar.accelerate = 10);
-console.log(myCar.accelerate = 11);
+console.log(myCar.accelerate = 80);
+
+
 console.log(myCar.currentSpeed);
+console.log(myCar.stop());
 
 
 
