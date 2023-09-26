@@ -1,6 +1,5 @@
 console.log("test");
 // Task 1
-
 function Person(firstName, lastName, birthdate, profileImage) {
     let age = 0
     this.firstName = firstName;
@@ -207,13 +206,19 @@ document.getElementById("carForm").addEventListener("submit", (e) => {
     }
 });
 
+
+// Taks 3. a
 class Student extends Person {
     constructor(firstName, lastName, birthdate, profileImage, currentCourse, grades) {
         super(firstName, lastName, birthdate, profileImage);
+// Task 3. a. i
         this.currentCourse = currentCourse;
+// Task 3. a. ii
+
         this.grades = grades
     }
 
+// Task 3. b
     get getAvgGrade() {
         let avgGrade = 0
         this.grades.forEach(grade => avgGrade += grade)
@@ -228,11 +233,14 @@ console.log(student1.canClub());
 console.log(student1.currentCourse);
 console.log(student1.getAvgGrade);
 
+// Task 3. c
 class Teacher extends Person {
     constructor(firstName, lastName, birthdate, profileImage, students){
         super(firstName, lastName, birthdate, profileImage);
         this.students = students;
     }
+
+// Task 3. c. i
     set setStudents(students) {
         if (typeof students === "number" || typeof students === "boolean"){
             return console.log("Given Input Unvalid");
@@ -255,6 +263,7 @@ teacher1.setStudents = true
 teacher1.setStudents = student1
 console.log(teacher1);
 
+// Task 3. d
 document.getElementById("studentForm").addEventListener("submit", function(event) {
     event.preventDefault();
     const firstName = document.getElementById("firstName").value;
