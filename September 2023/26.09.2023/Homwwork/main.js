@@ -186,3 +186,19 @@ console.log(myCar1.stop());
 const carsArr = [myCar1, myCar2]
 console.log(carsArr);
 carsArr.forEach(car => car.render)
+
+
+
+document.getElementById("carForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    const model = document.getElementById("model").value;
+    const year = parseInt(document.getElementById("year").value);
+    const brand = document.getElementById("brand").value;
+    const price = parseFloat(document.getElementById("price").value);
+    const maxSpeed = parseInt(document.getElementById("maxSpeed").value);
+    const image = document.getElementById("image").value;
+
+    const newCar = new Car(model, year, brand, price, maxSpeed, image);
+    carsArr.push(newCar)
+    newCar.render
+});
