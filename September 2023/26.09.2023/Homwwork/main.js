@@ -107,13 +107,7 @@ console.log(myCar.accelerate = 20);
 console.log(myCar.accelerate = 20);
 console.log(myCar.accelerate = 20);
 console.log(myCar.accelerate = 10);
-console.log(myCar.accelerate = 20);
-
-
-
-
-
-
+console.log(myCar.accelerate = 11);
 console.log(myCar.currentSpeed);
 
 
