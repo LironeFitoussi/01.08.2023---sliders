@@ -49,7 +49,6 @@ function Person(firstName, lastName, birthdate, profileImage) {
         document.body.appendChild(personComp)
         return `item loaded to dom`
     };
-
 };
 
 const person1 = new Person("John", "Miller", "Sep 26 1985", "https://www.usmagazine.com/wp-content/uploads/2018/10/John-Miller-Jen-Garner-new-boyfriend.jpg?w=1200&quality=47&strip=all");
@@ -207,4 +206,26 @@ document.getElementById("carForm").addEventListener("submit", (e) => {
         }
     }
 });
+
+class Student extends Person {
+    constructor(firstName, lastName, birthdate, profileImage, currentCourse, grades) {
+        super(firstName, lastName, birthdate, profileImage);
+        this.currentCourse = currentCourse;
+        this.grades = grades
+    }
+
+    get getAvgGrade() {
+        let avgGrade = 0
+        this.grades.forEach(grade => avgGrade += grade)
+        return avgGrade / (this.grades).length
+    }
+}
+
+// Example usage:
+const student1 = new Student("David", "Azulay", "1990-01-15", "john.jpg", "Full-Stack Development", [80, 70, 50, 100]);
+console.log(student1.getFullName());
+console.log(student1.getAge());
+console.log(student1.canClub()); 
+console.log(student1.currentCourse);
+console.log(student1.getAvgGrade);
 
