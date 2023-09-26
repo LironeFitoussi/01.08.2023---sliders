@@ -188,9 +188,9 @@ console.log(carsArr);
 carsArr.forEach(car => car.render)
 
 
-
-document.getElementById("carForm").addEventListener("submit", function(event) {
-    event.preventDefault(); 
+const inputsCollection = document.getElementsByTagName("input");
+document.getElementById("carForm").addEventListener("submit", (e) => {
+    e.preventDefault(); 
     const model = document.getElementById("model").value;
     const year = parseInt(document.getElementById("year").value);
     const brand = document.getElementById("brand").value;
@@ -201,4 +201,9 @@ document.getElementById("carForm").addEventListener("submit", function(event) {
     const newCar = new Car(model, year, brand, price, maxSpeed, image);
     carsArr.push(newCar)
     newCar.render
+    for (const prop in inputsCollection) {
+        if (inputsCollection.hasOwnProperty(prop)) {
+            inputsCollection[prop].value = null;
+        }
+    }
 });
