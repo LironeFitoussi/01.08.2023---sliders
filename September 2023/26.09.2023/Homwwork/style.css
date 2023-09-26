@@ -1,0 +1,21 @@
+body {
+    background-color: aquamarine;
+    display: flex;
+    gap: 1vw;
+    flex-wrap: wrap;
+}
+
+.profile-pic {
+    width: 15vw;
+    aspect-ratio: 1 / 1;
+}
+
+#personCard {
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    width: 20vw;
+    align-items: center;
+    padding: 20px;
+    border-radius: 3vh;
+}
