@@ -221,7 +221,6 @@ class Student extends Person {
     }
 }
 
-// Example usage:
 const student1 = new Student("David", "Azulay", "1990-01-15", "john.jpg", "Full-Stack Development", [80, 70, 50, 100]);
 console.log(student1.getFullName());
 console.log(student1.getAge());
@@ -242,7 +241,10 @@ class Teacher extends Person {
         } else {
             this.students.push(students);
         }
-        
+    }
+
+    get getStudents() {
+        return this.students
     }
 }
 const teacher1 = new Teacher("Jacob", "Inggidou", "02/02/1990", "nullUrl", [])
@@ -250,4 +252,26 @@ teacher1.setStudents = ["John","Emily","Michael","Sophia","William","Olivia","Ja
 teacher1.setStudents = "loko"
 teacher1.setStudents = 82
 teacher1.setStudents = true
+teacher1.setStudents = student1
 console.log(teacher1);
+
+document.getElementById("studentForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const birthdate = document.getElementById("birthdate").value;
+    const profileImage = document.getElementById("profileImage").value;
+    const currentCourse = document.getElementById("currentCourse").value;
+    const gradesStr = document.getElementById("grades").value;
+    const grades = gradesStr.split(',')
+
+    const newStudent = new Student(firstName, lastName, birthdate, profileImage, currentCourse, grades);
+    teacher1.setStudents = newStudent;
+    console.log(teacher1.getStudents);
+    newStudent.render()
+    for (const prop in inputsCollection) {
+        if (inputsCollection.hasOwnProperty(prop)) {
+            inputsCollection[prop].value = null;
+        }
+    }
+});
