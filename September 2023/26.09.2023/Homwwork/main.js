@@ -79,30 +79,82 @@ peopleArr.forEach(person => person.render())
 // Task 2
 class Car {
     constructor(model, year, brand, price, maxSpeed, image) {
-        this.model = model;
-        this.year = year;
-        this.brand = brand;
-        this.price = price;
-        this.maxSpeed = maxSpeed;
-        this.image = image;
-        this.currentSpeed = 0
+        this._model = model;
+        this._year = year;
+        this._brand = brand;
+        this._price = price;
+        this._maxSpeed = maxSpeed;
+        this._image = image;
+        this._currentSpeed = 0;
     }
 
     set accelerate(speed) {
-        if (this.currentSpeed + speed <= this.maxSpeed-1) {
-            this.currentSpeed += speed;
-            return console.log(`Youre Current Speed is: ${this.currentSpeed}`);
+        if (this._currentSpeed + speed <= this.maxSpeed-1) {
+            this._currentSpeed += speed;
+            return console.log(`Youre Current Speed is: ${this._currentSpeed}`);
         } else {
-            this.currentSpeed = this.maxSpeed
+            this._currentSpeed = this._maxSpeed
             return console.log(`Car reached Maximum speed`);
         }
         
     } 
 
     stop(){
-        this.currentSpeed = 0;
+        this._currentSpeed = 0;
         return `${this.model} has Stopped`
     }
+
+    get model() {
+        return this._model;
+    }
+
+    set model(model) {
+        this._model = model;
+    }
+
+    get year() {
+        return this._year;
+    }
+
+    set year(year) {
+        this._year = year;
+    }
+
+    get brand() {
+        return this._brand;
+    }
+
+    set brand(brand) {
+        this._brand = brand;
+    }
+
+    get price() {
+        return this._price;
+    }
+
+    set price(price) {
+        this._price = price;
+    }
+
+    get maxSpeed() {
+        return this._maxSpeed;
+    }
+
+    set maxSpeed(maxSpeed) {
+        this._maxSpeed = maxSpeed;
+    }
+
+    get image() {
+        return this._image;
+    }
+
+    set image(image) {
+        this._image = image;
+    }
+
+    get currentSpeed() {
+        return this._currentSpeed;
+    } 
 
 }
 
@@ -112,8 +164,8 @@ console.log(myCar.accelerate = 20);
 console.log(myCar.accelerate = 20);
 console.log(myCar.accelerate = 80);
 
-
 console.log(myCar.currentSpeed);
+console.log(myCar.model);
 console.log(myCar.stop());
 
 
