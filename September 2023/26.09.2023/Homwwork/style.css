@@ -19,3 +19,17 @@ body {
     padding: 20px;
     border-radius: 3vh;
 }
+
+#carCard {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(29, 183, 96);
+    width: 20vw;
+    align-items: center;
+    padding: 20px;
+    border-radius: 3vh;
+}
+
+h2 {
+    margin: 0;
+}
