@@ -66,15 +66,14 @@ console.log(person1.render());
 console.log(person2.render());
 
 const peopleArr = [
-    person1.render(),
-    person2.render(),
-    person3.render(),
-    person4.render(),
-    person5.render(),
-    person6.render(),
-  ];
-peopleArr.forEach()
-  // You can now use the `peopleArr` to access the rendered content of each person.
+    person1,
+    person2,
+    person3,
+    person4,
+    person5,
+    person6,
+];
+peopleArr.forEach(person => person.render())
   
 
 
