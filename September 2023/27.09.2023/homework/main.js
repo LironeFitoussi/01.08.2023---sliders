@@ -3,6 +3,8 @@ document.getElementById("cityValid").addEventListener("submit", (e) => {
     e.preventDefault()
     const cityInputValue = document.getElementById("cityInput").value
     console.log(cityInputValue);
+    document.getElementById("cityInput").value = ""
+    document.getElementById("mainContainer").classList.add("mainContainer");
     fetchWeather(cityInputValue)
 })
 
@@ -16,12 +18,17 @@ const fetchWeather = (city) => {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
+            if (data.cod == 404) {
+                document.getElementById("mainContainer").innerHTML = `
+                <h1>We haven't found ${city} in the database. Please try again.</h1>
+                <img src="https://media0.giphy.com/media/8L0Pky6C83SzkzU55a/giphy.gif?cid=6c09b952s7vam390djhdmac6cbqhmpzqppsk3rh3sa5y4kql&ep=v1_gifs_search&rid=giphy.gif&ct=g">
+            `
+            }
             document.getElementById("mainContainer").innerHTML = `
                 <h1>Weather Forecast <br> ${data.city.name}, ${data.city.country} <br> for the next Week</h1>
                 <span>Fun Fact: ${data.city.name} has ${data.city.population} citizens</span>
             `
-            document.getElementById("mainContainer").classList.add("mainContainer");
+            
 
             data.list.forEach((element, index) => {
                 console.log(element);
@@ -97,7 +104,6 @@ const fetchWeather = (city) => {
                 `
                 weatherElem.id = `day_${index + 1}`
                 weatherElem.innerHTML = weatherContent
-                console.log(weatherElem);
                 document.getElementById("mainContainer").innerHTML += weatherElem.outerHTML          
             });
         })
