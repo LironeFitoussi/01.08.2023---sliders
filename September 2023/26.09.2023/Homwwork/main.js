@@ -204,7 +204,6 @@ document.getElementById("carForm").addEventListener("submit", (e) => {
     }
 });
 
-
 // Taks 3. a
 class Student extends Person {
     constructor(firstName, lastName, birthdate, profileImage, currentCourse, grades) {
@@ -253,6 +252,7 @@ class Teacher extends Person {
         return this.students
     }
 }
+
 const teacher1 = new Teacher("Jacob", "Inggidou", "02/02/1990", "nullUrl", [])
 teacher1.setStudents = ["John","Emily","Michael","Sophia","William","Olivia","James","Emma","Benjamin","Ava"]
 teacher1.setStudents = "loko"
