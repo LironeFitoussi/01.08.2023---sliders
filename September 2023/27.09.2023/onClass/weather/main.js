@@ -1,7 +1,6 @@
 document.getElementById("myForm").addEventListener("submit", (e) => {
     e.preventDefault();
     const city = document.getElementById("findCity").value;
-    console.log(city);
     fetchWeather(city);
 });
 
