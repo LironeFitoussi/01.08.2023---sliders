@@ -12,6 +12,7 @@ body {
 p, span {
     margin: 0;
 }
+
 #mainContainer {
     display: flex;
     flex-direction: column;

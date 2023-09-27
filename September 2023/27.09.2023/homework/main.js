@@ -38,7 +38,7 @@ const fetchWeather = (city) => {
                 <div class="headWeather">
                     <div class="dayWeather">
                         <p class="weekDay">${getDayAbbreviation(nextDay)}</p>
-                        <p class="dateFormat">${dateMonth}/${dateDay}</p>
+                        <p class="dateFormat">${dateMonth}/${dateDay < 10? "0" + dateDay: dateDay}</p>
                     </div>
                     <img src="https://static.vecteezy.com/system/resources/previews/009/266/750/original/sun-icon-design-free-png.png" alt="" class="weather-icon">
                     <div class="highLowTemp">
