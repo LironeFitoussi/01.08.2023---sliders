@@ -47,7 +47,7 @@ const fetchWeather = (city) => {
                     </div>
                 </div>
                 <div class="maintemps">
-                    <p class="weather-decriptions"></p>
+                    <p class="weather-decriptions">${element.weather[0].main}, ${element.weather[0].description}</p>
                     <div class="tempKind">
                         <p>Actual Temperature</p>
                         <span>30°</span> 
