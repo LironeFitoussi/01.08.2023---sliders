@@ -21,6 +21,7 @@ p, span {
     width: 100vw;
     height: 100vh;
 }
+
 .mainContainer {
     display: flex;
     flex-direction: column;
