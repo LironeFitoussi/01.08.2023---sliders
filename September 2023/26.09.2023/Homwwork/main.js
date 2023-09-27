@@ -86,21 +86,19 @@ class Car {
         this.image = image;
     }
 
-    
-
     set accelerate(speed) {
-        if (this._currentSpeed + speed <= this.maxSpeed-1) {
-            this._currentSpeed += speed;
+        if (this.currentSpeed + speed <= this.maxSpeed-1) {
+            this.currentSpeed += speed;
             return console.log(`Youre Current Speed is: ${currentSpeed}`);
         } else {
-            this._currentSpeed = this._maxSpeed
+            this.currentSpeed = this.maxSpeed
             return console.log(`Car reached Maximum speed`);
         }
         
     } 
 
     stop(){
-        this._currentSpeed = 0;
+        this.currentSpeed = 0;
         return `${this.model} has Stopped`
     }
 
@@ -115,35 +113,35 @@ class Car {
         return this.year;
     }
     set setYear(year) {
-        this._year = year;
+        this._ear = year;
     }
 
     get getBrand() {
         return this.brand;
     }
     set setBrand(brand) {
-        this._brand = brand;
+        this.brand = brand;
     }
 
     get getPrice() {
         return this.price;
     }
     set setPrice(price) {
-        this._price = price;
+        this.price = price;
     }
 
     get getMaxSpeed() {
         return this.maxSpeed;
     }
     set setMaxSpeed(maxSpeed) {
-        this._maxSpeed = maxSpeed;
+        this.maxSpeed = maxSpeed;
     }
 
     get getImage() {
         return this.image;
     }
     set setImage(image) {
-        this._image = image;
+        this.image = image;
     }
 
     get getCurrentSpeed() {
