@@ -18,6 +18,7 @@ const fetchWeather = (city) => {
             return response.json();
         })
         .then((data) => {
+            console.log(data);
             if (data.cod == 404) {
                 document.getElementById("mainContainer").innerHTML = `
                 <h1>We haven't found ${city} in the database. Please try again.</h1>
@@ -54,17 +55,6 @@ const fetchWeather = (city) => {
                             return 'Invalid day';
                     }
                 }
-                const weatherImgSrc = () => {
-                    if (element.main.temp >= 30) {
-                        return "https://parspng.com/wp-content/uploads/2022/05/sunpng.parspng.com-5.png"
-                    } else if (element.main.temp >= 26) {
-                        return "https://static.vecteezy.com/system/resources/previews/009/266/750/original/sun-icon-design-free-png.png"
-                    } else if (element.main.temp >= 22){
-                        return "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png"
-                    } else {
-                        return "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather14-512.png"
-                    }
-                }
                 const dateDay = nextDay.getDate()
                 const dateMonth = nextDay.getMonth()
                 const weatherElem = document.createElement("div")
@@ -76,7 +66,7 @@ const fetchWeather = (city) => {
                         <p class="weekDay">${getDayAbbreviation(nextDay)}</p>
                         <p class="dateFormat">${dateMonth}/${dateDay < 10? "0" + dateDay: dateDay}</p>
                     </div>
-                    <img src="${weatherImgSrc()}" alt="weather-logo" class="weather-icon">
+                    <img src=" https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" alt="weather-logo" class="weather-icon">
                     <div class="highLowTemp">
                         <span class="high-temp">${parseInt(element.main.temp_max)}°</span>
                         <span class="low-temp">/${parseInt(element.main.temp_min)}°</span>
