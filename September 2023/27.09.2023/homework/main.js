@@ -17,6 +17,8 @@ const fetchWeather = (city) => {
                 <h1>Weather Forecast in ${data.city.name}, ${data.city.country} for the next Week</h1>
                 <span>Fun Fact: ${data.city.name} has ${data.city.population} citizens</span>
             `
+            document.getElementById("mainContainer").classList.add("mainContainer");
+
             data.list.forEach((element, index) => {
                 console.log(element);
                 const today = new Date()
