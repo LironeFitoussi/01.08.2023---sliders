@@ -9,8 +9,13 @@ body {
 }
 
 header {
+    flex-direction: row;
+    justify-content: center;
     width: 90vw;
+    top: 0;
+    background-color: #d7fafc;
 }
+
 p, span {
     margin: 0;
 }

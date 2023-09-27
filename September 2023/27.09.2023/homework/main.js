@@ -19,6 +19,8 @@ const fetchWeather = (city) => {
         })
         .then((data) => {
             console.log(data);
+            document.getElementsByTagName("header")[0].style.position = "sticky"
+
             if (data.cod == 404) {
                 document.getElementById("mainContainer").innerHTML = `
                 <h1>We haven't found ${city} in the database. Please try again.</h1>
