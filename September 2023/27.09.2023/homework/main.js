@@ -1,11 +1,22 @@
 console.log("test");
+document.getElementById("cityValid").addEventListener("submit", (e) => {
+    e.preventDefault()
+    const cityInputValue = document.getElementById("cityInput").value
+    console.log(cityInputValue);
+    fetchWeather(cityInputValue)
+})
+
 const fetchWeather = (city) => {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=tel-aviv&cnt=6&appid=38457dab3383d5ed2ed06f87db57c7b3&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=6&appid=38457dab3383d5ed2ed06f87db57c7b3&units=metric`)
         .then((response) => {
             return response.json();
         })
         .then((data) => {
             console.log(data);
+            document.getElementById("mainContainer").innerHTML = `
+                <h1>Weather Forecast in ${data.city.name}, ${data.city.country} for the next Week</h1>
+                <span>Fun Fact: ${data.city.name} has ${data.city.population} citizens</span>
+            `
             data.list.forEach((element, index) => {
                 console.log(element);
                 const today = new Date()
@@ -30,9 +41,21 @@ const fetchWeather = (city) => {
                             return 'Invalid day';
                     }
                 }
+                const weatherImgSrc = () => {
+                    if (element.main.temp >= 30) {
+                        return "https://parspng.com/wp-content/uploads/2022/05/sunpng.parspng.com-5.png"
+                    } else if (element.main.temp >= 26) {
+                        return "https://static.vecteezy.com/system/resources/previews/009/266/750/original/sun-icon-design-free-png.png"
+                    } else if (element.main.temp >= 22){
+                        return "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png"
+                    } else {
+                        return "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather14-512.png"
+                    }
+                }
                 const dateDay = nextDay.getDate()
                 const dateMonth = nextDay.getMonth()
                 const weatherElem = document.createElement("div")
+                const milesToKm = miles => miles * 1.609344
                 weatherElem.className = "dayDiv"
                 const weatherContent = `
                 <div class="headWeather">
@@ -40,7 +63,7 @@ const fetchWeather = (city) => {
                         <p class="weekDay">${getDayAbbreviation(nextDay)}</p>
                         <p class="dateFormat">${dateMonth}/${dateDay < 10? "0" + dateDay: dateDay}</p>
                     </div>
-                    <img src="https://static.vecteezy.com/system/resources/previews/009/266/750/original/sun-icon-design-free-png.png" alt="" class="weather-icon">
+                    <img src="${weatherImgSrc()}" alt="weather-logo" class="weather-icon">
                     <div class="highLowTemp">
                         <span class="high-temp">${parseInt(element.main.temp_max)}°</span>
                         <span class="low-temp">/${parseInt(element.main.temp_min)}°</span>
@@ -49,20 +72,20 @@ const fetchWeather = (city) => {
                 <div class="maintemps">
                     <p class="weather-decriptions">${element.weather[0].main}, ${element.weather[0].description}</p>
                     <div class="tempKind">
-                        <p>Actual Temperature</p>
-                        <span>30°</span> 
+                        <p>Average Temperature</p>
+                        <span>${element.main.temp}°</span> 
                     </div>
                     <div class="tempKind">
                         <p>Wind</p>
-                        <span>13 km/h</span>
+                        <span>${milesToKm(element.wind.speed).toFixed(2)} km/h</span>
                     </div>
                     <div class="tempKind">
                         <p>Feels Like:</p>
-                        <span>30°</span>
+                        <span>${element.main.feels_like}°</span>
                     </div>
                     <div class="tempKind">
-                        <p>Actual Temperature</p>
-                        <span>30°</span>
+                        <p>Humidity</p>
+                        <span>${element.main.humidity}%</span>
                     </div>
                 </div>
                 `
@@ -77,4 +100,3 @@ const fetchWeather = (city) => {
         });
 }
 
-fetchWeather("tel aviv");
