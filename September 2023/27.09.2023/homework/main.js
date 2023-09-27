@@ -33,6 +33,7 @@ const fetchWeather = (city) => {
                 const dateDay = nextDay.getDate()
                 const dateMonth = nextDay.getMonth()
                 const weatherElem = document.createElement("div")
+                weatherElem.className = "dayDiv"
                 const weatherContent = `
                 <div class="headWeather">
                     <div class="dayWeather">
@@ -76,4 +77,4 @@ const fetchWeather = (city) => {
         });
 }
 
-// fetchWeather("tel aviv");
+fetchWeather("tel aviv");

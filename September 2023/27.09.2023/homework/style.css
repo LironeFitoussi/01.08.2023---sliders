@@ -12,13 +12,23 @@ body {
 p, span {
     margin: 0;
 }
-.mainContainer {
+#mainContainer {
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     width: 50vw;
     padding: 0.5rem;
+    gap: 2vh;
+}
+
+.dayDiv {
+    display: flex;
+    flex-direction: column;
+    background-color: #9df8ff3e;
+    width: 50vw;
+    padding: 0.5rem;
     border-radius: .25rem;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
 .headWeather {
