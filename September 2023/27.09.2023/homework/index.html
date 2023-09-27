@@ -11,45 +11,17 @@
     <header class="py-3 mb-6 border-bottom">
         <div class="container-fluid d-grid gap-6 align-items-center" style="grid-template-columns: 1fr; width: 80vh;">
             <div class="d-flex align-items-center">
-                <form class="w-200 me-3" role="search">
+                <form class="w-200 me-3" role="search" style="display: flex; gap: 1rem ;">
                     <label for="">Search for a City:</label>
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search" control-id="ControlID-3">
+                    <button type="button" class="btn btn-success">Success</button>
                 </form>
             </div>
         </div>
     </header>
-    <div class="mainContainer">
-        <div class="headWeather">
-            <div class="dayWeather">
-                <p class="weekDay">WED</p>
-                <p class="dateFormat">9/27</p>
-            </div>
-            <img src="https://static.vecteezy.com/system/resources/previews/009/266/750/original/sun-icon-design-free-png.png" alt="" class="weather-icon">
-            <div class="highLowTemp">
-                <span class="high-temp">30°</span>
-                <span class="low-temp">/28°</span>
-            </div>
-        </div>
-        <div class="maintemps">
-            <p class="weather-decriptions">${weather[0].description}</p>
-            <div class="tempKind">
-                <p>Actual Temperature</p>
-                <span>30°</span> 
-            </div>
-            <div class="tempKind">
-                <p>Wind</p>
-                <span>13 km/h</span>
-            </div>
-            <div class="tempKind">
-                <p>Feels Like:</p>
-                <span>30°</span>
-            </div>
-            <div class="tempKind">
-                <p>Actual Temperature</p>
-                <span>30°</span>
-            </div>
-        </div>
+    <div id="mainContainer">
+        
     </div>
-    <!-- <script src="./main.js"></script> -->
+    <script src="./main.js"></script>
 </body>
 </html>
