@@ -14,7 +14,7 @@ const fetchWeather = (city) => {
         .then((data) => {
             console.log(data);
             document.getElementById("mainContainer").innerHTML = `
-                <h1>Weather Forecast in ${data.city.name}, ${data.city.country} for the next Week</h1>
+                <h1>Weather Forecast <br> ${data.city.name}, ${data.city.country} <br> for the next Week</h1>
                 <span>Fun Fact: ${data.city.name} has ${data.city.population} citizens</span>
             `
             document.getElementById("mainContainer").classList.add("mainContainer");
