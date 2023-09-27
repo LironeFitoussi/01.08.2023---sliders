@@ -6,6 +6,10 @@ document.getElementById("cityValid").addEventListener("submit", (e) => {
     fetchWeather(cityInputValue)
 })
 
+setTimeout(() => {
+    document.getElementById("loadImage").style.display = "none";
+}, 3000);
+
 const fetchWeather = (city) => {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=6&appid=38457dab3383d5ed2ed06f87db57c7b3&units=metric`)
         .then((response) => {
