@@ -4,22 +4,31 @@ document.getElementById("cityValid").addEventListener("submit", (e) => {
     const cityInputValue = document.getElementById("cityInput").value
     console.log(cityInputValue);
     document.getElementById("cityInput").value = ""
-    document.getElementById("mainContainer").classList.add("mainContainer");
-    fetchWeather(cityInputValue)
+    fetchWeather(`q=${cityInputValue}`)
 })
+
+const searchByLocation = () => {
+    navigator.geolocation.getCurrentPosition((successCallBack, errorCallBack) => {
+        console.log(successCallBack.coords);
+        const userLat = successCallBack.coords.latitude;
+        const userLon = successCallBack.coords.longitude;
+        fetchWeather(`lat=${userLat}&lon=${userLon}`)
+    });
+}
 
 setTimeout(() => {
     document.getElementById("loadImage").style.display = "none";
 }, 3000);
 
 const fetchWeather = (city) => {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=6&appid=38457dab3383d5ed2ed06f87db57c7b3&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?${city}&cnt=7&appid=38457dab3383d5ed2ed06f87db57c7b3&units=metric`)
         .then((response) => {
             return response.json();
         })
         .then((data) => {
             console.log(data);
             document.getElementsByTagName("header")[0].style.position = "sticky"
+            document.getElementById("mainContainer").classList.add("mainContainer");
 
             if (data.cod == 404) {
                 document.getElementById("mainContainer").innerHTML = `
