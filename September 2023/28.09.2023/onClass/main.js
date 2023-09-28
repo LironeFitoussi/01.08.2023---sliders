@@ -41,10 +41,6 @@ document.getElementById("resetBooks").addEventListener("click", () => {
     }
 });
 
-document.getElementById("printBooks").addEventListener("click", () => {
-    printToScreen()
-});
-
 function addBook(newBook) {
     booksArr.push(newBook)
     console.log(booksArr);
