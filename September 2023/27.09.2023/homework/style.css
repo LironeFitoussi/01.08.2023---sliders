@@ -105,6 +105,7 @@ p, span {
     justify-content: space-between;
     border-bottom: solid 1px rgb(21, 96, 235);
     transition: all 0.1s;
+    align-items: flex-end;
 }
 
 .tempKind:hover {
