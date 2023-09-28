@@ -38,6 +38,20 @@ button[type="submit"]:hover {
     background-color: #06b300;
 }
 
+#printBtn:hover {
+    background-color: #b300b0;
+}
 button[type="button"]:hover {
     background-color: #b32100;
+}
+
+#buttonsDiv{
+    display: flex;
+    gap: 1rem;
+}
+#buttonsDiv > *{
+    justify-content: center;
+    /* text-align: center; */
+    display: flex;
+    width: 100%;
 }
