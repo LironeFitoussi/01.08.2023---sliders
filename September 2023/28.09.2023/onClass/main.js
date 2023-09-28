@@ -17,36 +17,65 @@ let booksArr = [
 ];
 
 const localVal = localStorage.getItem("booksArr")
-console.log(localVal);
-console.log(JSON.parse(localVal));
+//? console.log(localVal);
+//? console.log(JSON.parse(localVal));
 
 if (localVal != null) {
     booksArr = JSON.parse(localVal)
 }
 
+let printed = false;
+
 document.getElementById("bookForm").addEventListener("submit", (e) => {
     e.preventDefault(); 
-    addBook();
+    const newBook = {"name": userNameInput.value, "author": userAuthorInput.value, "pages": userPagesInput.value}
+    addBook(newBook);
+    resetInputs()
+});
+
+document.getElementById("resetBooks").addEventListener("click", () => {
+    if (confirm("Are You Sure?")) {
+        localStorage.removeItem("booksArr")
+        alert("Memory has been reseted, page will reload...")
+        location.reload()
+    }
+});
+
+document.getElementById("printBooks").addEventListener("click", () => {
+    printToScreen()
+});
+
+function addBook(newBook) {
+    booksArr.push(newBook)
+    console.log(booksArr);
+    localStorage.setItem("booksArr", JSON.stringify(booksArr))
+    // document.getElementById("mainContainer").innerHTML += `
+    //         <div class="bookContainer">
+    //             <h1>${newBook.name}</h1>
+    //             <h3>Author: ${newBook.author}</h3>
+    //             <span>${newBook.pages} pages</span>
+    //         </div>
+    //     `
+}
+
+function resetInputs() {
     const inputsArr = document.querySelectorAll("input")
     inputsArr.forEach((e) =>  {
         e.value = ""
     }) 
-});
-
-
-const addBook = () => {
-    const nameInput = document.getElementById("userNameInput")
-    const authorInput = document.getElementById("userAuthorInput")
-    const pagesInput = document.getElementById("userPagesInput")
-    const newBook = {
-        "name": nameInput.value,
-        "author": authorInput.value,
-        "pages": pagesInput.value
-    }
-    booksArr.push(newBook)
-    console.log(booksArr);
-    localStorage.setItem("booksArr", JSON.stringify(booksArr))
 }
 
+function printToScreen() {
+    document.getElementById("mainContainer").innerHTML = ""
+    booksArr.forEach((book) => {
+        document.getElementById("mainContainer").innerHTML += `
+            <div class="bookContainer">
+                <h1>${book.name}</h1>
+                <h3>Author: ${book.author}</h3>
+                <span>${book.pages} pages</span>
+            </div>
+        `
+    });
+}
 
 
