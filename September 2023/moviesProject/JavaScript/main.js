@@ -17,7 +17,7 @@ function fetchMovies(page =1) {
             const movieDate = new Date(movie.release_date);
             const newDiv = $("<div>");
             const movieContent = $("<div>");
-            const movieTitle = movie.original_title;
+            const movieTitle = movie.title;
             newDiv.addClass("topMovies");
             newDiv.attr("id", `topMovies_${index+1}`)
             movieContent.addClass("movieContent");
@@ -49,10 +49,11 @@ function fetchMovies(page =1) {
 
             let slideCount = 1;
             $("#rightSlide").click(function autoSlideRight() {
-                $(`#topMovies_${++slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
-                if (slideCount == 11) {
+                if (slideCount == 10) {
                     slideCount = 1
                 }
+                $(`#topMovies_${++slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
+                
             })
             
             $("#leftSlide").click(() => {
@@ -62,33 +63,30 @@ function fetchMovies(page =1) {
                 --slideCount
                 $(`#topMovies_${slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
             })
-
             // setInterval(() => {
             //     if (slideCount == 10) {
             //         slideCount = 1
             //     }
             //     $(`#topMovies_${++slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
             // }, 5000);
-            
-
         });
 
         //! main
         const thisPageMOvies = data.results;
-        console.log(thisPageMOvies);
         thisPageMOvies.map((selectedMovie, movieIndex) => {
             const movieCard = $("<div>")
             movieCard.addClass("movieCard")
             const newMovie = $("<img>");
             newMovie.addClass("movieImg")
             movieCard.attr("id", `movie_${movieIndex+1}`)
-            console.log(newMovie);
             newMovie.attr("src", `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`)
             $(movieCard).append(newMovie)
             $(movieCard).append(`<h1>${selectedMovie.original_title}</h1>`)
             $("main").append(movieCard)
         })
-        console.log(tenTopMovies);
+
+        //! pagination
+         
     })
     .catch(err => console.error(err));
 }
@@ -105,10 +103,14 @@ function fetchMovieGenres() {
 
 fetchMovies();
 
+let clickedBtn = 1
+
 const pageBtnArr = document.querySelectorAll(".pageBtn")
 pageBtnArr.forEach((page) => {
     page.addEventListener("click", () => {
-        console.log("click");
+        pageBtnArr[clickedBtn-1].classList.remove("active")
+        clickedBtn = page.innerHTML
+        page.classList.add("active")
         nextPage(page.innerHTML)
     })
 })
@@ -119,20 +121,17 @@ function nextPage(page =1) {
     .then(data => {
         $("main").html("")
         const thisPageMOvies = data.results;
-        console.log(thisPageMOvies);
         thisPageMOvies.map((selectedMovie, movieIndex) => {
             const movieCard = $("<div>")
             movieCard.addClass("movieCard")
             const newMovie = $("<img>");
             newMovie.addClass("movieImg")
             movieCard.attr("id", `movie_${movieIndex+1}`)
-            console.log(newMovie);
             newMovie.attr("src", `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`)
             $(movieCard).append(newMovie)
             $(movieCard).append(`<h1>${selectedMovie.original_title}</h1>`)
             $("main").append(movieCard)
         })
-        console.log(tenTopMovies);
     })
     .catch(err => console.error(err));
 }
