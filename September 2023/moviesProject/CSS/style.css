@@ -1,0 +1,31 @@
+body {
+    width: 100vw;
+    overflow: hidden;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    flex-direction: row;
+    overflow: scroll;
+    width: 100vw;
+}
+
+.topMovies{
+    height: 90vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.movieContent {
+    padding: 2rem;
+    width: 100vw;
+    height: calc(90vh - 4rem);
+}
+
+.movieContent > h1 {
+    margin: 0;
+    width: 50vw;
+    font-size: 10vw;
+}
