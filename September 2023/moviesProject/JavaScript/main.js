@@ -2,8 +2,7 @@ function fetchMovies(page =1) {
     fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
     .then(response => response.json())
     .then(data => {
-        //! header
-        
+        //! Header
         const moviesArr = data.results;
         const tenTopMovies = [];
 
@@ -63,15 +62,16 @@ function fetchMovies(page =1) {
                 --slideCount
                 $(`#topMovies_${slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
             })
-            // setInterval(() => {
-            //     if (slideCount == 10) {
-            //         slideCount = 1
-            //     }
-            //     $(`#topMovies_${++slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
-            // }, 5000);
+
+            //? setInterval(() => {
+            //?    if (slideCount == 10) {
+            //?         slideCount = 1
+            //?     }
+            //?     $(`#topMovies_${++slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
+            //? }, 5000);
         });
 
-        //! main
+        //! Main
         const thisPageMOvies = data.results;
         thisPageMOvies.map((selectedMovie, movieIndex) => {
             const movieCard = $("<div>")
@@ -85,8 +85,35 @@ function fetchMovies(page =1) {
             $("main").append(movieCard)
         })
 
-        //! pagination
-         
+        //! Pagination
+        console.log(data);
+        const paginationElem = $("<div>");
+        paginationElem.addClass("pagination")
+        for (let i = 1; i <= 5; i++) {
+            const newPageBtn = $("<a>")
+            newPageBtn.addClass("pageBtn")
+            newPageBtn.text(i)   
+            paginationElem.append(newPageBtn)
+        }
+        const lastPage = $("<a>")
+        lastPage.text (data.total_pages-40000)
+        lastPage.addClass("pageBtn")
+        paginationElem.append(lastPage)
+        
+        $(paginationElem).insertAfter("main");
+        
+        const pageBtnArr = document.querySelectorAll(".pageBtn")
+        pageBtnArr[0].classList.add("active")
+
+        //! Pagination Listener
+        pageBtnArr.forEach((page) => {
+            page.addEventListener("click", () => {
+                pageBtnArr[clickedBtn-1].classList.remove("active")
+                clickedBtn = page.innerHTML
+                page.classList.add("active")
+                nextPage(page.innerHTML)
+            })
+        })
     })
     .catch(err => console.error(err));
 }
@@ -101,20 +128,7 @@ function fetchMovieGenres() {
         });
 }
 
-fetchMovies();
-
 let clickedBtn = 1
-
-const pageBtnArr = document.querySelectorAll(".pageBtn")
-pageBtnArr.forEach((page) => {
-    page.addEventListener("click", () => {
-        pageBtnArr[clickedBtn-1].classList.remove("active")
-        clickedBtn = page.innerHTML
-        page.classList.add("active")
-        nextPage(page.innerHTML)
-    })
-})
-
 function nextPage(page =1) {
     fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
     .then(response => response.json())
@@ -129,9 +143,11 @@ function nextPage(page =1) {
             movieCard.attr("id", `movie_${movieIndex+1}`)
             newMovie.attr("src", `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`)
             $(movieCard).append(newMovie)
-            $(movieCard).append(`<h1>${selectedMovie.original_title}</h1>`)
+            $(movieCard).append(`<h1>${selectedMovie.title}</h1>`)
             $("main").append(movieCard)
         })
     })
     .catch(err => console.error(err));
 }
+
+fetchMovies();
