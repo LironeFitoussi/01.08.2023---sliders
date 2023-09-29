@@ -1,5 +1,5 @@
-function fetchMovies() {
-    fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=df5fe72df0888382e4148e21f58c70b8`)
+function fetchMovies(page =1) {
+    fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
     .then(response => response.json())
     .then(data => {
         //! header
@@ -63,12 +63,12 @@ function fetchMovies() {
                 $(`#topMovies_${slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
             })
 
-            setInterval(() => {
-                if (slideCount == 10) {
-                    slideCount = 1
-                }
-                $(`#topMovies_${++slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
-            }, 5000);
+            // setInterval(() => {
+            //     if (slideCount == 10) {
+            //         slideCount = 1
+            //     }
+            //     $(`#topMovies_${++slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
+            // }, 5000);
             
 
         });
@@ -103,7 +103,36 @@ function fetchMovieGenres() {
         });
 }
 
-
-
 fetchMovies();
 
+const pageBtnArr = document.querySelectorAll(".pageBtn")
+pageBtnArr.forEach((page) => {
+    page.addEventListener("click", () => {
+        console.log("click");
+        nextPage(page.innerHTML)
+    })
+})
+
+function nextPage(page =1) {
+    fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
+    .then(response => response.json())
+    .then(data => {
+        $("main").html("")
+        const thisPageMOvies = data.results;
+        console.log(thisPageMOvies);
+        thisPageMOvies.map((selectedMovie, movieIndex) => {
+            const movieCard = $("<div>")
+            movieCard.addClass("movieCard")
+            const newMovie = $("<img>");
+            newMovie.addClass("movieImg")
+            movieCard.attr("id", `movie_${movieIndex+1}`)
+            console.log(newMovie);
+            newMovie.attr("src", `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`)
+            $(movieCard).append(newMovie)
+            $(movieCard).append(`<h1>${selectedMovie.original_title}</h1>`)
+            $("main").append(movieCard)
+        })
+        console.log(tenTopMovies);
+    })
+    .catch(err => console.error(err));
+}
