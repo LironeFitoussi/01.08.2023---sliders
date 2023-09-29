@@ -24,6 +24,10 @@ header {
     height: 4vh;
 }
 
+.slideBtn:hover {
+    cursor: pointer;
+}
+
 #rightSlide {
     position: absolute;
     right: 1.5vw;

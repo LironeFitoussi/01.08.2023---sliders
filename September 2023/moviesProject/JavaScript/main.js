@@ -42,7 +42,7 @@ function fetchMovies(page =1) {
                 <p>${movie.overview}</p>
             `);
 
-            newDiv.css("background-image", `url(http://image.tmdb.org/t/p/w500${movie.backdrop_path})`);
+            newDiv.css("background-image", `url(http://image.tmdb.org/t/p/original${movie.backdrop_path})`);
             newDiv.append(movieContent);
             $(".moviesSlider").append(newDiv);
 
@@ -93,10 +93,12 @@ function fetchMovies(page =1) {
             const newPageBtn = $("<a>")
             newPageBtn.addClass("pageBtn")
             newPageBtn.text(i)   
+            newPageBtn.attr("value", i)
             paginationElem.append(newPageBtn)
         }
         const lastPage = $("<a>")
-        lastPage.text (data.total_pages-40000)
+        lastPage.text(250)
+        lastPage.attr("value", 6)
         lastPage.addClass("pageBtn")
         paginationElem.append(lastPage)
         
@@ -109,9 +111,10 @@ function fetchMovies(page =1) {
         pageBtnArr.forEach((page) => {
             page.addEventListener("click", () => {
                 pageBtnArr[clickedBtn-1].classList.remove("active")
-                clickedBtn = page.innerHTML
+                console.log(page.getAttribute("value"));
+                clickedBtn = page.getAttribute("value")
                 page.classList.add("active")
-                nextPage(page.innerHTML)
+                nextPage(page.innerText)
             })
         })
     })
