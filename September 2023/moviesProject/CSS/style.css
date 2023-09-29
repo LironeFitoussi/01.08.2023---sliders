@@ -36,7 +36,7 @@ header {
 }
 
 .moviesSlider {
-    overflow: scroll;
+    overflow: hidden;
     overflow-y: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
