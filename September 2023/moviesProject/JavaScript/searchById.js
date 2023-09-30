@@ -1,5 +1,5 @@
 const currentPage = 2;
-const movieId = 35
+const movieId = 342
 const settings = {
     async: true,
     crossDomain: true,
@@ -20,16 +20,24 @@ const settings = {
     $("body").append(backgroundImg);
 
     // Actors
-    const actorPromise = fetchMovieCredits(35);
+    const actorPromise = fetchMovieCredits(movieId);
     const actors = $("<div>")
     actors.addClass("actorsCont");
     actorPromise.then(data => {
         console.log(data[0]);
         for (const int of data) {
+            const actorCard = $("<div>")
+            actorCard.addClass("actorCard")
             const actorPic = $("<img>");
             actorPic.addClass("actorPic")
-            actorPic.attr("src", `http://image.tmdb.org/t/p/original${int.profile_path}`)
-            actors.append(actorPic)
+            let actorPicAdress = `http://image.tmdb.org/t/p/original${int.profile_path}`
+            actorPic.attr("src", actorPicAdress)
+            actorCard.append(
+                actorPic, `
+                <h1>${int.name}</h1> 
+                <span>${int.character}</span>
+            `)
+            actors.append(actorCard)
             console.log(int.profile_path);
         }
         console.log(typeof data);

@@ -34,9 +34,17 @@ main {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
 }
-.actorPic {
+
+.actorCard {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.actorCard > img {
     object-fit: cover;
-    aspect-ratio: 1 / 1;
     height: 20vh;
+    width: 20vh;
     border-radius: 100%;
+    background-image: "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/fd35c-no-user-image-icon-27.png?fit=500%2C500&ssl=1";
 }
