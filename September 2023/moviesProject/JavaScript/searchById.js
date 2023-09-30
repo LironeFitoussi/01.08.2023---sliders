@@ -36,6 +36,7 @@ const settings = {
         `
     )
     $("main").append(mainMovieInfo)
+
     //? add IMDB link
     //? Serch Rotten Tomatoes link
     //? add directors
@@ -43,7 +44,6 @@ const settings = {
     //? Add Similar 
     //? find Movie Duration
     //? Add "Add To Favorite" Btn
-
 
     // Actors
     const actorPromise = fetchMovieCredits(movieId);
@@ -89,7 +89,7 @@ const settings = {
 
         $.ajax(settings)
             .done(response => {
-                resolve(response);
+                resolve(response.cast);
             })
             .fail(error => {
                 reject(error);
