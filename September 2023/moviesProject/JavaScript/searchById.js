@@ -1,5 +1,5 @@
 const currentPage = 2;
-const movieId = 342
+const movieId = 38
 const settings = {
     async: true,
     crossDomain: true,
@@ -31,6 +31,9 @@ const settings = {
             const actorPic = $("<img>");
             actorPic.addClass("actorPic")
             let actorPicAdress = `http://image.tmdb.org/t/p/original${int.profile_path}`
+            if (actorPicAdress == "http://image.tmdb.org/t/p/originalnull") {
+                actorPicAdress = "https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/fd35c-no-user-image-icon-27.png?fit=500%2C500&ssl=1";
+            }
             actorPic.attr("src", actorPicAdress)
             actorCard.append(
                 actorPic, `
