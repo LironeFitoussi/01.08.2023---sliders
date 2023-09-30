@@ -1,5 +1,6 @@
-function fetchMovies(page =1) {
-    fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
+let chosenFilter = "3/movie/popular"
+function fetchMovies(page =1, time ="3/movie/popular") {
+    fetch(`https://api.themoviedb.org/${time}?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
     .then(response => response.json())
     .then(data => {
         //! Header
@@ -21,6 +22,7 @@ function fetchMovies(page =1) {
             newDiv.attr("id", `topMovies_${index+1}`)
             movieContent.addClass("movieContent");
 
+            // Genre Promise
             genrePromise.then(genres => {
                 const genre = genres.find(genre => genre.id === movie.genre_ids[0]);
                 if (genre) {
@@ -111,11 +113,19 @@ function fetchMovies(page =1) {
         pageBtnArr.forEach((page) => {
             page.addEventListener("click", () => {
                 pageBtnArr[clickedBtn-1].classList.remove("active")
-                console.log(page.getAttribute("value"));
                 clickedBtn = page.getAttribute("value")
                 page.classList.add("active")
-                nextPage(page.innerText)
+                nextPage(page.innerText, chosenFilter)
             })
+        })
+
+        $("#chooseFilter").on("submit", (e) => {
+            e.preventDefault();
+            chosenFilter = $("#timeFilter").val();
+            pageBtnArr[clickedBtn-1].classList.remove("active")
+            clickedBtn = 1
+            pageBtnArr[0].classList.add("active")
+            nextPage(1, chosenFilter);
         })
     })
     .catch(err => console.error(err));
@@ -132,8 +142,8 @@ function fetchMovieGenres() {
 }
 
 let clickedBtn = 1
-function nextPage(page =1) {
-    fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
+function nextPage(page =1, time) {
+    fetch(`https://api.themoviedb.org/${time}?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
     .then(response => response.json())
     .then(data => {
         $("main").html("")
@@ -153,4 +163,6 @@ function nextPage(page =1) {
     .catch(err => console.error(err));
 }
 
-fetchMovies();
+
+
+fetchMovies(1, chosenFilter);
