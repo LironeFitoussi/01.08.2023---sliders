@@ -1,5 +1,5 @@
 const currentPage = 2;
-const movieId = 38
+let movieId = 35
 const settings = {
     async: true,
     crossDomain: true,
@@ -19,12 +19,38 @@ const settings = {
     backgroundImg.attr( {"src":`http://image.tmdb.org/t/p/original${response.backdrop_path}`, "id":"backgroundImg"} )
     $("body").append(backgroundImg);
 
+    // main Movie Details
+    const mainMovieInfo = $("<article>");
+    const releaseDate = new Date(response.release_date);
+    console.log(releaseDate.getFullYear());
+    console.log(mainMovieInfo);
+    mainMovieInfo.addClass("mainMovie")
+    mainMovieInfo.append(
+        `
+            <div>
+                <h1>${response.title}</h1>
+                <span>${(releaseDate.getFullYear())}</span>
+                <p>${response.overview}</p>
+            </div>
+            <img id="moviePoster" src=http://image.tmdb.org/t/p/original${response.poster_path}></img>
+        `
+    )
+    $("main").append(mainMovieInfo)
+    //? add IMDB link
+    //? Serch Rotten Tomatoes link
+    //? add directors
+    //? Serach Youtube Trailers
+    //? Add Similar 
+    //? find Movie Duration
+    //? Add "Add To Favorite" Btn
+
+
     // Actors
     const actorPromise = fetchMovieCredits(movieId);
     const actors = $("<div>")
     actors.addClass("actorsCont");
     actorPromise.then(data => {
-        console.log(data[0]);
+        console.log(data);
         for (const int of data) {
             const actorCard = $("<div>")
             actorCard.addClass("actorCard")
@@ -41,9 +67,7 @@ const settings = {
                 <span>${int.character}</span>
             `)
             actors.append(actorCard)
-            console.log(int.profile_path);
         }
-        console.log(typeof data);
     })
     $("main").append(actors)
   });
@@ -65,7 +89,7 @@ const settings = {
 
         $.ajax(settings)
             .done(response => {
-                resolve(response.cast);
+                resolve(response);
             })
             .fail(error => {
                 reject(error);

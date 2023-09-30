@@ -3,6 +3,7 @@ main {
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    justify-content: start;
 }
 
 #backgroundImg {
@@ -12,6 +13,21 @@ main {
     z-index: -100;
     width: 100vw;
 }
+
+.mainMovie {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 1rem;
+    background-color: rgba(135, 135, 135, 0.19);
+    justify-self: flex-start;
+    justify-items: center;
+}
+
+#moviePoster {
+    object-fit: cover;
+    height: auto;
+    width: 30vh;
+} 
 
 .actorsCont {
     display: flex;
