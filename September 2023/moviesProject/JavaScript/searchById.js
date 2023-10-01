@@ -187,3 +187,8 @@ if (movieId != 0) {
   fetchVideoTrailer(movieId);
   loadContent(movieId);
 }
+
+$("#navbarDropdownMenuLink").click(function () {
+  let dropdown = $('#sbw');
+  dropdown.toggle()
+});

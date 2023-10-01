@@ -68,3 +68,9 @@ function loadFav() {
             });
         });
 }
+
+
+$("#navbarDropdownMenuLink").click(function () {
+    let dropdown = $('#sbw');
+    dropdown.toggle()
+  });
