@@ -1,5 +1,9 @@
 let chosenFilter = "3/movie/popular"
 let favArr = new Array
+
+if (localStorage.userFavMovies != []) {
+    favArr = JSON.parse(localStorage.userFavMovies)
+}
 function fetchMovies(page =1, time ="3/movie/popular") {
     fetch(`https://api.themoviedb.org/${time}?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
     .then(response => response.json())
@@ -170,6 +174,13 @@ function nextPage(page =1, time) {
             mainStar.css("color", "#fbd723")
             slideInfo.append(mainStar)
 
+            // check if already Fav
+            favArr.map(movie => {
+                if (movie.id == selectedMovie.id) {
+                    mainStar.addClass(`fa-solid`)
+                }
+            })
+
             if (movieTitle.length > 15) {
                 slideInfo.find("h1").css("font-size", "2vw");
             }
@@ -183,27 +194,26 @@ function nextPage(page =1, time) {
             $("main").append(movieCard)
         })
 
-
         let starsArr = document.querySelectorAll(".fa-star");
-        console.log(starsArr);
-
         starsArr.forEach((star, index) => {
             star.addEventListener("click", () => {
                 let favorite = star.classList.contains("fa-solid");
                 if (favorite) {
                     let keyToRemove = "id";
                     let valueToRemove = data.results[index].id;      
-                    console.log("Already favorited!");
                     star.classList.remove("fa-solid");
                     favArr = favArr.filter(item => item[keyToRemove] !== valueToRemove)
-                    console.log(favArr);
                 } else {
                     favArr.push(data.results[index]);
                     star.classList.add("fa-solid");
                 }
+                let localFavorites = JSON.stringify(favArr)
+                localStorage.setItem("userFavMovies", localFavorites)
             });
         });
     })
     .catch(err => console.error(err));
 }
+
+
 fetchMovies(1, chosenFilter);
