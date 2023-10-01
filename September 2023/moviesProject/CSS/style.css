@@ -14,11 +14,18 @@ body {
 }
 
 header {
-    position: relative;
     flex-direction: row;
     width: 100vw;
 }
 
+nav {
+    background-color: #80808017;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(7px);
+}
 
 .slideBtn {
     background-color: transparent;
@@ -60,9 +67,9 @@ header {
     background-image: url("../Assets/Asset\ 2.png");
     background-repeat: no-repeat;
     background-size: contain;
-    padding: 2rem 5rem ;
+    padding: 5rem ;
     width: 100vw;
-    height: calc(90vh - 2rem);
+    height: calc(90vh);
 }
 
 .movieContent > h1 {
@@ -99,22 +106,43 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 4rem;
     margin: 2rem;
+    height: fit-content;
     justify-content: center;
+
+}
+
+.slideInfo {
+    position: absolute;
+    overflow-y: scroll;
+    opacity: 0;
+    padding: 2rem;
+    width: -webkit-fill-available;
+    transition: all .5s;
+    background-color: #69696960;
+    backdrop-filter: blur(7px);
+    height: 100%;
+    border-radius: .5rem;
+}
+
+
+.movieCard:hover > .slideInfo {
+    opacity: 1;
 }
 
 .movieCard {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 12vw;
-    height: 45vh;
+    width: fit-content;
+    height: fit-content;
 }
 
 .movieImg {
-    width: 12vw;
-    height: 30vh;
+    object-fit: fill;
+    width: 18vw;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: .5rem;
@@ -123,7 +151,7 @@ main {
 
 .movieCard > h1 {
     font-size: 2vw;
-    width: fit-content;
+    width: 20vw;
     text-align: center;
 }
 
@@ -137,6 +165,7 @@ main {
     float: left;
     padding: 8px 16px;
     text-decoration: none;
+    margin-bottom: 10vh;
   }
   
   .pagination a.active {

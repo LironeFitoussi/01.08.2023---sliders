@@ -13,6 +13,24 @@ function fetchMovies(page =1, time ="3/movie/popular") {
 
         const genrePromise = fetchMovieGenres();
 
+        let slideCount = 1;
+        $("#rightSlide").click(function autoSlideRight() {
+            console.log(slideCount);
+            if (slideCount == 10) {
+                slideCount = 1
+            }
+            $(`#topMovies_${++slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
+            
+        })
+        
+        $("#leftSlide").click(() => {
+            if (slideCount == 1) {
+                slideCount = 11
+            }
+            --slideCount
+            $(`#topMovies_${slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
+        })
+        
         tenTopMovies.forEach((movie, index) => {
             const movieDate = new Date(movie.release_date);
             const newDiv = $("<div>");
@@ -48,22 +66,7 @@ function fetchMovies(page =1, time ="3/movie/popular") {
             newDiv.append(movieContent);
             $(".moviesSlider").append(newDiv);
 
-            let slideCount = 1;
-            $("#rightSlide").click(function autoSlideRight() {
-                if (slideCount == 10) {
-                    slideCount = 1
-                }
-                $(`#topMovies_${++slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
-                
-            })
             
-            $("#leftSlide").click(() => {
-                if (slideCount == 1) {
-                    slideCount = 11
-                }
-                --slideCount
-                $(`#topMovies_${slideCount}`)[0].scrollIntoView({behavior: 'smooth'});
-            })
 
             //? setInterval(() => {
             //?    if (slideCount == 10) {
@@ -74,18 +77,7 @@ function fetchMovies(page =1, time ="3/movie/popular") {
         });
 
         //! Main
-        const thisPageMOvies = data.results;
-        thisPageMOvies.map((selectedMovie, movieIndex) => {
-            const movieCard = $("<div>")
-            movieCard.addClass("movieCard")
-            const newMovie = $("<img>");
-            newMovie.addClass("movieImg")
-            movieCard.attr("id", `movie_${movieIndex+1}`)
-            newMovie.attr("src", `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`)
-            $(movieCard).append(newMovie)
-            $(movieCard).append(`<h1>${selectedMovie.original_title}</h1>`)
-            $("main").append(movieCard)
-        })
+        nextPage(1, chosenFilter)
 
         //! Pagination
         console.log(data);
@@ -104,6 +96,7 @@ function fetchMovies(page =1, time ="3/movie/popular") {
         lastPage.addClass("pageBtn")
         paginationElem.append(lastPage)
         
+        $("main").append(paginationElem)
         $(paginationElem).insertAfter("main");
         
         const pageBtnArr = document.querySelectorAll(".pageBtn")
@@ -143,26 +136,43 @@ function fetchMovieGenres() {
 
 let clickedBtn = 1
 function nextPage(page =1, time) {
+    window.scrollTo({
+        top: 800,
+        behavior: 'smooth'
+    });
     fetch(`https://api.themoviedb.org/${time}?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
     .then(response => response.json())
     .then(data => {
         $("main").html("")
-        const thisPageMOvies = data.results;
-        thisPageMOvies.map((selectedMovie, movieIndex) => {
+        const thisPageMovies = data.results;
+        thisPageMovies.map((selectedMovie, movieIndex) => {
             const movieCard = $("<div>")
             movieCard.addClass("movieCard")
             const newMovie = $("<img>");
             newMovie.addClass("movieImg")
+            const movieDate = new Date(selectedMovie.release_date);
+
+            // hiddenSlide
+            const slideInfo = $("<div>")
+            const movieTitle = selectedMovie.title
+            slideInfo.html(`
+                <h1>${movieTitle}</h1>
+                <span>${movieDate.getFullYear()}</span>
+                <p>${selectedMovie.overview}</p>
+            `)
+            if (movieTitle.length > 15) {
+                slideInfo.find("h1").css("font-size", "2vw");
+            }
+
+            slideInfo.addClass("slideInfo")
+
             movieCard.attr("id", `movie_${movieIndex+1}`)
             newMovie.attr("src", `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`)
-            $(movieCard).append(newMovie)
-            $(movieCard).append(`<h1>${selectedMovie.title}</h1>`)
+            $(movieCard).append( slideInfo, newMovie)
+
             $("main").append(movieCard)
         })
     })
     .catch(err => console.error(err));
 }
-
-
-
 fetchMovies(1, chosenFilter);
