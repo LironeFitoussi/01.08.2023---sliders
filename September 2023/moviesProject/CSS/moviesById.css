@@ -1,9 +1,13 @@
 main {
     width: 90vw;
-    height: 100vh;
+    height: fit-content;
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: start;
+}
+
+nav {
+    position: relative;
 }
 
 #backgroundImg {
@@ -74,4 +78,8 @@ main {
 #imdbLogo {
     object-fit: contain;
     height: 3vh;
+}
+
+footer {
+    position:initial
 }
