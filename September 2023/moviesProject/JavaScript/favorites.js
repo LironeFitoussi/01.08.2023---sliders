@@ -1,12 +1,15 @@
 let favArr = new Array
-
-if (localStorage.userFavMovies != []) {
+console.log(localStorage.userFavMovies);
+if (localStorage.userFavMovies != "[]") {
+    console.log(favArr);
     favArr = JSON.parse(localStorage.userFavMovies)
+    loadFav()
 }
 
 function loadFav() {
+    console.log("entered");
         $("main").html("")
-        const thisPageMovies = data.results;
+        const thisPageMovies = favArr;
         thisPageMovies.map((selectedMovie, movieIndex) => {
             const movieCard = $("<div>")
             movieCard.addClass("movieCard")
@@ -53,19 +56,15 @@ function loadFav() {
         let starsArr = document.querySelectorAll(".fa-star");
         starsArr.forEach((star, index) => {
             star.addEventListener("click", () => {
-                let favorite = star.classList.contains("fa-solid");
-                if (favorite) {
-                    let keyToRemove = "id";
-                    let valueToRemove = data.results[index].id;      
-                    star.classList.remove("fa-solid");
-                    favArr = favArr.filter(item => item[keyToRemove] !== valueToRemove)
-                } else {
-                    favArr.push(data.results[index]);
-                    star.classList.add("fa-solid");
-                }
+                let keyToRemove = "id";
+                let valueToRemove = favArr[index].id;      
+                star.classList.remove("fa-solid");
+                favArr = favArr.filter(item => item[keyToRemove] !== valueToRemove)
+                console.log(favArr);
+                // syncToLocalStorage
                 let localFavorites = JSON.stringify(favArr)
                 localStorage.setItem("userFavMovies", localFavorites)
+                location.reload();
             });
         });
 }
-loadFav()
