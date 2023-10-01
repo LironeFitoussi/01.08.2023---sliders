@@ -1,4 +1,5 @@
 let chosenFilter = "3/movie/popular"
+let favArr = new Array
 function fetchMovies(page =1, time ="3/movie/popular") {
     fetch(`https://api.themoviedb.org/${time}?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
     .then(response => response.json())
@@ -143,6 +144,7 @@ function nextPage(page =1, time) {
     fetch(`https://api.themoviedb.org/${time}?language=en-US&page=${page}&api_key=df5fe72df0888382e4148e21f58c70b8`)
     .then(response => response.json())
     .then(data => {
+        console.log(data);
         $("main").html("")
         const thisPageMovies = data.results;
         thisPageMovies.map((selectedMovie, movieIndex) => {
@@ -155,11 +157,19 @@ function nextPage(page =1, time) {
             // hiddenSlide
             const slideInfo = $("<div>")
             const movieTitle = selectedMovie.title
+            
             slideInfo.html(`
                 <h1>${movieTitle}</h1>
                 <span>${movieDate.getFullYear()}</span>
                 <p>${selectedMovie.overview}</p>
             `)
+
+            // Favorite
+            const mainStar = $("<div>")
+            mainStar.addClass(`fa-star fa-regular`)
+            mainStar.css("color", "#fbd723")
+            slideInfo.append(mainStar)
+
             if (movieTitle.length > 15) {
                 slideInfo.find("h1").css("font-size", "2vw");
             }
@@ -172,6 +182,27 @@ function nextPage(page =1, time) {
 
             $("main").append(movieCard)
         })
+
+
+        let starsArr = document.querySelectorAll(".fa-star");
+        console.log(starsArr);
+
+        starsArr.forEach((star, index) => {
+            star.addEventListener("click", () => {
+                let favorite = star.classList.contains("fa-solid");
+                if (favorite) {
+                    let keyToRemove = "id";
+                    let valueToRemove = data.results[index].id;      
+                    console.log("Already favorited!");
+                    star.classList.remove("fa-solid");
+                    favArr = favArr.filter(item => item[keyToRemove] !== valueToRemove)
+                    console.log(favArr);
+                } else {
+                    favArr.push(data.results[index]);
+                    star.classList.add("fa-solid");
+                }
+            });
+        });
     })
     .catch(err => console.error(err));
 }

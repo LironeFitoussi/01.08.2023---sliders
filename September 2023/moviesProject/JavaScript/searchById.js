@@ -1,5 +1,6 @@
 const currentPage = 2;
 let movieId = 0;
+const favoriteMovies = []
 
 $("#searchByID").submit(function (e) {
   e.preventDefault();
@@ -9,6 +10,7 @@ $("#searchByID").submit(function (e) {
   $("#backgroundImg").remove()
   loadContent(movieId);
 });
+
 function loadContent(movieId) {
   const settings = {
     async: true,
@@ -80,7 +82,7 @@ function loadContent(movieId) {
       //* add directors
       //* Serach Youtube Trailers
       //? Add Similar
-      //? find Movie Duration
+      //* find Movie Duration
       //? Add "Add To Favorite" Btn
 
       // Actors
