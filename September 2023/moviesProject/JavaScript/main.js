@@ -1,9 +1,12 @@
 let chosenFilter = "day";
 let favArr = new Array();
 
+console.log(localStorage.userFavMovies);
 if (localStorage.userFavMovies != "[]") {
-  favArr = JSON.parse(localStorage.userFavMovies);
+    console.log(favArr);
+    favArr = JSON.parse(localStorage.userFavMovies)
 }
+
 function fetchMovies(time = "day") {
   const settings = {
     async: true,
