@@ -1,7 +1,7 @@
 let chosenFilter = "day";
 let favArr = new Array();
 
-if (localStorage.userFavMovies != []) {
+if (localStorage.userFavMovies != "[]") {
   favArr = JSON.parse(localStorage.userFavMovies);
 }
 function fetchMovies(time = "day") {
