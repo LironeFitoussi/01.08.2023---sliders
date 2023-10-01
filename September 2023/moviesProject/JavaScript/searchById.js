@@ -1,5 +1,5 @@
 const currentPage = 2;
-let movieId = 35
+let movieId = 12
 const settings = {
     async: true,
     crossDomain: true,
@@ -25,9 +25,11 @@ const settings = {
     const runTime = new Date(response.runtime*60*60)
     const trailerIdPromise = fetchVideoTrailer(movieId)
     trailerIdPromise.then(data => {
-        console.log(data);
+        console.log();
+        const videoKey = data.results[0].key
+        $("iframe").attr("src", `https://www.youtube-nocookie.com/embed/${videoKey}?si=4ZJBUdvHa240g8LV`)
+        trailerKey = data.results[0].key;
     })
-
     console.log(releaseDate.getFullYear());
     console.log(mainMovieInfo);
     mainMovieInfo.addClass("mainMovie")
@@ -41,7 +43,8 @@ const settings = {
                 <a href="https://www.imdb.com/title/${response.imdb_id}">
                     <img id="imdbLogo" src="../Assets/IMDB_Logo_2016.svg.png">
                 </a>
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/35?si=4ZJBUdvHa240g8LV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <br>
+                <iframe width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <img id="moviePoster" src=http://image.tmdb.org/t/p/original${response.poster_path}></img>
         `
@@ -51,7 +54,7 @@ const settings = {
     //* add IMDB link
     //!! Serch Rotten Tomatoes link
     //* add directors
-    //? Serach Youtube Trailers
+    //* Serach Youtube Trailers
     //? Add Similar 
     //? find Movie Duration
     //? Add "Add To Favorite" Btn
