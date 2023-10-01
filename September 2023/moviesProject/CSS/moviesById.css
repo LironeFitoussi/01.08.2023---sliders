@@ -18,6 +18,7 @@ main {
     display: grid;
     grid-template-columns: 2fr 1fr;
     padding: 1rem;
+    width: 100%;
     background-color: rgba(135, 135, 135, 0.19);
     justify-self: flex-start;
     justify-items: center;
@@ -68,4 +69,9 @@ main {
     font-size: 2vw;
     height: 9vh;
     overflow: hidden;
+}
+
+#imdbLogo {
+    object-fit: contain;
+    height: 3vh;
 }
