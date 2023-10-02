@@ -1,3 +1,4 @@
+let mainMovie = ""
 let isPagination = false;
 export default function getMovieByName(movieName, favArr, clickedBtn) {
   const settings = {
@@ -13,6 +14,8 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
   };
   $.ajax(settings).done(function (data) {
     $("main").html("");
+    console.log(movieName);
+    mainMovie = movieName
     const thisPageMovies = data.results;
     thisPageMovies.map((selectedMovie, movieIndex) => {
       let poster = `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`
@@ -110,11 +113,10 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
     //! Pagination Listener
     pageBtnArr.forEach((page) => {
       page.addEventListener("click", () => {
-        console.log(page);
         pageBtnArr[clickedBtn - 1].classList.remove("active");
         clickedBtn = page.getAttribute("value");
         page.classList.add("active");
-        getMovieByName(movieName, favArr, clickedBtn);
+        getMovieByName(mainMovie, favArr, clickedBtn);
       });
     });
     isPagination = true
