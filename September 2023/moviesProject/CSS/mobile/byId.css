@@ -1,0 +1,40 @@
+main {
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+article {
+    position: relative;
+}
+.mainMovie {
+    width: -webkit-fill-available;
+}
+
+.mainMovie > div {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    align-items: center;
+}
+
+.actorsCont {
+    display: flex;
+    flex-direction: column;
+}
+
+.actorCard {
+    flex-direction: row;
+    gap: 1rem;
+}
+
+#moviePoster {
+    display: none;
+}
+
+.actorCard > h1 {
+    display: flex;
+    align-items: center;
+    font-size: 2vw;
+    height: 3vh;
+    overflow: hidden;
+}

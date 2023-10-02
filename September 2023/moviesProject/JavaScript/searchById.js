@@ -35,11 +35,14 @@ function loadContent(movieId) {
   $.ajax(settings)
     .done(function (response) {
       console.log(response);
-
+      let mainBackground = response.backdrop_path
+      if ($( window ).width() <= 375) {
+        mainBackground = response.poster_path
+      }
       // Set Background
       const backgroundImg = $("<img>");
       backgroundImg.attr({
-        src: `http://image.tmdb.org/t/p/original${response.backdrop_path}`,
+        src: `http://image.tmdb.org/t/p/original${mainBackground}`,
         id: "backgroundImg",
       });
       $(backgroundImg).insertBefore("main");
@@ -76,7 +79,7 @@ function loadContent(movieId) {
                         <img id="imdbLogo" src="../Assets/IMDB_Logo_2016.svg.png">
                     </a>
                     <br>
-                    <iframe width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <img id="moviePoster" src=http://image.tmdb.org/t/p/original${
                   response.poster_path
@@ -84,14 +87,6 @@ function loadContent(movieId) {
             `
       );
       $("main").append(mainMovieInfo);
-
-      //* add IMDB link
-      //!! Serch Rotten Tomatoes link
-      //* add directors
-      //* Serach Youtube Trailers
-      //? Add Similar
-      //* find Movie Duration
-      //? Add "Add To Favorite" Btn
 
       // Actors
       const actorPromise = fetchMovieCredits(movieId);
