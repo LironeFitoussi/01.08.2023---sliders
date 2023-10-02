@@ -14,7 +14,6 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
   };
   $.ajax(settings).done(function (data) {
     $("main").html("");
-    console.log(movieName);
     mainMovie = movieName
     const thisPageMovies = data.results;
     thisPageMovies.map((selectedMovie, movieIndex) => {
@@ -80,9 +79,17 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
           star.classList.add("fa-solid");
         }
         let localFavorites = JSON.stringify(favArr);
+
+        
         localStorage.setItem("userFavMovies", localFavorites);
       });
     });
+
+    const paginArr = document.querySelectorAll(".pageBtn")
+    $(".pagination").find(".active").removeClass("active")
+    console.log(paginArr[clickedBtn-1]);
+    paginArr[clickedBtn-1].classList.add("active")
+  
   });
 
   if (!isPagination) {
