@@ -156,7 +156,7 @@ a:hover {
 }
 
 .movieContent > p {
-    width: 50vw;  
+    width: 65vw;  
     font-size: 2vw;  
 }
 
@@ -208,7 +208,7 @@ form {
 
 main {
     position: relative;
-    /* background-image: url(../Assets/Untitled-1.png); */
+    background-color: #fff;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -274,30 +274,34 @@ main {
 
 /* Pagination */
 .pagination {
-    display: inline-block;
-  }
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    margin: 1rem;
+}
   
-  .pagination a {
+.pagination a {
     color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-    margin-bottom: 10vh;
-  }
-  
-  .pagination a.active {
-    background-color: #4CAF50;
+}
+
+.pagination a.active {
+    background-color: #d62d2d;
     color: white;
     border-radius: 5px;
-  }
-  
-  .pagination a:hover:not(.active) {
+}
+
+.pagination a:hover:not(.active) {
     background-color: #ddd;
     border-radius: 5px;
-  }
+}
 
-  footer {
-    position: absolute;
+footer {
+    position: relative;
     bottom: 0;
     text-align: center;
     background-color: #333;
