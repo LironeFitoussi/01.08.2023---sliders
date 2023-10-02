@@ -1,6 +1,10 @@
 let chosenFilter = "day";
 let favArr = new Array();
 
+// Navbar Loader Module
+import getNavBar from "./modules/navBar.js";
+getNavBar()
+
 if (localStorage.userFavMovies) {
     console.log(favArr);
     favArr = JSON.parse(localStorage.userFavMovies)

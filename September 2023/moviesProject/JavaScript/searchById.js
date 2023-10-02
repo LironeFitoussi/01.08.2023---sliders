@@ -2,6 +2,10 @@ const currentPage = 2;
 let movieId = 0;
 const favoriteMovies = []
 
+// Navbar Loader Module
+import getNavBar from "./modules/navBar.js";
+getNavBar()
+
 $("#searchByID").submit(function (e) {
   e.preventDefault();
   movieId = $("#serachMovieInput").val();

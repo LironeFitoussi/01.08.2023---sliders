@@ -1,5 +1,9 @@
 console.log("test");
 
+// Navbar Loader Module
+import getNavBar from "./modules/navBar.js";
+getNavBar()
+
 $("#WAForm").submit(function (e) { 
     e.preventDefault();
     console.log("uloaded");
