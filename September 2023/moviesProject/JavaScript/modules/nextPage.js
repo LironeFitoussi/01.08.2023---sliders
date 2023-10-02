@@ -16,7 +16,6 @@ export default function nextPage(page = 1, time, favArr) {
     };
   
     $.ajax(settings).done(function (data) {
-        console.log(data);
         $(".moviesContainer").html("");
         const thisPageMovies = data.results;
         thisPageMovies.map((selectedMovie, movieIndex) => {

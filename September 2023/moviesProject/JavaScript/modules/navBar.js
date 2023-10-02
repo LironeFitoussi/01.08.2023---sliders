@@ -26,18 +26,21 @@ export default function getNavBar(currentPage) {
     `
   );
 
-  const navLinks = $(".pageFinder");
-  navLinks.map((link, index) => {
-    if (link+1 === currentPage) {
-      $(index).attr("id","active");
-      $(index).find("a").attr("id","active");
-    }
-  });
-
+  
   $("#navbarDropdownMenuLink").click(function () {
     console.log("click");
     let dropdown = $("#sbw");
     dropdown.toggle();
   });
   $(navContent).insertBefore("header");
+
+  const navLinks = $(".pageFinder");
+  navLinks.map((link, index) => {
+    console.log();
+    if (link+1 === currentPage) {
+      $(index).attr("id","active");
+      $(index).find("a").attr("id","active");
+    }
+  });
+
 }

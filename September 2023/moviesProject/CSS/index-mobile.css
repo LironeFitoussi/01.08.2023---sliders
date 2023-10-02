@@ -34,7 +34,12 @@ nav {
     right: 0;
 }
 
+.navBtn {
+    display: block;
+}
+
 .navBtnList {
+    display: block;
     position: absolute;
     border: 1px solid #fff;
     padding: .5rem;
@@ -50,7 +55,6 @@ nav {
 .pageFinder > a {
     font-size: 4vw;
 }
-
 
 .topMovies {
     height: 35vh;

@@ -17,7 +17,6 @@ import getFooter from "./modules/loadFooter.js";
 getFooter()
 
 if (localStorage.userFavMovies) {
-    console.log(favArr);
     favArr = JSON.parse(localStorage.userFavMovies)
 }
 
@@ -35,7 +34,6 @@ function fetchMovies(time = "day") {
   };
 
   $.ajax(settings).done(function (data) {
-    console.log(data);
     //! Header
     const moviesArr = data.results;
     const tenTopMovies = [];
@@ -113,7 +111,6 @@ function fetchMovies(time = "day") {
     nextPage(1, chosenFilter, favArr);
 
     //! Pagination
-    console.log(data);
     const paginationElem = $("<div>");
     paginationElem.addClass("pagination");
     for (let i = 1; i <= 5; i++) {
