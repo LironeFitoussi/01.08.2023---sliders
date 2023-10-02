@@ -249,9 +249,4 @@ function nextPage(page = 1, time) {
     .catch((err) => console.error(err));
 }
 
-$("#navbarDropdownMenuLink").click(function () {
-  let dropdown = $('#sbw');
-  dropdown.toggle()
-});
-
 fetchMovies(chosenFilter);

@@ -26,7 +26,7 @@ export default function getNavBar(currentPage) {
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Search Movie
                             </a>
-                            <ul id="sbw" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <ul id="sbw" style="display: none;">
                                 <li><a class="dropdown-item" href="./singleById.html">By ID</a></li>
                                 <li><a class="dropdown-item" href="#">By Name</a></li>
                             </ul>
@@ -54,6 +54,7 @@ export default function getNavBar(currentPage) {
   $(navContent).insertBefore("header");
 
   $("#navbarDropdownMenuLink").click(function () {
+    console.log("click");
     let dropdown = $("#sbw");
     dropdown.toggle();
   });
@@ -61,8 +62,6 @@ export default function getNavBar(currentPage) {
   const navLinks = $(".pageFinder");
   navLinks.map((link, index) => {
     if (link+1 === currentPage) {
-      console.log("class added");
-      console.log(index);
       $(index).addClass("active");
     }
   });
