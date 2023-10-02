@@ -1,4 +1,4 @@
-const currentPage = 3
+const currentPage = 4
 
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
