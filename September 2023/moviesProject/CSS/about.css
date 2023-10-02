@@ -30,8 +30,9 @@ main {
 }
 
 nav {
-    position: relative;
+    position: relative ;
 }
+
 .about-content, .contact-form {
     margin-bottom: 20px;
 }
