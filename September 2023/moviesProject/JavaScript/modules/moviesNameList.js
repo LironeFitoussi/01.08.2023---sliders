@@ -15,6 +15,10 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
     $("main").html("");
     const thisPageMovies = data.results;
     thisPageMovies.map((selectedMovie, movieIndex) => {
+      let poster = `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`
+      if (poster == "http://image.tmdb.org/t/p/w500null") {
+        poster = `https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png`
+      }
       const movieCard = $("<div>");
       movieCard.addClass("movieCard");
       const newMovie = $("<img>");
@@ -52,8 +56,7 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
 
       movieCard.attr("id", `movie_${movieIndex + 1}`);
       newMovie.attr(
-        "src",
-        `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`
+        "src",poster
       );
       $(movieCard).append(slideInfo, newMovie);
 

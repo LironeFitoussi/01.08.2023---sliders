@@ -201,6 +201,7 @@ main {
 .movieImg {
     object-fit: fill;
     width: 18vw;
+    height: 45vh;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: .5rem;
