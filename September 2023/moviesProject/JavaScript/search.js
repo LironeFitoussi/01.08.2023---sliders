@@ -1,6 +1,11 @@
 const currentPage = 2;
 let favArr = new Array
 
+if (localStorage.userFavMovies) {
+    console.log(favArr);
+    favArr = JSON.parse(localStorage.userFavMovies)
+}
+
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
 getNavBar(currentPage)
