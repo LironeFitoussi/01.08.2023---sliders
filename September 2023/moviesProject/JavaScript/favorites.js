@@ -17,6 +17,14 @@ if (localStorage.userFavMovies) {
     loadFav(favArr)
 }
 
-
+$(".navBtn").click(() => {
+    $(".nav-list").addClass("nav-list-active");
+    $("body").css("overflow", "hidden")
+  })
+  
+  $(".navBtnList").click(() => {
+    $(".nav-list").removeClass("nav-list-active");
+    $("body").css("overflow", "scroll")
+  })
 
 

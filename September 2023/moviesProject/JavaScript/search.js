@@ -23,3 +23,13 @@ $("#searchByName").submit(function (e) {
     const movieName = $("#searchMovieInput").val()
     getMovieByName(movieName, favArr, clickedBtn)
 });
+
+$(".navBtn").click(() => {
+    $(".nav-list").addClass("nav-list-active");
+    $("body").css("overflow", "hidden")
+  })
+  
+  $(".navBtnList").click(() => {
+    $(".nav-list").removeClass("nav-list-active");
+    $("body").css("overflow", "scroll")
+  })

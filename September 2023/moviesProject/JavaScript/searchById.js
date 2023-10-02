@@ -195,3 +195,13 @@ if (movieId != 0) {
   fetchVideoTrailer(movieId);
   loadContent(movieId);
 }
+
+$(".navBtn").click(() => {
+  $(".nav-list").addClass("nav-list-active");
+  $("body").css("overflow", "hidden")
+})
+
+$(".navBtnList").click(() => {
+  $(".nav-list").removeClass("nav-list-active");
+  $("body").css("overflow", "scroll")
+})
