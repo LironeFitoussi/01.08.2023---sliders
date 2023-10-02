@@ -25,7 +25,6 @@ export default function getNavBar(currentPage) {
         </div>
     `
   );
-  $(navContent).insertBefore("header");
 
   const navLinks = $(".pageFinder");
   navLinks.map((link, index) => {
@@ -40,4 +39,5 @@ export default function getNavBar(currentPage) {
     let dropdown = $("#sbw");
     dropdown.toggle();
   });
+  $(navContent).insertBefore("header");
 }

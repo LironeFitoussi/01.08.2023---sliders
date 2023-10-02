@@ -2,6 +2,12 @@ let chosenFilter = "day";
 let favArr = new Array();
 const currentPage = 1
 
+let width = $(window).width();
+let smallScreenDot = "" 
+if (width <= 375) {
+  smallScreenDot = "fa-2xs";
+}
+
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
 getNavBar(currentPage)
@@ -82,7 +88,7 @@ function fetchMovies(time = "day") {
             <h1>${movieTitle}</h1>
             <div class="yearAndGenre">
                 <span>${movieDate.getFullYear()}</span>
-                <i class="fa-solid fa-circle" style="color: #ffffff;"></i>
+                <i class="fa-solid fa-circle ${smallScreenDot}" style="color: #ffffff;"></i>
                 <span></span>
             </div>
             <p>${movie.overview}</p>
@@ -177,3 +183,6 @@ $(".navBtnList").click(() => {
   $(".nav-list").removeClass("nav-list-active");
   $("body").css("overflow", "scroll")
 })
+
+
+
