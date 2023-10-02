@@ -167,3 +167,13 @@ let clickedBtn = 1;
 import nextPage from "./modules/nextPage.js";
 
 fetchMovies(chosenFilter);
+
+$(".navBtn").click(() => {
+  $(".nav-list").addClass("nav-list-active");
+  $("body").css("overflow", "hidden")
+})
+
+$(".navBtnList").click(() => {
+  $(".nav-list").removeClass("nav-list-active");
+  $("body").css("overflow", "scroll")
+})

@@ -7,7 +7,15 @@ export default function getNavBar(currentPage) {
             <div class="logo">
                 <img src="../Assets/favicon.ico" alt="Logo">
             </div>
+            <div>
+              <div class="navBtn">
+                <i class="fa-solid fa-bars" style="color: #fff;"></i>
+              </div>
+            </div>
             <ul class="nav-list">
+                <div class="navBtnList">
+                <i class="fa-solid fa-x" style="color: #ffffff;"></i>
+                </div>
                 <li class="pageFinder"><a href="./index.html">Home</a></li>
                 <li class="pageFinder"><a href="./searchMovie.html">Search</a></li>
                 <li class="pageFinder"><a href="./singleById.html">Movies ID</a></li>

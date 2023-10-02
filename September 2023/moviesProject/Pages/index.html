@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../Assets/favicon.ico">
     <script src="https://kit.fontawesome.com/9630cfcb36.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/index-mobile.css" media="screen and (max-width: 375px)">
 </head>
 
 <body>
@@ -16,17 +17,31 @@
         <button class="slideBtn" id="rightSlide"><i class="fa-solid fa-chevron-right" style="color: #fff;"></i></button>
         <div class="moviesSlider"></div>
     </header>
-    <h1>Top Movies Rated Movies</h1>
-    <form id="chooseFilter">
-        <label for="timeFilter">Choose aFilter:</label>
-        <select id="timeFilter" name="cars">
-            <option value="day">By Day</option>
-            <option value="week">By Week</option>
-        </select>
-        <input type="submit">
-    </form>
+    
+    
     <main>
+        <article>
+        <h1>Top Movies Rated Movies</h1>
+        <div class="filters">
+            <label for="timeFilter">Choose a Filter:</label>
+            <form id="chooseFilter">
+                <div class="timeFilter">
+                    <select id="timeFilter" name="cars">
+                        <option value="day">By Day</option>
+                        <option value="week">By Week</option>
+                    </select>
+                    <select id="timeFilter" name="cars">
+                        <option value="day">By Day</option>
+                        <option value="week">By Week</option>
+                    </select>
+                </div>
+                <input type="submit">
+            </form>
+        </div>
+    </article>
+        <div class="moviesContainer">
 
+        </div>
     </main>
     
 

@@ -17,7 +17,7 @@ export default function nextPage(page = 1, time, favArr) {
   
     $.ajax(settings).done(function (data) {
         console.log(data);
-        $("main").html("");
+        $(".moviesContainer").html("");
         const thisPageMovies = data.results;
         thisPageMovies.map((selectedMovie, movieIndex) => {
           const movieCard = $("<div>");
@@ -62,7 +62,7 @@ export default function nextPage(page = 1, time, favArr) {
           );
           $(movieCard).append(slideInfo, newMovie);
   
-          $("main").append(movieCard);
+          $(".moviesContainer").append(movieCard);
         });
   
         let starsArr = document.querySelectorAll(".fa-star");
