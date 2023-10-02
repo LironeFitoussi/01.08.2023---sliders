@@ -5,6 +5,11 @@ const favoriteMovies = []
 import getNavBar from "./modules/navBar.js";
 getNavBar(currentPage)
 
+// Footer Loader Module
+import getFooter from "./modules/loadFooter.js";
+getFooter()
+
+
 $("#searchByID").submit(function (e) {
   e.preventDefault();
   movieId = $("#serachMovieInput").val();
