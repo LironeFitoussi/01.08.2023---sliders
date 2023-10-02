@@ -1,8 +1,8 @@
-console.log("test");
+const currentPage = 3
 
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
-getNavBar()
+getNavBar(currentPage)
 
 $("#WAForm").submit(function (e) { 
     e.preventDefault();

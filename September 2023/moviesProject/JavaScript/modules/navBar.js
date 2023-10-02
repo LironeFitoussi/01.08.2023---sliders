@@ -1,7 +1,7 @@
-export default function getNavBar() {
-    console.log("Nav Loaded");
-    const navContent = $("<nav>")
-    navContent.html(
+export default function getNavBar(currentPage) {
+  console.log("Nav Loaded");
+  const navContent = $("<nav>");
+  navContent.html(
     `
         <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-danger" id="headerNav">
             <div class="container-fluid">
@@ -16,11 +16,13 @@ export default function getNavBar() {
 
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav mx-auto">
+
                         <li class="nav-item">
-                            <a class="nav-link mx-2 " aria-current="page" href="./index.html">Home</a>
+                            <a class="pageFinder nav-link mx-2 " aria-current="page" href="./index.html">Home</a>
                         </li>
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            <a class="pageFinder nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Search Movie
                             </a>
@@ -29,27 +31,39 @@ export default function getNavBar() {
                                 <li><a class="dropdown-item" href="#">By Name</a></li>
                             </ul>
                         </li>
+
                         <li class="nav-item d-none d-lg-block">
                             <a class="nav-link mx-2" href="#">
                                 <img src="../Assets/favicon.ico" height="80" />
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="./about.html">About</a>
+                            <a class="pageFinder nav-link mx-2" href="./about.html">About</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link mx-2 active" href="./favorites.html">Favorites</a>
+                            <a class="pageFinder nav-link mx-2" href="./favorites.html">Favorites</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     `
-    );
-    $(navContent).insertBefore("header");
-    $("#navbarDropdownMenuLink").click(function () {
-    let dropdown = $('#sbw');
-    dropdown.toggle()
-    }) ;
-}
+  );
+  $(navContent).insertBefore("header");
 
+  $("#navbarDropdownMenuLink").click(function () {
+    let dropdown = $("#sbw");
+    dropdown.toggle();
+  });
+
+  const navLinks = $(".pageFinder");
+  navLinks.map((link, index) => {
+    if (link+1 === currentPage) {
+      console.log("class added");
+      console.log(index);
+      $(index).addClass("active");
+    }
+  });
+}

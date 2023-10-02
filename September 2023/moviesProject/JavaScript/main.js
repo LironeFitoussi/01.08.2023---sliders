@@ -1,9 +1,9 @@
 let chosenFilter = "day";
 let favArr = new Array();
-
+const currentPage = 1
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
-getNavBar()
+getNavBar(currentPage)
 
 if (localStorage.userFavMovies) {
     console.log(favArr);
