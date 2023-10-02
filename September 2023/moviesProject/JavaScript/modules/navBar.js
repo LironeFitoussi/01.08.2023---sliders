@@ -9,7 +9,8 @@ export default function getNavBar(currentPage) {
             </div>
             <ul class="nav-list">
                 <li class="pageFinder"><a href="./index.html">Home</a></li>
-                <li class="pageFinder"><a href="./singleById.html">Search</a></li>
+                <li class="pageFinder"><a href="./searchMovie.html">Search</a></li>
+                <li class="pageFinder"><a href="./singleById.html">Movies ID</a></li>
                 <li class="pageFinder"><a href="./about.html">About</a></li>
                 <li class="pageFinder"><a href="./favorites.html">Favorites</a></li>
             </ul>
@@ -18,17 +19,17 @@ export default function getNavBar(currentPage) {
   );
   $(navContent).insertBefore("header");
 
-  $("#navbarDropdownMenuLink").click(function () {
-    console.log("click");
-    let dropdown = $("#sbw");
-    dropdown.toggle();
-  });
-
   const navLinks = $(".pageFinder");
   navLinks.map((link, index) => {
     if (link+1 === currentPage) {
       $(index).attr("id","active");
       $(index).find("a").attr("id","active");
     }
+  });
+
+  $("#navbarDropdownMenuLink").click(function () {
+    console.log("click");
+    let dropdown = $("#sbw");
+    dropdown.toggle();
   });
 }
