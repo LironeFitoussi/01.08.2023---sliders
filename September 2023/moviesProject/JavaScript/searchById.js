@@ -1,4 +1,4 @@
-const currentPage = 2;
+const currentPage = 3;
 let movieId = 0;
 const favoriteMovies = []
 // Navbar Loader Module
