@@ -15,12 +15,13 @@ $("#WAForm").submit(function (e) {
     window.open(`https://api.whatsapp.com/send?phone=972585109829&text=${userMSG}`, '_blank');
 });
 
+
 $(".navBtn").click(() => {
     $(".nav-list").addClass("nav-list-active");
     $("body").css("overflow", "hidden")
-  })
+})
   
-  $(".navBtnList").click(() => {
-    $(".nav-list").removeClass("nav-list-active");
-    $("body").css("overflow", "scroll")
-  })
+$(".navBtnList").click(() => {
+  $(".nav-list").removeClass("nav-list-active");
+  $("body").css("overflow", "scroll")
+})

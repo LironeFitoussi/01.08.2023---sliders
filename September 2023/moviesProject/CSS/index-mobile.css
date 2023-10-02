@@ -18,19 +18,21 @@ nav {
 }
 
 .nav-list {
+    width: 0;
     position: absolute;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    width: 75vw;
     text-align: center;
     z-index: 150;
     right: -80vw;
     background-color: black;
-    transition: right .7s;
+    transition: all .7s;
 }
 
 .nav-list-active {
+    width: 75vw;
+    display: flex;
     right: 0;
 }
 
