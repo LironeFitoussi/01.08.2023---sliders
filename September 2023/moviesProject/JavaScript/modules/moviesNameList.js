@@ -1,7 +1,5 @@
-import { clickedBtn } from "../search.js";
-let paginatorLoaded = false;
-
-export default function getMovieByName(movieName, favArr) {
+let isPagination = false;
+export default function getMovieByName(movieName, favArr, clickedBtn) {
   const settings = {
     async: true,
     crossDomain: true,
@@ -14,7 +12,6 @@ export default function getMovieByName(movieName, favArr) {
     },
   };
   $.ajax(settings).done(function (data) {
-    movieCpatured = movieName;
     $("main").html("");
     const thisPageMovies = data.results;
     thisPageMovies.map((selectedMovie, movieIndex) => {
@@ -82,38 +79,41 @@ export default function getMovieByName(movieName, favArr) {
     });
   });
 
-  console.log("Paginator Loaded");
-  //! Pagination
-  const paginationElem = $("<div>");
-  paginationElem.addClass("pagination");
-  for (let i = 1; i <= 5; i++) {
-    const newPageBtn = $("<a>");
-    newPageBtn.addClass("pageBtn");
-    newPageBtn.text(i);
-    newPageBtn.attr("value", i);
-    paginationElem.append(newPageBtn);
-  }
+  if (!isPagination) {
+    console.log("Paginator Loaded");
+    //! Pagination
+    const paginationElem = $("<div>");
+    paginationElem.addClass("pagination");
+    for (let i = 1; i <= 5; i++) {
+      const newPageBtn = $("<a>");
+      newPageBtn.addClass("pageBtn");
+      newPageBtn.text(i);
+      newPageBtn.attr("value", i);
+      paginationElem.append(newPageBtn);
+    }
 
-  const lastPage = $("<a>");
-  lastPage.text(250);
-  lastPage.attr("value", 6);
-  lastPage.addClass("pageBtn");
-  paginationElem.append(lastPage);
+    const lastPage = $("<a>");
+    lastPage.text(250);
+    lastPage.attr("value", 6);
+    lastPage.addClass("pageBtn");
+    paginationElem.append(lastPage);
 
-  $("main").append(paginationElem);
-  $(paginationElem).insertAfter("main");
+    $("main").append(paginationElem);
+    $(paginationElem).insertAfter("main");
 
-  const pageBtnArr = document.querySelectorAll(".pageBtn");
-  pageBtnArr[0].classList.add("active");
+    const pageBtnArr = document.querySelectorAll(".pageBtn");
+    pageBtnArr[0].classList.add("active");
 
-  //! Pagination Listener
-  pageBtnArr.forEach((page) => {
-    page.addEventListener("click", () => {
-      console.log(page);
-      pageBtnArr[clickedBtn - 1].classList.remove("active");
-      clickedBtn = page.getAttribute("value");
-      page.classList.add("active");
-      getMovieByName(movieName, favArr, clickedBtn);
+    //! Pagination Listener
+    pageBtnArr.forEach((page) => {
+      page.addEventListener("click", () => {
+        console.log(page);
+        pageBtnArr[clickedBtn - 1].classList.remove("active");
+        clickedBtn = page.getAttribute("value");
+        page.classList.add("active");
+        getMovieByName(movieName, favArr, clickedBtn);
+      });
     });
-  });
+    isPagination = true
+  }
 }
