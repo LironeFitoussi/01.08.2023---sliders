@@ -208,7 +208,7 @@ form {
 
 main {
     position: relative;
-    background-image: url(../Assets/Untitled-1.png);
+    /* background-image: url(../Assets/Untitled-1.png); */
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;

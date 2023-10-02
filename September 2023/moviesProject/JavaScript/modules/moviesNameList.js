@@ -50,8 +50,15 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
         }
       });
 
+
       if (movieTitle.length > 15) {
-        slideInfo.find("h1").css("font-size", "2vw");
+        var width = $(window).width(); 
+        if (width <= 375) {
+          slideInfo.find("h1").css("font-size", "5vw");
+        } else {
+          slideInfo.find("h1").css("font-size", "2vw");
+        }
+        
       }
 
       slideInfo.addClass("slideInfo");
@@ -124,6 +131,7 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
         clickedBtn = page.getAttribute("value");
         page.classList.add("active");
         getMovieByName(mainMovie, favArr, clickedBtn);
+        document.getElementById("searchByName").scrollIntoView( {behavior: "smooth"} );
       });
     });
     isPagination = true
