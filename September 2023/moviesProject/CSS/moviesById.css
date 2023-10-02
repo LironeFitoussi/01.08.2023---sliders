@@ -10,6 +10,11 @@ nav {
     position: relative;
 }
 
+header, main {
+    padding: 2rem 0;
+}
+
+
 #backgroundImg {
     filter: blur(10px) opacity(20%);
     position: fixed;

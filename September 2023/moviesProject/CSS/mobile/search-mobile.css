@@ -2,10 +2,6 @@
     width: max-content;
 }
 
-header {
-    padding: 2rem;
-}
-
 #searchMovieInput {
     font-size: 6vw;
     width: 60vw;

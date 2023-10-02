@@ -19,21 +19,21 @@ nav {
 
 .nav-list {
     width: 0;
+    right: 0;
     position: absolute;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
     text-align: center;
     z-index: 150;
-    right: -80vw;
     background-color: black;
     transition: all .7s;
+    overflow: hidden;
 }
 
 .nav-list-active {
     width: 75vw;
     display: flex;
-    right: 0;
 }
 
 .navBtn {
