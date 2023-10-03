@@ -3,9 +3,6 @@ main {
     margin-top: 10vh;
 }
 
-article {
-    position: relative;
-}
 .mainMovie {
     width: -webkit-fill-available;
 }
