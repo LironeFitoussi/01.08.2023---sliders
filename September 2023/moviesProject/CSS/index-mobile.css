@@ -79,7 +79,7 @@ main {
 
 .movieContent {
     padding: 1rem 0;
-    height: 30vh;
+    height: 35vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
