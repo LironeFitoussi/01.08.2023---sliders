@@ -35,14 +35,25 @@ function loadContent(movieId) {
   $.ajax(settings)
     .done(function (response) {
       console.log(response);
+      // Hide Filter
+      const hideFilter = $("<div>")
+      hideFilter.attr("id", "hideFilter")
+      hideFilter.css({
+        "position":"absolute",
+        "background-color": "#000",
+        "width": "100vw",
+        "height": "100vh",
+        "z-index":"200",
+        "opacity": 0,
+        "transition":"all 0.6s"
+      });
+      $("main").append(hideFilter)
 
       // Back Button
       let isActive = false
       const backBtn = $("<div>")
       backBtn.addClass("backBtn")
-      backBtn.html(`
-        <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i>
-      `)
+      backBtn.html(`<i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i>`)
       $("main").append(backBtn);
 
       $(backBtn).click(() => { 
@@ -50,15 +61,20 @@ function loadContent(movieId) {
         if (!isActive) {
           console.log("click2");
           $("main").removeClass("main-active")
-          backBtn.removeClass("backBtn-active")
+          backBtn.addClass("backBtn-active")
           isActive = true 
-          
+          $("body").css("overflow", "hidden")
+          $("#hideFilter").css("opacity","0.8")
         } else {
           $("main").addClass("main-active")
-          backBtn.addClass("backBtn-active")
+          backBtn.removeClass("backBtn-active")
           isActive = false
+          $("body").css("overflow", "scroll")
+          $("#hideFilter").css("opacity","0")
         }
       });
+
+      
 
       // Set Background
       let mainBackground = response.backdrop_path;
