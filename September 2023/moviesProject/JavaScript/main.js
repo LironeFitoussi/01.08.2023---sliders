@@ -1,4 +1,6 @@
 let chosenFilter = "day";
+let clickedBtn = 1;
+
 let favArr = new Array();
 const currentPage = 1
 
@@ -120,9 +122,10 @@ function fetchMovies(time = "day") {
       newPageBtn.attr("value", i);
       paginationElem.append(newPageBtn);
     }
+
     const lastPage = $("<a>");
-    lastPage.text(250);
-    lastPage.attr("value", 6);
+    lastPage.text(`Next Page >> ${parseInt(clickedBtn)+1}`);
+    lastPage.attr({ "value": clickedBtn, "id": "nextPage" });
     lastPage.addClass("pageBtn");
     paginationElem.append(lastPage);
 
@@ -132,13 +135,36 @@ function fetchMovies(time = "day") {
     const pageBtnArr = document.querySelectorAll(".pageBtn");
     pageBtnArr[0].classList.add("active");
 
+    let lastBtn = 0
     //! Pagination Listener
-    pageBtnArr.forEach((page) => {
+    pageBtnArr.forEach((page, index) => {
       page.addEventListener("click", () => {
-        pageBtnArr[clickedBtn - 1].classList.remove("active");
-        clickedBtn = page.getAttribute("value");
-        page.classList.add("active");
-        nextPage(page.innerText, chosenFilter, favArr);
+        if (page.hasAttribute("id")) {
+          clickedBtn++
+          if (lastBtn == 4) {
+            pageBtnArr[index].classList.add("active");
+          }
+        } else {
+          if (lastBtn > 5) {
+            $("#nextPage").classList.remove(active)
+          }
+          pageBtnArr[index].classList.add("active");
+          clickedBtn = page.getAttribute("value");
+        }
+
+        if (lastBtn <= 4) {
+          pageBtnArr[lastBtn].classList.remove("active")
+          if (page.hasAttribute("id")) {
+            lastBtn++
+          } else {
+            lastBtn = index;
+          }
+          pageBtnArr[lastBtn].classList.add("active");
+        }
+
+        lastPage.text(`Next Page >> ${parseInt(clickedBtn)+1}`);
+        lastPage.attr("value", clickedBtn);
+        nextPage(clickedBtn, chosenFilter, favArr);
       });
     });
 
@@ -165,7 +191,6 @@ function fetchMovieGenres() {
     });
 }
 
-let clickedBtn = 1;
 
 import nextPage from "./modules/nextPage.js";
 
