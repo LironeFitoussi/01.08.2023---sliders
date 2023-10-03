@@ -39,6 +39,7 @@ function loadContent(movieId) {
       const hideFilter = $("<div>")
       hideFilter.attr("id", "hideFilter")
       hideFilter.css({
+        "display":"contents",
         "position":"absolute",
         "background-color": "#000",
         "width": "100vw",
