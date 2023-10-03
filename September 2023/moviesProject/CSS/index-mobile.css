@@ -4,6 +4,9 @@ nav {
     height: 8vh;
 }
 
+main {
+    width: 83vw;
+}
 .logo > img {
     object-fit: contain;
     width: 10vw;
