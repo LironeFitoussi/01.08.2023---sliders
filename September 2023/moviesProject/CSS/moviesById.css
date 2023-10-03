@@ -99,6 +99,16 @@ article {
     top: 5vh;
 }
 
+.error-message {
+    position: fixed;
+    top: 10vh;
+    color: #f00;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+    background-color: aliceblue;
+}
+
 footer {
     position: fixed;
     z-index: 300;

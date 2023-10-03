@@ -1,6 +1,8 @@
 const currentPage = 3;
 let movieId = 0;
 const favoriteMovies = [];
+let isFetch = true 
+
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
 getNavBar(currentPage);
@@ -9,16 +11,56 @@ getNavBar(currentPage);
 import getFooter from "./modules/loadFooter.js";
 getFooter();
 
-$("#searchByID").submit(function (e) {
+$("#searchByID").submit(async function (e) {
   e.preventDefault();
-  $("body").css("overflow", "scroll")
+  $("body").css("overflow", "scroll");
   movieId = $("#serachMovieInput").val();
   console.log(movieId);
-  $("main").html("");
-  $("#backgroundImg").remove();
-  loadContent(movieId);
-  $("main").addClass("main-active")
+  try {
+    // Fetch Validation
+    await isFetchValidation(movieId);
+    
+    // If validation passes, load content
+    $("main").html("");
+    $("#backgroundImg").remove();
+    console.log("loaded");
+    loadContent(movieId);
+    $("main").addClass("main-active");
+  } catch (error) {
+    // If validation fails, handle the error
+    isFetch = false
+    const errorMessage = "Movie not found. Please enter a valid movie ID.";
+    $(`<h1 class="error-message">${errorMessage}</h1>`).insertBefore("main");
+    console.error("API request failed:", error);
+    console.log(errorMessage);
+    // You can choose to show an error message or take other actions here
+  }
 });
+
+function isFetchValidation(movieId) {
+  return new Promise((resolve, reject) => {
+    const settings = {
+      async: true,
+      crossDomain: true,
+      url: `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZjVmZTcyZGYwODg4MzgyZTQxNDhlMjFmNThjNzBiOCIsInN1YiI6IjY1MTVjNWQ0ZDQ2NTM3MDBjNjdiMmMxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.2huECgDm-vl-quAM-E50mrdEymLQO4yHgmgrdfRa3vI",
+      },
+    };
+
+    $.ajax(settings)
+      .done((response) => {
+        // Resolve the promise with the API response
+        resolve(response);
+      })
+      .fail((error) => {
+        // Reject the promise with the error information
+        reject(error);
+      });
+  });
+}
 
 function loadContent(movieId) {
   const settings = {
@@ -35,7 +77,12 @@ function loadContent(movieId) {
 
   $.ajax(settings)
     .done(function (response) {
-      console.log(response);
+      // Ensure if has Error MSG before:
+      if (!isFetch) {
+        console.log("test2");
+        $(".error-message").remove()
+      }
+
       // Hide Filter
       const hideFilter = $("<div>")
       hideFilter.attr("id", "hideFilter")
@@ -112,8 +159,6 @@ function loadContent(movieId) {
         );
         trailerKey = data.results[0].key;
       });
-      console.log(releaseDate.getFullYear());
-      console.log(mainMovieInfo);
       mainMovieInfo.addClass("mainMovie");
       mainMovieInfo.append(
         `
@@ -145,13 +190,10 @@ function loadContent(movieId) {
       const actorPromise = fetchMovieCredits(movieId);
       const actors = $("<div>");
       actors.addClass("actorsCont");
-      actorPromise.then((data) => {
-        console.log(data);
-        
+      actorPromise.then((data) => {        
         // Director
         const crewArr = data.crew;
         const movieDirector = crewArr.find((crew) => crew.job == "Director");
-        console.log(movieDirector.name);
         $("#movieDirector").html(
           `<strong>Directed By:</strong> ${movieDirector.name}`
         );
@@ -181,18 +223,6 @@ function loadContent(movieId) {
       });
       $("main").append(actors);
     })
-    .fail((xhr, status, error) => {
-      if (xhr.status === 404) {
-        const errorMessage = "Movie not found. Please enter a valid movie ID.";
-        $("main").html(`<h1 class="error-message">${errorMessage}</h1>`);
-        console.error("Movie not found (404 error).");
-      } else {
-        const errorMessage =
-          "An error occurred while fetching movie data. Please try again later.";
-        $("main").html(`<p class="error-message">${errorMessage}</p>`);
-        console.error("Error fetching movie data:", error);
-      }
-    });
 }
 
 function fetchMovieCredits(movieId) {
