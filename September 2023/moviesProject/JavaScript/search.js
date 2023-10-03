@@ -20,7 +20,8 @@ export let clickedBtn = 1;
 
 $("#searchByName").submit(function (e) { 
     e.preventDefault();
-    const movieName = $("#searchMovieInput").val()
+    const movieName = $("#serachMovieInput").val()
+    console.log(movieName);
     getMovieByName(movieName, favArr, clickedBtn)
 });
 
