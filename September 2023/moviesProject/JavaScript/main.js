@@ -48,7 +48,6 @@ function fetchMovies(time = "day") {
 
     let slideCount = 1;
     $("#rightSlide").click(function autoSlideRight() {
-      console.log(slideCount);
       if (slideCount == 10) {
         slideCount = 1;
       }
@@ -134,36 +133,36 @@ function fetchMovies(time = "day") {
 
     const pageBtnArr = document.querySelectorAll(".pageBtn");
     pageBtnArr[0].classList.add("active");
-
+    
     let lastBtn = 0
     //! Pagination Listener
     pageBtnArr.forEach((page, index) => {
       page.addEventListener("click", () => {
         if (page.hasAttribute("id")) {
           clickedBtn++
-          if (lastBtn == 4) {
-            pageBtnArr[index].classList.add("active");
+          if (lastBtn === 4) {
+            page.classList.add("active")
+            pageBtnArr[lastBtn].classList.remove("active")
+          }
+          if (lastBtn <=4) {
+            pageBtnArr[lastBtn].classList.remove("active")
+            lastBtn++
+            pageBtnArr[lastBtn].classList.add("active")
+
           }
         } else {
-          if (lastBtn > 5) {
-            $("#nextPage").classList.remove(active)
+          if (lastBtn == 5) {
+            $("#nextPage").removeClass("active")
           }
-          pageBtnArr[index].classList.add("active");
-          clickedBtn = page.getAttribute("value");
-        }
-
-        if (lastBtn <= 4) {
           pageBtnArr[lastBtn].classList.remove("active")
-          if (page.hasAttribute("id")) {
-            lastBtn++
-          } else {
-            lastBtn = index;
-          }
-          pageBtnArr[lastBtn].classList.add("active");
+          page.classList.add("active")
+          lastBtn = index
+          clickedBtn = page.getAttribute("value");
         }
 
         lastPage.text(`Next Page >> ${parseInt(clickedBtn)+1}`);
         lastPage.attr("value", clickedBtn);
+        console.log(lastBtn);
         nextPage(clickedBtn, chosenFilter, favArr);
       });
     });
