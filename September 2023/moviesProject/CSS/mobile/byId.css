@@ -1,7 +1,13 @@
 body {
     height: 100vh;
-    justify-content: space-between;
+    justify-content: center;
 }
+
+nav {
+    position: absolute;
+}
+
+
 main {
     overflow: scroll;
     position: relative;
@@ -103,3 +109,8 @@ article.mainMovie {
     display: none;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 300;
+}

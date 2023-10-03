@@ -11,6 +11,7 @@ getFooter();
 
 $("#searchByID").submit(function (e) {
   e.preventDefault();
+  $("body").css("overflow", "scroll")
   movieId = $("#serachMovieInput").val();
   console.log(movieId);
   $("main").html("");
@@ -116,25 +117,22 @@ function loadContent(movieId) {
       mainMovieInfo.addClass("mainMovie");
       mainMovieInfo.append(
         `
-                <div >
-                    <h1>${response.title}</h1>
-                    <span>${releaseDate.getFullYear()} | Duration: ${
-          parseInt(runTime.getTime() / 60 / 60 / 60) +
-          "h" +
-          ((runTime.getTime() / 60 / 60) % 60)
-        } </span> <hr>
-                    <span id="movieDirector"></span>
-                    <p>${response.overview}</p>
-                    <a href="https://www.imdb.com/title/${response.imdb_id}">
-                        <img id="imdbLogo" src="../Assets/IMDB_Logo_2016.svg.png">
-                    </a>
-                    <br>
-                    <iframe title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <img id="moviePoster" src=http://image.tmdb.org/t/p/original${
-                  response.poster_path
-                }></img>
-            `
+          <div >
+            <h1>${response.title}</h1>
+            <span>${releaseDate.getFullYear()} | Duration: 
+            ${parseInt(runTime.getTime() / 60 / 60 / 60) + "h" + ((runTime.getTime() / 60 / 60) % 60)} 
+            </span>
+            <hr>
+            <span id="movieDirector"></span>
+            <p>${response.overview}</p>
+            <a href="https://www.imdb.com/title/${response.imdb_id}">
+                <img id="imdbLogo" src="../Assets/IMDB_Logo_2016.svg.png">
+            </a>
+            <br>
+            <iframe title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <img id="moviePoster" src=http://image.tmdb.org/t/p/original${response.poster_path}></img>
+        `
       );
       $("main").append(mainMovieInfo);
 

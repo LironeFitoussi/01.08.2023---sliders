@@ -88,9 +88,6 @@ article {
     height: 3vh;
 }
 
-footer {
-    position:initial
-}
 
 .castTitle {
     /* position: relative; */
@@ -101,3 +98,4 @@ footer {
     font-size: 5vw;
     top: 5vh;
 }
+
