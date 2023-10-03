@@ -1,4 +1,5 @@
 main {
+    background-color: transparent;
     width: 90vw;
     height: fit-content;
     background-repeat: no-repeat;
@@ -14,6 +15,9 @@ header, main {
     padding: 2rem 0;
 }
 
+article {
+    position: relative;
+}
 
 #backgroundImg {
     filter: blur(10px) opacity(20%);
