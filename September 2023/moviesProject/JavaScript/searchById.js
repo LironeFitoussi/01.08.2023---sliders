@@ -1,21 +1,20 @@
 const currentPage = 3;
 let movieId = 0;
-const favoriteMovies = []
+const favoriteMovies = [];
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
-getNavBar(currentPage)
+getNavBar(currentPage);
 
 // Footer Loader Module
 import getFooter from "./modules/loadFooter.js";
-getFooter()
-
+getFooter();
 
 $("#searchByID").submit(function (e) {
   e.preventDefault();
   movieId = $("#serachMovieInput").val();
   console.log(movieId);
   $("main").html("");
-  $("#backgroundImg").remove()
+  $("#backgroundImg").remove();
   loadContent(movieId);
 });
 
@@ -35,17 +34,23 @@ function loadContent(movieId) {
   $.ajax(settings)
     .done(function (response) {
       console.log(response);
-      let mainBackground = response.backdrop_path
-      if ($( window ).width() <= 375) {
-        mainBackground = response.poster_path
-      }
+
       // Set Background
+      let mainBackground = response.backdrop_path;
       const backgroundImg = $("<img>");
-      backgroundImg.attr({
-        src: `http://image.tmdb.org/t/p/original${mainBackground}`,
-        id: "backgroundImg",
-      });
-      $(backgroundImg).insertBefore("main");
+      if ($(window).width() <= 375) {
+        backgroundImg.attr({
+          src: `http://image.tmdb.org/t/p/original${mainBackground}`,
+          id: "backgroundImg",
+        });
+        $("main").append(backgroundImg);
+      } else {
+        backgroundImg.attr({
+          src: `http://image.tmdb.org/t/p/original${mainBackground}`,
+          id: "backgroundImg",
+        });
+        $(backgroundImg).insertBefore("main");
+      }
 
       // main Movie Details
       const mainMovieInfo = $("<article>");
@@ -99,7 +104,9 @@ function loadContent(movieId) {
         const crewArr = data.crew;
         const movieDirector = crewArr.find((crew) => crew.job == "Director");
         console.log(movieDirector.name);
-        $("#movieDirector").text("Directed By: " + movieDirector.name);
+        $("#movieDirector").html(
+          `<strong>Directed By:</strong> ${movieDirector.name}`
+        );
         for (const int of data.cast) {
           const actorCard = $("<div>");
           actorCard.addClass("actorCard");
@@ -124,15 +131,16 @@ function loadContent(movieId) {
       $("main").append(actors);
     })
     .fail((xhr, status, error) => {
-        if (xhr.status === 404) {
-            const errorMessage = "Movie not found. Please enter a valid movie ID.";
-            $("main").html(`<h1 class="error-message">${errorMessage}</h1>`);
-            console.error("Movie not found (404 error).");
-        } else {
-            const errorMessage = "An error occurred while fetching movie data. Please try again later.";
-            $("main").html(`<p class="error-message">${errorMessage}</p>`);
-            console.error("Error fetching movie data:", error);
-        }
+      if (xhr.status === 404) {
+        const errorMessage = "Movie not found. Please enter a valid movie ID.";
+        $("main").html(`<h1 class="error-message">${errorMessage}</h1>`);
+        console.error("Movie not found (404 error).");
+      } else {
+        const errorMessage =
+          "An error occurred while fetching movie data. Please try again later.";
+        $("main").html(`<p class="error-message">${errorMessage}</p>`);
+        console.error("Error fetching movie data:", error);
+      }
     });
 }
 
@@ -193,10 +201,10 @@ if (movieId != 0) {
 
 $(".navBtn").click(() => {
   $(".nav-list").addClass("nav-list-active");
-  $("body").css("overflow", "hidden")
-})
+  $("body").css("overflow", "hidden");
+});
 
 $(".navBtnList").click(() => {
   $(".nav-list").removeClass("nav-list-active");
-  $("body").css("overflow", "scroll")
-})
+  $("body").css("overflow", "scroll");
+});

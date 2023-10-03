@@ -1,37 +1,70 @@
 main {
     justify-content: center;
-    margin-top: 10vh;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    padding: 0;
+    width: 100%;
 }
 
-.mainMovie {
-    width: -webkit-fill-available;
+#backgroundImg {
+    position: relative;
+    filter: none;
+}
+
+article.mainMovie {
+    width: 100%;
+    display: flex;
+    background-color: #ffffffd5;
 }
 
 .mainMovie > div {
     display: flex;
     flex-direction: column;
-    width: 80vw;
+    width: 90vw;
     align-items: center;
+}
+
+.mainMovie > div > h1{
+    font-size: 9vw;
+    text-align: center;
+    margin: 1rem 2rem;
 }
 
 .actorsCont {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .actorCard {
-    flex-direction: row;
-    gap: 1rem;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.actorCard > h1 {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: black;  
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    font-size: 3vw;
+    height: 3vh;
+    overflow: hidden;
+}
+
+.actorCard > img {
+    height: 15vh;
+    width: 15vh;
+    border-radius: 1rem;
+}
+
+.actorCard > span {
+    display: none;
 }
 
 #moviePoster {
     display: none;
 }
 
-.actorCard > h1 {
-    display: flex;
-    align-items: center;
-    font-size: 2vw;
-    height: 3vh;
-    overflow: hidden;
-}
