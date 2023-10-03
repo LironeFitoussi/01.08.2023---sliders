@@ -15,7 +15,8 @@ main {
 article.mainMovie {
     width: 100%;
     display: flex;
-    background-color: #ffffffd5;
+    background-color: #ffffff;
+    box-shadow: none;
 }
 
 .mainMovie > div {
@@ -35,6 +36,7 @@ article.mainMovie {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .actorCard {

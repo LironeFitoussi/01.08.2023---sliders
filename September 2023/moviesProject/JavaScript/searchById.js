@@ -92,6 +92,11 @@ function loadContent(movieId) {
             `
       );
       $("main").append(mainMovieInfo);
+      
+      const castTitle = $("<h1>")
+      castTitle.addClass("castTitle")
+      castTitle.text("Cast");
+      $("main").append(castTitle);
 
       // Actors
       const actorPromise = fetchMovieCredits(movieId);
@@ -99,7 +104,7 @@ function loadContent(movieId) {
       actors.addClass("actorsCont");
       actorPromise.then((data) => {
         console.log(data);
-
+        
         // Director
         const crewArr = data.crew;
         const movieDirector = crewArr.find((crew) => crew.job == "Director");
@@ -107,6 +112,9 @@ function loadContent(movieId) {
         $("#movieDirector").html(
           `<strong>Directed By:</strong> ${movieDirector.name}`
         );
+
+        // Cast
+        
         for (const int of data.cast) {
           const actorCard = $("<div>");
           actorCard.addClass("actorCard");
