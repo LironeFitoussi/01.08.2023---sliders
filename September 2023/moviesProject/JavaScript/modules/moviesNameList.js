@@ -1,5 +1,7 @@
 let mainMovie = ""
 let isPagination = false;
+let clickedBtn = 1;
+
 export default function getMovieByName(movieName, favArr, clickedBtn) {
   const settings = {
     async: true,
@@ -16,6 +18,7 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
     $("main").html("");
     mainMovie = movieName
     const thisPageMovies = data.results;
+    console.log(data);
     thisPageMovies.map((selectedMovie, movieIndex) => {
       let poster = `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`
       if (poster == "http://image.tmdb.org/t/p/w500null") {
@@ -94,7 +97,6 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
 
     const paginArr = document.querySelectorAll(".pageBtn")
     $(".pagination").find(".active").removeClass("active")
-    console.log(paginArr[clickedBtn-1]);
     paginArr[clickedBtn-1].classList.add("active")
   
   });
@@ -113,8 +115,8 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
     }
 
     const lastPage = $("<a>");
-    lastPage.text(250);
-    lastPage.attr("value", 6);
+    lastPage.text(`Next Page >> ${parseInt(clickedBtn)+1}`);
+    lastPage.attr({ "value": clickedBtn, "id": "nextPage" });
     lastPage.addClass("pageBtn");
     paginationElem.append(lastPage);
 
@@ -123,17 +125,46 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
 
     const pageBtnArr = document.querySelectorAll(".pageBtn");
     pageBtnArr[0].classList.add("active");
-
+    
+    let lastBtn = 0
     //! Pagination Listener
-    pageBtnArr.forEach((page) => {
+    pageBtnArr.forEach((page, index) => {
       page.addEventListener("click", () => {
-        pageBtnArr[clickedBtn - 1].classList.remove("active");
-        clickedBtn = page.getAttribute("value");
-        page.classList.add("active");
+        topFunction()
+        if (page.hasAttribute("id")) {
+          clickedBtn++
+          if (lastBtn === 4) {
+            page.classList.add("active")
+            pageBtnArr[lastBtn].classList.remove("active")
+          }
+          if (lastBtn <=4) {
+            pageBtnArr[lastBtn].classList.remove("active")
+            lastBtn++
+            pageBtnArr[lastBtn].classList.add("active")
+
+          }
+        } else {
+          if (lastBtn == 5) {
+            $("#nextPage").removeClass("active")
+          }
+          pageBtnArr[lastBtn].classList.remove("active")
+          page.classList.add("active")
+          lastBtn = index
+          clickedBtn = page.getAttribute("value");
+        }
+
+        lastPage.text(`Next Page >> ${parseInt(clickedBtn)+1}`);
+        lastPage.attr("value", clickedBtn);
         getMovieByName(mainMovie, favArr, clickedBtn);
-        document.getElementById("searchByName").scrollIntoView( {behavior: "smooth"} );
       });
     });
     isPagination = true
   }
+}
+
+function topFunction() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
 }
