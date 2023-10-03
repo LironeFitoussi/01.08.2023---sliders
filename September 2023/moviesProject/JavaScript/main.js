@@ -163,6 +163,13 @@ function fetchMovies(time = "day") {
         lastPage.text(`Next Page >> ${parseInt(clickedBtn)+1}`);
         lastPage.attr("value", clickedBtn);
         console.log(lastBtn);
+        setTimeout(() => {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+        }, 50);
         nextPage(clickedBtn, chosenFilter, favArr);
       });
     });
