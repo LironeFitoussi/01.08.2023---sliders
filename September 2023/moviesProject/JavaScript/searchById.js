@@ -16,6 +16,7 @@ $("#searchByID").submit(function (e) {
   $("main").html("");
   $("#backgroundImg").remove();
   loadContent(movieId);
+  $("main").addClass("main-active")
 });
 
 function loadContent(movieId) {
@@ -34,6 +35,30 @@ function loadContent(movieId) {
   $.ajax(settings)
     .done(function (response) {
       console.log(response);
+
+      // Back Button
+      let isActive = false
+      const backBtn = $("<div>")
+      backBtn.addClass("backBtn")
+      backBtn.html(`
+        <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i>
+      `)
+      $("main").append(backBtn);
+
+      $(backBtn).click(() => { 
+        console.log(isActive);
+        if (!isActive) {
+          console.log("click2");
+          $("main").removeClass("main-active")
+          backBtn.removeClass("backBtn-active")
+          isActive = true 
+          
+        } else {
+          $("main").addClass("main-active")
+          backBtn.addClass("backBtn-active")
+          isActive = false
+        }
+      });
 
       // Set Background
       let mainBackground = response.backdrop_path;
@@ -92,7 +117,7 @@ function loadContent(movieId) {
             `
       );
       $("main").append(mainMovieInfo);
-      
+
       const castTitle = $("<h1>")
       castTitle.addClass("castTitle")
       castTitle.text("Cast");
