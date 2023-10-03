@@ -3,7 +3,7 @@ body {
     justify-content: space-between;
 }
 main {
-    overflow: hidden;
+    overflow: scroll;
     position: relative;
     left: 0vw;
     width: 0;
@@ -12,7 +12,7 @@ main {
     z-index: 100;
     top: 0;
     padding: 0;
-    width: 10%;
+    width: 20%;
     transition: all .5s;
 }
 
@@ -29,6 +29,9 @@ main {
     right: 1rem;
     transform: rotate(180deg);
     transition: all .7s;
+    padding: 1rem;
+    background-color: #ffffff32;
+    border-radius: .5rem;
 }
 
 .backBtn-active {
@@ -41,6 +44,8 @@ main {
 }
 
 article.mainMovie {
+    border-radius:  2rem 2rem 0 0 ;
+    margin-top: -5vh;
     width: 100%;
     display: flex;
     background-color: #ffffff;

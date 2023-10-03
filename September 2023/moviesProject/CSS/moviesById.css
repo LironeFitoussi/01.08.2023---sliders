@@ -93,10 +93,10 @@ footer {
 }
 
 .castTitle {
-    position: relative;
+    /* position: relative; */
     color: #000;
     margin: 0;
-    margin-bottom: -5vh;
+    /* margin-bottom: -5vh; */
     width: 85%;
     font-size: 5vw;
     top: 5vh;
