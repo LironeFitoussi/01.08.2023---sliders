@@ -65,7 +65,10 @@ function loadContent(movieId) {
           backBtn.addClass("backBtn-active")
           isActive = true 
           $("body").css("overflow", "hidden")
-          $("#hideFilter").css("opacity","0.8")
+          $("#hideFilter").css({
+            "opacity":"0.8", 
+            "display":"block"
+          })
         } else {
           $("main").addClass("main-active")
           backBtn.removeClass("backBtn-active")
