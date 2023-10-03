@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+:root {
+    --twoRem: 2rem;
+}
+
 body {
     position: relative;
     width: 100vw;
@@ -281,16 +286,17 @@ main {
     height: fit-content;
     justify-content: center;
 }
+
 .slideInfo {
     position: absolute;
     overflow-y: scroll;
     opacity: 0;
-    padding: 2rem;
+    padding: 2.5vh;
     width: -webkit-fill-available;
     transition: all .5s;
     background-color: #69696960;
     backdrop-filter: blur(7px);
-    height: -webkit-fill-available;
+    height: 40vh;
     border-radius: .5rem;
 }
 
