@@ -1,6 +1,12 @@
 nav {
     overflow: visible;
     background-color: #00000030;
+    height: 8vh;
+}
+
+.logo > img {
+    object-fit: contain;
+    width: 10vw;
 }
 
 .navbar {
@@ -79,8 +85,8 @@ nav {
 }
 
 .movieContent > h1 {
-    display: flex;
     width: 81vw;
+    text-align: center;
 }
 
 .moviesContainer {

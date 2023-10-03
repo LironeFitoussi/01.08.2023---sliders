@@ -10,8 +10,8 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5vw;
 }
-
 form {
     display: flex;
     flex-direction: column;

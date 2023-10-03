@@ -99,3 +99,9 @@ article {
     top: 5vh;
 }
 
+footer {
+    position: fixed;
+    z-index: 300;
+    height: 10vh;
+}
+
