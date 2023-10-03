@@ -49,7 +49,11 @@ export default function nextPage(page = 1, time, favArr) {
           });
   
           if (movieTitle.length > 15) {
-            slideInfo.find("h1").css("font-size", "2vw");
+            if (window.innerWidth <= 425 ) {
+              slideInfo.find("h1").css("font-size", "5vw");
+            } else {
+              slideInfo.find("h1").css("font-size", "2vw");
+            }
           }
   
           slideInfo.addClass("slideInfo");
