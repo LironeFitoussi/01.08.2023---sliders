@@ -1,4 +1,7 @@
 const currentPage = 4
+// Apple Mobile Support
+import addAppleSupport from "./modules/appleMobile.js";
+addAppleSupport()
 
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
