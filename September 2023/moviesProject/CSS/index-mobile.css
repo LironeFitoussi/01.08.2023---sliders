@@ -6,6 +6,7 @@ nav {
 main {
     width: 83vw;
 }
+
 .logo > img {
     object-fit: contain;
     width: 10vw;
@@ -126,19 +127,12 @@ article > h1 {
 }
 
 article {
-    position: relative;
-    background-color: #ffffffdd;
-    width: 80vw;
     color: #000000;
     display: flex;
-    margin-top: 0;
-    flex-direction: column;
     align-items: center;
-    border-radius: 2rem;
     z-index: 50;
-    backdrop-filter: blur(10px);
+    border-radius: 1rem;
     padding: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px -2px 44px, rgba(0, 0, 0, 0.22) 2px 4px 12px;
 }
 
 main {
@@ -148,4 +142,8 @@ main {
 
 .slideInfo {
     height: 50vh;
+}
+
+.yearAndGenre > span {
+    font-size: 4.5vw;
 }

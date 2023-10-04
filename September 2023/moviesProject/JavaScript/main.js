@@ -178,6 +178,18 @@ function fetchMovies(time = "day") {
       });
     });
 
+    $("#daySelector").click(() => {
+      nextPage(1, "day", favArr);
+      $("#daySelector").addClass("btn-primary")
+      $("#weekSelector").removeClass("btn-primary")
+    });
+
+    $("#weekSelector").click(() => {
+      $("#daySelector").removeClass("btn-primary")
+      $("#weekSelector").addClass("btn-primary")
+      nextPage(1, "week", favArr);
+    });
+
     $("#chooseFilter").on("submit", (e) => {
       e.preventDefault();
       chosenFilter = $("#timeFilter").val();

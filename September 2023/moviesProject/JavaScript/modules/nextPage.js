@@ -1,8 +1,4 @@
 export default function nextPage(page = 1, time, favArr) {
-    window.scrollTo({
-      top: 800,
-      behavior: "smooth",
-    });
     const settings = {
       async: true,
       crossDomain: true,
