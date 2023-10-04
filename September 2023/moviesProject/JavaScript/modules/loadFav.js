@@ -22,21 +22,21 @@ export default function loadFav(favArr) {
             `)
 
             let iosClicekd = false
-          slideInfo.addClass("slideInfo");
-          if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-            console.log("This is an iOS device.");
-            $(slideInfo).click(() => {
-              if (!iosClicekd) {
-                $(slideInfo).css( {"opacity":"1"} )
-                iosClicekd = true;
-              } else {
-                $(slideInfo).css({"opacity":"0"})
-                iosClicekd = false
-              }
-            })
-          } else {
-            console.log("This is not an iOS device!");
-          }
+            slideInfo.addClass("slideInfo");
+            if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                console.log("This is an iOS device.");
+                $(slideInfo).click(() => {
+                if (!iosClicekd) {
+                    $(slideInfo).css( {"opacity":"1"} )
+                    iosClicekd = true;
+                } else {
+                    $(slideInfo).css({"opacity":"0"})
+                    iosClicekd = false
+                }
+                })
+            } else {
+                console.log("This is not an iOS device!");
+            }
 
             // Favorite
             const mainStar = $("<div>")

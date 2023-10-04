@@ -53,6 +53,22 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
         }
       });
 
+      let iosClicekd = false
+            slideInfo.addClass("slideInfo");
+            if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                console.log("This is an iOS device.");
+                $(slideInfo).click(() => {
+                if (!iosClicekd) {
+                    $(slideInfo).css( {"opacity":"1"} )
+                    iosClicekd = true;
+                } else {
+                    $(slideInfo).css({"opacity":"0"})
+                    iosClicekd = false
+                }
+                })
+            } else {
+                console.log("This is not an iOS device!");
+            }
 
       if (movieTitle.length > 15) {
         var width = $(window).width(); 
@@ -77,7 +93,8 @@ export default function getMovieByName(movieName, favArr, clickedBtn) {
 
     let starsArr = document.querySelectorAll(".fa-star");
     starsArr.forEach((star, index) => {
-      star.addEventListener("click", () => {
+      star.addEventListener("click", (e) => {
+        e.stopPropagation()
         let favorite = star.classList.contains("fa-solid");
         if (favorite) {
           let keyToRemove = "id";
