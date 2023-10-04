@@ -3,12 +3,14 @@ body {
 }
 
 nav {
+    background-color: black;
     position: relative;
 }
 
 form {
   width: 100vw;
 }
+
 header {
     display: flex;
     flex-direction: column;

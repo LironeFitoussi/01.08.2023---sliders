@@ -16,6 +16,7 @@ header {
 p {
     color: black;
 }
+
 main {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -30,6 +31,7 @@ main {
 }
 
 nav {
+    background-color: black;
     position: relative ;
 }
 

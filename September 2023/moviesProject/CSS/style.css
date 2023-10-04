@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
-
-:root {
-    --twoRem: 2rem;
-}
+/* @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 body {
     position: relative;
@@ -16,13 +12,9 @@ body {
     margin: 0;
 }
 
-header {
-    flex-direction: row;
-    width: 100vw;
-}
+/* Nav Bar */
 
 nav {
-    background-color: #0c0c0c;
     width: 100%;
     position: absolute;
     top: 0;
@@ -31,9 +23,10 @@ nav {
     overflow: hidden;
     font-family: 'Roboto', sans-serif;
 }
+
 .navbar {
     padding: 0 2rem;
-    background-color: #3333331a;
+    background-color: #0000002b;
     backdrop-filter: blur(16px) opacity(0.5);
     display: flex;
     justify-content: space-between;
@@ -41,12 +34,18 @@ nav {
     height: 100%;
 }
 
-
-.pageFinder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.navBtn {
+    position: absolute;
+    border: 1px solid #fff;
+    padding: .5rem;
+    border-radius: .25rem;
+    top: 6px;
+    right: 6px;
 }
+
+.navBtn:hover {
+    cursor: pointer;
+} 
 
 .nav-list {
     list-style: none;
@@ -88,6 +87,20 @@ a:hover {
     background-color: #ffffff2b;
 }
 
+
+header {
+    flex-direction: row;
+    width: 100vw;
+}
+
+.pageFinder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
 #active {
     color: #000000;
     font-weight: 400;
@@ -123,18 +136,7 @@ a:hover {
     flex-direction: column;
 }
 
-.navBtn {
-    position: absolute;
-    border: 1px solid #fff;
-    padding: .5rem;
-    border-radius: .25rem;
-    top: 6px;
-    right: 6px;
-}
 
-.navBtn:hover {
-    cursor: pointer;
-} 
 
 .moviesSlider {
     overflow: hidden;
@@ -304,7 +306,6 @@ main {
     height: 40vh;
     border-radius: .5rem;
 }
-
 
 .movieCard:hover > .slideInfo {
     opacity: 1;
