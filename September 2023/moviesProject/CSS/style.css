@@ -304,7 +304,6 @@ main {
     align-items: center;
     width: fit-content;
     height: fit-content;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .movieImg {
@@ -314,7 +313,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: .5rem;
-    box-shadow: rgba(210, 210, 210, 0.1) -4px 9px 25px -6px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .movieCard > h1 {
