@@ -44,6 +44,7 @@ main {
 .nav-list-active {
     width: 75vw;
     display: flex;
+    position: fixed;
 }
 
 .navBtn {

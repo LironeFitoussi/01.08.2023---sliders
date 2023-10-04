@@ -26,12 +26,6 @@ export default function getNavBar(currentPage) {
     `
   );
 
-  
-  $("#navbarDropdownMenuLink").click(function () {
-    console.log("click");
-    let dropdown = $("#sbw");
-    dropdown.toggle();
-  });
   $(navContent).insertBefore("header");
 
   const navLinks = $(".pageFinder");
