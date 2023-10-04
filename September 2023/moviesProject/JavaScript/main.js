@@ -1,6 +1,10 @@
 let chosenFilter = "day";
 let clickedBtn = 1;
 
+// Apple Mobile Support
+import addAppleSupport from "./modules/appleMobile.js";
+addAppleSupport()
+
 let favArr = new Array();
 const currentPage = 1
 

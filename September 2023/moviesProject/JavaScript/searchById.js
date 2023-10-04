@@ -3,6 +3,10 @@ let movieId = 0;
 const favoriteMovies = [];
 let isFetch = true 
 
+// Apple Mobile Support
+import addAppleSupport from "./modules/appleMobile.js";
+addAppleSupport()
+
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
 getNavBar(currentPage);

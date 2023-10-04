@@ -1,5 +1,10 @@
 let favArr = new Array
 const currentPage = 5
+
+// Apple Mobile Support
+import addAppleSupport from "./modules/appleMobile.js";
+addAppleSupport()
+
 // Navbar Loader Module
 import getNavBar from "./modules/navBar.js";
 getNavBar(currentPage)
