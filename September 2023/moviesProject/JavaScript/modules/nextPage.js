@@ -80,7 +80,8 @@ export default function nextPage(page = 1, time, favArr) {
   
         let starsArr = document.querySelectorAll(".fa-star");
         starsArr.forEach((star, index) => {
-          star.addEventListener("click", () => {
+          star.addEventListener("click", (e) => {
+            e.stopPropagation()
             let favorite = star.classList.contains("fa-solid");
             if (favorite) {
               let keyToRemove = "id";
