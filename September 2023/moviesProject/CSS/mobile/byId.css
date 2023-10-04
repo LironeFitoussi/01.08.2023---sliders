@@ -112,3 +112,7 @@ article.mainMovie {
 footer {
     position: fixed;
 }
+
+#hideFilter {
+    pointer-events: none;
+}
