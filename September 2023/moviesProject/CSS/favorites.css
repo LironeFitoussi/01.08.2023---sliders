@@ -13,6 +13,7 @@ main {
     min-width: 100vw;
     min-height: 50vh;
 }
+
 nav {
     background-color: black;
     position: relative;
@@ -21,6 +22,7 @@ nav {
 footer {
     position: relative;
 }
+
 .movieCard {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
@@ -28,5 +30,10 @@ footer {
 @media screen and (max-width: 425px) {
     main {
         background-color: transparent;
+        gap: 2vh !important;
+    }
+
+    .slideInfo {
+        height: 50vh !important;
     }
 }
