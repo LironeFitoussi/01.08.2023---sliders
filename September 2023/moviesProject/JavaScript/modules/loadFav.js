@@ -37,7 +37,7 @@ export default function loadFav(favArr) {
           } else {
             console.log("This is not an iOS device!");
           }
-          
+
             // Favorite
             const mainStar = $("<div>")
             mainStar.addClass(`fa-star fa-regular`)
@@ -52,8 +52,12 @@ export default function loadFav(favArr) {
             })
 
             if (movieTitle.length > 15) {
-                slideInfo.find("h1").css("font-size", "2vw");
-            }
+                if (window.innerWidth <= 425 ) {
+                  slideInfo.find("h1").css("font-size", "5vw");
+                } else {
+                  slideInfo.find("h1").css("font-size", "2vw");
+                }
+              }
 
             slideInfo.addClass("slideInfo")
 
