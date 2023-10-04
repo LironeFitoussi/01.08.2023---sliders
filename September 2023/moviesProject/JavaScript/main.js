@@ -1,7 +1,7 @@
 let chosenFilter = "day";
 let clickedBtn = 1;
 
-// Apple Mobile Support
+// iOS Support
 import addAppleSupport from "./modules/appleMobile.js";
 addAppleSupport()
 

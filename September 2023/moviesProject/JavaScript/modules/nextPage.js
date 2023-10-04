@@ -51,9 +51,24 @@ export default function nextPage(page = 1, time, favArr) {
               slideInfo.find("h1").css("font-size", "2vw");
             }
           }
-  
+          
+          const iosClicekd = false
           slideInfo.addClass("slideInfo");
-  
+          if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            console.log("This is an iOS device.");
+            $(slideInfo).click(() => {
+              if (!iosClicekd) {
+                $(slideInfo).css("opacity","1")
+                iosClicekd = true;
+              } else {
+                $(slideInfo).css("opacity","1")
+                iosClicekd = false
+              }
+              
+            })
+          } else {
+            console.log("This is not an iOS device!");
+          }
           movieCard.attr("id", `movie_${movieIndex + 1}`);
           newMovie.attr(
             "src",
