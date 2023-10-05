@@ -1,3 +1,14 @@
+$(document).ready(() => {
+  console.log("loaded");
+  $(".loadingAnimation").remove()
+});
+
+const loadingAnimation = $("<img>")
+loadingAnimation.attr("src", "https://cdn.dribbble.com/users/1098565/screenshots/2942125/media/2da52b3652f8b80b055c75e4c6f19811.gif")
+loadingAnimation.css({"position":"absolute", "height":"100vh", "width":"100vw", "z-index":"300"})
+loadingAnimation.addClass("loadingAnimation")
+$("body").append(loadingAnimation)
+
 let chosenFilter = "day";
 let clickedBtn = 1;
 
