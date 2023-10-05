@@ -1,7 +1,8 @@
-const loadingAnimation = $("<img>")
-loadingAnimation.attr("src", "https://cdn.dribbble.com/users/1098565/screenshots/2942125/media/2da52b3652f8b80b055c75e4c6f19811.gif");
-loadingAnimation.css({"position":"absolute", "height":"100vh", "width":"100vw", "z-index":"300", "background-color":"white"});
+const loadingAnimation = $("<div>")
 loadingAnimation.addClass("loadingAnimation");
+loadingAnimation.append(`
+  <img src="../Assets/Dual Ring-0.4s-177px.gif">
+`)
 $("body").append(loadingAnimation);
 
 $(document).ready(() => {
