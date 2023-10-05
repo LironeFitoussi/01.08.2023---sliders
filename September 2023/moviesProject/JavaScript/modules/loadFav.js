@@ -1,7 +1,6 @@
 
 export default function loadFav(favArr) {
     console.log("loadFav Loaded");
-    console.log("entered");
         $("main").html("")
         const thisPageMovies = favArr;
         thisPageMovies.map((selectedMovie, movieIndex) => {
@@ -53,6 +52,7 @@ export default function loadFav(favArr) {
 
             if (movieTitle.length > 15) {
                 if (window.innerWidth <= 425 ) {
+                  console.log(window.innerWidth);
                   slideInfo.find("h1").css("font-size", "5vw");
                 } else {
                   slideInfo.find("h1").css("font-size", "2vw");

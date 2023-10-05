@@ -14,6 +14,10 @@ main {
     min-height: 50vh;
 }
 
+.slideInfo {
+    height: 40vh;
+}
+
 nav {
     background-color: black;
     position: relative;
