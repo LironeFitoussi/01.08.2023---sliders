@@ -23,13 +23,12 @@ if (localStorage.userFavMovies != "[]") {
 }
 
 $(".navBtn").click(() => {
-  $(".nav-list").addClass("nav-list-active");
-  $("body").css("overflow", "hidden")
-})
-  
-$(".navBtnList").click(() => {
-  $(".nav-list").removeClass("nav-list-active");
-  $("body").css("overflow", "scroll")
-})
+  $(".nav-list").toggleClass("nav-list-active");
+  if ($(".nav-list").hasClass("nav-list-active")) {
+    $("body").css("overflow", "hidden");
+  } else {
+    $("body").css("overflow", "scroll");
+  }
+});
 
 

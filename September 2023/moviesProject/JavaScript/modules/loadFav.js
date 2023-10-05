@@ -1,8 +1,6 @@
-
 export default function loadFav(favArr) {
         $("main").html("")
-        const thisPageMovies = favArr;
-        thisPageMovies.map((selectedMovie, movieIndex) => {
+        favArr.map((selectedMovie, movieIndex) => {
             const movieCard = $("<div>")
             movieCard.addClass("movieCard")
             const newMovie = $("<img>");
