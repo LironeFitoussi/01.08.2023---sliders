@@ -16,7 +16,7 @@ import loadFav from "./modules/loadFav.js";
 import getFooter from "./modules/loadFooter.js";
 getFooter()
 
-if (localStorage.userFavMovies) {
+if (localStorage.userFavMovies != "[]") {
     console.log(favArr);
     favArr = JSON.parse(localStorage.userFavMovies)
     loadFav(favArr)

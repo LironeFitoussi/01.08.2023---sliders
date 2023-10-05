@@ -1,6 +1,5 @@
 
 export default function loadFav(favArr) {
-    console.log("loadFav Loaded");
         $("main").html("")
         const thisPageMovies = favArr;
         thisPageMovies.map((selectedMovie, movieIndex) => {
@@ -9,9 +8,12 @@ export default function loadFav(favArr) {
             const newMovie = $("<img>");
             newMovie.addClass("movieImg")
             const movieDate = new Date(selectedMovie.release_date);
+            movieCard.attr("id", `movie_${movieIndex+1}`)
+            newMovie.attr("src", `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`)
 
-            // hiddenSlide
+            //! hiddenSlide
             const slideInfo = $("<div>")
+            slideInfo.addClass("slideInfo")
             const movieTitle = selectedMovie.title
             
             slideInfo.html(`
@@ -20,36 +22,27 @@ export default function loadFav(favArr) {
                 <p>${selectedMovie.overview}</p>
             `)
 
+            //! iOS Device Check
             let iosClicekd = false
-            slideInfo.addClass("slideInfo");
             if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-                console.log("This is an iOS device.");
                 $(slideInfo).click(() => {
                 if (!iosClicekd) {
-                    $(slideInfo).css( {"opacity":"1"} )
+                    $(slideInfo).css({"opacity":"1"});
                     iosClicekd = true;
                 } else {
-                    $(slideInfo).css({"opacity":"0"})
-                    iosClicekd = false
+                    $(slideInfo).css({"opacity":"0"});
+                    iosClicekd = false;
                 }
                 })
-            } else {
-                console.log("This is not an iOS device!");
             }
 
-            // Favorite
+            //! Favorite Classing
             const mainStar = $("<div>")
-            mainStar.addClass(`fa-star fa-regular`)
+            mainStar.addClass(`fa-star fa-regular fa-solid`)
             mainStar.css("color", "#fbd723")
-            slideInfo.append(mainStar)
+            slideInfo.append(mainStar);
 
-            // check if already Fav
-            favArr.map(movie => {
-                if (movie.id == selectedMovie.id) {
-                    mainStar.addClass(`fa-solid`)
-                }
-            })
-
+            //! Long Title Fix
             if (movieTitle.length > 15) {
                 if (window.innerWidth <= 425 ) {
                   console.log(window.innerWidth);
@@ -57,14 +50,10 @@ export default function loadFav(favArr) {
                 } else {
                   slideInfo.find("h1").css("font-size", "2vw");
                 }
-              }
+            }
 
-            slideInfo.addClass("slideInfo")
-
-            movieCard.attr("id", `movie_${movieIndex+1}`)
-            newMovie.attr("src", `http://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`)
+            
             $(movieCard).append( slideInfo, newMovie)
-
             $("main").append(movieCard)
         })
 
