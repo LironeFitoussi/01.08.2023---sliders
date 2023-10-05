@@ -37,4 +37,13 @@ export default function getNavBar(currentPage) {
     }
   });
 
+  $(".navBtn").click(() => {
+    $(".nav-list").addClass("nav-list-active");
+    $("body").css("overflow", "hidden")
+  })
+    
+  $(".navBtnList").click(() => {
+    $(".nav-list").removeClass("nav-list-active");
+    $("body").css("overflow", "scroll")
+  })
 }

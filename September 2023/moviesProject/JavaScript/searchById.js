@@ -83,23 +83,12 @@ function loadContent(movieId) {
     .done(function (response) {
       // Ensure if has Error MSG before:
       if (!isFetch) {
-        console.log("test2");
         $(".error-message").remove()
       }
 
       // Hide Filter
       const hideFilter = $("<div>")
       hideFilter.attr("id", "hideFilter")
-      hideFilter.css({
-        "display":"contents",
-        "position":"absolute",
-        "background-color": "#000",
-        "width": "100vw",
-        "height": "100vh",
-        "z-index":"200",
-        "opacity": 0,
-        "transition":"all 0.6s"
-      });
       $("main").append(hideFilter)
 
       // Back Button
@@ -129,8 +118,6 @@ function loadContent(movieId) {
           $("#hideFilter").css("opacity","0")
         }
       });
-
-      
 
       // Set Background
       let mainBackground = response.backdrop_path;
@@ -190,20 +177,12 @@ function loadContent(movieId) {
       castTitle.text("Cast");
       $("main").append(castTitle);
 
-      // Actors
-      const actorPromise = fetchMovieCredits(movieId);
+      // Credits
+      const creditsPromise = fetchMovieCredits(movieId);
       const actors = $("<div>");
       actors.addClass("actorsCont");
-      actorPromise.then((data) => {        
-        // Director
-        const crewArr = data.crew;
-        const movieDirector = crewArr.find((crew) => crew.job == "Director");
-        $("#movieDirector").html(
-          `<strong>Directed By:</strong> ${movieDirector.name}`
-        );
-
+      creditsPromise.then((data) => {        
         // Cast
-        
         for (const int of data.cast) {
           const actorCard = $("<div>");
           actorCard.addClass("actorCard");
@@ -224,6 +203,13 @@ function loadContent(movieId) {
           );
           actors.append(actorCard);
         }
+        
+        // Director
+        const crewArr = data.crew;
+        const movieDirector = crewArr.find((crew) => crew.job == "Director");
+        $("#movieDirector").html(
+          `<strong>Directed By:</strong> ${movieDirector.name}`
+        );
       });
       $("main").append(actors);
     })
@@ -280,16 +266,8 @@ function fetchVideoTrailer(movieId) {
 }
 
 if (movieId != 0) {
+  console.log(typeof movieId);
   fetchVideoTrailer(movieId);
   loadContent(movieId);
 }
 
-$(".navBtn").click(() => {
-  $(".nav-list").addClass("nav-list-active");
-  $("body").css("overflow", "hidden");
-});
-
-$(".navBtnList").click(() => {
-  $(".nav-list").removeClass("nav-list-active");
-  $("body").css("overflow", "scroll");
-});

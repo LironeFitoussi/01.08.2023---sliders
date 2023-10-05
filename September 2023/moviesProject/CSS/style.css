@@ -360,6 +360,11 @@ footer {
     color: #fff;
     padding: 10px 0;
     width: 100%;
+    height: fit-content;
+}
+
+footer > p {
+    margin: 0;
 }
 
 .navBtnList {

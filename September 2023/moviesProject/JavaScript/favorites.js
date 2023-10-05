@@ -22,13 +22,4 @@ if (localStorage.userFavMovies != "[]") {
     loadFav(favArr)
 }
 
-$(".navBtn").click(() => {
-  $(".nav-list").toggleClass("nav-list-active");
-  if ($(".nav-list").hasClass("nav-list-active")) {
-    $("body").css("overflow", "hidden");
-  } else {
-    $("body").css("overflow", "scroll");
-  }
-});
-
 

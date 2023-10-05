@@ -20,6 +20,7 @@ main {
     padding: 0;
     width: 20%;
     transition: all .5s;
+    margin: 0;
 }
 
 .main-active {
@@ -79,6 +80,7 @@ article.mainMovie {
 }
 
 .actorCard {
+    background-color: transparent;
     flex-direction: column;
     gap: .25rem;
 }
@@ -96,8 +98,8 @@ article.mainMovie {
 }
 
 .actorCard > img {
-    height: 15vh;
-    width: 15vh;
+    height: 12vh;
+    width: 12vh;
     border-radius: 1rem;
 }
 
