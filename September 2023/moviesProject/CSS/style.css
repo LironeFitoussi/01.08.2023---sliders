@@ -288,7 +288,7 @@ main {
     transition: all .5s;
     background-color: #69696960;
     backdrop-filter: blur(7px);
-    height: 45;
+    height: 45vh;
     transition: all .5s;
     border-radius: .5rem;
 }
