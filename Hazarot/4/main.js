@@ -4,18 +4,17 @@ let isYoung = true
 const checkUserAge = () => {
   const todayDate = new Date()
   const userBirthday = new Date(document.getElementById("userBirthday").value)
-  console.log(userBirthday.getFullYear());
-  console.log(todayDate);
 
   // Age Logic:
   if(todayDate.getFullYear() - userBirthday.getFullYear() >= 18) {
-    console.log(todayDate.getFullYear() - userBirthday.getFullYear() >= 18);
-    if (todayDate.getMonth() - userBirthday.getMonth()  0) {
-      if (todayDate.getDay() - userBirthday.getDay() > 0) {
+    if (todayDate.getMonth() >= userBirthday.getMonth()) {
+      console.log(1);
+      if (todayDate.getDate() > userBirthday.getDate()) {
+        console.log(2);
         isYoung = false
       }
     }
-  }
+  } 
   
   renderMessage()
 }
