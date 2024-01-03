@@ -21,5 +21,3 @@ if (localStorage.userFavMovies != "[]") {
     favArr = JSON.parse(localStorage.userFavMovies)
     loadFav(favArr)
 }
-
-
