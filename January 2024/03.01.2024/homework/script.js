@@ -1,96 +1,63 @@
-// Function to add a new task
+const taskInput = document.getElementById("task-input");
+const dueTimeInput = document.getElementById("due-time");
+const taskList = document.getElementById("task-list");
+
+function createElement(tag, attributes = {}) {
+    const element = document.createElement(tag);
+    Object.assign(element, attributes);
+    return element;
+}
+
 function addTask() {
-    var taskInput = document.getElementById("task-input");
-    var dueTime = document.getElementById("due-time");
-    var taskList = document.getElementById("task-list");
-
     if (taskInput.value.trim() !== "") {
-        // Create task item
-        var taskItem = document.createElement("li");
-        taskItem.className = "task-item";
+        const taskItem = createElement("li", { className: "task-item" });
 
-        // Create task text
-        var taskText = document.createElement("span");
-        taskText.textContent = taskInput.value;
-
-        // Create due time text
-        var dueTimeText = document.createElement("span");
-        dueTimeText.textContent = dueTime.value || "No due time";
-
-        // Create delete button
-        var deleteBtn = document.createElement("button");
-        deleteBtn.className = "delete-btn";
-        deleteBtn.textContent = "Delete";
-        deleteBtn.onclick = function () {
-            taskList.removeChild(taskItem);
-            saveTasks();
+        const newTask = {
+            task: taskInput.value,
+            dueTime: dueTimeInput.value || "No due time"
         };
 
-        // Append elements to task item
-        taskItem.appendChild(taskText);
-        taskItem.appendChild(dueTimeText);
-        taskItem.appendChild(deleteBtn);
+        taskItem.innerHTML = `
+            <span>${newTask.task}</span>
+            <span>${newTask.dueTime}</span>
+            <button class="delete-btn" onclick="deleteTask(this.parentNode)">Delete</button>
+        `;
 
-        // Append task item to task list
+        taskItem.dataset.task = JSON.stringify(newTask);
         taskList.appendChild(taskItem);
 
-        // Clear input
         taskInput.value = "";
-        dueTime.value = "";
-
-        // Save tasks to local storage
+        dueTimeInput.value = "";
         saveTasks();
     }
 }
 
-// Function to save tasks to local storage
+function deleteTask(taskItem) {
+    taskList.removeChild(taskItem);
+    saveTasks();
+}
+
 function saveTasks() {
-    var tasks = [];
-    var taskList = document.getElementById("task-list").children;
-
-    for (var i = 0; i < taskList.length; i++) {
-        var taskItem = taskList[i];
-        var taskText = taskItem.querySelector("span").textContent;
-        var dueTimeText = taskItem.querySelector("span:nth-child(2)").textContent;
-
-        tasks.push({ task: taskText, dueTime: dueTimeText });
-    }
-
+    const tasks = Array.from(taskList.children).map(taskItem => JSON.parse(taskItem.dataset.task));
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Function to load tasks from local storage
 function loadTasks() {
-    var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    var taskList = document.getElementById("task-list");
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-    for (var i = 0; i < tasks.length; i++) {
-        var taskItem = document.createElement("li");
-        taskItem.className = "task-item";
+    for (const task of tasks) {
+        const taskItem = createElement("li", { className: "task-item" });
+        taskItem.innerHTML = `
+            <span>${task.task}</span>
+            <span>${task.dueTime}</span>
+            <button class="delete-btn" onclick="deleteTask(this.parentNode)">Delete</button>
+        `;
 
-        var taskText = document.createElement("span");
-        taskText.textContent = tasks[i].task;
-
-        var dueTimeText = document.createElement("span");
-        dueTimeText.textContent = tasks[i].dueTime;
-
-        var deleteBtn = document.createElement("button");
-        deleteBtn.className = "delete-btn";
-        deleteBtn.textContent = "Delete";
-        deleteBtn.onclick = function () {
-            taskList.removeChild(taskItem);
-            saveTasks();
-        };
-
-        taskItem.appendChild(taskText);
-        taskItem.appendChild(dueTimeText);
-        taskItem.appendChild(deleteBtn);
-
+        taskItem.dataset.task = JSON.stringify(task);
         taskList.appendChild(taskItem);
     }
 }
 
-// Load tasks on page load
 window.onload = function () {
     loadTasks();
 };
