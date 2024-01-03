@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      button {
+        padding: 10px;
+        margin: 5px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #3498db;
+        color: #fff;
+        font-size: 16px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      #myImage {
+        width: 300px;
+        height: 300px;
+      }
+
+      #btn,
+      #previous,
+      #next {
+        width: 150px;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Click me</button>
+    <br />
+    <button id="previous">Previous</button>
+    <img id="myImage" src="" alt="an image" />
+    <button id="next">Next</button>
+    <script src="script.js"></script>
+  </body>
+</html>
