@@ -1,5 +1,4 @@
 "use strict;";
-console.log("log test");
 const taskInput = document.querySelector("#task-input");
 const dueTimeInput = document.querySelector("#due-time");
 const taskList = document.querySelector("#task-list");
@@ -20,7 +19,6 @@ const findAvailableID = () => {
 
 function addTask() {
   taskTime = dueTimeInput.value;
-  console.log(taskTime);
   if (taskInput.value !== "") {
     const newTask = {
       id: findAvailableID(),
@@ -37,14 +35,11 @@ function addTask() {
 function checkIfPassed(task) {
   const today = new Date();
   const userDate = new Date(task);
-  console.log(today);
-  console.log(userDate);
   if (today > userDate) {
     return "true";
   } else {
     false;
   }
-  console.log(task);
 }
 
 function deleteTask(task) {
