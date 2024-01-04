@@ -53,5 +53,6 @@ const mathOperation = (num1, num2, operator) => {
       return num1 + num2;
   }
 };
+
 const calculator = mathOperation(10, 20, "/");
 console.log(calculator);
