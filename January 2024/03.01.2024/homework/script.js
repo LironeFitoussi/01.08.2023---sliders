@@ -19,16 +19,32 @@ const findAvailableID = () => {
 };
 
 function addTask() {
+  taskTime = dueTimeInput.value;
+  console.log(taskTime);
   if (taskInput.value !== "") {
     const newTask = {
       id: findAvailableID(),
       task: taskInput.value,
       dueTime: dueTimeInput.value || "No due time",
       isDone: false,
+      isPassed: checkIfPassed(taskTime),
     };
     tasks.push(newTask);
     saveTasks();
   }
+}
+
+function checkIfPassed(task) {
+  const today = new Date();
+  const userDate = new Date(task);
+  console.log(today);
+  console.log(userDate);
+  if (today > userDate) {
+    return "true";
+  } else {
+    false;
+  }
+  console.log(task);
 }
 
 function deleteTask(task) {
@@ -66,7 +82,9 @@ function loadTasks() {
   tasks = JSON.parse(localStorage.getItem("userLocalTasks")) || [];
   tasks.forEach((task) => {
     taskList.innerHTML += `
-      <li class="task-item">
+      <li class="task-item" style="background-color: ${
+        task.isPassed ? "red" : null
+      };">
         ${
           !task.isDone
             ? `<input type="checkbox" onchange="setIsDone(${task.id})"></input>`
