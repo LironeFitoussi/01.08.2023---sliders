@@ -7,6 +7,7 @@ const taskList = document.querySelector("#task-list");
 let tasks;
 
 let lastID;
+
 const findAvailableID = () => {
   for (let i = 1; i < tasks.length + 2; i++) {
     if (!tasks.some((task) => task.id === i)) {
@@ -41,7 +42,8 @@ function deleteTask(task) {
 function saveTasks() {
   // tasks.sort((a, b) => a.id - b.id);
   localStorage.setItem("userLocalTasks", JSON.stringify(tasks));
-  window.location.reload();
+  taskList.innerHTML = "";
+  loadTasks();
 }
 
 function setIsDone(taskId) {
@@ -50,14 +52,19 @@ function setIsDone(taskId) {
   });
   tasks[itemIndex].isDone = true;
   saveTasks();
-  window.location.reload();
+}
+
+function unDone(taskId) {
+  let itemIndex = tasks.findIndex((item) => {
+    return item.id == taskId;
+  });
+  tasks[itemIndex].isDone = false;
+  saveTasks();
 }
 
 function loadTasks() {
   tasks = JSON.parse(localStorage.getItem("userLocalTasks")) || [];
   tasks.forEach((task) => {
-    console.log(task);
-
     taskList.innerHTML += `
       <li class="task-item">
         ${
@@ -66,15 +73,14 @@ function loadTasks() {
             : "done"
         }
         <span style="text-decoration: ${
-          task.isDone ? "line-through" : "none"
-        };">${task.task}</span>
+          task.isDone ? "line-through" : "Done!"
+        };" onclick="unDone(${task.id})">${task.task}</span>
         <span>${task.dueTime}</span>
         <button onclick="deleteTask(${
           task.id
         })" class="remove-btn">Delete Task</button>
       </li>
     `;
-    console.log(task.id);
   });
 }
 
