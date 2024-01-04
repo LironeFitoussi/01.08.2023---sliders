@@ -70,10 +70,10 @@ function loadTasks() {
         ${
           !task.isDone
             ? `<input type="checkbox" onchange="setIsDone(${task.id})"></input>`
-            : "done"
+            : "Done!"
         }
         <span style="text-decoration: ${
-          task.isDone ? "line-through" : "Done!"
+          task.isDone ? "line-through" : "null"
         };" onclick="unDone(${task.id})">${task.task}</span>
         <span>${task.dueTime}</span>
         <button onclick="deleteTask(${
