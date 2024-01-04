@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-    <h1>My Task IO</h1>
+  <body>
+    <h1>My Task.io</h1>
     <div id="todo-container">
-        <input type="text" id="task-input" placeholder="Add a new task">
-        <input type="time" id="due-time" placeholder="Due time">
-        <button id="add-btn" onclick="addTask()">Add</button>
-        <ul id="task-list"></ul>
+      <input type="text" id="task-input" placeholder="Add a new task" />
+      <input type="time" id="due-time" placeholder="Due time" />
+      <button id="add-btn" onclick="addTask()">Add</button>
     </div>
-
-    <script src="script.js">
-
-    </script>
-</body>
-
+    <ul id="task-list"></ul>
+    <button id="reset-btn" onclick="resetTasks()">Reset Tasks</button>
+    <script src="script.js"></script>
+  </body>
 </html>

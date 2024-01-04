@@ -1,63 +1,88 @@
-const taskInput = document.getElementById("task-input");
-const dueTimeInput = document.getElementById("due-time");
-const taskList = document.getElementById("task-list");
+"use-strict;";
+console.log("log test");
+const taskInput = document.querySelector("#task-input");
+const dueTimeInput = document.querySelector("#due-time");
+const taskList = document.querySelector("#task-list");
 
-function createElement(tag, attributes = {}) {
-    const element = document.createElement(tag);
-    Object.assign(element, attributes);
-    return element;
-}
+let tasks;
+
+let lastID;
+const findAvailableID = () => {
+  for (let i = 1; i < tasks.length + 2; i++) {
+    if (!tasks.some((task) => task.id === i)) {
+      lastID = i;
+      break;
+    }
+  }
+  return lastID;
+};
 
 function addTask() {
-    if (taskInput.value.trim() !== "") {
-        const taskItem = createElement("li", { className: "task-item" });
-
-        const newTask = {
-            task: taskInput.value,
-            dueTime: dueTimeInput.value || "No due time"
-        };
-
-        taskItem.innerHTML = `
-            <span>${newTask.task}</span>
-            <span>${newTask.dueTime}</span>
-            <button class="delete-btn" onclick="deleteTask(this.parentNode)">Delete</button>
-        `;
-
-        taskItem.dataset.task = JSON.stringify(newTask);
-        taskList.appendChild(taskItem);
-
-        taskInput.value = "";
-        dueTimeInput.value = "";
-        saveTasks();
-    }
+  if (taskInput.value !== "") {
+    const newTask = {
+      id: findAvailableID(),
+      task: taskInput.value,
+      dueTime: dueTimeInput.value || "No due time",
+      isDone: false,
+    };
+    tasks.push(newTask);
+    saveTasks();
+  }
 }
 
-function deleteTask(taskItem) {
-    taskList.removeChild(taskItem);
-    saveTasks();
+function deleteTask(task) {
+  let itemIndex = tasks.findIndex((item) => {
+    return item.id == task;
+  });
+  tasks.splice(itemIndex, 1);
+  saveTasks();
 }
 
 function saveTasks() {
-    const tasks = Array.from(taskList.children).map(taskItem => JSON.parse(taskItem.dataset.task));
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+  // tasks.sort((a, b) => a.id - b.id);
+  localStorage.setItem("userLocalTasks", JSON.stringify(tasks));
+  window.location.reload();
+}
+
+function setIsDone(taskId) {
+  let itemIndex = tasks.findIndex((item) => {
+    return item.id == taskId;
+  });
+  tasks[itemIndex].isDone = true;
+  saveTasks();
+  window.location.reload();
 }
 
 function loadTasks() {
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks = JSON.parse(localStorage.getItem("userLocalTasks")) || [];
+  tasks.forEach((task) => {
+    console.log(task);
 
-    for (const task of tasks) {
-        const taskItem = createElement("li", { className: "task-item" });
-        taskItem.innerHTML = `
-            <span>${task.task}</span>
-            <span>${task.dueTime}</span>
-            <button class="delete-btn" onclick="deleteTask(this.parentNode)">Delete</button>
-        `;
+    taskList.innerHTML += `
+      <li class="task-item">
+        ${
+          !task.isDone
+            ? `<input type="checkbox" onchange="setIsDone(${task.id})"></input>`
+            : "done"
+        }
+        <span style="text-decoration: ${
+          task.isDone ? "line-through" : "none"
+        };">${task.task}</span>
+        <span>${task.dueTime}</span>
+        <button onclick="deleteTask(${
+          task.id
+        })" class="remove-btn">Delete Task</button>
+      </li>
+    `;
+    console.log(task.id);
+  });
+}
 
-        taskItem.dataset.task = JSON.stringify(task);
-        taskList.appendChild(taskItem);
-    }
+function resetTasks() {
+  if (confirm("Are You sure?")) localStorage.clear();
+  window.location.reload();
 }
 
 window.onload = function () {
-    loadTasks();
+  loadTasks();
 };
