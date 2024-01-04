@@ -1,4 +1,4 @@
-"use-strict;";
+"use strict;";
 console.log("log test");
 const taskInput = document.querySelector("#task-input");
 const dueTimeInput = document.querySelector("#due-time");
