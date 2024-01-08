@@ -1,21 +1,22 @@
+import addAppleSupport from "./modules/appleMobile.js";
+import getNavBar from "./modules/navBar.js";
+import getFooter from "./modules/loadFooter.js";
+
 const currentPage = 3;
 let movieId = 0;
 const favoriteMovies = [];
-let isFetch = true 
+let isFetch = true
 
 // Apple Mobile Support
-import addAppleSupport from "./modules/appleMobile.js";
 addAppleSupport()
 
 // Navbar Loader Module
-import getNavBar from "./modules/navBar.js";
 getNavBar(currentPage);
 
 // Footer Loader Module
-import getFooter from "./modules/loadFooter.js";
 getFooter();
 
-$("#searchByID").submit(async function (e) {
+$("#searchByID").submit(async (e) => {
   e.preventDefault();
   $("body").css("overflow", "scroll");
   movieId = $("#serachMovieInput").val();
@@ -23,7 +24,7 @@ $("#searchByID").submit(async function (e) {
   try {
     // Fetch Validation
     await isFetchValidation(movieId);
-    
+
     // If validation passes, load content
     $("main").html("");
     $("#backgroundImg").remove();
@@ -41,7 +42,7 @@ $("#searchByID").submit(async function (e) {
   }
 });
 
-function isFetchValidation(movieId) {
+const isFetchValidation = (movieId) => {
   return new Promise((resolve, reject) => {
     const settings = {
       async: true,
@@ -98,31 +99,31 @@ function loadContent(movieId) {
       backBtn.html(`<i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i>`)
       $("main").append(backBtn);
 
-      $(backBtn).click(() => { 
+      $(backBtn).click(() => {
         console.log(isActive);
         if (!isActive) {
           console.log("click2");
           $("main").removeClass("main-active")
           backBtn.addClass("backBtn-active")
-          isActive = true 
+          isActive = true
           $("body").css("overflow", "hidden")
           $("#hideFilter").css({
-            "opacity":"0.8", 
-            "display":"block"
+            "opacity": "0.8",
+            "display": "block"
           })
         } else {
           $("main").addClass("main-active")
           backBtn.removeClass("backBtn-active")
           isActive = false
           $("body").css("overflow", "scroll")
-          $("#hideFilter").css("opacity","0")
+          $("#hideFilter").css("opacity", "0")
         }
       });
 
       // Set Background
       let mainBackground = response.backdrop_path;
       const backgroundImg = $("<img>");
-      if ($(window).width() <= 375) {
+      if ($(window).width() < 425) {
         backgroundImg.attr({
           src: `http://image.tmdb.org/t/p/original${mainBackground}`,
           id: "backgroundImg",
@@ -181,7 +182,7 @@ function loadContent(movieId) {
       const creditsPromise = fetchMovieCredits(movieId);
       const actors = $("<div>");
       actors.addClass("actorsCont");
-      creditsPromise.then((data) => {        
+      creditsPromise.then((data) => {
         // Cast
         for (const int of data.cast) {
           const actorCard = $("<div>");
@@ -203,7 +204,7 @@ function loadContent(movieId) {
           );
           actors.append(actorCard);
         }
-        
+
         // Director
         const crewArr = data.crew;
         const movieDirector = crewArr.find((crew) => crew.job == "Director");

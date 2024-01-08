@@ -1,3 +1,5 @@
+import nextPage from "./modules/nextPage.js";
+
 const loadingAnimation = $("<div>")
 loadingAnimation.addClass("loadingAnimation");
 loadingAnimation.append(`
@@ -5,12 +7,17 @@ loadingAnimation.append(`
 `)
 $("body").append(loadingAnimation);
 
-$(document).ready(() => {
-  console.log("loaded");
+$(window).on('load', function () {
   setTimeout(() => {
     $(".loadingAnimation").remove();
   }, 1000);
 });
+
+// $(document).ready(() => {
+//   setTimeout(() => {
+//     $(".loadingAnimation").remove();
+//   }, 1000);
+// });
 
 let chosenFilter = "day";
 let clickedBtn = 1;
@@ -23,7 +30,7 @@ let favArr = new Array();
 const currentPage = 1
 
 let width = $(window).width();
-let smallScreenDot = "" 
+let smallScreenDot = ""
 if (width <= 375) {
   smallScreenDot = "fa-2xs";
 }
@@ -37,7 +44,7 @@ import getFooter from "./modules/loadFooter.js";
 getFooter()
 
 if (localStorage.userFavMovies) {
-    favArr = JSON.parse(localStorage.userFavMovies)
+  favArr = JSON.parse(localStorage.userFavMovies)
 }
 
 function fetchMovies(time = "day") {
@@ -141,7 +148,7 @@ function fetchMovies(time = "day") {
     }
 
     const lastPage = $("<a>");
-    lastPage.text(`Next Page >> ${parseInt(clickedBtn)+1}`);
+    lastPage.text(`Next Page >> ${parseInt(clickedBtn) + 1}`);
     lastPage.attr({ "value": clickedBtn, "id": "nextPage" });
     lastPage.addClass("pageBtn");
     paginationElem.append(lastPage);
@@ -151,7 +158,7 @@ function fetchMovies(time = "day") {
 
     const pageBtnArr = document.querySelectorAll(".pageBtn");
     pageBtnArr[0].classList.add("active");
-    
+
     let lastBtn = 0
     //! Pagination Listener
     pageBtnArr.forEach((page, index) => {
@@ -162,7 +169,7 @@ function fetchMovies(time = "day") {
             page.classList.add("active")
             pageBtnArr[lastBtn].classList.remove("active")
           }
-          if (lastBtn <=4) {
+          if (lastBtn <= 4) {
             pageBtnArr[lastBtn].classList.remove("active")
             lastBtn++
             pageBtnArr[lastBtn].classList.add("active")
@@ -178,7 +185,7 @@ function fetchMovies(time = "day") {
           clickedBtn = page.getAttribute("value");
         }
 
-        lastPage.text(`Next Page >> ${parseInt(clickedBtn)+1}`);
+        lastPage.text(`Next Page >> ${parseInt(clickedBtn) + 1}`);
         lastPage.attr("value", clickedBtn);
         console.log(lastBtn);
         setTimeout(() => {
@@ -228,7 +235,6 @@ function fetchMovieGenres() {
 }
 
 
-import nextPage from "./modules/nextPage.js";
 
 fetchMovies(chosenFilter);
 
