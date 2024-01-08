@@ -66,7 +66,7 @@ const isFetchValidation = (movieId) => {
   });
 }
 
-function loadContent(movieId) {
+const loadContent = (movieId) => {
   const settings = {
     async: true,
     crossDomain: true,
@@ -266,7 +266,6 @@ function fetchVideoTrailer(movieId) {
 }
 
 if (movieId != 0) {
-  console.log(typeof movieId);
   fetchVideoTrailer(movieId);
   loadContent(movieId);
 }
