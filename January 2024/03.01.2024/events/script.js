@@ -21,7 +21,7 @@ next.addEventListener("click", () => {
   //   index = (index + 1) % images.length;
   if (index === images.length - 1) {
     index = -1;
-  };
+  }
   myImage.src = images[++index];
 });
 
@@ -29,6 +29,13 @@ previous.addEventListener("click", () => {
   //   index = (index - 1 + images.length) % images.length;
   if (index === 0) {
     index = images.length;
-  };
+  }
   myImage.src = images[--index];
 });
+
+const ezeYomMahar = () => {
+  let week = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"]
+  console.log(`מחר יום ${week[new Date().getDay() + 1]}`) 
+};
+
+ezeYomMahar()
