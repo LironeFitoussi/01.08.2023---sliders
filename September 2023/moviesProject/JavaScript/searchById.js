@@ -20,7 +20,6 @@ $("#searchByID").submit(async (e) => {
   e.preventDefault();
   $("body").css("overflow", "scroll");
   movieId = $("#serachMovieInput").val();
-  console.log(movieId);
   try {
     // Fetch Validation
     await isFetchValidation(movieId);
