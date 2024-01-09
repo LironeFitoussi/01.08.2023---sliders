@@ -1,4 +1,7 @@
 import nextPage from "./modules/nextPage.js";
+import getNavBar from "./modules/navBar.js";
+import getFooter from "./modules/loadFooter.js";
+import addAppleSupport from "./modules/appleMobile.js";
 
 const loadingAnimation = $("<div>")
 loadingAnimation.addClass("loadingAnimation");
@@ -23,7 +26,6 @@ let chosenFilter = "day";
 let clickedBtn = 1;
 
 // iOS Support
-import addAppleSupport from "./modules/appleMobile.js";
 addAppleSupport()
 
 let favArr = new Array();
@@ -36,11 +38,9 @@ if (width <= 375) {
 }
 
 // Navbar Loader Module
-import getNavBar from "./modules/navBar.js";
 getNavBar(currentPage)
 
 // Footer Loader Module
-import getFooter from "./modules/loadFooter.js";
 getFooter()
 
 if (localStorage.userFavMovies) {
@@ -75,7 +75,7 @@ function fetchMovies(time = "day") {
     $("#rightSlide").click(function autoSlideRight() {
       if (slideCount == 10) {
         slideCount = 1;
-      }
+      };
       $(`#topMovies_${++slideCount}`)[0].scrollIntoView({ behavior: "smooth" });
     });
 
@@ -160,6 +160,7 @@ function fetchMovies(time = "day") {
     pageBtnArr[0].classList.add("active");
 
     let lastBtn = 0
+
     //! Pagination Listener
     pageBtnArr.forEach((page, index) => {
       page.addEventListener("click", () => {
@@ -233,8 +234,6 @@ function fetchMovieGenres() {
       return [];
     });
 }
-
-
 
 fetchMovies(chosenFilter);
 
