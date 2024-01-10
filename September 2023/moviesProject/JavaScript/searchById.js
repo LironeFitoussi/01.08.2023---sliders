@@ -99,9 +99,9 @@ const loadContent = (movieId) => {
       $("main").append(backBtn);
 
       $(backBtn).click(() => {
-        console.log(isActive);
+        // console.log(isActive);
         if (!isActive) {
-          console.log("click2");
+          // console.log("click2");
           $("main").removeClass("main-active")
           backBtn.addClass("backBtn-active")
           isActive = true
@@ -110,10 +110,14 @@ const loadContent = (movieId) => {
             "opacity": "0.8",
             "display": "block"
           })
+          $('#backgroundImg').css('position', 'absolute')
+          // $('.mainMovie').css('margin-top', '0')
         } else {
           $("main").addClass("main-active")
           backBtn.removeClass("backBtn-active")
           isActive = false
+          $('#backgroundImg').css('position', 'fixed')
+          // $('.mainMovie').css('margin-top', '15vh')
           $("body").css("overflow", "scroll")
           $("#hideFilter").css("opacity", "0")
         }

@@ -351,16 +351,18 @@ form {
 }
 
 .pagination a {
-    color: black;
+    color: black !important;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .pagination a.active {
     background-color: #d62d2d;
     color: white;
     border-radius: 5px;
+    font-weight: normal;
 }
 
 .pagination a:hover:not(.active) {
