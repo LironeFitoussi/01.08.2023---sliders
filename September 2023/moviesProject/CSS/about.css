@@ -20,7 +20,7 @@ p {
 main {
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content:initial;
+    justify-content: initial;
     gap: initial;
     height: fit-content;
     max-width: 800px;
@@ -32,14 +32,16 @@ main {
 
 nav {
     background-color: black;
-    position: relative ;
+    position: relative;
 }
 
-.about-content, .contact-form {
+.about-content,
+.contact-form {
     margin-bottom: 20px;
 }
 
-.about-content h2, .contact-form h2 {
+.about-content h2,
+.contact-form h2 {
     color: #333;
 }
 
@@ -69,10 +71,9 @@ nav {
 }
 
 footer {
-    position:initial
+    position: initial
 }
 
-footer > p {
+/* footer > p {
     color: #fff;
-}
-
+} */

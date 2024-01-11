@@ -1,3 +1,7 @@
+body {
+    background-image: url(../Assets/moviesWalp.jpg);
+}
+
 main {
     background-color: transparent;
     width: 90vw;
@@ -9,12 +13,15 @@ main {
 }
 
 nav {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
     position: relative;
 }
 
-header, main {
+header,
+main {
     padding: 2rem 0;
+    display: flex;
+    justify-content: center;
 }
 
 article {
@@ -40,11 +47,24 @@ article {
     transition: all 0.6s;
 }
 
+#searchByID {
+    background-color: rgba(240, 248, 255, 0.26);
+    width: 75vw;
+    padding: 10%;
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+}
+
+label {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
 .backBtn {
     display: none;
 }
 
-iframe{
+iframe {
     /* margin: 2vw 0; */
     width: 100%;
     height: 40vh;
@@ -61,7 +81,7 @@ iframe{
     justify-items: center;
 }
 
-.mainMovie > div {
+.mainMovie>div {
     height: 100%;
     justify-content: space-between;
     padding: 1vw;
@@ -74,7 +94,7 @@ iframe{
     height: 100%;
     width: 100%;
     padding: 1vw;
-} 
+}
 
 .actorsCont {
     display: flex;
@@ -83,6 +103,8 @@ iframe{
     overflow-x: auto;
     padding: 1rem;
     height: fit-content;
+    margin-bottom: 150px;
+    backdrop-filter: blur(5px);
 }
 
 .actorsCont::-webkit-scrollbar {
@@ -90,8 +112,8 @@ iframe{
     height: 10px;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-  }
-  
+}
+
 .actorsCont::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
@@ -106,14 +128,14 @@ iframe{
     padding: 1vw;
 }
 
-.actorCard > img {
+.actorCard>img {
     object-fit: cover;
     height: 20vh;
     width: 20vh;
     border-radius: 100%;
 }
 
-.actorCard > h1 {
+.actorCard>h1 {
     font-size: 2vw;
     height: 9vh;
     overflow: hidden;
@@ -127,12 +149,18 @@ iframe{
 
 .castTitle {
     /* position: relative; */
-    color: #000;
     margin: 0;
     /* margin-bottom: -5vh; */
-    width: 85%;
+    width: 100%;
     font-size: 5vw;
     top: 5vh;
+    text-align: center;
+    padding: .5rem;
+    color: aliceblue;
+    border-radius: .5rem;
+    margin-top: 5px;
+    font-size: 5vw;
+    backdrop-filter: blur(5px);
 }
 
 .error-message {
@@ -149,4 +177,3 @@ footer {
     position: fixed;
     z-index: 300;
 }
-

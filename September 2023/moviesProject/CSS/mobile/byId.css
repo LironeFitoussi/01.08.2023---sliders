@@ -37,7 +37,7 @@ main {
     transform: rotate(180deg);
     transition: all .7s;
     padding: 1rem;
-    background-color: #ffffff32;
+    background-color: #2a282869;
     border-radius: .5rem;
 }
 
@@ -46,27 +46,27 @@ main {
 }
 
 #backgroundImg {
-    position: relative;
+    position: fixed;
     filter: none;
 }
 
 article.mainMovie {
-    border-radius:  2rem 2rem 0 0 ;
-    margin-top: -5vh;
+    border-radius: 2rem 2rem 0 0;
+    margin-top: 15vh;
     width: 100%;
     display: flex;
     background-color: #ffffff;
     box-shadow: none;
 }
 
-.mainMovie > div {
+.mainMovie>div {
     display: flex;
     flex-direction: column;
     width: 90vw;
     align-items: center;
 }
 
-.mainMovie > div > h1{
+.mainMovie>div>h1 {
     font-size: 9vw;
     text-align: center;
     margin: 1rem 2rem;
@@ -77,6 +77,7 @@ article.mainMovie {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: rgb(4, 3, 3);
 }
 
 .actorCard {
@@ -85,10 +86,10 @@ article.mainMovie {
     gap: .25rem;
 }
 
-.actorCard > h1 {
+.actorCard>h1 {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    color: black;  
+    color: rgb(255, 255, 255);
     font-weight: 100;
     display: flex;
     align-items: center;
@@ -97,13 +98,13 @@ article.mainMovie {
     overflow: hidden;
 }
 
-.actorCard > img {
+.actorCard>img {
     height: 12vh;
     width: 12vh;
     border-radius: 1rem;
 }
 
-.actorCard > span {
+.actorCard>span {
     display: none;
 }
 
@@ -117,4 +118,10 @@ footer {
 
 #hideFilter {
     pointer-events: none;
+}
+
+.castTitle {
+    background-color: #ffffff;
+    border-radius: 0;
+    color: black;
 }
