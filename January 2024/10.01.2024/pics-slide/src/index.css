@@ -54,6 +54,21 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.bird-img {
+  width: 15vw;
+  height: 20vw;
+}
+
+.bird-img:hover {
+  cursor: pointer;
+}
+
+#main-img {
+  width: 15vw;
+  height: 20vw;
+  margin: 5%;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
