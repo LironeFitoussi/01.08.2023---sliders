@@ -1,0 +1,6 @@
+.counter-box {
+  border: solid 1px #000;
+  border-radius: 0.5rem;
+  background-color: aliceblue;
+  backdrop-filter: blur(2px);
+}

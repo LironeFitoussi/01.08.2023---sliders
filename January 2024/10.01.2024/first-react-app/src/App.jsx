@@ -2,7 +2,7 @@
 // import viteLogo from '/vite.svg'
 import './App.css'
 import Employee from './components/Employee';
-import Counter from './components/Counter';
+import Counter from './components/Counter/Counter.jsx';
 import { personsArray } from './persones.js';
 
 function App() {
