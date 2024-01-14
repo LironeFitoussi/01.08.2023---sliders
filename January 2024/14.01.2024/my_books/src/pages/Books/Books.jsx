@@ -30,6 +30,34 @@ export default function Books() {
           cover_link: "https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_1280.jpg"
         }
       ])
+
+      const [book, setBook] = useState({
+        title: '',
+        description: '',
+        cover_link: ''
+      })
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setBooks((prevBooks) => {
+          return [...prevBooks, {...book}]  
+        })
+        setBook({
+          title: '',
+          description: '',
+          cover_link: ''
+        })
+      }
+
+      const handleChange = (e) => {
+        setBook((prevBook) => {
+          return {
+            ...prevBook,
+            [e.target.name]: e.target.value
+          }
+        })
+      }
+
     return (
         <>
             <h1>My Books List</h1>
@@ -43,8 +71,21 @@ export default function Books() {
                         cover_link={book.cover_link}
                         />
                     )
-                })}
+                })};
+                
             </section>
+            <h1>Add a New Book:</h1>
+            <form onSubmit={handleSubmit}>
+                  <label htmlFor="title">Title</label>
+                  <input type="text" name='title' onChange={handleChange} value={book.title}/>
+
+                  <label htmlFor="description">Description</label>
+                  <input type="text" name='description' onChange={handleChange} value={book.description}/>
+
+                  <label htmlFor="cover_link">Cover</label>
+                  <input type="text" name='cover_link' onChange={handleChange} value={book.cover_link}/>
+                  <button type="submit">Submit Book</button>
+                </form>
         </>
         
     )

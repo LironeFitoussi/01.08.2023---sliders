@@ -23,12 +23,37 @@ export default function  Products () {
           price: 599.99,
           imgSrc: "https://d2d22nphq0yz8t.cloudfront.net/6cbcadef-96e0-49e9-b3bd-9921afe362db/https://www.payngo.co.il/media/catalog/product/d/x/dxcdfdfz-01.png/w_700,h_700,r_contain"
         },
-        // Add more PC hardware products as needed
       ])
+
+      const [product, setProduct] = useState({
+        title: '',
+        price: '',
+        imgSrc: ''
+      })
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setProducts((prevProducts) => [...prevProducts, {...product}]);
+        setProduct({
+          title: '',
+          price: '',
+          imgSrc: ''
+        });
+      };
+
+      const handleChange = (e) => {
+        setProduct((prevProduct) => {
+          return {
+            ...prevProduct,
+            [e.target.name]: e.target.value
+          }
+        })
+      };
 
       return (
         <>
         <h1>Product List</h1>
+        {/* {console.log(products)} */}
         <section className={styles.productsContainer}>
             {products.map((product, index) => {
                 return (
@@ -41,6 +66,18 @@ export default function  Products () {
                 )
             })}
         </section>
+        <h1>Add a New Product:</h1>
+            <form onSubmit={handleSubmit}>
+                  <label htmlFor="title">Title</label>
+                  <input type="text" name='title' onChange={handleChange} value={product.title}/>
+
+                  <label htmlFor="price">Price</label>
+                  <input type="text" name='price' onChange={handleChange} value={product.price}/>
+
+                  <label htmlFor="imgSrc">img Src</label>
+                  <input type="text" name='imgSrc' onChange={handleChange} value={product.imgSrc}/>
+                  <button type="submit">Submit Book</button>
+                </form>
         </>
         
       )
