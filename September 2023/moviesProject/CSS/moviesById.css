@@ -1,5 +1,7 @@
 body {
-  background-image: url(../Assets/moviesWalp.jpg);
+  overflow-x: hidden;
+  background-image: url(../Assets/437578538716.jpg);
+  background-size: cover;
 }
 
 main {
@@ -48,7 +50,7 @@ article {
 }
 
 #searchByID {
-  background-color: rgb(240 248 255 / 80%);
+  background-color: rgb(240 248 255 / 50%);
   width: 75vw;
   padding: 10%;
   backdrop-filter: blur(10px);
@@ -76,12 +78,12 @@ iframe {
   grid-template-columns: 2fr 1fr;
   padding: 1rem;
   width: 100%;
-  background-color: rgb(240 248 255 / 80%);
+  background-color: rgb(240 248 255 / 50%);
   justify-self: flex-start;
   justify-items: center;
 }
 
-.mainMovie > div {
+.mainMovie>div {
   height: 100%;
   justify-content: space-between;
   padding: 1vw;
@@ -105,7 +107,7 @@ iframe {
   height: fit-content;
   margin-bottom: 150px;
   backdrop-filter: blur(5px);
-  background-color: rgb(240 248 255 / 80%);
+  background-color: rgb(240 248 255 / 50%);
 }
 
 .actorsCont::-webkit-scrollbar {
@@ -129,14 +131,14 @@ iframe {
   padding: 1vw;
 }
 
-.actorCard > img {
+.actorCard>img {
   object-fit: cover;
   height: 20vh;
   width: 20vh;
   border-radius: 100%;
 }
 
-.actorCard > h1 {
+.actorCard>h1 {
   font-size: 2vw;
   height: 9vh;
   overflow: hidden;
@@ -161,7 +163,7 @@ iframe {
   margin-top: 5px;
   font-size: 5vw;
   backdrop-filter: blur(5px);
-  background-color: rgb(240 248 255 / 80%);
+  background-color: rgb(240 248 255 / 50%);
 }
 
 .error-message {

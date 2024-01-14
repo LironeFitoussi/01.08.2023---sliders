@@ -1,6 +1,7 @@
 body {
   overflow-x: hidden;
-  background-image: url(../Assets/moviesWalp.jpg);
+  background-image: url(../Assets/437578538716.jpg);
+  background-size: cover;
 }
 
 nav {
@@ -37,7 +38,7 @@ button {
   border-radius: 0.5rem;
 }
 
-#searchByName > label {
+#searchByName>label {
   font-size: 2.5rem;
   text-align: center;
 }
@@ -46,5 +47,4 @@ footer {
   position: relative;
 }
 
-@media screen and (max-width: 425px) {
-}
+@media screen and (max-width: 425px) {}
