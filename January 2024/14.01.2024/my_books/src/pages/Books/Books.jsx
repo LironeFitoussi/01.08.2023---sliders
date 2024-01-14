@@ -34,9 +34,10 @@ export default function Books() {
         <>
             <h1>My Books List</h1>
             <section className={style.booksComp}>
-                {books.map((book) => {
+                {books.map((book, index) => {
                     return (
                         <BookCard
+                        key={`${book.title}_${index}`}
                         title={book.title}
                         description={book.description}
                         cover_link={book.cover_link}
