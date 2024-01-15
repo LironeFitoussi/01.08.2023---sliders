@@ -1,24 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SpendItem from "../../components/SpendItem/SpendItem";
 import styles from './Spends.module.css'
 
 export default function Spends() {
-    const [spends, setSpends] = useState([
-        { title: 'Example', category: 'House', amount: 450, type: 'Income' },
-    ]);
+
+    const [spends, setSpends] = useState([]);
 
     const [newSpend, setNewSpend] = useState({
         title: '',
         category: '',
         amount: 0,
-        type: ''
+        type: '',
     });
+
+    useEffect(() => {
+        const budgetData = JSON.parse(localStorage.getItem('userBudget'));
+        budgetData && setSpends(budgetData);
+    }, []);
+    
+
+    useEffect(() => {
+        localStorage.setItem('userBudget', JSON.stringify(spends))
+    }, [spends])
 
     const handleChange = (e) => {
         setNewSpend((prevSpend) => {
             return {
                 ...prevSpend,
-                [e.target.name]: e.target.value
+                [e.target.name]: e.target.value,
             };
         });
     };
@@ -28,18 +37,29 @@ export default function Spends() {
         const isValid = newSpend.title !== '' && newSpend.category !== '' && newSpend.amount !== 0 && newSpend.type !== ''
         if (isValid) {
             setSpends((prevSpends) => {
-                return [...prevSpends, newSpend];
+                return [...prevSpends, {...newSpend, id: generateNewId()}];
             });
-            setNewSpend({
-                title: '',
-                category: '',
-                amount: 0,
-                type: ''
-            });
-        } else {
-            return
-        }  
+            e.target.reset()
+        }
     };
+
+    let lastID;
+
+    const generateNewId = () => {
+        for (let i = 1; i < spends.length + 2; i++) {
+            if (!spends.some((spend) => spend.id === i)) {
+                lastID = i;
+                break;
+            }
+        }
+        return lastID;
+    }
+
+    const deleteItem = (spendId) => {
+        const newSpends = spends.filter((item) => item.id !== spendId);
+        setSpends(newSpends);
+    };
+
 
     return (
         <section className={styles.container}>
@@ -51,11 +71,12 @@ export default function Spends() {
                         <th>Category</th>
                         <th>Amount</th>
                         <th>Type</th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
                     {spends.map((spend, index) => (
-                        <SpendItem key={index} {...spend} />
+                        <SpendItem key={index} onDelete={deleteItem} {...spend} />
                     ))}
                 </tbody>
             </table>
