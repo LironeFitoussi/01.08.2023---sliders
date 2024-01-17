@@ -1,0 +1,12 @@
+.bookImg {
+  width: 20vw;
+  height: 10vw;
+}
+
+.bookCard {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  justify-content: space-between;
+  align-items: center;
+}
