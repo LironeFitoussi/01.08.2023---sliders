@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import SpendItem from "../../components/SpendItem/SpendItem";
 import styles from './Spends.module.css'
+// import { Redirect } from "react-router-dom";
 
-export default function Spends() {
 
+export default function Spends({user}) {
     const [spends, setSpends] = useState([]);
 
     const [newSpend, setNewSpend] = useState({
@@ -60,7 +61,7 @@ export default function Spends() {
         setSpends(newSpends);
     };
 
-
+    console.log(user);
     return (
         <section className={styles.container}>
             <h1 style={{textAlign: 'center'}}>My Spends</h1>
@@ -80,7 +81,7 @@ export default function Spends() {
                     ))}
                 </tbody>
             </table>
-            <form className={styles.spendsForm} onSubmit={handleSubmit}>
+            {user.name !== '' ? <form className={styles.spendsForm} onSubmit={handleSubmit}>
                 <h3 style={{color: 'black'}}>Add An action</h3>
                 <label className={styles.inputLabel} htmlFor="title">Title:</label>
                 <input 
@@ -117,6 +118,10 @@ export default function Spends() {
                 </select>
                 <button type="submit">Validate</button>
             </form>
+            :
+            null
+        }
+            
         </section>
     );
 }
