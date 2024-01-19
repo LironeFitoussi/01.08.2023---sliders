@@ -30,6 +30,7 @@ export default function Register({ auth, db }) {
         } catch (error) {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
         }
     };
 
