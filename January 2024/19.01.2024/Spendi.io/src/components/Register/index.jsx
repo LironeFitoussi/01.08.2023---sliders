@@ -14,7 +14,6 @@ export default function Register({ auth, db }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
             const user = userCredential.user;
@@ -33,8 +32,6 @@ export default function Register({ auth, db }) {
             console.log(errorCode, errorMessage);
         }
     };
-
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
