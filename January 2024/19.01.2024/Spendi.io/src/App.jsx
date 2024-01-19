@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-import { app, db } from './config/firebase';
+import { app, db, auth } from './config/firebase';
 
 // Pages Import
 import Home from './pages/Home';
@@ -14,7 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />,
         <Route path="/transactions" element={<Transactions app={app} db={db} />} />,
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth" element={<Auth auth={auth} db={db} />} />
       </Routes>
     </BrowserRouter>
   )

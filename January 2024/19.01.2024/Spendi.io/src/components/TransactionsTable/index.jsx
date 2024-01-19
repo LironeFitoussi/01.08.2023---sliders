@@ -26,7 +26,6 @@ export default function TransactionsTable({ db, currentUser }) {
         if (currentUser) {
             fetchUserDocument();
         }
-        console.log(userDocument);
     }, [db, currentUser]);
 
 
