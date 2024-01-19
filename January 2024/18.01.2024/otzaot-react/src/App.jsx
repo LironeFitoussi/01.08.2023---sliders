@@ -5,7 +5,6 @@ import Auth from './pages/Auth/Auth.jsx';
 import './App.css'
 
 function App() {
-  
 
   return (
     <>
