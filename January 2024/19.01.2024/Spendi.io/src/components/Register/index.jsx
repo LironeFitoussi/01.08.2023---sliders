@@ -41,10 +41,6 @@ export default function Register({ auth, db }) {
         }));
     };
 
-    useEffect(() => {
-        formData && console.log(formData);
-    }, [formData])
-
     return (
         <section className={styles.container}>
             <h1 style={{ textAlign: 'center' }}>Sign up to our wonderful site</h1>

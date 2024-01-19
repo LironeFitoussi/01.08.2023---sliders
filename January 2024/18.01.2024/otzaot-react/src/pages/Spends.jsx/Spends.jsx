@@ -40,7 +40,6 @@ const Spends = () => {
   };
 
   const generateNewId = () => {
-    // Generate a unique ID using timestamp and a random number
     return Date.now() + Math.floor(Math.random() * 1000);
   };
 
@@ -51,37 +50,37 @@ const Spends = () => {
       newSpend.category !== "" &&
       newSpend.amount !== 0 &&
       newSpend.type !== "";
-    
+
     if (isValid) {
-        const userDoc = doc(db, 'users', userData.docId)
-        const newSpends = {spendsData: spendsData.push(newSpend)}
-        await updateDoc(userDoc, newSpend)
+      const userDoc = doc(db, 'users', userData.docId)
+      const newSpends = { spendsData: spendsData.push(newSpend) }
+      await updateDoc(userDoc, newSpend)
     }
   };
 
   useEffect(() => {
     const getUserData = async () => {
-        try {
-            const user = auth.currentUser;
-            if (user) {
-            const userID = user.uid;
-            setUserId(userID);
+      try {
+        const user = auth.currentUser;
+        if (user) {
+          const userID = user.uid;
+          setUserId(userID);
 
-            const userQuery = query(
-                usersCollectionRef,
-                where("id", "==", userID)
-            );
-            const userSnapshot = await getDocs(userQuery);
-            const userData = userSnapshot.docs.map((doc) => {
-                return {...doc.data(), docId: doc.id}
-            });
-                setUserData(userData)
-            } else {
-                console.error("No user found, Please Log In");
-            }
-        } catch (error) {
-            console.error("Error fetching user data:", error);
+          const userQuery = query(
+            usersCollectionRef,
+            where("id", "==", userID)
+          );
+          const userSnapshot = await getDocs(userQuery);
+          const userData = userSnapshot.docs.map((doc) => {
+            return { ...doc.data(), docId: doc.id }
+          });
+          setUserData(userData)
+        } else {
+          console.error("No user found, Please Log In");
         }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
     };
 
     getUserData();
