@@ -1,0 +1,4 @@
+.transactionsTab {
+    display: flex;
+    flex-direction: row;
+}

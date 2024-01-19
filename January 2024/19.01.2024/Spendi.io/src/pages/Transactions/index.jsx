@@ -1,7 +1,7 @@
 import styles from './Transactions.module.css'
-import { collection, addDoc, doc, updateDoc, arrayUnion } from 'firebase/firestore';
-import { useState, useEffect } from 'react';
-
+import { doc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { useState } from 'react';
+import TransactionsTable from '../../components/TransactionsTable';
 export default function Transactions({ db }) {
     //todo set current user after auth done 
     const currentUser = {
@@ -43,6 +43,7 @@ export default function Transactions({ db }) {
         setNewTransaction((prevTransaction) => ({
             ...prevTransaction,
             [name]: value,
+            id: Math.random()
         }));
     };
 
@@ -56,6 +57,8 @@ export default function Transactions({ db }) {
                 <input type="date" placeholder="Date" name="date" value={newTransaction.date} onChange={handleChange} />
                 <button>Add Transaction</button>
             </form>
+            <TransactionsTable db={db} currentUser={currentUser} />
+
         </section>
     )
 }
