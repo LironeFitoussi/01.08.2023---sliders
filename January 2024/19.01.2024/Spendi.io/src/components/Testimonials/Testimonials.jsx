@@ -1,6 +1,6 @@
 import styles from './Testimonials.module.css'
 
-export default function Testimonials () {
+export default function Testimonials() {
     return (
         <section className={styles.testimonials}>
             <div className={styles.userCard}>
@@ -16,7 +16,7 @@ export default function Testimonials () {
             <div className={styles.userCard}>
                 <h3>Kobi</h3>
                 <img className={styles.profilePic} src="https://www.morganstanley.com/content/dam/msdotcom/people/tiles/isaiah-dwuma.jpg.img.490.medium.jpg/1594668408164.jpg" alt="profile pic" />
-                <p className={styles.testim}>m Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type spec</p>
+                <p className={styles.testim}>m Ipsum is simply dummy text of the printing and tynter took a galley of type and scrambled it to make a type spec</p>
             </div>
         </section>
     )
