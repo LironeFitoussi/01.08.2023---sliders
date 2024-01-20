@@ -20,6 +20,14 @@ export default function Transactions({ db, user, currentUser }) {
                 await updateDoc(userDocRef, {
                     transactions: arrayUnion(newTransaction),
                 });
+
+                const fetchTransactions = async () => {
+                    const updatedUserDoc = await getDoc(userDocRef);
+                    setTransactions(updatedUserDoc.data().transactions || []);
+                }
+
+                fetchTransactions()
+
                 console.log('Document added with ID: ', userDocRef.id);
             } else {
                 console.error('Current user not set');
@@ -40,6 +48,7 @@ export default function Transactions({ db, user, currentUser }) {
             fetchTransactions()
         }
     }, [currentUser])
+
     const handleSubmit = (e) => {
         e.preventDefault();
         addTransaction();
