@@ -8,7 +8,6 @@ export default function Home() {
             <div className={styles.decoDivTwo}></div>
             <div className={styles.decoDivOne}></div>
             <div className={styles.mainContainer}>
-
                 <h1 className={styles.headerText} >Welcom To Spendi!</h1>
                 <Testimonials />
                 <About />
