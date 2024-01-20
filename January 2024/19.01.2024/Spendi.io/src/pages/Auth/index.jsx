@@ -18,14 +18,14 @@ export default function Auth({ auth, db, currentUser }) {
             <h1>this is Auth Page</h1>
             {logType ?
                 <div>
-                    <h1>Already have an Account? <b onClick={() => setLogType(!logType)}>Login...</b></h1>
                     <Register auth={auth} db={db} />
+                    <p>Already have an Account? <b onClick={() => setLogType(!logType)}>Login...</b></p>
                 </div>
                 :
 
                 <div>
-                    <h1>Still Haven't an Account? <b onClick={() => setLogType(!logType)}>Register...</b></h1>
                     <Login auth={auth} />
+                    <p>Still Haven't an Account? <b onClick={() => setLogType(!logType)}>Register...</b></p>
                 </div>
             }
         </>

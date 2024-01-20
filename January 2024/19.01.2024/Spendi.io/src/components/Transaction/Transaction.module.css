@@ -1,0 +1,7 @@
+.transactionElement {
+    display: flex;
+    flex-direction: row;
+    background-color: azure;
+    border-radius: .5rem;
+    justify-content: space-around;
+}
