@@ -9,7 +9,7 @@ export default function Home() {
             <div className={styles.decoDivOne}></div>
             <div className={styles.mainContainer}>
 
-                <h1>this is the Home Page</h1>
+                <h1 className={styles.headerText} >Welcom To Spendi!</h1>
                 <Testimonials />
                 <About />
             </div>

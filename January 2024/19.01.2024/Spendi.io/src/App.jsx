@@ -72,17 +72,19 @@ export default function App() {
       <BrowserRouter>
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/transactions">Transactions</Link>
-            </li>
+            <div>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/transactions">Transactions</Link>
+              </li>
+            </div>
             {user === null ? (
               <li>
                 <Link to="/auth">Auth</Link>
               </li>
-            ) : <li><p>Welcome back, {currentUser?.userName} </p><b onClick={logOut}>Logout?</b></li>}
+            ) : <li style={{ justifySelf: 'right' }}><p style={{ margin: 0 }}>Welcome back, {currentUser?.userName} <b onClick={logOut}>Logout?</b></p></li>}
           </ul>
         </nav>
         <Routes>

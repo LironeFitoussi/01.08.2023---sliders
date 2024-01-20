@@ -1,0 +1,15 @@
+.mainHeader {
+    text-align: center;
+}
+
+.transactionForm {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.transactionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

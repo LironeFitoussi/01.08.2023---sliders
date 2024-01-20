@@ -74,11 +74,10 @@ export default function Transactions({ db, user, currentUser }) {
     }, [transactions])
 
     return (
-        <section>
-
-            <h1>This is Transactions Page</h1>
+        <section className={styles.transactionsContainer}>
+            <h1 className={styles.mainHeader}> This is Transactions Page</h1>
             {user !== null ? (
-                <form onSubmit={handleSubmit}>
+                <form className={styles.transactionForm} onSubmit={handleSubmit}>
                     <input
                         type="text"
                         placeholder="Title"
