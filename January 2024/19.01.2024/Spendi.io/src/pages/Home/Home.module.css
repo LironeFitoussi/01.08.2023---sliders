@@ -1,0 +1,24 @@
+.mainContainer {
+    position: relative;
+    margin: 5vw;
+    padding: 2.5vw;
+    background-color: #FFF;
+    border-radius: 2rem;
+    z-index: 40;
+}
+
+/* .decoDivTwo {
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    height: 1px;
+    z-index: 20;
+} */
+
+.decoDivOne {
+    position: absolute;
+    width: 90vw;
+    background-color: rgb(197, 22, 22);
+    height: 3px;
+
+}

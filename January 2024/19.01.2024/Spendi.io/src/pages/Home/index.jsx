@@ -4,10 +4,16 @@ import About from "../../components/About/About"
 
 export default function Home() {
     return (
-        <div>
-            <h1>this is the Home Page</h1>
-            <Testimonials />
-            <About />
-        </div>
+        <section style={{ position: 'relative' }}>
+            <div className={styles.decoDivTwo}></div>
+            <div className={styles.decoDivOne}></div>
+            <div className={styles.mainContainer}>
+
+                <h1>this is the Home Page</h1>
+                <Testimonials />
+                <About />
+            </div>
+        </section>
+
     )
 }
