@@ -3,8 +3,7 @@ import { doc, updateDoc, arrayUnion, getDoc } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import TransactionsTable from '../../components/TransactionsTable';
 
-export default function Transactions({ db, user, transactionsData }) {
-    const [currentUser, setCurrentUser] = useState(null);
+export default function Transactions({ db, user, currentUser }) {
     const [transactions, setTransactions] = useState([]);
 
     const [newTransaction, setNewTransaction] = useState({
@@ -22,10 +21,6 @@ export default function Transactions({ db, user, transactionsData }) {
                     transactions: arrayUnion(newTransaction),
                 });
                 console.log('Document added with ID: ', userDocRef.id);
-
-                // Fetch and update transactions after adding a new one
-                const updatedUserDoc = await getDoc(userDocRef);
-                setTransactions(updatedUserDoc.data().transactions || []);
             } else {
                 console.error('Current user not set');
             }
@@ -34,6 +29,17 @@ export default function Transactions({ db, user, transactionsData }) {
         }
     };
 
+    useEffect(() => {
+        if (currentUser) {
+            const userDocRef = doc(db, 'users', currentUser.documentId);
+            const fetchTransactions = async () => {
+                const updatedUserDoc = await getDoc(userDocRef);
+                setTransactions(updatedUserDoc.data().transactions || []);
+            }
+
+            fetchTransactions()
+        }
+    }, [currentUser])
     const handleSubmit = (e) => {
         e.preventDefault();
         addTransaction();
@@ -95,7 +101,7 @@ export default function Transactions({ db, user, transactionsData }) {
                     <button>Add Transaction</button>
                 </form>
             ) : <h1>You need to log in before...</h1>}
-            <TransactionsTable transactions={transactionsData} />
+            <TransactionsTable transactions={transactions} />
         </section>
     );
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 
-export default function Register({ auth, db }) {
+export default function Register({ auth, db, setLogType }) {
     const [formData, setFormData] = useState({
         fName: '',
         lName: '',

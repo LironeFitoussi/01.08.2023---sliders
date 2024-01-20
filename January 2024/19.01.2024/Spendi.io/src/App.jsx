@@ -59,6 +59,7 @@ export default function App() {
 
   const logOut = () => {
     signOut(auth).then(() => {
+      window.location.reload();
       // Sign-out successful.
     }).catch((error) => {
       // An error happened.
@@ -95,12 +96,14 @@ export default function App() {
               userId={user}
               user={user}
               transactionsData={transactions}
+              currentUser={currentUser}
             />}
           />
           <Route path="/auth" element={
             <Auth
               auth={auth}
               db={db}
+              currentUser={currentUser}
             />}
           />
         </Routes>

@@ -2,7 +2,7 @@ import styles from './Login.module.css'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 
-export default function Login({ auth }) {
+export default function Login({ auth, setLogType }) {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
