@@ -1,0 +1,20 @@
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 75vw;
+    border-radius: 1rem;
+    padding: 5vw;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    align-items: center;
+}
+
+.submitBtn {
+    width: 50%;
+}

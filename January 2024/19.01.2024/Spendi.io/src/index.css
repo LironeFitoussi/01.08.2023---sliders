@@ -19,6 +19,9 @@
 
 #root {
   width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 a {
@@ -34,6 +37,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
   background-color: #E6E9F2;
@@ -113,4 +117,10 @@ b {
 
 b:hover {
   color: #242424;
+}
+
+p,
+h1 {
+  margin: 0;
+  padding: 0;
 }
