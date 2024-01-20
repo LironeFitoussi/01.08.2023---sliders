@@ -7,6 +7,7 @@ export default function Auth({ auth, db }) {
         <>
             <h1>this is Auth Page</h1>
             <Register auth={auth} db={db} />
+            <Login auth={auth} />
         </>
     )
 }

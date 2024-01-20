@@ -7,7 +7,6 @@ export default function TransactionsTable({ transactions }) {
 
     return (
         <section>
-            <h1>This is Transactions Page</h1>
             {transactions && (
                 <div className={styles.transactionsTab}>
                     {transactions.map((transaction, index) => <Transaction {...transaction} key={`tr_${index}`} />)}
