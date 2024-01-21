@@ -12,7 +12,7 @@ import Auth from './pages/Auth';
 
 export default function App() {
   const [user, setUser] = useState(null);
-  // const [userName, setUserName] = useState(null);
+  const [userName, setUserName] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [transactions, setTransactions] = useState([]);
 
@@ -43,6 +43,7 @@ export default function App() {
 
     if (typeof user === 'string') {
       fetchUser();
+      console.log(user);
     }
   }, [db, user]);
 
@@ -59,9 +60,7 @@ export default function App() {
   const logOut = () => {
     signOut(auth).then(() => {
       window.location.reload();
-      // Sign-out successful.
     }).catch((error) => {
-      // An error happened.
     });
   }
 
