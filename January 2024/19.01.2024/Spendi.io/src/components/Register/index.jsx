@@ -2,9 +2,8 @@ import styles from './Register.module.css';
 import { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
-import { redirect } from 'react-router';
 
-export default function Register({ auth, db }) {
+export default function Register({ auth, db, setLogType }) {
     const [formData, setFormData] = useState({
         fName: '',
         lName: '',
@@ -21,16 +20,12 @@ export default function Register({ auth, db }) {
             console.log(user.uid);
 
             try {
-                const transRef = await addDoc(collection(db, 'transactionsData'), {})
-                console.log("Tranactions written with ID: ", transRef.id);
-                const docRef = await addDoc(collection(db, "users"), { userId: user.uid, fName: formData.fName, lName: formData.lName, transactions: transRef.id });
+                const docRef = await addDoc(collection(db, "users"), { userId: user.uid, fName: formData.fName, lName: formData.lName, transactions: [] });
                 console.log("Document written with ID: ", docRef.id);
-                window.location.href = '/';
             } catch (e) {
                 console.error("Error adding document: ", e);
             }
 
-            
         } catch (error) {
             const errorCode = error.code;
             const errorMessage = error.message;
