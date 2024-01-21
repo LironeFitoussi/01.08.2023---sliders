@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import { app, db, auth } from './config/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs, getDoc, doc, onSnapshot } from 'firebase/firestore';
 import { signOut } from "firebase/auth";
 
 // Pages Import
@@ -24,16 +24,14 @@ export default function App() {
         const userDocs = await getDocs(userQuery);
 
         if (userDocs.size > 0) {
-          // Assuming there is only one user document for a given userId
           const userDoc = userDocs.docs[0];
           setCurrentUser({
             uid: user,
             documentId: userDoc.id,
-            userName: userDoc.data().fName
+            userName: userDoc.data().fName,
+            transactionsPath: userDoc.data().transactions
           });
 
-          // Fetch and set transactions
-          setTransactions(userDoc.data().transactions || []);
         } else {
           console.error('User document not found');
         }
@@ -46,6 +44,28 @@ export default function App() {
       fetchUser();
     }
   }, [db, user]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (currentUser) {
+        const docRef = doc(db, "transactionsData", currentUser.transactionsPath);
+  
+        const unsubscribe = onSnapshot(docRef, (docSnap) => {
+          if (docSnap.exists()) {
+            setTransactions(docSnap.data().userTransaction || []);
+          } else {
+            console.log("No such document!");
+          }
+        });
+  
+        // Cleanup function to unsubscribe when the component unmounts
+        return () => unsubscribe();
+      }
+    };
+  
+    fetchData();
+  }, [currentUser]);
+  
 
   useEffect(() => {
     setUserName(user)
@@ -65,11 +85,10 @@ export default function App() {
       // An error happened.
     });
   }
-
-  currentUser && console.log(currentUser?.userName);
+  
   return (
     (
-      <BrowserRouter>
+      currentUser && <BrowserRouter>
         <nav>
           <ul>
             <div>

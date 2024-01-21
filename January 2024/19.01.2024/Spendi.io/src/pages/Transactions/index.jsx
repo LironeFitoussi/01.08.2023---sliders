@@ -1,11 +1,10 @@
 import styles from './Transactions.module.css';
-import { doc, updateDoc, arrayUnion, getDoc } from 'firebase/firestore';
+import { doc, updateDoc, arrayUnion, onSnapshot } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import TransactionsTable from '../../components/TransactionsTable';
 
-export default function Transactions({ db, user, currentUser }) {
+export default function Transactions({ db, user, currentUser, transactionsData }) {
     const [transactions, setTransactions] = useState([]);
-
     const [newTransaction, setNewTransaction] = useState({
         title: '',
         category: '',
@@ -13,20 +12,15 @@ export default function Transactions({ db, user, currentUser }) {
         date: '',
     });
 
+    const [userData, setUserData] = useState();
+
     const addTransaction = async () => {
         try {
             if (currentUser) {
-                const userDocRef = doc(db, 'users', currentUser.documentId);
+                const userDocRef = doc(db, 'transactionsData', currentUser.transactionsPath);
                 await updateDoc(userDocRef, {
-                    transactions: arrayUnion(newTransaction),
+                    userTransaction: arrayUnion(newTransaction),
                 });
-
-                const fetchTransactions = async () => {
-                    const updatedUserDoc = await getDoc(userDocRef);
-                    setTransactions(updatedUserDoc.data().transactions || []);
-                }
-
-                fetchTransactions()
 
                 console.log('Document added with ID: ', userDocRef.id);
             } else {
@@ -40,14 +34,17 @@ export default function Transactions({ db, user, currentUser }) {
     useEffect(() => {
         if (currentUser) {
             const userDocRef = doc(db, 'users', currentUser.documentId);
-            const fetchTransactions = async () => {
-                const updatedUserDoc = await getDoc(userDocRef);
-                setTransactions(updatedUserDoc.data().transactions || []);
-            }
+            const unsubscribe = onSnapshot(userDocRef, (doc) => {
+                setTransactions(doc.data().transactions || []);
+            });
 
-            fetchTransactions()
+            setUserData(currentUser);
+
+            return () => {
+                unsubscribe();
+            };
         }
-    }, [currentUser])
+    }, [db, currentUser]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -62,21 +59,20 @@ export default function Transactions({ db, user, currentUser }) {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        const generateNewId = () => {
+            return Date.now() + Math.floor(Math.random() * 1000);
+        };
+
         setNewTransaction((prevTransaction) => ({
             ...prevTransaction,
             [name]: value,
-            id: Math.random(),
+            id: generateNewId(),
         }));
     };
 
-    useEffect(() => {
-        transactions.length > 0 && console.log(transactions);
-    }, [transactions])
-
     return (
-        <section className={styles.transactionsContainer}>
+        transactionsData !== null && userData !== null ? <section className={styles.transactionsContainer}>
             <h1 className={styles.mainHeader}> This is Transactions Page</h1>
-            {user !== null ? (
                 <form className={styles.transactionForm} onSubmit={handleSubmit}>
                     <input
                         type="text"
@@ -108,8 +104,7 @@ export default function Transactions({ db, user, currentUser }) {
                     />
                     <button>Add Transaction</button>
                 </form>
-            ) : <h1>You need to log in before...</h1>}
-            <TransactionsTable transactions={transactions} />
-        </section>
+            <TransactionsTable db={db} currentUser={userData} transactions={transactionsData} />
+        </section> : <p>Loading</p>
     );
 }

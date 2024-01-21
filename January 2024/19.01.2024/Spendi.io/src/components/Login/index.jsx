@@ -1,7 +1,7 @@
 import styles from './Login.module.css'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
-
+import { redirect } from 'react-router';
 export default function Login({ auth, setLogType }) {
     const [formData, setFormData] = useState({
         email: '',
@@ -23,7 +23,7 @@ export default function Login({ auth, setLogType }) {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(`${user} Succefully Signed in`);
-                // ...
+                return redirect("/");
             })
             .catch((error) => {
                 const errorCode = error.code;
