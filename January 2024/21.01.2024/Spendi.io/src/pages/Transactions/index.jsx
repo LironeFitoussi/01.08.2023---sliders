@@ -1,5 +1,5 @@
 import styles from './Transactions.module.css';
-import { doc, collection, getDoc, addDoc, deleteDoc, query } from 'firebase/firestore';
+import { doc, collection, getDoc, addDoc, deleteDoc } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import TransactionsTable from '../../components/TransactionsTable';
 
@@ -51,7 +51,7 @@ export default function Transactions({ db, user, currentUser, transactionsData }
             console.error("Error removing transaction:", error);
         }
     };
-    
+
 
     useEffect(() => {
         if (currentUser) {
@@ -76,7 +76,7 @@ export default function Transactions({ db, user, currentUser, transactionsData }
         });
     };
 
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setNewTransaction((prevTransaction) => ({
@@ -84,10 +84,6 @@ export default function Transactions({ db, user, currentUser, transactionsData }
             [name]: value,
         }));
     };
-
-    // useEffect(() => {
-    //     transactions.length > 0 && console.log(transactions);
-    // }, [transactions])
 
     return (
         <section className={styles.transactionsContainer}>
@@ -125,7 +121,7 @@ export default function Transactions({ db, user, currentUser, transactionsData }
                     <button>Add Transaction</button>
                 </form>
             ) : <h1>You need to log in before...</h1>}
-        <TransactionsTable transactions={transactions} removeTransaction={removeTransaction} />
+            <TransactionsTable transactions={transactions} removeTransaction={removeTransaction} />
         </section>
     );
 }

@@ -2,7 +2,7 @@ import styles from './Login.module.css'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 
-export default function Login({ auth, setLogType }) {
+export default function Login({ auth }) {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -40,31 +40,26 @@ export default function Login({ auth, setLogType }) {
                 className={styles.loginForm}
                 onSubmit={handleSubmit}
             >
-                {/* <div> */}
-                    {/* <label htmlFor="email">Your E-mail:</label> */}
-                    <input 
-                        className={styles.input} 
-                        required 
-                        type="email" 
-                        name="email"
-                        value={formData.email}
-                        placeholder='Email'
-                        onChange={handleChange}
-                    />
-                {/* </div> */}
-                {/* <div> */}
-                    {/* <label htmlFor="password">Your Password:</label> */}
-                    <input required type="password" name="password"
-                        placeholder='Password'
-                        value={formData.password}
-                        className={styles.input} 
-                        onChange={handleChange}
-                    />
-                    <div>
-                        <input type="checkbox" name='rememberMe' />
-                        <label htmlFor="rememberMe">Remember me</label>
-                    </div>
-                {/* </div> */}
+                <input
+                    className={styles.input}
+                    required
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    placeholder='Email'
+                    onChange={handleChange}
+                />
+
+                <input required type="password" name="password"
+                    placeholder='Password'
+                    value={formData.password}
+                    className={styles.input}
+                    onChange={handleChange}
+                />
+                <div>
+                    <input type="checkbox" name='rememberMe' />
+                    <label htmlFor="rememberMe">Remember me</label>
+                </div>
 
                 <button className={styles.submitBtn} type="submit">Log In</button>
             </form>
