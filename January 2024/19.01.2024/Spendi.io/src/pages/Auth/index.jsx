@@ -29,7 +29,7 @@ export default function Auth({ auth, db, currentUser }) {
 
                 <div>
                     <Login auth={auth} />
-                    <Paragraph>Still Haven't an Account? <b onClick={() => setLogType(!logType)}>Register...</b></Paragraph>
+                    <Paragraph>Not a member? <span style={{textDecoration: 'underline', cursor: 'pointer'}} onClick={() => setLogType(!logType)}>Sign up now</span></Paragraph>
                 </div>
             }
         </>

@@ -1,20 +1,39 @@
 .loginContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    width: 75vw;
-    border-radius: 1rem;
-    padding: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: 30vw;
+  /* border-radius: 1rem; */
+  padding: 5vw;
 }
 
 .loginForm {
-    display: flex;
-    flex-direction: column;
-    width: 30vw;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  align-items: center;
+  gap: 1vh;
+  margin: 2vh;
 }
 
 .submitBtn {
-    width: 50%;
+  width: 50%;
+  border-radius: 0;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: rgb(26, 57, 195);
+  color: #fff;
+}
+.mainHeader {
+  font-size: 2.5vw;
+  text-align: center;
+}
+
+.input {
+  border: none;
+  background-color: rgba(176, 176, 176, 0.25);
+  padding: 1vh;
 }

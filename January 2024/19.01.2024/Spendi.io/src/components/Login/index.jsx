@@ -35,25 +35,36 @@ export default function Login({ auth, setLogType }) {
 
     return (
         <div className={styles.loginContainer}>
-            <h1 style={{ textAlign: 'center' }}>Sign In to your Account</h1>
+            <h1 className={styles.mainHeader} >LOGIN</h1>
             <form
                 className={styles.loginForm}
                 onSubmit={handleSubmit}
             >
-                <div>
-                    <label htmlFor="email">Your E-mail:</label>
-                    <input required type="email" name="email"
+                {/* <div> */}
+                    {/* <label htmlFor="email">Your E-mail:</label> */}
+                    <input 
+                        className={styles.input} 
+                        required 
+                        type="email" 
+                        name="email"
                         value={formData.email}
+                        placeholder='Email'
                         onChange={handleChange}
                     />
-                </div>
-                <div>
-                    <label htmlFor="password">Your Password:</label>
+                {/* </div> */}
+                {/* <div> */}
+                    {/* <label htmlFor="password">Your Password:</label> */}
                     <input required type="password" name="password"
+                        placeholder='Password'
                         value={formData.password}
+                        className={styles.input} 
                         onChange={handleChange}
                     />
-                </div>
+                    <div>
+                        <input type="checkbox" name='rememberMe' />
+                        <label htmlFor="rememberMe">Remember me</label>
+                    </div>
+                {/* </div> */}
 
                 <button className={styles.submitBtn} type="submit">Log In</button>
             </form>
