@@ -5,10 +5,12 @@ import Home from './Pages/Home/Home.jsx';
 import All from './Pages/All/All.jsx';
 import Favorites from './Pages/Favorites/Favorites.jsx';
 import Auth from './Pages/Auth/Auth.jsx'
-
+import Navbar from './Components/Navbar/Navbar';
+import './App.css'
 export default function App() {
   return (
     <BrowserRouter>
+    <Navbar />
       <Routes>
         <Route 
           path="/" 
