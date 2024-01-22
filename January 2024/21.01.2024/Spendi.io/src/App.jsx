@@ -14,7 +14,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [transactions, setTransactions] = useState([]);
 
-  (() => {
+  useEffect(() => {
     const fetchUser = async () => {
       try {
         const usersCollectionRef = collection(db, 'users');

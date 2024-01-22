@@ -42,29 +42,30 @@ export default function Register({ auth, db }) {
     };
 
     return (
-        <section className={styles.container}>
-            <h1 style={{ textAlign: 'center' }}>Sign up to our wonderful site</h1>
-            <form className={styles.signUpForm} onSubmit={handleSubmit}>
+        <section className={styles.registerContainer}>
+            <h1 style={{ textAlign: 'center' }}>SIGN UP</h1>
+            <form className={styles.registerForm} onSubmit={handleSubmit}>
                 <label htmlFor="fName">Your First Name:</label>
-                <input type="text" name="fName" value={formData.fName} onChange={handleChange} />
+                <input className={styles.input} type="text" name="fName" value={formData.fName} onChange={handleChange} />
 
                 <label htmlFor="lName">Your Last Name:</label>
-                <input type="text" name="lName" value={formData.lName} onChange={handleChange} />
+                <input className={styles.input} type="text" name="lName" value={formData.lName} onChange={handleChange} />
 
                 <label htmlFor="email">Your E-mail:</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                <input className={styles.input} type="email" name="email" value={formData.email} onChange={handleChange} />
 
                 <label htmlFor="password">Your Password:</label>
-                <input type="password" name="password" value={formData.password} onChange={handleChange} />
+                <input className={styles.input} type="password" name="password" value={formData.password} onChange={handleChange} />
 
                 <label htmlFor="passwordValidation">Validate Your Password:</label>
                 <input
+                    className={styles.input}
                     type="password"
                     name="passwordValidation"
                     value={formData.passwordValidation}
                     onChange={handleChange}
                 />
-                <button type="submit">Register</button>
+                <button type="submit" className={styles.submitBtn}>Register</button>
             </form>
         </section>
     );
