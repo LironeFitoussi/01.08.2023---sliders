@@ -11,7 +11,7 @@ const ApexChart = ({ coinHistory }) => {
                 series: [
                     {
                         name: 'USD',
-                        data: coinHistory.map((coin) => parseInt(coin.priceUsd)),
+                        data: coinHistory.map((coin) => parseFloat(coin.priceUsd).toFixed(3)),
                     },
                 ],
                 options: {
@@ -28,6 +28,9 @@ const ApexChart = ({ coinHistory }) => {
                     xaxis: {
                         type: 'datetime',
                         categories: coinHistory.map((coin) => coin.date),
+                    },
+                    yaxis: {
+
                     },
                     tooltip: {
                         x: {
