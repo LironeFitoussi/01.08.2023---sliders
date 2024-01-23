@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db, auth } from '../../Config/firebase.js';
 import styles from './Favorites.module.css';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { onSnapshot, collection, query, where } from 'firebase/firestore';
 
 import Currency from '../../Components/Currency/Currency.jsx';
 
@@ -45,28 +45,33 @@ export default function Favorites() {
     }, []);
 
     useEffect(() => {
-        const fetchFavorites = async () => {
+        const fetchFavorites = () => {
             try {
                 const favoritesCollection = collection(db, 'favorites');
                 const favoritesQuery = query(favoritesCollection, where('userId', '==', user));
-                const favoritesSnapshot = await getDocs(favoritesQuery);
 
-                const favoritesArr = [];
-                favoritesSnapshot.forEach((doc) => {
-                    favoritesArr.push(doc.data());
+                const unsubscribe = onSnapshot(favoritesQuery, (snapshot) => {
+                    const favoritesArr = [];
+                    snapshot.forEach((doc) => {
+                        favoritesArr.push(doc.data());
+                    });
+
+                    setFavoritesData(favoritesArr);
                 });
 
-                setFavoritesData(favoritesArr);
+                // Cleanup the listener when the component unmounts
+                return () => unsubscribe();
             } catch (error) {
                 console.error('Error fetching favorites:', error);
             }
         };
 
-        fetchFavorites();
+        if (user) {
+            fetchFavorites();
+        }
     }, [user]);
 
     useEffect(() => {
-        // Compare and filter the arrays
         const filteredArray = cryptoData.filter((crypto) =>
             favoritesData.some((favorite) => favorite.currency === crypto.id)
         );
@@ -75,7 +80,6 @@ export default function Favorites() {
     }, [cryptoData, favoritesData]);
 
     useEffect(() => {
-        // Log the filteredData array
         filteredData.length > 0 && console.log('Filtered Data:', filteredData);
     }, [filteredData]);
 
