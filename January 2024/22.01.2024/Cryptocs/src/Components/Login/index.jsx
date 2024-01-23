@@ -1,8 +1,9 @@
 import styles from './Login.module.css'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
+import { auth } from '../../Config/firebase';
 
-export default function Login({ auth }) {
+export default function Login() {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -20,10 +21,8 @@ export default function Login({ auth }) {
         e.preventDefault();
         signInWithEmailAndPassword(auth, formData.email, formData.password)
             .then((userCredential) => {
-                // Signed in 
                 const user = userCredential.user;
                 console.log(`${user} Succefully Signed in`);
-                // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -31,7 +30,6 @@ export default function Login({ auth }) {
                 console.error(errorCode);
             });
     }
-
 
     return (
         <div className={styles.loginContainer}>
