@@ -33,7 +33,7 @@ export default function App() {
 
             const favoritesCollectionRef = collection(db, 'favorites');
             const favoritesQuery = query(favoritesCollectionRef, where('userId', '==', user));
-            
+
             onSnapshot(favoritesQuery, async (snapshot) => {
               const favoritesData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
               setFavorites(favoritesData); // Update the favorites state
@@ -57,21 +57,22 @@ export default function App() {
     return () => authStateChangeUnsubscribe();
   }, []);
 
-  useEffect(() => {
-    currentUser !== null && console.log(currentUser);
-  }, [currentUser]);
+  // useEffect(() => {
+  //   currentUser !== null && console.log(currentUser);
+  // }, [currentUser]);
 
-  useEffect(() => {
-    if (favorites.length > 0) {
-      console.log('Favorites have changed:', favorites);
-    }
-  }, [favorites]);
+  // useEffect(() => {
+  //   if (favorites.length > 0) {
+  //     console.log('Favorites have changed:', favorites);
+  //   }
+  // }, [favorites]);
+
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/all" element={<All />} />
+        <Route path="/all" currentUser={currentUser} element={<All />} />
         <Route
           path="/favorites"
           element={<Favorites favorites={favorites} />} // Pass the favorites to the Favorites component

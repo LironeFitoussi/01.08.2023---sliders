@@ -1,17 +1,20 @@
 import styels from './Currency.module.css'
 import { useState, useEffect } from 'react'
 
-export default function Currency ({id, rank, symbol, name, priceUsd, addToFavorite}) {
-    const [idToAdd, setIdToAdd] = useState(NaN);
-
+export default function Currency({ id, rank, symbol, name, priceUsd, addToFavorite }) {
+    const [idToAdd, setIdToAdd] = useState('');
 
     const handleClick = async () => {
-        setIdToAdd(id)
+        setIdToAdd(id);
+        console.log(id);
     }
 
     useEffect(() => {
-        idToAdd !== NaN && addToFavorite(idToAdd)
-    }, [idToAdd])
+        if (idToAdd.length > 0) {
+            addToFavorite(idToAdd);
+        }
+    }, [idToAdd]);
+
 
     return (
         <div className={styels.cryptoContainer}>
@@ -19,7 +22,7 @@ export default function Currency ({id, rank, symbol, name, priceUsd, addToFavori
             <span>{symbol}</span>
             <p>Rank: {rank}</p>
             <p>Value in USD: {priceUsd}</p>
-            <button onClick={handleClick}>Add to Favorites</button>
+            <button onClick={() => handleClick()}>Add to Favorites</button>
         </div>
     )
 }
