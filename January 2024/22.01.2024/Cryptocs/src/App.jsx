@@ -9,6 +9,7 @@ import Favorites from './Pages/Favorites/Favorites.jsx';
 import Auth from './Pages/Auth/Auth.jsx';
 import Navbar from './Components/Navbar/Navbar';
 
+import './App.css'
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [user, setUser] = useState('');
