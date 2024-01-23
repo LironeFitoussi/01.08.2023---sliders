@@ -37,23 +37,22 @@ export default function Currency({ id, rank, symbol, name, priceUsd, addToFavori
 
     return (
         <div className={styles.cryptoContainer}>
-            <h1>{name}</h1>
+            <div className={styles.currencyHeader}>
+                <h1>{name}</h1>
+                <Link to={`/favorites/${id}`}><img style={{ width: '2rem', backgroundColor: 'rgb(255 255 255 / 10%)', borderRadius: '.5rem' }} src="/images/expand-logo.png" alt="" /></Link>
+            </div>
             <span>{symbol}</span>
             <p>Rank: {rank}</p>
             <p>Value in USD: {priceUsd}</p>
             {!fav ?
-                <button onClick={handleClick} disabled={isButtonDisabled}>
+                <button className='button' onClick={handleClick} disabled={isButtonDisabled}>
                     Add to Favorites
                 </button>
                 :
-                <button onClick={handleDelete}>
+                <button className='button' onClick={handleDelete}>
                     Remove from Favorites
                 </button>
             }
-
-            <button>
-                <Link to={`/favorites/${id}`}>Expand</Link>
-            </button>
         </div>
     );
 }

@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+// React Import
+import { useState, useEffect } from 'react';
+
+// Firebase Import
 import { db, auth } from '../../Config/firebase.js';
-import styles from './Favorites.module.css';
 import { onSnapshot, collection, query, where } from 'firebase/firestore';
 
+// Local Data Import
+import styles from './Favorites.module.css';
 import Currency from '../../Components/Currency/Currency.jsx';
 
 export default function Favorites() {
@@ -84,11 +88,15 @@ export default function Favorites() {
     }, [filteredData]);
 
     return (
-        <div>
-            <h1>This is Favorites Page</h1>
-            {filteredData.map((coin, index) => (
-                <Currency key={`crcf_${index}`} {...coin} fav={true} />
-            ))}
-        </div>
+        <>
+            <h1 style={{ textAlign: 'center' }}>Your Favorite Coins</h1>
+            <div className={styles.container}>
+
+                {filteredData.map((coin, index) => (
+                    <Currency key={`crcf_${index}`} {...coin} fav={true} />
+                ))}
+            </div>
+        </>
+
     );
 }

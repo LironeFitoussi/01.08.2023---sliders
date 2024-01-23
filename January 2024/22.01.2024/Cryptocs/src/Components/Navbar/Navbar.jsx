@@ -20,17 +20,17 @@ export default function Navbar({ userData }) {
   return (
     <nav className={styles.navbarContainer}>
       <ul className={styles.navbar}>
-        <li>
+        <li className={styles.li}>
           <Link to="/" className={styles.logo}>
             <b>CRYPTOC</b>
           </Link>
         </li>
-        <li>
+        <li className={styles.li}>
           <Link to="/all" className={styles.navLink}>
             All
           </Link>
         </li>
-        <li>
+        <li className={styles.li}>
           <Link to="/favorites" className={styles.navLink}>
             Favorites
           </Link>
@@ -40,7 +40,7 @@ export default function Navbar({ userData }) {
         {userData ?
           <p>Welcome back, <b>{userData.userName}</b>, <span onClick={handleLogout}>Logout?</span></p>
           :
-          <li>
+          <li className={styles.li}>
             <Link to="/auth" className={styles.authLink}>
               Auth
             </Link>
