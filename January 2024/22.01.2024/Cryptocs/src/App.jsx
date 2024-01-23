@@ -3,6 +3,7 @@ import { auth, db } from './Config/firebase';
 import { useState, useEffect } from 'react';
 import { collection, query, where, onSnapshot, getDocs } from 'firebase/firestore';
 
+import SingleCurrency from './Pages/SingleCurrency/SingleCurrency.jsx';
 import Home from './Pages/Home/Home.jsx';
 import All from './Pages/All/All.jsx';
 import Favorites from './Pages/Favorites/Favorites.jsx';
@@ -10,6 +11,7 @@ import Auth from './Pages/Auth/Auth.jsx';
 import Navbar from './Components/Navbar/Navbar';
 
 import './App.css'
+
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [user, setUser] = useState('');
@@ -58,26 +60,14 @@ export default function App() {
     return () => authStateChangeUnsubscribe();
   }, []);
 
-  // useEffect(() => {
-  //   currentUser !== null && console.log(currentUser);
-  // }, [currentUser]);
-
-  // useEffect(() => {
-  //   if (favorites.length > 0) {
-  //     console.log('Favorites have changed:', favorites);
-  //   }
-  // }, [favorites]);
-
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/all" currentUser={currentUser} element={<All />} />
-        <Route
-          path="/favorites"
-          element={<Favorites favorites={favorites} />} // Pass the favorites to the Favorites component
-        />
+        <Route path="/favorites" element={<Favorites favorites={favorites} />} />
+        <Route path="/favorites/:id" element={<SingleCurrency favorites={favorites} />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
     </BrowserRouter>
