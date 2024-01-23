@@ -9,6 +9,7 @@ import All from './Pages/All/All.jsx';
 import Favorites from './Pages/Favorites/Favorites.jsx';
 import Auth from './Pages/Auth/Auth.jsx';
 import Navbar from './Components/Navbar/Navbar';
+import Footer from './Components/Footer/Footer.jsx';
 
 import './App.css'
 
@@ -71,6 +72,7 @@ export default function App() {
         <Route path="/favorites/:id" element={<SingleCurrency favorites={favorites} />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

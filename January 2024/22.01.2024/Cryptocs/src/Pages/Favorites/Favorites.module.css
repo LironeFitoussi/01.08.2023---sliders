@@ -6,4 +6,5 @@
     justify-content: center;
     margin: 1rem;
     gap: 1rem;
+    min-height: 50vh;
 }

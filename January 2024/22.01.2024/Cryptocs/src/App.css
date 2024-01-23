@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     color: #00feef;
     font-family: 'Ubuntu', sans-serif;
+    margin: 0;
 }
 
 a {
@@ -36,4 +37,8 @@ a {
 .button:hover {
     background-color: #45a049;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    width: 100vw;
 }
