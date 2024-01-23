@@ -63,7 +63,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar userData={currentUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/all" currentUser={currentUser} element={<All />} />
