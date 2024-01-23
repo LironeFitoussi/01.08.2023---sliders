@@ -1,7 +1,7 @@
 import styles from './SingleCurrency.module.css';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-
+import ApexChart from '../../Components/ApexChart/ApexChart';
 export default function SingleCurrency() {
     const [cryptoData, setCryptoData] = useState();
     const [coinHistory, setCoinHistory] = useState();
@@ -103,6 +103,8 @@ export default function SingleCurrency() {
                         </tr>
                     </thead>
                 </table>
+
+                <ApexChart coinHistory={coinHistory} />
             </section>
         )
     );
