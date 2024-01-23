@@ -1,3 +1,8 @@
 body {
-    background-image: url('./assets/abstract-purple-blue-blur-4k_1669593470.jpg.webp');
+    background: rgb(22, 33, 61);
+    background: linear-gradient(128deg, rgba(22, 33, 61, 1) 0%, rgba(0, 2, 152, 1) 100%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 100vh;
+    color: #00feef;
 }
