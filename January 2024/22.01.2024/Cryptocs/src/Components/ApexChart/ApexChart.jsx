@@ -11,7 +11,7 @@ const ApexChart = ({ coinHistory }) => {
                 series: [
                     {
                         name: 'USD',
-                        data: coinHistory.map((coin) => parseFloat(coin.priceUsd).toFixed(3)),
+                        data: coinHistory.map((coin) => parseFloat(coin.priceUsd).toFixed(4)),
                     },
                 ],
                 options: {
