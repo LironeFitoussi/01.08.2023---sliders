@@ -29,9 +29,6 @@ const ApexChart = ({ coinHistory }) => {
                         type: 'datetime',
                         categories: coinHistory.map((coin) => coin.date),
                     },
-                    yaxis: {
-
-                    },
                     tooltip: {
                         x: {
                             format: 'dd/MM/yy',

@@ -49,7 +49,7 @@ export default function Currency({ id, rank, symbol, name, priceUsd, addToFavori
                     Add to Favorites
                 </button>
                 :
-                <button className='button' onClick={handleDelete}>
+                <button style={{backgroundColor: 'red'}} className='button' onClick={handleDelete}>
                     Remove from Favorites
                 </button>
             }
