@@ -38,7 +38,7 @@ export default function Navbar({ userData }) {
       </ul>
       <ul className={styles.navbar}>
         {userData ?
-          <p>Welcome back, <b>{userData.userName}</b>, <span onClick={handleLogout}>Logout?</span></p>
+          <p style={{display: 'flex', gap: '.5rem'}}>Welcome back <b>{userData.userName}</b> <span onClick={handleLogout}><img className={styles.logoutIcon} src="/images/logout-icon.png" alt="" /></span></p>
           :
           <li className={styles.li}>
             <Link to="/auth" className={styles.authLink}>

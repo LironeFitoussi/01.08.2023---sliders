@@ -38,3 +38,13 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.logoutIcon {
+  width: 1vw;
+  background-color: red;
+  border-radius: .25rem;
+}
+
+.logoutIcon:hover {
+  cursor: pointer;
+}
