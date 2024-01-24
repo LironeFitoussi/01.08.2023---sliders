@@ -26,6 +26,7 @@ useEffect(() => {
 
     const handleDelete = async () => {
         try {
+            console.log(userId);
             const q = query(collection(db, 'favorites'), where('currency', '==', id), where('userId', '==', userId ));
             const querySnapshot = await getDocs(q);
 
@@ -36,7 +37,6 @@ useEffect(() => {
             console.log('Document deleted successfully!');
         } catch (error) {
             console.error('Error deleting document:', error);
-            // You can add additional error handling logic as needed
         }
     };
 

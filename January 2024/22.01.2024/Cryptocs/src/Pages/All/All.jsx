@@ -90,7 +90,7 @@ export default function All() {
           <h1 style={{ textAlign: 'center' }}>Crypto Currencies</h1>
           <div className={styles.cryptoTable}>
             {cryptoData.map((coin, index) => (
-              <Currency addToFavorite={addToFavorite} favData={favoritesData} key={`crc_${index}`} {...coin} />
+              <Currency addToFavorite={addToFavorite} favData={favoritesData} userId={user} key={`crc_${index}`} {...coin} />
             ))}
           </div>
         </>
