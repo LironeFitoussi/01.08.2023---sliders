@@ -4,18 +4,29 @@ import { Link } from 'react-router-dom';
 import { db } from '../../Config/firebase';
 import { getDocs, collection, query, where, deleteDoc } from 'firebase/firestore';
 
-export default function Currency({ id, rank, symbol, name, priceUsd, addToFavorite, fav }) {
+export default function Currency({userId, id, rank, symbol, name, priceUsd, addToFavorite, favData }) {
     const [idToAdd, setIdToAdd] = useState('');
     const [isButtonDisabled, setButtonDisabled] = useState(false);
+    const [favNames, setFavNames] = useState();
+    const [isFav, setIsFav] = useState(false);
+
+    
+useEffect(() => {
+    favData && setFavNames(favData.map((favItem) => favItem.currency));
+}, [favData]);
+
+useEffect(() => {
+    favNames && id && setIsFav(favNames.includes(id));
+}, [favNames, id]);
 
     const handleClick = async () => {
         setIdToAdd(id);
         setButtonDisabled(true);
-    }
+    };
 
     const handleDelete = async () => {
         try {
-            const q = query(collection(db, 'favorites'), where('currency', '==', id));
+            const q = query(collection(db, 'favorites'), where('currency', '==', id), where('userId', '==', userId ));
             const querySnapshot = await getDocs(q);
 
             querySnapshot.forEach(async (doc) => {
@@ -27,7 +38,7 @@ export default function Currency({ id, rank, symbol, name, priceUsd, addToFavori
             console.error('Error deleting document:', error);
             // You can add additional error handling logic as needed
         }
-    }
+    };
 
     useEffect(() => {
         if (idToAdd.length > 0) {
@@ -39,20 +50,30 @@ export default function Currency({ id, rank, symbol, name, priceUsd, addToFavori
         <div className={styles.cryptoContainer}>
             <div className={styles.currencyHeader}>
                 <h1>{name}</h1>
-                <Link to={`/favorites/${id}`}><img style={{ width: '2rem', backgroundColor: 'rgb(255 255 255 / 10%)', borderRadius: '.5rem' }} src="/images/expand-logo.png" alt="" /></Link>
+                <Link to={`/favorites/${id}`}>
+                    <img
+                        style={{
+                            width: '2rem',
+                            backgroundColor: 'rgb(255 255 255 / 10%)',
+                            borderRadius: '.5rem',
+                        }}
+                        src="/images/expand-logo.png"
+                        alt=""
+                    />
+                </Link>
             </div>
             <span>{symbol}</span>
             <p>Rank: {rank}</p>
             <p>Value in USD: {priceUsd}</p>
-            {!fav ?
-                <button className='button' onClick={handleClick} disabled={isButtonDisabled}>
+            {!isFav ? (
+                <button className="button" onClick={handleClick} disabled={isButtonDisabled}>
                     Add to Favorites
                 </button>
-                :
-                <button style={{backgroundColor: 'red'}} className='button' onClick={handleDelete}>
+            ) : (
+                <button style={{ backgroundColor: 'red' }} className="button" onClick={handleDelete}>
                     Remove from Favorites
                 </button>
-            }
+            )}
         </div>
     );
 }

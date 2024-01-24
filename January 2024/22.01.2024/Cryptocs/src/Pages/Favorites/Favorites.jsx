@@ -93,7 +93,7 @@ export default function Favorites() {
             <div className={styles.container}>
 
                 {filteredData.map((coin, index) => (
-                    <Currency key={`crcf_${index}`} {...coin} fav={true} />
+                    <Currency key={`crcf_${index}`} {...coin} userId={user} favData={favoritesData} />
                 ))}
             </div>
         </>
