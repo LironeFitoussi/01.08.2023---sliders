@@ -1,26 +1,10 @@
-// React Import
 import { useState, useEffect } from 'react';
-
-// Firebase Import
-import { db, auth } from '../../Config/firebase.js';
-import { onSnapshot, collection, query, where } from 'firebase/firestore';
-
-// Local Data Import
 import styles from './Favorites.module.css';
 import Currency from '../../Components/Currency/Currency.jsx';
 
-export default function Favorites() {
+export default function Favorites({user, favorites}) {
     const [cryptoData, setCryptoData] = useState([]);
-    const [favoritesData, setFavoritesData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
-    const [user, setUser] = useState('');
-
-    useEffect(() => {
-        const authStateChanged = (user) => setUser(user ? user.uid : '');
-        const authStateChangeUnsubscribe = auth.onAuthStateChanged(authStateChanged);
-
-        return () => authStateChangeUnsubscribe();
-    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -49,43 +33,12 @@ export default function Favorites() {
     }, []);
 
     useEffect(() => {
-        const fetchFavorites = () => {
-            try {
-                const favoritesCollection = collection(db, 'favorites');
-                const favoritesQuery = query(favoritesCollection, where('userId', '==', user));
-
-                const unsubscribe = onSnapshot(favoritesQuery, (snapshot) => {
-                    const favoritesArr = [];
-                    snapshot.forEach((doc) => {
-                        favoritesArr.push(doc.data());
-                    });
-
-                    setFavoritesData(favoritesArr);
-                });
-
-                // Cleanup the listener when the component unmounts
-                return () => unsubscribe();
-            } catch (error) {
-                console.error('Error fetching favorites:', error);
-            }
-        };
-
-        if (user) {
-            fetchFavorites();
-        }
-    }, [user]);
-
-    useEffect(() => {
         const filteredArray = cryptoData.filter((crypto) =>
-            favoritesData.some((favorite) => favorite.currency === crypto.id)
+            favorites.some((favorite) => favorite.currency === crypto.id)
         );
 
         setFilteredData(filteredArray);
-    }, [cryptoData, favoritesData]);
-
-    useEffect(() => {
-        filteredData.length > 0 && console.log('Filtered Data:', filteredData);
-    }, [filteredData]);
+    }, [cryptoData, favorites]);
 
     return (
         <>
@@ -93,10 +46,9 @@ export default function Favorites() {
             <div className={styles.container}>
 
                 {filteredData.map((coin, index) => (
-                    <Currency key={`crcf_${index}`} {...coin} userId={user} favData={favoritesData} />
+                    <Currency key={`crcf_${index}`} {...coin} userId={user} favData={favorites} />
                 ))}
             </div>
         </>
-
     );
 }

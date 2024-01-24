@@ -40,7 +40,7 @@ export default function App() {
 
             onSnapshot(favoritesQuery, async (snapshot) => {
               const favoritesData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-              setFavorites(favoritesData); // Update the favorites state
+              setFavorites(favoritesData); 
             });
           } else {
             console.error('User document not found');
@@ -67,8 +67,8 @@ export default function App() {
       <Navbar userData={currentUser} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/all" currentUser={currentUser} element={<All />} />
-        <Route path="/favorites" element={<Favorites favorites={favorites} />} />
+        <Route path="/all" element={<All user={user} favorites={favorites}/>} />
+        <Route path="/favorites" element={<Favorites favorites={favorites} user={user}/>} />
         <Route path="/favorites/:id" element={<SingleCurrency favorites={favorites} />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
