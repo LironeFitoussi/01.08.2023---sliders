@@ -1,6 +1,18 @@
 import styles from './Home.module.css'
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
 export default function Home() {
+    const [visible, setVisible] = useState(false);
+    useEffect(() => {
+        // Use a timeout to add the 'visible' class after a delay
+        const timeoutId = setTimeout(() => {
+          setVisible(true);
+        }, 200); // Adjust the delay according to your preference
+    
+        // Clear the timeout when the component unmounts
+        return () => clearTimeout(timeoutId);
+      }, []);
+      
     return (
         <>
             <section className={styles.container}>
@@ -13,11 +25,11 @@ export default function Home() {
                 <button className={styles.mainButton}>
                     <Link to="/auth" ><p>Register NOW!</p></Link>
                 </button>
-                <img className={styles.bitcoinImg} src='images/bitcoin.png' alt="" />
+                <img className={`${styles.bitcoinImg} ${visible ? styles.visible : ''}`} src='images/planet.png' alt="" />
                 <div className={styles.socialContainer}>
-                    <p><a href="">FACEBOOK</a></p>
-                    <p><a href="">LINKEDIN</a></p>
-                    <p><a href="">INSTAGRAM</a></p>
+                    <p><a className={styles.socialLink} href="">FACEBOOK</a></p>
+                    <p><a className={styles.socialLink} href="">LINKEDIN</a></p>
+                    <p><a className={styles.socialLink} href="">INSTAGRAM</a></p>
                 </div>
 
 

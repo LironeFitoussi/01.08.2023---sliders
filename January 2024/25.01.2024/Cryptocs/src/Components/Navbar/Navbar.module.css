@@ -1,10 +1,15 @@
 .navbarContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 1rem;
-  background-color: #2a2a2a;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff1f;
+  backdrop-filter: blur(22px);
+  box-shadow: 10px 5px rrgba(34, 34, 34, 0.095);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .navbar {
@@ -39,12 +44,20 @@
   justify-content: center;
 }
 
+
+
 .logoutIcon {
   width: 1vw;
-  background-color: red;
-  border-radius: .25rem;
+  /* background-color: red; */
+  /* border-radius: .25rem; */
 }
 
 .logoutIcon:hover {
   cursor: pointer;
+}
+
+.wbMsg {
+  color: #fff;
+  display: flex;
+  gap: .5rem;
 }

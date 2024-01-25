@@ -42,7 +42,7 @@ export default function Favorites({user, favorites}) {
 
     return (
         <>
-            <h1 style={{ textAlign: 'center' }}>Your Favorite Coins</h1>
+            <h1 style={{ color: '#fff', textAlign: 'center', marginTop: '10vh' }}>Your Favorite Coins</h1>
             <div className={styles.container}>
 
                 {filteredData.map((coin, index) => (

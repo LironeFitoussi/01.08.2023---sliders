@@ -38,7 +38,7 @@ export default function Navbar({ userData }) {
       </ul>
       <ul className={styles.navbar}>
         {userData ?
-          <p style={{display: 'flex', gap: '.5rem'}}>Welcome back <b>{userData.userName}</b> <span onClick={handleLogout}><img className={styles.logoutIcon} src="/images/logout-icon.png" alt="" /></span></p>
+          <p className={styles.wbMsg} >Welcome Back <b>{userData.userName}</b> <span onClick={handleLogout}><img className={styles.logoutIcon} src="https://static-00.iconduck.com/assets.00/logout-icon-2048x2046-yqonjwjv.png" alt="" /></span></p>
           :
           <li className={styles.li}>
             <Link to="/auth" className={styles.authLink}>

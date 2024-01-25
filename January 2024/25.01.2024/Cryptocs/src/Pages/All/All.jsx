@@ -49,7 +49,7 @@ export default function All({user, favorites}) {
     <>
       {cryptoData && (
         <>
-          <h1 style={{ textAlign: 'center' }}>Crypto Currencies</h1>
+          <h1 style={{color: '#fff', textAlign: 'center', marginTop: '10vh' }}>Crypto Currencies</h1>
           <div className={styles.cryptoTable}>
             {cryptoData.map((coin, index) => (
               <Currency addToFavorite={addToFavorite} favData={favorites} userId={user} key={`crc_${index}`} {...coin} />
