@@ -11,12 +11,12 @@ export default function Auth() {
             {logType ? (
                 <div>
                     <Login firebase={auth} />
-                    <p style={{ textAlign: 'center' }}> Not a member? <span style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={() => setLogType(!logType)}>Sign up now</span></p>
+                    <p style={{ textAlign: 'center', color: 'white' }}> Not a member? <span style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={() => setLogType(!logType)}>Sign up now</span></p>
                 </div>
             ) : (
                 <div>
                     <Register auth={auth} db={db} />
-                    <p style={{ textAlign: 'center' }} >Already have an Account? <b onClick={() => setLogType(!logType)}>Login...</b></p>
+                    <p style={{ textAlign: 'center', color: 'white' }} >Already have an Account? <span style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={() => setLogType(!logType)}>Login...</span></p>
                 </div>
 
             )

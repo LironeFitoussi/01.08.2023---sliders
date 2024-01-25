@@ -6,25 +6,31 @@ import { getDocs, collection, query, where, deleteDoc } from 'firebase/firestore
 
 export default function Currency({userId, id, rank, symbol, name, priceUsd, addToFavorite, favData }) {
     const [idToAdd, setIdToAdd] = useState('');
-    const [isButtonDisabled, setButtonDisabled] = useState(false);
     const [favNames, setFavNames] = useState();
     const [isFav, setIsFav] = useState(false);
 
     
-useEffect(() => {
-    favData && setFavNames(favData.map((favItem) => favItem.currency));
-}, [favData]);
+    useEffect(() => {
+        favData && setFavNames(favData.map((favItem) => favItem.currency));
+    }, [favData]);
 
-useEffect(() => {
-    favNames && id && setIsFav(favNames.includes(id));
-}, [favNames, id]);
+    useEffect(() => {
+        favNames && id && setIsFav(favNames.includes(id));
+    }, [favNames, id]);
 
-    const handleClick = async () => {
+    useEffect(() => {
+        if (idToAdd.length > 0) {
+            addToFavorite(idToAdd);
+            setIdToAdd('');
+        }
+    }, [idToAdd, addToFavorite]);
+
+    const handleClick = () => {
         setIdToAdd(id);
-        setButtonDisabled(true);
     };
 
     const handleDelete = async () => {
+        console.log('click');
         try {
             console.log(userId);
             const q = query(collection(db, 'favorites'), where('currency', '==', id), where('userId', '==', userId ));
@@ -67,7 +73,7 @@ useEffect(() => {
     <p>Value in USD: {priceUsd}</p>
     {userId ? (
         !isFav ? (
-            <button className="button" onClick={handleClick} disabled={isButtonDisabled}>
+            <button className="button" onClick={handleClick}>
                 Add to Favorites
             </button>
         ) : (
