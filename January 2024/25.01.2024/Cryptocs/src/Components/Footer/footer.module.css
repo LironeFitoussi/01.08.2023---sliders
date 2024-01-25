@@ -1,0 +1,53 @@
+/* Footer.module.css */
+
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footerContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerSection {
+    flex: 1;
+    margin-right: 30px;
+}
+
+.sectionTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sectionLinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sectionLinks li {
+    margin-bottom: 8px;
+}
+
+.sectionLinks a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sectionLinks a:hover {
+    text-decoration: underline;
+}
+
+.footerText {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}

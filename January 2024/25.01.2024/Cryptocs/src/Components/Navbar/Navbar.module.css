@@ -1,0 +1,50 @@
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #2a2a2a;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  text-decoration: none;
+  color: #61dafb;
+  font-size: 1.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 1rem;
+  font-size: 1rem;
+}
+
+.authLink {
+  text-decoration: none;
+  color: #61dafb;
+  font-size: 1rem;
+}
+
+.li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logoutIcon {
+  width: 1vw;
+  background-color: red;
+  border-radius: .25rem;
+}
+
+.logoutIcon:hover {
+  cursor: pointer;
+}
