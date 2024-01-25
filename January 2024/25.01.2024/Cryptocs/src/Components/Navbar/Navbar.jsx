@@ -22,7 +22,7 @@ export default function Navbar({ userData }) {
       <ul className={styles.navbar}>
         <li className={styles.li}>
           <Link to="/" className={styles.logo}>
-            <b>CRYPTOC</b>
+            <b>CRYPTOCS</b>
           </Link>
         </li>
         <li className={styles.li}>
