@@ -30,11 +30,11 @@ export default function Navbar({ userData }) {
             All
           </Link>
         </li>
-        <li className={styles.li}>
+        {userData && <li className={styles.li}>
           <Link to="/favorites" className={styles.navLink}>
             Favorites
           </Link>
-        </li>
+        </li>}
       </ul>
       <ul className={styles.navbar}>
         {userData ?

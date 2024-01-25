@@ -66,7 +66,7 @@ export default function App() {
     <BrowserRouter>
       <Navbar userData={currentUser} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home  user={user} />} />
         <Route path="/all" element={<All user={user} favorites={favorites}/>} />
         <Route path="/favorites" element={<Favorites favorites={favorites} user={user}/>} />
         <Route path="/favorites/:id" element={<SingleCurrency favorites={favorites} />} />

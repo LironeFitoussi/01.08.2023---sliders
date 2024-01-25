@@ -21,7 +21,7 @@ export default function Register({ auth, db }) {
 
             try {
                 const docRef = await addDoc(collection(db, 'users'), { userId: user.uid, fName: formData.fName, lName: formData.lName });
-                console.log('Document written with ID:', docRef.id);
+                window.location.href = '/all';
             } catch (e) {
                 console.error('Error adding document:', e);
             }

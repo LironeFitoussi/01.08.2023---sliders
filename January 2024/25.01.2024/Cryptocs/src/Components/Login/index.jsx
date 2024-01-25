@@ -23,6 +23,7 @@ export default function Login() {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(`${user} Succefully Signed in`);
+                window.location.href = '/all';
             })
             .catch((error) => {
                 const errorCode = error.code;
