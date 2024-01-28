@@ -1,7 +1,7 @@
 import styles from './Login.module.css'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
-import { auth } from '../../Config/firebase';
+import { auth } from '../../config/firebase';
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ export default function Login() {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(`${user} Succefully Signed in`);
-                window.location.href = '/all';
+                window.location.href = '/';
             })
             .catch((error) => {
                 const errorCode = error.code;

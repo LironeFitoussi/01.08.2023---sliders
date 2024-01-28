@@ -7,9 +7,7 @@ import styles from './Navbar.module.css';
 import userDataProvider from '../../context/UserData';
 
 export default function Navbar() {
-  const { user } = useContext(userDataProvider);
-  // console.log(user);
-
+  const { currentUser } = useContext(userDataProvider);
   const handleLogout = () => {
     const auth = getAuth();
     signOut(auth)
@@ -21,7 +19,6 @@ export default function Navbar() {
         console.error("Error occurred during sign-out:", error.message);
       });
   }
-
   return (
     <nav className={styles.navbarContainer}>
       <ul className={styles.navbar}>
@@ -31,7 +28,7 @@ export default function Navbar() {
             <b >Resumix<span>Pro</span></b>
           </Link>
         </li>
-        {user && <li className={styles.li}>
+        {currentUser && <li className={styles.li}>
           <Link to="/favorites" className={styles.navLink}>
             Favorites
           </Link>
@@ -55,8 +52,8 @@ export default function Navbar() {
         </li>
       </ul>
       <ul className={styles.navbar}>
-        {user ?
-          <p className={styles.wbMsg} >Welcome Back <b>{userData.userName}</b> <span onClick={handleLogout}><img className={styles.logoutIcon} src="https://static-00.iconduck.com/assets.00/logout-icon-2048x2046-yqonjwjv.png" alt="" /></span></p>
+        {currentUser ?
+          <p className={styles.wbMsg} >Welcome Back <b>{currentUser.userName}</b> <span onClick={handleLogout}><img className={styles.logoutIcon} src="https://static-00.iconduck.com/assets.00/logout-icon-2048x2046-yqonjwjv.png" alt="" /></span></p>
           :
           <div className={styles.navbar}>
             <li className={styles.li}>

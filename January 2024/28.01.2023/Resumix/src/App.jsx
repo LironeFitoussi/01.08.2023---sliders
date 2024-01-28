@@ -7,6 +7,7 @@ import Home from './Pages/Home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer'
 import Login from './Pages/Login'
+import Register from './Pages/Register'
 function App() {
   return (
     <ThemeProvider>
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/login' element={< Login />} />
+          <Route path='/register' element={<Register />} />
           {/* <Route path="/all" element={<All />} /> */}
           {/* <Route path="/favorites" element={<Favorites />} /> */}
           {/* <Route path="/favorites/:id" element={<SingleCurrency />} /> */}
