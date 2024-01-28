@@ -1,10 +1,22 @@
-import React, { createContext, useState} from "react";
-export const UserDataContext = createContext({});
+// UserDataContext.js
+import { createContext, useState, useEffect } from 'react';
+import { auth } from '../config/firebase.js'
+const UserDataContext = createContext();
 
-export default function userDataProvider ({children}) {
+export const UserDataProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const authStateChanged = (user) => setUser(user ? user.uid : '');
+        const authStateChangeUnsubscribe = auth.onAuthStateChanged(authStateChanged);
+
+        return () => authStateChangeUnsubscribe();
+    }, []);
     return (
-        <userDataContext value={{}}>
+        <UserDataContext.Provider value={{ user, setUser }}>
             {children}
-        </userDataContext>
-    )
-}
+        </UserDataContext.Provider>
+    );
+};
+
+export default UserDataContext;
