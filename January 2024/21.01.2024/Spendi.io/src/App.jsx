@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { collection, query, where, getDocs, onSnapshot } from 'firebase/firestore';
-import { app, db, auth } from './config/firebase';
+import { db, auth } from './config/firebase';
 import { signOut } from 'firebase/auth';
 
 // Pages Import
 import Home from './pages/Home';
 import Transactions from './pages/Transactions';
 import Auth from './pages/Auth';
+import Header from './components/Header/Header';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -83,7 +84,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <nav>
+      {/* <nav>
         <ul>
           <div>
             <li>
@@ -103,7 +104,8 @@ const App = () => {
             </li>
           )}
         </ul>
-      </nav>
+      </nav> */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
