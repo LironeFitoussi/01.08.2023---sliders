@@ -9,6 +9,7 @@ export default function ThemeProvider ({ children }) {
         backgroundColor: '#000',
         color: '#fff'
     }
+    
     const lightModeColors = {
         backgroundColor: '#fff',
         color: '#000'
@@ -24,8 +25,6 @@ export default function ThemeProvider ({ children }) {
         }
         setIsDarkMode(!isDarkMode)
     }
-
-    console.log(children);
 
     return (
         <ThemeContext.Provider value={{toggleTheme, isDarkMode, selectedTheme}}>

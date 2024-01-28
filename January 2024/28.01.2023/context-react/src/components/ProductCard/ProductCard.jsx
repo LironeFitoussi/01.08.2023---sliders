@@ -3,7 +3,7 @@ import { ThemeContext } from "../../context/Theme";
 
 export default function ProductCard () {
     const { toggleTheme } = useContext(ThemeContext);
-
+    
     return (
         <div>
             <h2>ProductCard</h2>
