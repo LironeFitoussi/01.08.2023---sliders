@@ -84,28 +84,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/* <nav>
-        <ul>
-          <div>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/transactions">Transactions</Link>
-            </li>
-          </div>
-          {user === null ? (
-            <li>
-              <Link to="/auth">Auth</Link>
-            </li>
-          ) : (
-            <li style={{ justifySelf: 'right' }}>
-              <p style={{ margin: 0 }}>Welcome back, {currentUser?.userName} <b onClick={logOut}>Logout?</b></p>
-            </li>
-          )}
-        </ul>
-      </nav> */}
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -114,6 +92,7 @@ const App = () => {
         />
         <Route path="/auth" element={<Auth auth={auth} db={db} currentUser={currentUser} />} />
       </Routes>
+      <Header logOut={logOut} currentUser={currentUser} user={user}/>
     </BrowserRouter>
   );
 };
