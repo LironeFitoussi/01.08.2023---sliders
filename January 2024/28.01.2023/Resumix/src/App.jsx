@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
+import CreateResume from './Pages/CreateResume/CreateResume';
 function App() {
   return (
     <ThemeProvider>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path='/login' element={< Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/create' element={<CreateResume />} />
           {/* <Route path="/all" element={<All />} /> */}
           {/* <Route path="/favorites" element={<Favorites />} /> */}
           {/* <Route path="/favorites/:id" element={<SingleCurrency />} /> */}

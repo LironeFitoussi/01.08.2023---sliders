@@ -36,7 +36,7 @@ export default function Navbar() {
       </ul>
       <ul className={styles.navbar}>
         <li className={styles.li}>
-          <Link to="/">
+          <Link to="/create">
             Create Resume
           </Link>
         </li>
