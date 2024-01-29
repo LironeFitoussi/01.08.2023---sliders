@@ -10,20 +10,21 @@ export default function UserCreations() {
     const [resumeData, setResumeData] = useState();
 
     useEffect(() => {
-        console.log(user);
-        try {
-            const resumeCollectionRef = collection(db, 'resumes');
-            const resumeQuery = query(resumeCollectionRef, where('userId', '==', user.uid));
+        // console.log(user);
+        if (user) {
+            try {
+                const resumeCollectionRef = collection(db, 'resumes');
+                const resumeQuery = query(resumeCollectionRef, where('userId', '==', user.uid));
 
-            onSnapshot(resumeQuery, async (snapshot) => {
-                const resumeData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                console.log(resumeData);
-                setResumeData(resumeData);
-            });
+                onSnapshot(resumeQuery, async (snapshot) => {
+                    const resumeData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    setResumeData(resumeData);
+                });
 
-            console.log('Data fetched succefully!');
-        } catch (err) {
-            console.error('An error ocured: ' + err);
+                console.log('Data fetched succefully!');
+            } catch (err) {
+                console.error('An error ocured: ' + err);
+            }
         }
     }, [user])
 

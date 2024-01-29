@@ -11,8 +11,10 @@ import userDataProvider from '../../context/UserData';
 
 export default function CreateResume() {
     const { currentUser } = useContext(userDataProvider);
-    console.log(currentUser);
+    // console.log(currentUser);
     const [resumeData, setResumeData] = useState({
+        fileName: '',
+        creationDate: new Date(),
         fullName: '',
         position: '',
         contact: {
@@ -106,13 +108,14 @@ export default function CreateResume() {
         console.log("Document written with ID: ", docRef.id);
     };
 
-    useEffect(() => {
-        console.log(resumeData);
-    }, [resumeData])
+    // useEffect(() => {
+    //     console.log(resumeData);
+    // }, [resumeData])
 
     return (
         <section className={styles.container}>
             <h1 className={styles.title}>Resume Creator Wizard</h1>
+            <h3>Project Name: <input type="text" name='fileName' onChange={handlePersonalDataChange} /></h3>
             <div className={styles.resumeForm}>
                 <h2><span className={styles.stepIcon}>1</span> Add Your Personal Data</h2>
                 <form action="">
