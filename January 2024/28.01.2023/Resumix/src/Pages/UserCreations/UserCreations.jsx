@@ -1,4 +1,7 @@
 import styles from './UserCreations.module.css'
+import { db } from '../../config/firebase'
+import userDataProvider from '../../context/UserData';
+
 export default function UserCreations() {
     return (
         <section>

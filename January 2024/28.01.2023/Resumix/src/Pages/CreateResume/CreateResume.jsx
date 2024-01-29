@@ -1,6 +1,5 @@
 import styles from './CreateResume.module.css'
 import { useEffect, useState, useContext } from 'react'
-import { UserDataProvider } from '../../context/UserData'
 import ExperienceInput from '../../components/ExperienceInput/ExperienceInput'
 import EducationInput from '../../components/EducationInput/EducationInput'
 import SkillInput from '../../components/SkillInput/SkillInput'
