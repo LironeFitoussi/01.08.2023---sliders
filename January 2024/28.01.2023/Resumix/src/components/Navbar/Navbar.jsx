@@ -23,7 +23,6 @@ export default function Navbar() {
     <nav className={styles.navbarContainer}>
       <ul className={styles.navbar}>
         <li className={styles.li}>
-          {/* <img src="/images/Logo.png" alt="" style={{ width: '1.5rem' }} /> */}
           <Link to="/" className={styles.logo}>
             <b >Resumix<span>Pro</span></b>
           </Link>

@@ -1,17 +1,36 @@
 .resume {
     font-family: Arial, sans-serif;
-    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    width: 90vw;
+    height: 140vh;
 }
 
 .header {
     margin-bottom: 20px;
+    background-color: #4d6ac4;
+    padding: 2rem;
+}
+
+.header>h1 {
+    color: #fff;
+}
+
+.header h2 {
+    font-size: smaller;
+    color: #d7d7d7;
+}
+
+.contact {
+    display: flex;
+    gap: 2vw;
+    justify-content: space-between;
 }
 
 .contact p {
+    display: flex;
+    flex-direction: column;
     margin: 5px 0;
 }
 

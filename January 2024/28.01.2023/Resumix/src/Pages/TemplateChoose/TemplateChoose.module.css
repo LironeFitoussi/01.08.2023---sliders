@@ -1,0 +1,8 @@
+.templatesContainer {
+    margin-top: 10vh;
+    width: fit-content;
+}
+
+.templateComp {
+    border: 1px solid #ccc;
+}

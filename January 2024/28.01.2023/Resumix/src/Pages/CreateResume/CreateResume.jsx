@@ -1,13 +1,18 @@
 import styles from './CreateResume.module.css'
-import { useEffect, useState } from 'react'
-
+import { useEffect, useState, useContext } from 'react'
+import { UserDataProvider } from '../../context/UserData'
 import ExperienceInput from '../../components/ExperienceInput/ExperienceInput'
 import EducationInput from '../../components/EducationInput/EducationInput'
 import SkillInput from '../../components/SkillInput/SkillInput'
 import { Link } from 'react-router-dom'
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../config/firebase'
+import userDataProvider from '../../context/UserData';
+
+
 export default function CreateResume() {
+    const { currentUser } = useContext(userDataProvider);
+    console.log(currentUser);
     const [resumeData, setResumeData] = useState({
         fullName: '',
         position: '',
@@ -96,7 +101,8 @@ export default function CreateResume() {
 
     const handleFormSubmit = async () => {
         const docRef = await addDoc(collection(db, "resumes"), {
-            ...resumeData
+            ...resumeData,
+            userId: currentUser.uid
         });
         console.log("Document written with ID: ", docRef.id);
     };
