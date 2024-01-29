@@ -1,0 +1,50 @@
+.resume {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.contact p {
+    margin: 5px 0;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.experience h3 {
+    margin-bottom: 5px;
+}
+
+.experience p {
+    margin: 5px 0;
+}
+
+.experience ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+.education h3 {
+    margin-bottom: 5px;
+}
+
+.education p {
+    margin: 5px 0;
+}
+
+.education ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+.skills li {
+    margin: 5px 0;
+}

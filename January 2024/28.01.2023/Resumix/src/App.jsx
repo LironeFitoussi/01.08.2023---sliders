@@ -9,6 +9,8 @@ import Footer from './components/Footer/Footer'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
 import CreateResume from './Pages/CreateResume/CreateResume';
+import TemplateChoose from './Pages/TemplateChoose/TemplateChoose';
+
 function App() {
   return (
     <ThemeProvider>
@@ -19,10 +21,7 @@ function App() {
           <Route path='/login' element={< Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/create' element={<CreateResume />} />
-          {/* <Route path="/all" element={<All />} /> */}
-          {/* <Route path="/favorites" element={<Favorites />} /> */}
-          {/* <Route path="/favorites/:id" element={<SingleCurrency />} /> */}
-          {/* 25.01.2024/Cryptocs/src/Components/Footer<Route path="/auth" element={<Auth />} /> */}
+          <Route path='/create/template' element={<TemplateChoose />} />
         </Routes>
         <Footer />
       </BrowserRouter>
