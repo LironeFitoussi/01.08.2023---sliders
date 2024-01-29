@@ -36,7 +36,7 @@ export default function TemplateChoose() {
             <div ref={targetRef} id='TemplatePrint' className={styles.templateComp}>
                 <Template1 data={from} />
             </div>
-            <button onClick={() => generatePDF(targetRef, { filename: 'page.pdf' })}>Download PDF</button>
+            <button className={styles.btn} onClick={() => generatePDF(targetRef, { filename: 'ResumixPro.pdf' })}><i className="fa fa-download" style={{ color: '#fff' }}></i> Download PDF</button>
         </section>
     )
 }
