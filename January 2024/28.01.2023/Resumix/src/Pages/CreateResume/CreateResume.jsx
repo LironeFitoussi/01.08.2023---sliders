@@ -5,6 +5,8 @@ import ExperienceInput from '../../components/ExperienceInput/ExperienceInput'
 import EducationInput from '../../components/EducationInput/EducationInput'
 import SkillInput from '../../components/SkillInput/SkillInput'
 import { Link } from 'react-router-dom'
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '../../config/firebase'
 export default function CreateResume() {
     const [resumeData, setResumeData] = useState({
         fullName: '',
@@ -90,6 +92,13 @@ export default function CreateResume() {
                 level: 5
             }]
         }));
+    };
+
+    const handleFormSubmit = async () => {
+        const docRef = await addDoc(collection(db, "resumes"), {
+            ...resumeData
+        });
+        console.log("Document written with ID: ", docRef.id);
     };
 
     useEffect(() => {
@@ -205,7 +214,7 @@ export default function CreateResume() {
                     <button type='button' onClick={addSkill}> + Add Skill </button>
                 </form>
             </div>
-            <button>
+            <button onClick={handleFormSubmit}>
                 <Link to="/create/template" state={{ from: resumeData }}>
                     Countinue To template
                 </Link>

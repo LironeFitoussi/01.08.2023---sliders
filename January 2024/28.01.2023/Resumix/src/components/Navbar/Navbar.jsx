@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { getAuth, signOut } from "firebase/auth";
@@ -28,11 +28,6 @@ export default function Navbar() {
             <b >Resumix<span>Pro</span></b>
           </Link>
         </li>
-        {currentUser && <li className={styles.li}>
-          <Link to="/favorites" className={styles.navLink}>
-            Favorites
-          </Link>
-        </li>}
       </ul>
       <ul className={styles.navbar}>
         <li className={styles.li}>
