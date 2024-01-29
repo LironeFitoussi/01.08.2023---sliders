@@ -35,12 +35,12 @@ export default function Navbar() {
           </Link>
         </li>
         <li className={styles.li}>
-          <Link to="/">
+          <Link to="/your-creations">
             Your Creations
           </Link>
         </li>
         <li className={styles.li}>
-          <Link to="/">
+          <Link to="/apply-jobs">
             Apply Jobs
           </Link>
         </li>
@@ -61,9 +61,7 @@ export default function Navbar() {
               </Link>
             </li>
           </div>
-
         }
-
       </ul>
     </nav>
   );

@@ -9,6 +9,8 @@ import Login from './Pages/Login'
 import Register from './Pages/Register'
 import CreateResume from './Pages/CreateResume/CreateResume';
 import TemplateChoose from './Pages/TemplateChoose/TemplateChoose';
+import UserCreations from './Pages/UserCreations/Usercreations';
+import ApplyJobs from './Pages/ApplyJobs/ApplyJobs';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/create' element={<CreateResume />} />
           <Route path='/create/template' element={<TemplateChoose />} />
+          <Route path='/your-creations' element={<UserCreations />} />
+          <Route path='/apply-jobs' element={<ApplyJobs />} />
         </Routes>
         <Footer />
       </BrowserRouter>
