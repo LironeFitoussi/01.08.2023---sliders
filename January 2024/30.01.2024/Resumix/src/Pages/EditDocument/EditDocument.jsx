@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { db } from '../../config/firebase';
-import { getDoc, doc } from 'firebase/firestore';
+import { getDoc, doc, setDoc } from 'firebase/firestore';
 import styles from './EditDocument.module.css'
 import Input from '../../components/Mini Components/Input/Input';
 import ExperienceInput from '../../components/ExperienceInput/ExperienceInput';
@@ -68,6 +68,17 @@ const EditDocument = () => {
     useEffect(() => {
         console.log(resumeData);
     }, [resumeData])
+
+    const saveChanges = async () => {
+        try {
+            const resumeDocRef = doc(db, 'resumes', id);
+            await setDoc(resumeDocRef, resumeData);
+            console.log('Document successfully updated!');
+        } catch (error) {
+            console.error('Error updating document: ', error);
+        }
+    };
+
     const handlePersonalDataChange = (e) => {
         const { name, value } = e.target;
         setResumeData(prevState => ({
@@ -239,18 +250,19 @@ const EditDocument = () => {
                         display: 'flex',
                         justifyContent: 'flex-end'
                     }}>
-                        <Link
+                        <button
                             style={{
+                                cursor: 'pointer',
+                                border: 'none',
                                 background: 'white',
                                 color: '#1ea5fc',
                                 fontWeight: '700',
                                 padding: '1rem'
                             }}
-                            to="/create/template"
-                            state={{ from: resumeData }}
+                            onClick={saveChanges}
                         >
-                            Continue To template
-                        </Link>
+                            Save Changes
+                        </button>
                     </div>
                 </section>
             </>)}
