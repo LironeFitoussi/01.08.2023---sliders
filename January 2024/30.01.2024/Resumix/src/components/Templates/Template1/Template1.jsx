@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Template1.module.css';
 
 const Template1 = ({ data }) => {
+    console.log(data);
     const { fullName, position, contact, experience, education, skills } = data;
 
     return (

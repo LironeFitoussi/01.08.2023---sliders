@@ -15,6 +15,7 @@
 
 .editContainer {
     flex-direction: column;
+    gap: 2vh;
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -24,10 +25,11 @@
     height: 100%;
     background-color: #1ea3fc1c;
     backdrop-filter: blur(10px);
-    cursor: pointer;
+
 }
 
 .editBtn {
+    cursor: pointer;
     width: 1.5vw;
     height: 1.5vw;
     padding: 1rem;

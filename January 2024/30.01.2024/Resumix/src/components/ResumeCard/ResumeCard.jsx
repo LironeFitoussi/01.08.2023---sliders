@@ -7,6 +7,7 @@ const ResumeCard = ({ resume }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [dateFormatted, setDateFormatted] = useState('');
 
+    console.log(resume);
     useEffect(() => {
         if (resume) {
             const creationDate = new Date(resume.creationDate.seconds * 1000);
@@ -36,17 +37,30 @@ const ResumeCard = ({ resume }) => {
             onMouseLeave={() => setIsHovered(false)}
         >
             {resume && (
-                <Link
-                    to={{
-                        pathname: `/your-creations/edit/${resume.id}`,
-                    }}
+                <div
                     className={styles.editContainer}
                     style={{ display: isHovered ? 'flex' : 'none' }}
                 >
                     <div className={styles.editBtn}>
-                        <img src="./images/pen-solid.svg" alt="pen edit logo" />
+                        <Link to={`/your-creations/edit/${resume.id}`}>
+                            <img src="./images/pen-solid.svg" alt="eye display logo" />
+                        </Link>
                     </div>
-                </Link>
+                    <div className={styles.editBtn}>
+                        <Link
+                            to={`/your-creations/view/${resume.id}`}
+                            style={{
+                                background: 'white',
+                                color: '#1ea5fc',
+                                fontWeight: '700',
+                                padding: '1rem'
+                            }}
+                            state={{ from: resume }}
+                        >
+                            <img src="./images/eye-solid.svg" alt="eye display logo" />
+                        </Link>
+                    </div>
+                </div>
             )}
             <h3>{resume ? resume.fileName : "Loading..."}</h3>
             <p>{dateFormatted}</p>

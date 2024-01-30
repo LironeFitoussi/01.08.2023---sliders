@@ -25,6 +25,7 @@ function App() {
           <Route path='/create/template' element={<TemplateChoose />} />
           <Route path='/your-creations' element={<UserCreations />} />
           <Route path='/your-creations/edit/:id' element={<EditDocument />} />
+          <Route path='/your-creations/view/:id' element={<TemplateChoose />} />
           <Route path='/apply-jobs' element={<ApplyJobs />} />
         </Routes>
         <Footer />
