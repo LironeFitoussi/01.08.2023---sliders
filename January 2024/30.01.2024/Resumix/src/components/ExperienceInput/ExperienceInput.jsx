@@ -66,8 +66,8 @@ const ExperienceInput = ({ experience, experienceIndex, setResumeData }) => {
             <div className={styles.achievements}>
                 <ul>
                     {experience.achievements.map((achievement, index) => (
-                        <li>
-                            <input className={styles.achievementInput} key={index}
+                        <li key={index}>
+                            <input className={styles.achievementInput}
                                 type="text"
                                 value={achievement}
                                 onChange={(e) => handleAchievementChange(index, e.target.value)}

@@ -1,0 +1,23 @@
+.skills {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+.skills ul li::marker {
+    color: #9ae8fa;
+}
+
+.skillInput {
+    font-size: 1.5rem;
+    color: antiquewhite;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #9ae8fa;
+}
+
+.skillInput::placeholder {
+    font-size: 1.5rem;
+    color: #9ae8fa;
+    opacity: .5;
+}

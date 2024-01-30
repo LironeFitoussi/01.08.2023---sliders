@@ -1,3 +1,4 @@
+import styles from './EducationInput.module.css'
 import Button from "../Mini Components/Button";
 import Input from "../Mini Components/Input/Input";
 import TimeInput from "../TimeInput/TimeInput";
@@ -54,17 +55,20 @@ const EducationInput = ({ education, educationIndex, resumeData, setResumeData }
                 endValue={education.dateEnd}
                 changeFunction={handleEducationChange}
             />
-            <div>
-                {education.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex}>
-                        <input
-                            type="text"
-                            value={skill}
-                            onChange={(e) => handleSkillChange(e, skillIndex)}
-                            placeholder="Skills"
-                        />
-                    </div>
-                ))}
+            <div className={styles.skills}>
+                <ul>
+                    {education.skills.map((skill, skillIndex) => (
+                        <li key={skillIndex}>
+                            <input
+                                className={styles.skillInput}
+                                type="text"
+                                value={skill}
+                                onChange={(e) => handleSkillChange(e, skillIndex)}
+                                placeholder="Skills"
+                            />
+                        </li>
+                    ))}
+                </ul>
                 <Button clickFunction={handleAddSkill}> + Add Skills </Button>
             </div>
         </section>
