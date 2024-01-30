@@ -24,12 +24,14 @@ export default function Register() {
                 window.location.href = '/';
             } catch (e) {
                 console.error('Error adding document:', e);
+                alert('An error occurred while registering. Please try again later.');
             }
 
         } catch (error) {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error(errorCode, errorMessage);
+            alert(errorMessage); // Notify user about the error
         }
     };
 
