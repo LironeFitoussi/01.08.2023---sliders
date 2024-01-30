@@ -49,12 +49,6 @@ const ResumeCard = ({ resume }) => {
                     <div className={styles.editBtn}>
                         <Link
                             to={`/your-creations/view/${resume.id}`}
-                            style={{
-                                background: 'white',
-                                color: '#1ea5fc',
-                                fontWeight: '700',
-                                padding: '1rem'
-                            }}
                             state={{ from: resume }}
                         >
                             <img src="./images/eye-solid.svg" alt="eye display logo" />
