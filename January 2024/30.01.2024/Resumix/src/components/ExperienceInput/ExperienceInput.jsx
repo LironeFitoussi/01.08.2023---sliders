@@ -63,17 +63,19 @@ const ExperienceInput = ({ experience, experienceIndex, setResumeData }) => {
                 endValue={experience.dateEnd}
                 changeFunction={handleExperienceChange}
             />
-            <div>
-                {experience.achievements.map((achievement, index) => (
-                    <div key={index}>
-                        <input
-                            type="text"
-                            value={achievement}
-                            onChange={(e) => handleAchievementChange(index, e.target.value)}
-                            placeholder="Achievement"
-                        />
-                    </div>
-                ))}
+            <div className={styles.achievements}>
+                <ul>
+                    {experience.achievements.map((achievement, index) => (
+                        <li>
+                            <input className={styles.achievementInput} key={index}
+                                type="text"
+                                value={achievement}
+                                onChange={(e) => handleAchievementChange(index, e.target.value)}
+                                placeholder="Achievement"
+                            />
+                        </li>
+                    ))}
+                </ul>
                 <Button clickFunction={handleAddAchievement}> + Add Achievements</Button>
             </div>
         </section>

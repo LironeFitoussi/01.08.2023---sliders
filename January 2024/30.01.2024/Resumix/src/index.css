@@ -59,3 +59,19 @@ textarea:focus,
 input:focus {
     outline: none;
 }
+
+input[type='date'] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+input[type='date']:focus {
+    border-color: #007bff;
+}
