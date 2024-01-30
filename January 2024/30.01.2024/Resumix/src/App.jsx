@@ -11,7 +11,7 @@ import CreateResume from './Pages/CreateResume/CreateResume';
 import TemplateChoose from './Pages/TemplateChoose/TemplateChoose';
 import UserCreations from './Pages/UserCreations/Usercreations';
 import ApplyJobs from './Pages/ApplyJobs/ApplyJobs';
-
+import EditDocument from './Pages/EditDocument/EditDocument';
 function App() {
   return (
     <ThemeProvider>
@@ -24,7 +24,7 @@ function App() {
           <Route path='/create' element={<CreateResume />} />
           <Route path='/create/template' element={<TemplateChoose />} />
           <Route path='/your-creations' element={<UserCreations />} />
-          <Route path='/your-creations/edit/:id' element={<UserCreations />} />
+          <Route path='/your-creations/edit/:id' element={<EditDocument />} />
           <Route path='/apply-jobs' element={<ApplyJobs />} />
         </Routes>
         <Footer />
