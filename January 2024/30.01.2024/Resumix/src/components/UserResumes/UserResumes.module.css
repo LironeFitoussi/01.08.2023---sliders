@@ -1,0 +1,9 @@
+.resumesContainer {
+    padding: 2rem;
+    /* background-color: aqua; */
+    display: flex;
+    font-display: row;
+    gap: 2vw;
+    max-width: 85vw;
+    flex-wrap: wrap;
+}

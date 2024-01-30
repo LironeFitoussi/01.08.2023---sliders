@@ -8,13 +8,12 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../config/firebase'
 import userDataProvider from '../../context/UserData';
 
-
 export default function CreateResume() {
     const { currentUser } = useContext(userDataProvider);
     // console.log(currentUser);
     const [resumeData, setResumeData] = useState({
         fileName: '',
-        creationDate: new Date(),
+        creationDate: new Date().getDate(),
         fullName: '',
         position: '',
         contact: {
