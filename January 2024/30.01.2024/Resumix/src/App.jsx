@@ -24,6 +24,7 @@ function App() {
           <Route path='/create' element={<CreateResume />} />
           <Route path='/create/template' element={<TemplateChoose />} />
           <Route path='/your-creations' element={<UserCreations />} />
+          <Route path='/your-creations/edit/:id' element={<UserCreations />} />
           <Route path='/apply-jobs' element={<ApplyJobs />} />
         </Routes>
         <Footer />

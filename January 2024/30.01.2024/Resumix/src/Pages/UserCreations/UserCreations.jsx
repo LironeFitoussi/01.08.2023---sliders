@@ -11,7 +11,6 @@ export default function UserCreations() {
     const [resumeData, setResumeData] = useState(null);
 
     useEffect(() => {
-        // console.log(user);
         if (user) {
             try {
                 const resumeCollectionRef = collection(db, 'resumes');
@@ -29,11 +28,6 @@ export default function UserCreations() {
         }
     }, [user])
 
-    // useEffect(() => {
-    //     if (resumeData !== null) {
-    //         console.log(resumeData);
-    //     }
-    // }, [resumeData])
     return (
         <section>
             <h1>This is user creations page</h1>

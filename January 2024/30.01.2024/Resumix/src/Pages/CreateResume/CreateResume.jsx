@@ -1,6 +1,6 @@
 import styles from './CreateResume.module.css'
 
-import { useEffect, useState, useContext } from 'react'
+import { useState, useContext } from 'react'
 import ExperienceInput from '../../components/ExperienceInput/ExperienceInput'
 import EducationInput from '../../components/EducationInput/EducationInput'
 import SkillInput from '../../components/SkillInput/SkillInput'
@@ -9,8 +9,7 @@ import Input from '../../components/Mini Components/Input/Input'
 
 import { Link } from 'react-router-dom'
 
-import { collection, addDoc } from "firebase/firestore";
-import { db } from '../../config/firebase'
+
 import userDataProvider from '../../context/UserData';
 
 export default function CreateResume() {
@@ -18,7 +17,7 @@ export default function CreateResume() {
     // console.log(currentUser);
     const [resumeData, setResumeData] = useState({
         fileName: '',
-        creationDate: new Date().getDate(),
+        creationDate: new Date(),
         fullName: '',
         position: '',
         contact: {
@@ -104,13 +103,7 @@ export default function CreateResume() {
         }));
     };
 
-    const handleFormSubmit = async () => {
-        const docRef = await addDoc(collection(db, "resumes"), {
-            ...resumeData,
-            userId: currentUser.uid
-        });
-        console.log("Document written with ID: ", docRef.id);
-    };
+
 
     // useEffect(() => {
     //     console.log(resumeData);
@@ -236,7 +229,7 @@ export default function CreateResume() {
                     color: '#1ea5fc',
                     fontWeight: '700',
                     padding: '1rem'
-                }} to="/create/template" state={{ from: resumeData, submit: handleFormSubmit }}>
+                }} to="/create/template" state={{ from: resumeData }}>
                     Continue To template
                 </Link>
             </div>
