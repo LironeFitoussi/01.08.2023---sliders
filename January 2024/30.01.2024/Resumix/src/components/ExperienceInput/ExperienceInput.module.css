@@ -5,7 +5,7 @@
     flex-direction: column;
 }
 
-.label {
+.formInput label {
     color: #9ae8fa;
 }
 
@@ -14,4 +14,9 @@
     background-color: transparent;
     border-bottom: solid 2px #9ae8fa;
     /* background-color: black; */
+}
+
+.durationDates {
+    display: flex;
+    flex-direction: row;
 }

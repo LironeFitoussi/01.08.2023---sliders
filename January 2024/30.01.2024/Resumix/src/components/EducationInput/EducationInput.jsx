@@ -1,5 +1,4 @@
-import React from 'react';
-
+import Button from "../Mini Components/Button";
 const EducationInput = ({ education, educationIndex, resumeData, setResumeData }) => {
     const handleEducationChange = (e) => {
         const { name, value } = e.target;
@@ -34,8 +33,8 @@ const EducationInput = ({ education, educationIndex, resumeData, setResumeData }
         <section>
             <div>
                 <label htmlFor={`institution-${educationIndex}`}>Institution</label>
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     id={`institution-${educationIndex}`}
                     name="institute"
                     value={education.institute}
@@ -44,8 +43,8 @@ const EducationInput = ({ education, educationIndex, resumeData, setResumeData }
             </div>
             <div>
                 <label htmlFor={`profession-${educationIndex}`}>Profession</label>
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     id={`profession-${educationIndex}`}
                     name="orientation"
                     value={education.orientation}
@@ -55,16 +54,16 @@ const EducationInput = ({ education, educationIndex, resumeData, setResumeData }
             <div>
                 <p>Years</p>
                 <label htmlFor={`startDate-${educationIndex}`}>From</label>
-                <input 
-                    type="date" 
+                <input
+                    type="date"
                     id={`startDate-${educationIndex}`}
                     name="dateStart"
                     value={education.dateStart}
                     onChange={handleEducationChange}
                 />
                 <label htmlFor={`endDate-${educationIndex}`}>To</label>
-                <input 
-                    type="date" 
+                <input
+                    type="date"
                     id={`endDate-${educationIndex}`}
                     name="dateEnd"
                     value={education.dateEnd}
@@ -74,15 +73,15 @@ const EducationInput = ({ education, educationIndex, resumeData, setResumeData }
             <div>
                 {education.skills.map((skill, skillIndex) => (
                     <div key={skillIndex}>
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             value={skill}
                             onChange={(e) => handleSkillChange(e, skillIndex)}
                             placeholder="Skills"
                         />
                     </div>
                 ))}
-                <button type='button' onClick={handleAddSkill}> + Add Skills</button>
+                <Button clickFunction={handleAddSkill}> + Add Skills </Button>
             </div>
         </section>
     );

@@ -1,9 +1,13 @@
 import styles from './CreateResume.module.css'
+
 import { useEffect, useState, useContext } from 'react'
 import ExperienceInput from '../../components/ExperienceInput/ExperienceInput'
 import EducationInput from '../../components/EducationInput/EducationInput'
 import SkillInput from '../../components/SkillInput/SkillInput'
+import Button from '../../components/Mini Components/Button'
+
 import { Link } from 'react-router-dom'
+
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../config/firebase'
 import userDataProvider from '../../context/UserData';
@@ -114,7 +118,7 @@ export default function CreateResume() {
     return (
         <section className={styles.container}>
             <h1 className={styles.title}>Resume Creator Wizard</h1>
-            <h3>Project Name: <input type="text" name='fileName' onChange={handlePersonalDataChange} /></h3>
+            <h3>Project Name: <input type="text" name='fileName' onChange={handlePersonalDataChange} required /></h3>
             <div className={styles.resumeForm}>
                 <div className={styles.headerContainer}><span className={styles.stepIcon}>1</span> <h2>Add Your Personal Data</h2></div>
 
@@ -188,12 +192,12 @@ export default function CreateResume() {
                             setResumeData={setResumeData}
                         />
                     ))}
-                    <button type='button' onClick={addExperience}> + Add Experience </button>
+                    <Button clickFunction={addExperience}> + Add Experience </Button>
                 </form>
             </div>
             <hr />
             <div className={styles.resumeForm}>
-                <div className={styles.headerContainer}><span className={styles.stepIcon}>2</span> <h2>Add Your Education</h2></div>
+                <div className={styles.headerContainer}><span className={styles.stepIcon}>3</span> <h2>Add Your Education</h2></div>
                 <form action="">
                     {resumeData.education.map((edu, index) => (
                         <EducationInput
@@ -204,11 +208,11 @@ export default function CreateResume() {
                             setResumeData={setResumeData}
                         />
                     ))}
-                    <button type='button' onClick={addEducation}> + Add Education </button>
+                    <Button clickFunction={addEducation}> + Add Education </Button>
                 </form>
             </div>
             <div className={styles.resumeForm}>
-                <div className={styles.headerContainer}><span className={styles.stepIcon}>2</span> <h2>Add Your Skills</h2></div>
+                <div className={styles.headerContainer}><span className={styles.stepIcon}>4</span> <h2>Add Your Skills</h2></div>
 
                 <form>
                     {resumeData.skills.map((skill, index) => (
@@ -220,7 +224,7 @@ export default function CreateResume() {
                             setResumeData={setResumeData}
                         />
                     ))}
-                    <button type='button' onClick={addSkill}> + Add Skill </button>
+                    <Button clickFunction={addSkill}> + Add Skill </Button>
                 </form>
             </div>
             <button onClick={handleFormSubmit}>

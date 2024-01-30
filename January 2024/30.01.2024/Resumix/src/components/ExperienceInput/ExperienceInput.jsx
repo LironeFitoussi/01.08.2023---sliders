@@ -1,5 +1,5 @@
-import React from 'react';
-
+import styles from './ExperienceInput.module.css'
+import Button from '../../components/Mini Components/Button'
 const ExperienceInput = ({ experience, experienceIndex, setResumeData }) => {
     const handleExperienceChange = (e) => {
         const { name, value } = e.target;
@@ -39,7 +39,7 @@ const ExperienceInput = ({ experience, experienceIndex, setResumeData }) => {
 
     return (
         <section>
-            <div>
+            <div className={styles.formInput}>
                 <label htmlFor="company">Company</label>
                 <input
                     type="text"
@@ -48,7 +48,7 @@ const ExperienceInput = ({ experience, experienceIndex, setResumeData }) => {
                     onChange={handleExperienceChange}
                 />
             </div>
-            <div>
+            <div className={styles.formInput}>
                 <label htmlFor="position">Position</label>
                 <input
                     type="text"
@@ -57,22 +57,28 @@ const ExperienceInput = ({ experience, experienceIndex, setResumeData }) => {
                     onChange={handleExperienceChange}
                 />
             </div>
-            <div>
-                <p>Years</p>
-                <label htmlFor="dateStart">From</label>
-                <input
-                    type="date"
-                    name="dateStart"
-                    value={experience.dateStart}
-                    onChange={handleExperienceChange}
-                />
-                <label htmlFor="dateEnd">To</label>
-                <input
-                    type="date"
-                    name="dateEnd"
-                    value={experience.dateEnd}
-                    onChange={handleExperienceChange}
-                />
+            <div className={styles.formInput}>
+                <h3 style={{ margin: '0', color: 'white' }}>Duration</h3>
+                <section className={styles.durationDates}>
+                    <div>
+                        <label htmlFor="dateStart">From</label>
+                        <input
+                            type="date"
+                            name="dateStart"
+                            value={experience.dateStart}
+                            onChange={handleExperienceChange}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="dateEnd">To</label>
+                        <input
+                            type="date"
+                            name="dateEnd"
+                            value={experience.dateEnd}
+                            onChange={handleExperienceChange}
+                        />
+                    </div>
+                </section>
             </div>
             <div>
                 {experience.achievements.map((achievement, index) => (
@@ -85,7 +91,7 @@ const ExperienceInput = ({ experience, experienceIndex, setResumeData }) => {
                         />
                     </div>
                 ))}
-                <button type='button' onClick={handleAddAchievement}> + Add Achievements</button>
+                <Button clickFunction={handleAddAchievement}> + Add Achievements</Button>
             </div>
         </section>
     );
