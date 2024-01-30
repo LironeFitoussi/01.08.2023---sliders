@@ -1,9 +1,24 @@
 .container {
     margin-top: 10vh;
     padding: 0 5vw;
-    width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: #3abcff;
+    width: 80vw;
+}
+
+.container>* {
+    color: white;
+}
+
+.headerContainer {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+.headerContainer * {
+    color: aliceblue;
 }
 
 .title {
@@ -11,10 +26,16 @@
 }
 
 .stepIcon {
-    border: solid 2px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border: solid 3px rgb(255, 255, 255);
     border-radius: 10rem;
-    padding: .5rem 1.5rem;
+    padding: 1.5rem;
     font-size: 2rem;
+    width: 1rem;
+    height: 1rem;
 }
 
 .formHeader {
@@ -24,4 +45,29 @@
 
 .formSection {
     padding: 0 5vw;
+}
+
+.formInput {
+    width: 20vw;
+    display: flex;
+    gap: 1vh;
+    flex-direction: column;
+}
+
+.label {
+    color: #9ae8fa;
+}
+
+.formInput input {
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 2px #9ae8fa;
+    /* background-color: black; */
+}
+
+.resumeForm form {
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
 }

@@ -116,10 +116,11 @@ export default function CreateResume() {
             <h1 className={styles.title}>Resume Creator Wizard</h1>
             <h3>Project Name: <input type="text" name='fileName' onChange={handlePersonalDataChange} /></h3>
             <div className={styles.resumeForm}>
-                <h2><span className={styles.stepIcon}>1</span> Add Your Personal Data</h2>
+                <div className={styles.headerContainer}><span className={styles.stepIcon}>1</span> <h2>Add Your Personal Data</h2></div>
+
                 <form action="">
                     <div className={styles.formInput}>
-                        <label htmlFor="fullName">Your full name</label>
+                        <label htmlFor="fullName" className={styles.label}>Your full name</label>
                         <input
                             type="text"
                             name="fullName"
@@ -128,7 +129,7 @@ export default function CreateResume() {
                         />
                     </div>
                     <div className={styles.formInput}>
-                        <label htmlFor="position">Position</label>
+                        <label htmlFor="position" className={styles.label}>Position</label>
                         <input
                             type="text"
                             name="position"
@@ -137,7 +138,7 @@ export default function CreateResume() {
                         />
                     </div>
                     <div className={styles.formInput}>
-                        <label htmlFor="mail">Mail</label>
+                        <label htmlFor="mail" className={styles.label}>Mail</label>
                         <input
                             type="text"
                             name="mail"
@@ -146,7 +147,7 @@ export default function CreateResume() {
                         />
                     </div>
                     <div className={styles.formInput}>
-                        <label htmlFor="number">Phone Number</label>
+                        <label htmlFor="number" className={styles.label}>Phone Number</label>
                         <input
                             type="text"
                             name="number"
@@ -155,7 +156,7 @@ export default function CreateResume() {
                         />
                     </div>
                     <div className={styles.formInput}>
-                        <label htmlFor="location">Location</label>
+                        <label htmlFor="location" className={styles.label}>Location</label>
                         <input
                             type="text"
                             name="location"
@@ -164,7 +165,7 @@ export default function CreateResume() {
                         />
                     </div>
                     <div className={styles.formInput}>
-                        <label htmlFor="linkedin">Linkedin</label>
+                        <label htmlFor="linkedin" className={styles.label}>Linkedin</label>
                         <input
                             type="text"
                             name="linkedin"
@@ -176,7 +177,7 @@ export default function CreateResume() {
             </div>
             <hr />
             <div className={styles.resumeForm}>
-                <h2><span className={styles.stepIcon}>2</span> Add Your Experience</h2>
+                <div className={styles.headerContainer}><span className={styles.stepIcon}>2</span> <h2>Add Your Experience</h2></div>
                 <form action="">
                     {resumeData.experience.map((exp, index) => (
                         <ExperienceInput
@@ -192,7 +193,7 @@ export default function CreateResume() {
             </div>
             <hr />
             <div className={styles.resumeForm}>
-                <h2><span className={styles.stepIcon}>3</span> Add Your Education</h2>
+                <div className={styles.headerContainer}><span className={styles.stepIcon}>2</span> <h2>Add Your Education</h2></div>
                 <form action="">
                     {resumeData.education.map((edu, index) => (
                         <EducationInput
@@ -207,7 +208,8 @@ export default function CreateResume() {
                 </form>
             </div>
             <div className={styles.resumeForm}>
-                <h2><span className={styles.stepIcon}>4</span> Add Your Skills</h2>
+                <div className={styles.headerContainer}><span className={styles.stepIcon}>2</span> <h2>Add Your Skills</h2></div>
+
                 <form>
                     {resumeData.skills.map((skill, index) => (
                         <SkillInput
@@ -223,7 +225,7 @@ export default function CreateResume() {
             </div>
             <button onClick={handleFormSubmit}>
                 <Link to="/create/template" state={{ from: resumeData }}>
-                    Countinue To template
+                    Continue To template
                 </Link>
             </button>
         </section>
