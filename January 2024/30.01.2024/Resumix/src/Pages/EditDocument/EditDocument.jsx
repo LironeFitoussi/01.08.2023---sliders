@@ -137,13 +137,13 @@ const EditDocument = () => {
             {resumeData && (<>
                 <h1>This is Edit Document</h1>
                 <section className={styles.container}>
-                    <h1 className={styles.title}>Resume Creator Wizard</h1>
+                    <h1 className={styles.title}>Resume Editor Wizard</h1>
                     <div className={styles.projectName}>
                         <h3>Project Name:</h3>
                         <input type="text" name='fileName' value={resumeData.fileName} onChange={handlePersonalDataChange} required />
                     </div>
                     <div className={styles.resumeForm}>
-                        <div className={styles.headerContainer}><span className={styles.stepIcon}>1</span> <h2>Add Your Personal Data</h2></div>
+                        <div className={styles.headerContainer}><span className={styles.stepIcon}>1</span> <h2>Edit Your Personal Data</h2></div>
 
                         <form action="">
                             <Input
@@ -199,7 +199,7 @@ const EditDocument = () => {
                     </div>
                     <hr />
                     <div className={styles.resumeForm}>
-                        <div className={styles.headerContainer}><span className={styles.stepIcon}>2</span> <h2>Add Your Experience</h2></div>
+                        <div className={styles.headerContainer}><span className={styles.stepIcon}>2</span> <h2>Edit Your Experience</h2></div>
                         <form action="">
                             {resumeData.experience.map((exp, index) => (
                                 <ExperienceInput
@@ -215,7 +215,7 @@ const EditDocument = () => {
                     </div>
 
                     <div className={styles.resumeForm}>
-                        <div className={styles.headerContainer}><span className={styles.stepIcon}>3</span> <h2>Add Your Education</h2></div>
+                        <div className={styles.headerContainer}><span className={styles.stepIcon}>3</span> <h2>Edit Your Education</h2></div>
                         <form action="">
                             {resumeData.education.map((edu, index) => (
                                 <EducationInput
@@ -230,7 +230,7 @@ const EditDocument = () => {
                         </form>
                     </div>
                     <div className={styles.resumeForm}>
-                        <div className={styles.headerContainer}><span className={styles.stepIcon}>4</span> <h2>Add Your Skills</h2></div>
+                        <div className={styles.headerContainer}><span className={styles.stepIcon}>4</span> <h2>Edit Your Skills</h2></div>
 
                         <form>
                             {resumeData.skills.map((skill, index) => (
