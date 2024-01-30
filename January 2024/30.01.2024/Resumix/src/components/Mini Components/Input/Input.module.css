@@ -1,0 +1,19 @@
+.formInput {
+    width: 20vw;
+    display: flex;
+    gap: 1vh;
+    flex-direction: column;
+}
+
+.formInput label {
+    color: #9ae8fa;
+}
+
+.formInput input {
+    color: antiquewhite;
+    border: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border-bottom: solid 2px #9ae8fa;
+    font-family: 'Poppins', sans-serif;
+}

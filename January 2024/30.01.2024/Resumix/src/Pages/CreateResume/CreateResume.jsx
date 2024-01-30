@@ -5,6 +5,7 @@ import ExperienceInput from '../../components/ExperienceInput/ExperienceInput'
 import EducationInput from '../../components/EducationInput/EducationInput'
 import SkillInput from '../../components/SkillInput/SkillInput'
 import Button from '../../components/Mini Components/Button'
+import Input from '../../components/Mini Components/Input/Input'
 
 import { Link } from 'react-router-dom'
 
@@ -118,66 +119,64 @@ export default function CreateResume() {
     return (
         <section className={styles.container}>
             <h1 className={styles.title}>Resume Creator Wizard</h1>
-            <h3>Project Name: <input type="text" name='fileName' onChange={handlePersonalDataChange} required /></h3>
+            <div className={styles.projectName}>
+                <h3>Project Name:</h3>
+                <input type="text" name='fileName' onChange={handlePersonalDataChange} required />
+            </div>
             <div className={styles.resumeForm}>
                 <div className={styles.headerContainer}><span className={styles.stepIcon}>1</span> <h2>Add Your Personal Data</h2></div>
 
                 <form action="">
-                    <div className={styles.formInput}>
-                        <label htmlFor="fullName" className={styles.label}>Your full name</label>
-                        <input
-                            type="text"
-                            name="fullName"
-                            value={resumeData.fullName}
-                            onChange={handlePersonalDataChange}
-                        />
-                    </div>
-                    <div className={styles.formInput}>
-                        <label htmlFor="position" className={styles.label}>Position</label>
-                        <input
-                            type="text"
-                            name="position"
-                            value={resumeData.position}
-                            onChange={handlePersonalDataChange}
-                        />
-                    </div>
-                    <div className={styles.formInput}>
-                        <label htmlFor="mail" className={styles.label}>Mail</label>
-                        <input
-                            type="text"
-                            name="mail"
-                            value={resumeData.contact.mail}
-                            onChange={handleContactChange}
-                        />
-                    </div>
-                    <div className={styles.formInput}>
-                        <label htmlFor="number" className={styles.label}>Phone Number</label>
-                        <input
-                            type="text"
-                            name="number"
-                            value={resumeData.contact.number}
-                            onChange={handleContactChange}
-                        />
-                    </div>
-                    <div className={styles.formInput}>
-                        <label htmlFor="location" className={styles.label}>Location</label>
-                        <input
-                            type="text"
-                            name="location"
-                            value={resumeData.contact.location}
-                            onChange={handleContactChange}
-                        />
-                    </div>
-                    <div className={styles.formInput}>
-                        <label htmlFor="linkedin" className={styles.label}>Linkedin</label>
-                        <input
-                            type="text"
-                            name="linkedin"
-                            value={resumeData.contact.linkedin}
-                            onChange={handleContactChange}
-                        />
-                    </div>
+                    <Input
+                        htmlFor="fullName"
+                        name="fullName"
+                        value={resumeData.fullName}
+                        changeFunction={handlePersonalDataChange}
+                    >
+                        Your full name
+                    </Input>
+                    <Input
+                        htmlFor="position"
+                        name="position"
+                        value={resumeData.position}
+                        changeFunction={handlePersonalDataChange}
+                    >
+                        Position
+                    </Input>
+                    <Input
+                        htmlFor="mail"
+                        name="mail"
+                        value={resumeData.contact.mail}
+                        changeFunction={handleContactChange}
+                    >
+                        Mail
+                    </Input>
+                    <Input
+                        htmlFor="number"
+                        name="number"
+                        value={resumeData.contact.number}
+                        changeFunction={handleContactChange}
+                    >
+                        Phone Number
+                    </Input>
+                    <Input
+                        htmlFor="location"
+                        name="location"
+                        value={resumeData.contact.location}
+                        changeFunction={handleContactChange}
+                    >
+                        Location
+                    </Input>
+                    <Input
+                        htmlFor="linkedin"
+                        name="linkedin"
+                        value={resumeData.contact.linkedin}
+                        changeFunction={handleContactChange}
+                    >
+                        Linkedin
+                    </Input>
                 </form>
+
             </div>
             <hr />
             <div className={styles.resumeForm}>
@@ -195,7 +194,7 @@ export default function CreateResume() {
                     <Button clickFunction={addExperience}> + Add Experience </Button>
                 </form>
             </div>
-            <hr />
+
             <div className={styles.resumeForm}>
                 <div className={styles.headerContainer}><span className={styles.stepIcon}>3</span> <h2>Add Your Education</h2></div>
                 <form action="">

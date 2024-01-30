@@ -1,0 +1,8 @@
+.formInput {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem 0;
+    width: 20vw;
+    gap: 1vh;
+    align-items: center;
+}
