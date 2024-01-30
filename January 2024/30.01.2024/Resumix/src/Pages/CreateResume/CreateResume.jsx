@@ -224,12 +224,16 @@ export default function CreateResume() {
                 display: 'flex',
                 justifyContent: 'flex-end'
             }}>
-                <Link style={{
-                    background: 'white',
-                    color: '#1ea5fc',
-                    fontWeight: '700',
-                    padding: '1rem'
-                }} to="/create/template" state={{ from: resumeData }}>
+                <Link
+                    style={{
+                        background: 'white',
+                        color: '#1ea5fc',
+                        fontWeight: '700',
+                        padding: '1rem'
+                    }}
+                    to="/create/template"
+                    state={{ from: resumeData }}
+                >
                     Continue To template
                 </Link>
             </div>

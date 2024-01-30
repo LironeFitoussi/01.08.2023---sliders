@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from React Router
 import styles from './ResumeCard.module.css';
 import dateFormat from 'dateformat';
 
@@ -8,11 +9,11 @@ const ResumeCard = ({ resume }) => {
 
     useEffect(() => {
         if (resume) {
-            const creationDate = new Date(resume.creationDate.seconds * 1000); // Convert to milliseconds
+            const creationDate = new Date(resume.creationDate.seconds * 1000);
             const isToday = isDateToday(creationDate);
 
             if (isToday) {
-                setDateFormatted(dateFormat(creationDate, 'HH:MM'));
+                setDateFormatted(dateFormat(creationDate, 'HH:mm'));
             } else {
                 setDateFormatted(dateFormat(creationDate, 'longDate'));
             }
@@ -34,15 +35,20 @@ const ResumeCard = ({ resume }) => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div
-                className={styles.editContainer}
-                style={{ display: isHovered ? 'flex' : 'none' }}
-            >
-                <div className={styles.editBtn}>
-                    <img src="./images/pen-solid.svg" alt="pen edit logo" />
-                </div>
-            </div>
-            <h3>{resume.fileName}</h3>
+            {resume && (
+                <Link
+                    to={{
+                        pathname: `/your-creations/edit/${resume.id}`,
+                    }}
+                    className={styles.editContainer}
+                    style={{ display: isHovered ? 'flex' : 'none' }}
+                >
+                    <div className={styles.editBtn}>
+                        <img src="./images/pen-solid.svg" alt="pen edit logo" />
+                    </div>
+                </Link>
+            )}
+            <h3>{resume ? resume.fileName : "Loading..."}</h3>
             <p>{dateFormatted}</p>
         </div>
     );

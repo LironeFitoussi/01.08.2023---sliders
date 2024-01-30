@@ -1,0 +1,96 @@
+.container {
+    margin: 10vh 0;
+    padding: 2vh 5vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #1ea5fc;
+    width: 80vw;
+}
+
+.container>* {
+    color: white;
+}
+
+.headerContainer {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+.headerContainer * {
+    color: aliceblue;
+}
+
+.title {
+    align-self: center;
+    font-size: 3rem;
+}
+
+.projectName {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projectName h3 {
+    color: aliceblue;
+}
+
+.projectName input {
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 2px #9ae8fa;
+    color: antiquewhite;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.stepIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border: solid 3px rgb(255, 255, 255);
+    border-radius: 10rem;
+    padding: 1.5rem;
+    font-size: 2rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+.formHeader {
+    padding: 0 1vw;
+
+}
+
+.formSection {
+    padding: 0 5vw;
+}
+
+.formInput {
+    width: 20vw;
+    display: flex;
+    gap: 1vh;
+    flex-direction: column;
+}
+
+.label {
+    color: #9ae8fa;
+}
+
+.formInput input {
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 2px #9ae8fa;
+    /* background-color: black; */
+}
+
+.resumeForm form {
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
