@@ -226,11 +226,20 @@ export default function CreateResume() {
                     <Button clickFunction={addSkill}> + Add Skill </Button>
                 </form>
             </div>
-            <button onClick={handleFormSubmit}>
-                <Link to="/create/template" state={{ from: resumeData }}>
+            <div style={{
+                padding: '2vh 0 ',
+                display: 'flex',
+                justifyContent: 'flex-end'
+            }}>
+                <Link style={{
+                    background: 'white',
+                    color: '#1ea5fc',
+                    fontWeight: '700',
+                    padding: '1rem'
+                }} to="/create/template" state={{ from: resumeData, submit: handleFormSubmit }}>
                     Continue To template
                 </Link>
-            </button>
+            </div>
         </section>
     )
 }
