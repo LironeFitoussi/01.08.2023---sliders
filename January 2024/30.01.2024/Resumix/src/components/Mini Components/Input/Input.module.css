@@ -13,7 +13,12 @@
     color: antiquewhite;
     border: none;
     font-size: 1.5rem;
-    background-color: transparent;
+    background-color: rgba(250, 235, 215, 0.1);
     border-bottom: solid 2px #9ae8fa;
     font-family: 'Poppins', sans-serif;
+    transition: border-bottom 0.2s;
+}
+
+.formInput input:focus {
+    border-bottom: solid 5px #9ae8fa;
 }

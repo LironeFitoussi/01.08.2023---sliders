@@ -218,7 +218,7 @@ export default function CreateResume() {
                         <SkillInput
                             key={`skill_${index}`}
                             skill={skill}
-                            skillIndex={index} // Corrected prop name
+                            skillIndex={index}
                             resumeData={resumeData}
                             setResumeData={setResumeData}
                         />
