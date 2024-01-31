@@ -1,6 +1,7 @@
 .resumesContainer {
     padding: 2rem;
     display: flex;
+    flex-direction: row-reverse;
     font-display: row;
     gap: 2vw;
     max-width: 85vw;

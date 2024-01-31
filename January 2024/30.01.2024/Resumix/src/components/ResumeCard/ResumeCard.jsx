@@ -8,7 +8,7 @@ const ResumeCard = ({ resume }) => {
     const [dateFormatted, setDateFormatted] = useState('');
 
     useEffect(() => {
-        console.log(resume.creationDate);
+        // console.log(resume.creationDate);
         const creationDate = new Date(resume.creationDate.seconds * 1000);
         const formattedDate = isToday(creationDate)
             ? dateFormat(creationDate, 'HH:MM')
