@@ -36,3 +36,13 @@
     border-radius: 5rem;
     background-color: #1ea5fc;
 }
+
+.deleteBtn {
+    cursor: pointer;
+    width: 3.5vw;
+    height: 3.5vw;
+    padding: 1rem;
+    border-radius: 5rem;
+    border: none;
+    background-color: #c90000;
+}

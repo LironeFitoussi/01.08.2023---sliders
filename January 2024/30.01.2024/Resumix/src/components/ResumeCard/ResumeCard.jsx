@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ResumeCard.module.css';
 import dateFormat from 'dateformat'; // Make sure you have this library properly installed
+import { doc, deleteDoc } from "firebase/firestore";
+import { db } from '../../config/firebase.js'
 
 const ResumeCard = ({ resume }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -25,6 +27,16 @@ const ResumeCard = ({ resume }) => {
         );
     };
 
+    const deleteResume = async () => {
+        // todo: add delete logic
+        try {
+            await deleteDoc(doc(db, "resumes", resume.id));
+        } catch (error) {
+            console.error('An error ocured: ' + error);
+        }
+    }
+
+
     return (
         <div
             className={styles.resumeCard}
@@ -43,6 +55,9 @@ const ResumeCard = ({ resume }) => {
                     >
                         <img src="./images/eye-solid.svg" alt="view" />
                     </Link>
+                    <button onClick={deleteResume} className={styles.deleteBtn}>
+                        <img src="./images/trash-solid.svg" alt="view" />
+                    </button>
                 </div>
             )}
             <h3>{resume ? resume.fileName : 'Loading...'}</h3>
