@@ -1,5 +1,5 @@
 import styles from './TemplateChoose.module.css';
-import { useRef, useContext, useState } from 'react';
+import { useRef, useContext, useState, useEffect } from 'react';
 import generatePDF, { Resolution, Margin } from 'react-to-pdf';
 import { useLocation } from 'react-router-dom';
 import Template1 from '../../components/Templates/Template1/Template1';
@@ -13,7 +13,7 @@ export default function TemplateChoose() {
 
     const targetRef = useRef();
     const location = useLocation();
-    const { from } = location.state;
+    const { from } = location.state || {};
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
 

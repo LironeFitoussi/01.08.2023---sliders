@@ -9,7 +9,7 @@ const ResumeCard = ({ resume }) => {
 
     useEffect(() => {
         if (resume && resume.creationDate && !isNaN(Date.parse(resume.creationDate))) {
-            const creationDate = new Date(resume.creationDate); // Correct instantiation
+            const creationDate = new Date(resume.creationDate);
             const formattedDate = isToday(creationDate)
                 ? dateFormat(creationDate, 'HH:MM')
                 : dateFormat(creationDate, 'longDate');
@@ -37,7 +37,11 @@ const ResumeCard = ({ resume }) => {
                     <Link to={`/your-creations/edit/${resume.id}`} className={styles.editBtn}>
                         <img src="./images/pen-solid.svg" alt="edit" />
                     </Link>
-                    <Link to={{ pathname: `/your-creations/view/${resume.id}`, state: { from: resume } }} className={styles.editBtn}>
+                    <Link
+                        className={styles.editBtn}
+                        to="/create/template"
+                        state={{ from: resume }}
+                    >
                         <img src="./images/eye-solid.svg" alt="view" />
                     </Link>
                 </div>
