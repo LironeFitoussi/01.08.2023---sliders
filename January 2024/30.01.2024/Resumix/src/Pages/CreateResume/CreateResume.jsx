@@ -1,22 +1,23 @@
 import styles from './CreateResume.module.css'
 import OpenAI from "openai";
 
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useEffect, Component } from 'react'
 import ExperienceInput from '../../components/ExperienceInput/ExperienceInput'
 import EducationInput from '../../components/EducationInput/EducationInput'
 import SkillInput from '../../components/SkillInput/SkillInput'
 import Button from '../../components/Mini Components/Button'
 import Input from '../../components/Mini Components/Input/Input'
-
 import { Link } from 'react-router-dom'
-
-
 import userDataProvider from '../../context/UserData';
+
+console.log(process);
 
 export default function CreateResume() {
     const { currentUser } = useContext(userDataProvider);
+
+    const apiKey = import.meta.env.VITE_API_KEY;
     const openai = new OpenAI({
-        apiKey: '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',
+        apiKey: apiKey,
         dangerouslyAllowBrowser: true
     });
 
