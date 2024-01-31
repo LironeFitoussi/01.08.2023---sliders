@@ -21,6 +21,7 @@ export const UserDataProvider = ({ children }) => {
                             uid: user.uid,
                             documentId: userDoc.id,
                             userName: userDoc.data().fName,
+                            isAdmin: userDoc.data().isAdmin
                         });
                     } else {
                         console.error('User document not found');

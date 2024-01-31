@@ -6,7 +6,7 @@ const UserResumes = ({ resumeData }) => {
         <div className={styles.resumesContainer}>
             {resumeData.map((resume, index) => {
                 return (
-                    <ResumeCard key={`UR_${index}`} resume={resume} />
+                    <ResumeCard key={`UR_${index}`} resume={resume} isAdmin={isAdmin} />
                 )
             })}
         </div>

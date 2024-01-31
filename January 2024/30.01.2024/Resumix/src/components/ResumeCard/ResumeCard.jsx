@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ResumeCard.module.css';
 import dateFormat from 'dateformat'; // Make sure you have this library properly installed
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from '../../config/firebase.js'
+import userDataProvider from '../../context/UserData';
 
 const ResumeCard = ({ resume }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [dateFormatted, setDateFormatted] = useState('');
-
+    const { currentUser } = useContext(userDataProvider);
+    console.log(currentUser);
     useEffect(() => {
         // console.log(resume.creationDate);
         const creationDate = new Date(resume.creationDate.seconds * 1000);
@@ -61,7 +63,13 @@ const ResumeCard = ({ resume }) => {
                 </div>
             )}
             <h3>{resume ? resume.fileName : 'Loading...'}</h3>
+
             <p>{dateFormatted}</p>
+            {currentUser.isAdmin && <p
+                style={{
+                    fontSize: '.5vw'
+                }}
+            > User: {resume.userId}</p>}
         </div>
     );
 };
