@@ -1,43 +1,23 @@
-import styles from './TemplateChoose.module.css';
-import { useRef, useContext, useState, useEffect } from 'react';
-import generatePDF, { Resolution, Margin } from 'react-to-pdf';
+import React, { useRef, useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Template1 from '../../components/Templates/Template1/Template1';
-
+import Template2 from '../../components/Templates/Template2/Template2';
+import Template3 from '../../components/Templates/Template3/Template3';
+import Template4 from '../../components/Templates/Template4/Template4';
 import { collection, addDoc } from "firebase/firestore";
-import { db } from '../../config/firebase'
+import { db } from '../../config/firebase';
 import userDataProvider from '../../context/UserData';
+import generatePDF, { Resolution, Margin } from 'react-to-pdf';
+import styles from './TemplateChoose.module.css';
 
 export default function TemplateChoose() {
     const { currentUser } = useContext(userDataProvider);
-
+    const [selectedTemplate, setSelectedTemplate] = useState('1');
     const targetRef = useRef();
     const location = useLocation();
     const { from } = location.state || {};
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
-
-    const options = {
-        method: 'open',
-        resolution: Resolution.HIGH,
-        page: {
-            margin: Margin.SMALL,
-            format: 'letter',
-            orientation: 'landscape',
-        },
-        canvas: {
-            mimeType: 'image/png',
-            qualityRatio: 1
-        },
-        overrides: {
-            pdf: {
-                compress: true
-            },
-            canvas: {
-                useCORS: true
-            }
-        },
-    };
 
     const handleFormSubmit = async () => {
         if (!isSubmitted) {
@@ -57,11 +37,37 @@ export default function TemplateChoose() {
         }
     };
 
+    let selectedComponent;
+    switch (selectedTemplate) {
+        case '1':
+            selectedComponent = <Template1 data={from} />;
+            break;
+        case '2':
+            selectedComponent = <Template2 data={from} />;
+            break;
+        case '3':
+            selectedComponent = <Template3 data={from} />;
+            break;
+        case '4':
+            selectedComponent = <Template4 data={from} />;
+            break;
+        default:
+            selectedComponent = null;
+            break;
+    }
+
+    console.log(selectedTemplate);
     return (
         <section className={styles.templatesContainer}>
             <h1>Choose Your Template</h1>
+            <div>
+                <button onClick={() => setSelectedTemplate('1')}>1</button>
+                <button onClick={() => setSelectedTemplate('2')}>2</button>
+                <button onClick={() => setSelectedTemplate('3')}>3</button>
+                <button onClick={() => setSelectedTemplate('4')}>4</button>
+            </div>
             <div ref={targetRef} id='TemplatePrint' className={styles.templateComp}>
-                <Template1 data={from} />
+                {selectedComponent}
             </div>
             {from.id ? null : (
                 <button className={`${styles.btn} ${isSaved ? styles.saved : ''}`} onClick={handleFormSubmit}>

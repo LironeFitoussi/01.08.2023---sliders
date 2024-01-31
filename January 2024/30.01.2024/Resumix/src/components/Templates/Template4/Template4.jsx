@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Template2.module.css';
+import styles from './Template4.module.css';
 
-const Template2 = ({ data }) => {
+const Template4 = ({ data }) => {
     console.log(data);
     const { fullName, position, contact, experience, education, skills } = data;
 
@@ -68,4 +68,4 @@ const Template2 = ({ data }) => {
     );
 };
 
-export default Template2;
+export default Template4;
