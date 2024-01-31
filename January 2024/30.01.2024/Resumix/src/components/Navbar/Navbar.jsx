@@ -6,13 +6,12 @@ import userDataProvider from '../../context/UserData';
 
 export default function Navbar() {
   const { currentUser } = useContext(userDataProvider);
-  console.log(currentUser);
+  // console.log(currentUser);
   const handleLogout = () => {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
         console.log("User successfully signed out.");
-        // Redirect or do any other necessary actions after logout
         window.location.href = "/";
       })
       .catch((error) => {

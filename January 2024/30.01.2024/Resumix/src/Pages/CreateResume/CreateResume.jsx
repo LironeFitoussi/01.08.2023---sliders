@@ -102,9 +102,9 @@ export default function CreateResume() {
         }));
     };
 
-    useEffect(() => {
-        console.log(resumeData);
-    }, [resumeData]);
+    // useEffect(() => {
+    //     console.log(resumeData);
+    // }, [resumeData]);
 
     return (
         <section className={styles.container}>
