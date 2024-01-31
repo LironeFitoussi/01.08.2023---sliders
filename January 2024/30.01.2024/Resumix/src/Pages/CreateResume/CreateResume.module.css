@@ -99,15 +99,28 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-    width: 30vw;
+    width: 55vw;
     margin: 1rem;
     gap: 2vh;
 }
 
+.aboutMe h1 {
+    color: aliceblue;
+    align-self: center;
+}
+
 .aboutMe textarea {
+    font-family: 'Poppins', sans-serif;
     background-color: rgba(250, 235, 215, 0.1);
     border: none;
     resize: none;
+    padding: 2rem;
+    color: aliceblue;
+}
+
+.aboutMe textarea::placeholder {
+    color: #9ae8fa;
+    font-family: 'Poppins', sans-serif;
 }
 
 .aboutMe button {
@@ -134,6 +147,11 @@
     transition: background 1s;
 }
 
-.aboutMe button img {
+.magic {
     width: 1.5vw;
+}
+
+.loader {
+    width: 10vw;
+    mix-blend-mode: multiply;
 }

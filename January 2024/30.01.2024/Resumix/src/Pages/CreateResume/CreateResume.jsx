@@ -16,9 +16,17 @@ import userDataProvider from '../../context/UserData';
 export default function CreateResume() {
     const { currentUser } = useContext(userDataProvider);
     const openai = new OpenAI({
-        apiKey: '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',
+        apiKey: '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',
         dangerouslyAllowBrowser: true
     });
+
+    const [genCont, setGenCont] = useState(
+        <>
+            <img className={styles.magic} src="./images/wand-magic-sparkles-solid.svg" alt="" />
+            <>Generate AI</>
+        </>
+    );
+
 
     const [resumeData, setResumeData] = useState({
         fileName: '',
@@ -109,16 +117,14 @@ export default function CreateResume() {
         }));
     };
 
-    // useEffect(() => {
-    //     console.log(resumeData);
-    // }, [resumeData]);
     const makeApiAiCall = async () => {
+        setGenCont(<img className={styles.loader} src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" alt="" />)
         const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
                 {
                     "role": "system",
-                    "content": "Summarize content you are provided to a about section in a resume so i  will start like the user talking about himself freely like an about me section without pricising this is an about me section, limit to 50 words"
+                    "content": "Summarize content you are provided to a about section in a resume so i  will start like the user talking about himself freely like an about me section without pricising this is an about me section, limit to 150 words"
                 },
                 {
                     "role": "user",
@@ -134,6 +140,12 @@ export default function CreateResume() {
             ...prevState,
             aboutMe: response.choices[0].message.content
         }));
+        setGenCont(
+            <>
+                <img className={styles.magic} src="./images/wand-magic-sparkles-solid.svg" alt="" />
+                <>Generate AI</>
+            </>
+        )
     }
     return (
         <section className={styles.container}>
@@ -143,8 +155,13 @@ export default function CreateResume() {
                 <input type="text" name='fileName' onChange={handlePersonalDataChange} required />
             </div>
             <div className={styles.aboutMe}>
-                <textarea value={resumeData.aboutMe} name="aboutMe" cols="30" rows="10" onChange={handlePersonalDataChange}></textarea>
-                <button onClick={makeApiAiCall}><img src="./images/wand-magic-sparkles-solid.svg" alt="" />  Generate AI</button>
+                <h1>About me</h1>
+                <textarea
+                    placeholder="Write in a few word about you, we will take care of the rest..."
+                    value={resumeData.aboutMe}
+                    name="aboutMe"
+                    cols="30" rows="5" onChange={handlePersonalDataChange}></textarea>
+                <button onClick={makeApiAiCall}>{genCont}</button>
             </div>
             <div className={styles.resumeForm}>
                 <div className={styles.headerContainer}><span className={styles.stepIcon}>1</span> <h2>Add Your Personal Data</h2></div>
