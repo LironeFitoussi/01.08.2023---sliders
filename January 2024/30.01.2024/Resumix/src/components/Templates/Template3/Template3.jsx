@@ -3,7 +3,7 @@ import styles from './Template3.module.css';
 
 const Template3 = ({ data }) => {
     console.log(data);
-    const { fullName, position, contact, experience, education, skills } = data;
+    const { fullName, aboutMe, position, contact, experience, education, skills } = data;
 
     return (
         <div className={styles.resume}>
@@ -18,7 +18,9 @@ const Template3 = ({ data }) => {
                     <p><b>LinkedIn:</b> {contact.linkedin}</p>
                 </div>
             </div>
-
+            <div>
+                <p>{aboutMe}</p>
+            </div>
             <div className={styles.section}>
                 <h2>Experience</h2>
                 <hr />

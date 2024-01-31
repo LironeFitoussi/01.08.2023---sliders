@@ -142,9 +142,9 @@ export default function CreateResume() {
                 <h3>Project Name:</h3>
                 <input type="text" name='fileName' onChange={handlePersonalDataChange} required />
             </div>
-            <div>
+            <div className={styles.aboutMe}>
                 <textarea value={resumeData.aboutMe} name="aboutMe" cols="30" rows="10" onChange={handlePersonalDataChange}></textarea>
-                <button onClick={makeApiAiCall}>Genrate Ai</button>
+                <button onClick={makeApiAiCall}><img src="./images/wand-magic-sparkles-solid.svg" alt="" />  Generate AI</button>
             </div>
             <div className={styles.resumeForm}>
                 <div className={styles.headerContainer}><span className={styles.stepIcon}>1</span> <h2>Add Your Personal Data</h2></div>

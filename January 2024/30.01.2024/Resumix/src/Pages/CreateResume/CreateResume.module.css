@@ -94,3 +94,35 @@
     flex-direction: column;
     gap: 2vh;
 }
+
+.aboutMe {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 30vw;
+    margin: 1rem;
+    gap: 2vh;
+}
+
+.aboutMe textarea {
+    background-color: rgba(250, 235, 215, 0.1);
+    border: none;
+}
+
+.aboutMe button {
+    background-color: #dbf26e;
+    background-image: linear-gradient(319deg, #dbf26e 0%, #61fa74 37%, #1cfdd6 100%);
+    border: none;
+    color: white;
+    padding: 1rem;
+    border-radius: 2rem;
+    font-size: 2vw;
+}
+
+.aboutMe button:hover {
+    cursor: pointer;
+}
+
+.aboutMe button img {
+    width: 2vw;
+}
