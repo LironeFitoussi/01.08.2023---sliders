@@ -8,13 +8,12 @@ const ResumeCard = ({ resume }) => {
     const [dateFormatted, setDateFormatted] = useState('');
 
     useEffect(() => {
-        if (resume && resume.creationDate && !isNaN(Date.parse(resume.creationDate))) {
-            const creationDate = new Date(resume.creationDate);
-            const formattedDate = isToday(creationDate)
-                ? dateFormat(creationDate, 'HH:MM')
-                : dateFormat(creationDate, 'longDate');
-            setDateFormatted(formattedDate);
-        }
+        console.log(resume.creationDate);
+        const creationDate = new Date(resume.creationDate.seconds * 1000);
+        const formattedDate = isToday(creationDate)
+            ? dateFormat(creationDate, 'HH:MM')
+            : dateFormat(creationDate, 'longDate');
+        setDateFormatted(formattedDate);
     }, [resume]);
 
     const isToday = (date) => {
