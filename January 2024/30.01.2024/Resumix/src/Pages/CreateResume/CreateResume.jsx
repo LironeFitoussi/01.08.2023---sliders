@@ -1,4 +1,5 @@
 import styles from './CreateResume.module.css'
+import OpenAI from "openai";
 
 import { useState, useContext, useEffect } from 'react'
 import ExperienceInput from '../../components/ExperienceInput/ExperienceInput'
@@ -14,11 +15,17 @@ import userDataProvider from '../../context/UserData';
 
 export default function CreateResume() {
     const { currentUser } = useContext(userDataProvider);
+    const openai = new OpenAI({
+        apiKey: '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',
+        dangerouslyAllowBrowser: true
+    });
+
     const [resumeData, setResumeData] = useState({
         fileName: '',
         creationDate: new Date(), // Format the date
         fullName: '',
         position: '',
+        aboutMe: '',
         contact: {
             mail: '',
             number: '',
@@ -105,13 +112,39 @@ export default function CreateResume() {
     // useEffect(() => {
     //     console.log(resumeData);
     // }, [resumeData]);
+    const makeApiAiCall = async () => {
+        const response = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: [
+                {
+                    "role": "system",
+                    "content": "Summarize content you are provided to a about section in a resume so i  will start like the user talking about himself freely like an about me section without pricising this is an about me section, limit to 50 words"
+                },
+                {
+                    "role": "user",
+                    "content": resumeData.aboutMe
+                }
+            ],
+            temperature: 0.7,
+            max_tokens: 64,
+            top_p: 1,
+        });
 
+        setResumeData(prevState => ({
+            ...prevState,
+            aboutMe: response.choices[0].message.content
+        }));
+    }
     return (
         <section className={styles.container}>
             <h1 className={styles.title}>Resume Creator Wizard</h1>
             <div className={styles.projectName}>
                 <h3>Project Name:</h3>
                 <input type="text" name='fileName' onChange={handlePersonalDataChange} required />
+            </div>
+            <div>
+                <textarea value={resumeData.aboutMe} name="aboutMe" cols="30" rows="10" onChange={handlePersonalDataChange}></textarea>
+                <button onClick={makeApiAiCall}>Genrate Ai</button>
             </div>
             <div className={styles.resumeForm}>
                 <div className={styles.headerContainer}><span className={styles.stepIcon}>1</span> <h2>Add Your Personal Data</h2></div>
