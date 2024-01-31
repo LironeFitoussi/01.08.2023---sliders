@@ -12,9 +12,11 @@ export default function TemplateChoose() {
     const { currentUser } = useContext(userDataProvider);
 
     const targetRef = useRef();
-    const [isSubmitted, setIsSubmitted] = useState(false); // State to track submission
     const location = useLocation();
     const { from } = location.state;
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSaved, setIsSaved] = useState(false);
+
     const options = {
         method: 'open',
         resolution: Resolution.HIGH,
@@ -38,19 +40,20 @@ export default function TemplateChoose() {
     };
 
     const handleFormSubmit = async () => {
-        if (!isSubmitted) { // Check if form is not already submitted
-            setIsSubmitted(true); // Update submission status
+        if (!isSubmitted) {
+            setIsSubmitted(true);
             try {
                 const docRef = await addDoc(collection(db, "resumes"), {
                     ...from,
                     userId: currentUser.uid
                 });
                 console.log("Document written with ID: ", docRef.id);
+                setIsSaved(true);
             } catch (error) {
                 console.error("Error adding document: ", error);
             }
         } else {
-            alert("Form already submitted."); // Alert if form already submitted
+            alert("Form already submitted.");
         }
     };
 
@@ -61,8 +64,12 @@ export default function TemplateChoose() {
                 <Template1 data={from} />
             </div>
             {from.id ? null : (
-                <button className={styles.btn} onClick={handleFormSubmit}>
-                    <i className="fa-regular fa-floppy-disk" style={{ color: '#fff' }}></i> Save Resume
+                <button className={`${styles.btn} ${isSaved ? styles.saved : ''}`} onClick={handleFormSubmit}>
+                    {isSaved ? (
+                        'Resume Saved Successfully'
+                    ) : (
+                        <span style={{ color: '#fff' }}><i className="fa-regular fa-floppy-disk" style={{ color: '#fff' }}></i> Save Resume</span>
+                    )}
                 </button>
             )}
             <button className={styles.btn} onClick={() => generatePDF(targetRef, { filename: 'ResumixPro.pdf' })}>
