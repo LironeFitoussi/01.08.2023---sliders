@@ -1,6 +1,6 @@
 import styles from './CreateResume.module.css'
 
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import ExperienceInput from '../../components/ExperienceInput/ExperienceInput'
 import EducationInput from '../../components/EducationInput/EducationInput'
 import SkillInput from '../../components/SkillInput/SkillInput'
@@ -14,10 +14,9 @@ import userDataProvider from '../../context/UserData';
 
 export default function CreateResume() {
     const { currentUser } = useContext(userDataProvider);
-    // console.log(currentUser);
     const [resumeData, setResumeData] = useState({
         fileName: '',
-        creationDate: new Date(),
+        creationDate: new Date(), // Format the date
         fullName: '',
         position: '',
         contact: {
@@ -103,11 +102,9 @@ export default function CreateResume() {
         }));
     };
 
-
-
-    // useEffect(() => {
-    //     console.log(resumeData);
-    // }, [resumeData])
+    useEffect(() => {
+        console.log(resumeData);
+    }, [resumeData]);
 
     return (
         <section className={styles.container}>

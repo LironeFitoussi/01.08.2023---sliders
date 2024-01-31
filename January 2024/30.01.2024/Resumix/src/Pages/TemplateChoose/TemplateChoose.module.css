@@ -12,10 +12,14 @@
 }
 
 .btn {
-    background-color: DodgerBlue;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    color: white;
-    padding: 12px 30px;
+    padding: 10px 20px;
     cursor: pointer;
-    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn.saved {
+    background-color: #28a745;
 }

@@ -1,27 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './ResumeCard.module.css';
-import dateFormat from 'dateformat';
+import dateFormat from 'dateformat'; // Make sure you have this library properly installed
 
 const ResumeCard = ({ resume }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [dateFormatted, setDateFormatted] = useState('');
 
-    console.log(resume);
     useEffect(() => {
-        if (resume) {
-            const creationDate = new Date(resume.creationDate.seconds * 1000);
-            const isToday = isDateToday(creationDate);
-
-            if (isToday) {
-                setDateFormatted(dateFormat(creationDate, 'HH:mm'));
-            } else {
-                setDateFormatted(dateFormat(creationDate, 'longDate'));
-            }
+        if (resume && resume.creationDate && !isNaN(Date.parse(resume.creationDate))) {
+            const creationDate = new Date(resume.creationDate); // Correct instantiation
+            const formattedDate = isToday(creationDate)
+                ? dateFormat(creationDate, 'HH:MM')
+                : dateFormat(creationDate, 'longDate');
+            setDateFormatted(formattedDate);
         }
     }, [resume]);
 
-    const isDateToday = (date) => {
+    const isToday = (date) => {
         const today = new Date();
         return (
             date.getDate() === today.getDate() &&
@@ -37,26 +33,16 @@ const ResumeCard = ({ resume }) => {
             onMouseLeave={() => setIsHovered(false)}
         >
             {resume && (
-                <div
-                    className={styles.editContainer}
-                    style={{ display: isHovered ? 'flex' : 'none' }}
-                >
-                    <div className={styles.editBtn}>
-                        <Link to={`/your-creations/edit/${resume.id}`}>
-                            <img src="./images/pen-solid.svg" alt="eye display logo" />
-                        </Link>
-                    </div>
-                    <div className={styles.editBtn}>
-                        <Link
-                            to={`/your-creations/view/${resume.id}`}
-                            state={{ from: resume }}
-                        >
-                            <img src="./images/eye-solid.svg" alt="eye display logo" />
-                        </Link>
-                    </div>
+                <div className={styles.editContainer} style={{ display: isHovered ? 'flex' : 'none' }}>
+                    <Link to={`/your-creations/edit/${resume.id}`} className={styles.editBtn}>
+                        <img src="./images/pen-solid.svg" alt="edit" />
+                    </Link>
+                    <Link to={{ pathname: `/your-creations/view/${resume.id}`, state: { from: resume } }} className={styles.editBtn}>
+                        <img src="./images/eye-solid.svg" alt="view" />
+                    </Link>
                 </div>
             )}
-            <h3>{resume ? resume.fileName : "Loading..."}</h3>
+            <h3>{resume ? resume.fileName : 'Loading...'}</h3>
             <p>{dateFormatted}</p>
         </div>
     );

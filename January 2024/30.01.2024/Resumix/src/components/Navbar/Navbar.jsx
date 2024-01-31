@@ -6,7 +6,7 @@ import userDataProvider from '../../context/UserData';
 
 export default function Navbar() {
   const { currentUser } = useContext(userDataProvider);
-
+  console.log(currentUser);
   const handleLogout = () => {
     const auth = getAuth();
     signOut(auth)
@@ -56,11 +56,11 @@ export default function Navbar() {
           </li>
         ) : (
           <div className={styles.navbar}>
-            <li className={styles.li}>
-              <Link to="/login">Sign in</Link>
+            <li >
+              <Link className={styles.li} to="/login">Sign in</Link>
             </li>
-            <li className={styles.registerBtn}>
-              <Link to="/register">Start Free</Link>
+            <li >
+              <Link className={styles.registerBtn} to="/register">Start Free</Link>
             </li>
           </div>
         )}

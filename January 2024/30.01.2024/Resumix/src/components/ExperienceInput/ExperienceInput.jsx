@@ -16,17 +16,6 @@ const ExperienceInput = ({ experience, experienceIndex, setResumeData }) => {
         })
     };
 
-    const handleAddAchievement = () => {
-        setResumeData(prevState => {
-            const updatedExperience = [...prevState.experience];
-            updatedExperience[experienceIndex] = {
-                ...updatedExperience[experienceIndex],
-                achievements: [...updatedExperience[experienceIndex].achievements, '']
-            };
-            return { ...prevState, experience: updatedExperience }
-        });
-    };
-
     const handleAchievementChange = (index, value) => {
         setResumeData(prevState => {
             const updatedExperience = [...prevState.experience];
@@ -35,6 +24,17 @@ const ExperienceInput = ({ experience, experienceIndex, setResumeData }) => {
                 achievements: updatedExperience[experienceIndex].achievements.map((achievement, i) =>
                     i === index ? value : achievement
                 )
+            };
+            return { ...prevState, experience: updatedExperience }
+        });
+    };
+
+    const handleAddAchievement = () => {
+        setResumeData(prevState => {
+            const updatedExperience = [...prevState.experience];
+            updatedExperience[experienceIndex] = {
+                ...updatedExperience[experienceIndex],
+                achievements: [...updatedExperience[experienceIndex].achievements, '']
             };
             return { ...prevState, experience: updatedExperience }
         });

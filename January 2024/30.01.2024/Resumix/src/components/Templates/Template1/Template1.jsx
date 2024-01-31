@@ -43,6 +43,7 @@ const Template1 = ({ data }) => {
                     <div key={index} className={styles.education}>
                         <h3>{edu.institute}</h3>
                         <p>{edu.orientation}</p>
+                        <p>{edu.dateStart} - {edu.dateEnd}</p>
                         <ul>
                             {edu.skills.map((skill, index) => (
                                 <li key={index}>{skill}</li>
