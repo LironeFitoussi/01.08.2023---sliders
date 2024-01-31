@@ -46,6 +46,8 @@ const EditDocument = () => {
         ]
     });
 
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     useEffect(() => {
         const fetchResume = async () => {
             try {
@@ -70,12 +72,17 @@ const EditDocument = () => {
     }, [resumeData])
 
     const saveChanges = async () => {
-        try {
-            const resumeDocRef = doc(db, 'resumes', id);
-            await setDoc(resumeDocRef, resumeData);
-            console.log('Document successfully updated!');
-        } catch (error) {
-            console.error('Error updating document: ', error);
+        if (!isSubmitted) {
+            try {
+                const resumeDocRef = doc(db, 'resumes', id);
+                await setDoc(resumeDocRef, resumeData);
+                setIsSubmitted(true)
+                console.log('Document successfully updated!');
+            } catch (error) {
+                console.error('Error updating document: ', error);
+            }
+        } else {
+            alert("The document has already been saved.")
         }
     };
 
@@ -251,17 +258,10 @@ const EditDocument = () => {
                         justifyContent: 'flex-end'
                     }}>
                         <button
-                            style={{
-                                cursor: 'pointer',
-                                border: 'none',
-                                background: 'white',
-                                color: '#1ea5fc',
-                                fontWeight: '700',
-                                padding: '1rem'
-                            }}
+                            className={isSubmitted ? styles.done : styles.progress}
                             onClick={saveChanges}
                         >
-                            Save Changes
+                            {!isSubmitted ? 'Save Changes' : 'Changes saved successfully'}
                         </button>
                     </div>
                 </section>

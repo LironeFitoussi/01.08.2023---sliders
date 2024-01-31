@@ -94,3 +94,22 @@
     flex-direction: column;
     gap: 2vh;
 }
+
+.progress,
+.done {
+    cursor: pointer;
+    border: none;
+    font-weight: 700;
+    padding: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.progress {
+    background: white;
+    color: #1ea5fc;
+}
+
+.done {
+    background: green;
+    color: white;
+}
