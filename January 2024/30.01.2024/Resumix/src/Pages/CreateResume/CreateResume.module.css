@@ -132,19 +132,14 @@
     font-size: 1.5vw;
     width: 50%;
     align-self: center;
-    -webkit-transition: background 1s;
-    -moz-transition: background 1s;
-    -o-transition: background 1s;
     transition: background 1s;
+    /* Apply transition property only once */
 }
 
 .aboutMe button:hover {
     cursor: pointer;
-    background: linear-gradient(319deg, #1cfdd6 100%, #61fa74 37%, #dbf26e 0%);
-    -webkit-transition: background 1s;
-    -moz-transition: background 1s;
-    -o-transition: background 1s;
-    transition: background 1s;
+    background: linear-gradient(319deg, #1cfdd6 0%, #61fa74 37%, #dbf26e 100%);
+    /* Adjust the gradient stops */
 }
 
 .magic {
