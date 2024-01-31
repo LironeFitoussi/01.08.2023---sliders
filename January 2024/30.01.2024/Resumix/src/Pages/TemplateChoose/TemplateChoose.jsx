@@ -9,6 +9,7 @@ import { db } from '../../config/firebase';
 import userDataProvider from '../../context/UserData';
 import generatePDF, { Resolution, Margin } from 'react-to-pdf';
 import styles from './TemplateChoose.module.css';
+import Button2 from '../../components/Mini Components/Button2'
 
 export default function TemplateChoose() {
     const { currentUser } = useContext(userDataProvider);
@@ -61,10 +62,10 @@ export default function TemplateChoose() {
         <section className={styles.templatesContainer}>
             <h1>Choose Your Template</h1>
             <div>
-                <button onClick={() => setSelectedTemplate('1')}>1</button>
-                <button onClick={() => setSelectedTemplate('2')}>2</button>
-                <button onClick={() => setSelectedTemplate('3')}>3</button>
-                <button onClick={() => setSelectedTemplate('4')}>4</button>
+                <Button2 clickFunction={() => setSelectedTemplate('1')}>1</Button2>
+                <Button2 clickFunction={() => setSelectedTemplate('2')}>2</Button2>
+                <Button2 clickFunction={() => setSelectedTemplate('3')}>3</Button2>
+                <Button2 clickFunction={() => setSelectedTemplate('4')}>4</Button2>
             </div>
             <div ref={targetRef} id='TemplatePrint' className={styles.templateComp}>
                 {selectedComponent}

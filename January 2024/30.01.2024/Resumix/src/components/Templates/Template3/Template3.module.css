@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+
 .resume {
-    font-family: Arial, sans-serif;
+    font-family: 'Cute Font', sans-serif;
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;

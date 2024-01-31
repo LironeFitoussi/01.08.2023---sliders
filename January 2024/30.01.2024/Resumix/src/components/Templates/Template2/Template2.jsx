@@ -19,39 +19,41 @@ const Template2 = ({ data }) => {
                 </div>
             </div>
 
-            <div className={styles.section}>
-                <h2>Experience</h2>
-                <hr />
-                {experience.map((exp, index) => (
-                    <div key={index} className={styles.experience}>
-                        <h3>{exp.position}</h3>
-                        <p>{exp.company}</p>
-                        <p>{exp.dateStart} - {exp.dateEnd}</p>
-                        <ul>
-                            {exp.achievements.map((achievement, index) => (
-                                <li key={index}>{achievement}</li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
-            </div>
+            <section className={styles.eduExp}>
+                <div className={styles.section}>
+                    <h2>Experience</h2>
+                    <hr />
+                    {experience.map((exp, index) => (
+                        <div key={index} className={styles.experience}>
+                            <h3>{exp.position}</h3>
+                            <p>{exp.company}</p>
+                            <p>{exp.dateStart} - {exp.dateEnd}</p>
+                            <ul>
+                                {exp.achievements.map((achievement, index) => (
+                                    <li key={index}>{achievement}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
 
-            <div className={styles.section}>
-                <h2>Education</h2>
-                <hr />
-                {education.map((edu, index) => (
-                    <div key={index} className={styles.education}>
-                        <h3>{edu.institute}</h3>
-                        <p>{edu.orientation}</p>
-                        <p>{edu.dateStart} - {edu.dateEnd}</p>
-                        <ul>
-                            {edu.skills.map((skill, index) => (
-                                <li key={index}>{skill}</li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
-            </div>
+                <div className={styles.section}>
+                    <h2>Education</h2>
+                    <hr />
+                    {education.map((edu, index) => (
+                        <div key={index} className={styles.education}>
+                            <h3>{edu.institute}</h3>
+                            <p>{edu.orientation}</p>
+                            <p>{edu.dateStart} - {edu.dateEnd}</p>
+                            <ul>
+                                {edu.skills.map((skill, index) => (
+                                    <li key={index}>{skill}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
             <div className={styles.section}>
                 <h2>Skills</h2>

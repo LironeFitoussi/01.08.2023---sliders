@@ -67,3 +67,9 @@
 .skills li {
     margin: 5px 0;
 }
+
+.eduExp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
