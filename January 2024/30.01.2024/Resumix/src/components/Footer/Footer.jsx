@@ -36,7 +36,7 @@ const Footer = () => {
                 </div>
 
                 <div className={styles.footerText}>
-                    <p>© {currentYear} Cryptoc. All rights reserved.</p>
+                    <p>© {currentYear} Fistuk. All rights reserved.</p>
                 </div>
             </div>
         </footer>
