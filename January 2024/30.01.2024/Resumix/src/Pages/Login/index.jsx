@@ -15,12 +15,12 @@ export default function Login() {
             ...prevData,
             [name]: value,
         }));
-        console.log(formData);
+        // console.log(formData);
     };
 
     const handleSubmit = (e) => {
-        console.log('Login launched');
-        console.log(formData);
+        // console.log('Login launched');
+        // console.log(formData);
         e.preventDefault();
         signInWithEmailAndPassword(auth, formData.email, formData.password)
             .then((userCredential) => {
