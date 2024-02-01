@@ -7,7 +7,7 @@ import EducationInput from '../../components/EducationInput/EducationInput'
 import SkillInput from '../../components/SkillInput/SkillInput'
 import Button from '../../components/Mini Components/Button'
 import Input from '../../components/Mini Components/Input/Input'
-
+import OPEN_AI_API_KEY from '../../config/API_KEY';
 import { Link } from 'react-router-dom'
 
 
@@ -16,7 +16,7 @@ import userDataProvider from '../../context/UserData';
 export default function CreateResume() {
     const { currentUser } = useContext(userDataProvider);
     const openai = new OpenAI({
-        apiKey: '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',
+        apiKey: OPEN_AI_API_KEY,
         dangerouslyAllowBrowser: true
     });
 
