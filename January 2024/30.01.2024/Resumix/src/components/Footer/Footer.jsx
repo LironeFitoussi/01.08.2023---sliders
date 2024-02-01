@@ -20,15 +20,15 @@ const Footer = () => {
                     <div className={styles.footerSection}>
                         <h3 className={styles.sectionTitle}>Products</h3>
                         <ul className={styles.sectionLinks}>
-                            <li><a href="#wallet">Crypto Wallet</a></li>
-                            <li><a href="#exchange">Crypto Exchange</a></li>
+                            <li><a href="https://cryptocs-87517.web.app" target='_blank'>Cryptos</a></li>
+                            <li><a href="https://resumix-74363.web.app" target='_blank'>ResumixPro</a></li>
                         </ul>
                     </div>
 
                     <div className={styles.footerSection}>
                         <h3 className={styles.sectionTitle}>Connect</h3>
                         <ul className={styles.sectionLinks}>
-                            <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.instagram.com/fistukf" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                             <li><a href="https://www.linkedin.com/in/lirone-fitoussi-600959284/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                             <li><a href="https://github.com/LironeFitoussi" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                         </ul>
