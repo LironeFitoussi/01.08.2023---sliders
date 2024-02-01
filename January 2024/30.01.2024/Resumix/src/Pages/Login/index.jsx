@@ -15,9 +15,12 @@ export default function Login() {
             ...prevData,
             [name]: value,
         }));
+        console.log(formData);
     };
 
     const handleSubmit = (e) => {
+        console.log('Login launched');
+        console.log(formData);
         e.preventDefault();
         signInWithEmailAndPassword(auth, formData.email, formData.password)
             .then((userCredential) => {
@@ -37,7 +40,6 @@ export default function Login() {
             <h1 className={styles.mainHeader} >LOGIN</h1>
             <form
                 className={styles.loginForm}
-                onSubmit={handleSubmit}
             >
                 <input
                     className={styles.input}
@@ -60,7 +62,7 @@ export default function Login() {
                     <label htmlFor="rememberMe">Remember me</label>
                 </div>
 
-                <button className={styles.submitBtn} type="submit">Log In</button>
+                <button className={styles.submitBtn} onClick={handleSubmit} type="submit">Log In</button>
             </form>
         </div>
     )
