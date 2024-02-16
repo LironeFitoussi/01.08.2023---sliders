@@ -35,19 +35,37 @@ exports.signup = async (req, res) => {
 };
 
 // Log in a user
-exports.logUserIn = async (req, res) => {
+exports.login = async (req, res, next) => {
   try {
-    //! Fill user Login logic
-  } catch (error) {
-    //! Handle error
+    const { email, password } = req.body;
+    if (!email || !password) {
+      throw new Error("Please provide an email and password");
+    }
+
+    const user = await User.findOne({ email }).select("+password");
+    if (!user || !(await user.correctPassword(password, user.password))) {
+      throw new Error("wrong password or user");
+    }
+
+    const token = signToken(user._id);
+
+    res.status(200).json({
+      status: "success",
+      token,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "fail",
+      message: err.message,
+    });
   }
 };
 
 // Log out a user
 exports.logUserOut = async (req, res) => {
-  try {
-    //! Fill user Logout logic
-  } catch (error) {
-    //! Handle error
-  }
+  res.status(200).json({
+    status: "success",
+    message: "Successfully logged out",
+    token: null,
+  });
 };
