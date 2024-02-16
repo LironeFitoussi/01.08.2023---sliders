@@ -9,5 +9,6 @@ router.route("/").get(productsController.getAllProducts);
 router.route("/:id").get(productsController.getSingleProduct);
 router
   .route("/:id")
-  .patch(authController.isAdmin, productsController.updateProduct);
+  .patch(authController.isAdmin, productsController.updateProduct)
+  .delete(authController.isAdmin, productsController.deleteProduct);
 module.exports = router;

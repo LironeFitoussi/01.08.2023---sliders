@@ -87,7 +87,6 @@ exports.isAdmin = async (req, res, next) => {
 
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
     const loggedUser = await User.findById(decoded.id);
-    console.log(loggedUser);
     if (loggedUser.role !== "admin") {
       throw new Error("User is not an admin");
     }
