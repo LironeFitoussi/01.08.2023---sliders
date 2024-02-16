@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 //? Status: creating model
-app.use("/api/v1/users", authRouter);
+app.use("/api/v1/auth", authRouter);
 
 // TODO: Configure rest api routes
 // app.use("/api/v1/tours", userRouter);
