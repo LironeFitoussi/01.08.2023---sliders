@@ -1,0 +1,103 @@
+[
+    {
+      "name": "Menorah",
+      "price": 50,
+      "priceDiscount": 0,
+      "description": "A traditional Jewish lampstand with seven branches used during the Hanukkah holiday.",
+      "image": "menorah.jpg",
+      "slug": "menorah",
+      "category": "Judaica",
+      "stock": 100
+    },
+    {
+      "name": "Shofar",
+      "price": 80,
+      "priceDiscount": 0,
+      "description": "A ram's horn blown like a trumpet, used for Jewish religious purposes, especially during Rosh Hashanah and Yom Kippur.",
+      "image": "shofar.jpg",
+      "slug": "shofar",
+      "category": "Judaica",
+      "stock": 50
+    },
+    {
+      "name": "Kippah",
+      "price": 10,
+      "priceDiscount": 0,
+      "description": "A small, hemispherical cap worn by Jewish men during prayer and religious ceremonies.",
+      "image": "kippah.jpg",
+      "slug": "kippah",
+      "category": "Judaica",
+      "stock": 200
+    },
+    {
+      "name": "Tallit",
+      "price": 120,
+      "priceDiscount": 0,
+      "description": "A fringed garment traditionally worn by Jewish men during prayer, especially at morning prayers.",
+      "image": "tallit.jpg",
+      "slug": "tallit",
+      "category": "Judaica",
+      "stock": 80
+    },
+    {
+      "name": "Hamsa",
+      "price": 25,
+      "priceDiscount": 0,
+      "description": "A palm-shaped amulet popular throughout the Middle East and North Africa, commonly used in jewelry and wall hangings.",
+      "image": "hamsa.jpg",
+      "slug": "hamsa",
+      "category": "Judaica",
+      "stock": 150
+    },
+    {
+      "name": "Kiddush Cup",
+      "price": 35,
+      "priceDiscount": 0,
+      "description": "A special cup used in Jewish religious ceremonies, especially during the Kiddush blessing on Shabbat and Jewish holidays.",
+      "image": "kiddush_cup.jpg",
+      "slug": "kiddush-cup",
+      "category": "Judaica",
+      "stock": 120
+    },
+    {
+      "name": "Mezuzah",
+      "price": 20,
+      "priceDiscount": 0,
+      "description": "A small decorative case containing a scroll inscribed with specific Hebrew verses from the Torah, affixed to the doorframe of Jewish homes.",
+      "image": "mezuzah.jpg",
+      "slug": "mezuzah",
+      "category": "Judaica",
+      "stock": 100
+    },
+    {
+      "name": "Challah Board",
+      "price": 60,
+      "priceDiscount": 0,
+      "description": "A special board used for cutting challah bread, a traditional Jewish braided bread.",
+      "image": "challah_board.jpg",
+      "slug": "challah-board",
+      "category": "Judaica",
+      "stock": 70
+    },
+    {
+      "name": "Havdalah Set",
+      "price": 90,
+      "priceDiscount": 0,
+      "description": "A set of ceremonial items used during the Havdalah ritual marking the end of Shabbat.",
+      "image": "havdalah_set.jpg",
+      "slug": "havdalah-set",
+      "category": "Judaica",
+      "stock": 40
+    },
+    {
+      "name": "Siddur",
+      "price": 30,
+      "priceDiscount": 0,
+      "description": "A Jewish prayer book containing a set order of daily prayers.",
+      "image": "siddur.jpg",
+      "slug": "siddur",
+      "category": "Judaica",
+      "stock": 100
+    }
+  ]
+  
