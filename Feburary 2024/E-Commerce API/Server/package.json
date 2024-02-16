@@ -8,7 +8,6 @@
     "dev": "nodemon server.js",
     "getDummy": "node ./dev-data-tools/import-dev-data.js --import",
     "removeDummy": "node ./dev-data-tools/import-dev-data.js --delete"
-
   },
   "keywords": [],
   "author": "",
@@ -22,6 +21,7 @@
     "mongoose": "^8.1.2",
     "morgan": "^1.10.0",
     "slugify": "^1.6.6",
+    "util": "^0.12.5",
     "validator": "^13.11.0"
   }
 }

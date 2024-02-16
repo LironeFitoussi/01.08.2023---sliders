@@ -32,6 +32,10 @@ const userSchema = new mongoose.Schema({
       message: "Passwords do not match",
     },
   },
+  role: {
+    type: String,
+    default: "user",
+  },
 });
 
 userSchema.pre("save", async function (next) {
