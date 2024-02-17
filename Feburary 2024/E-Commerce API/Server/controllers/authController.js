@@ -1,4 +1,6 @@
 const User = require("../models/userModel");
+const Order = require("../models/orderModel");
+
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 
@@ -19,6 +21,12 @@ exports.signup = async (req, res) => {
     });
 
     const token = signToken(newUser._id);
+
+    const newOrder = await Order.create({
+      user: newUser._id,
+      status: "pending",
+      products: [],
+    });
 
     res.status(201).json({
       status: "success",
@@ -89,6 +97,35 @@ exports.isAdmin = async (req, res, next) => {
     const loggedUser = await User.findById(decoded.id);
     if (loggedUser.role !== "admin") {
       throw new Error("User is not an admin");
+    }
+  } catch (error) {
+    return res.status(401).json({
+      status: "fail",
+      message: error.message,
+    });
+  }
+  next();
+};
+
+exports.userValidator = async (req, res, next) => {
+  try {
+    let token;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+    }
+
+    if (!token) {
+      throw new Error("No token provided");
+    }
+
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+    const loggedUser = await User.findById(decoded.id);
+
+    if (!loggedUser === req.query.userId) {
+      throw new Error("User is not authorized");
     }
   } catch (error) {
     return res.status(401).json({
