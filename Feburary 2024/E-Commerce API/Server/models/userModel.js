@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
+const Order = require("../models/orderModel");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -36,17 +37,25 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "user",
   },
+  cart: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Order",
+  },
 });
 
 userSchema.pre("save", async function (next) {
-  // only hash the password if it has been modified (or is new)
   if (!this.isModified("password")) return next();
 
-  // hash password using bcryptjs with 12 rounds
   this.password = await bcrypt.hash(this.password, 12);
 
-  // Delete passwordConfirm field from user
   this.passwordConfirm = undefined;
+
+  const newOrder = await Order.create({
+    user: this._id,
+    status: "pending",
+    products: [],
+  });
+  this.cart = newOrder._id;
   next();
 });
 

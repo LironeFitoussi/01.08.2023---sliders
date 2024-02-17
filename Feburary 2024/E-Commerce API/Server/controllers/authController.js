@@ -1,6 +1,4 @@
 const User = require("../models/userModel");
-const Order = require("../models/orderModel");
-
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 
@@ -21,12 +19,6 @@ exports.signup = async (req, res) => {
     });
 
     const token = signToken(newUser._id);
-
-    const newOrder = await Order.create({
-      user: newUser._id,
-      status: "pending",
-      products: [],
-    });
 
     res.status(201).json({
       status: "success",
