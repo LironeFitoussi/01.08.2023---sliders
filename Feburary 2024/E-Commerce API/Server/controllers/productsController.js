@@ -57,3 +57,22 @@ exports.deleteProduct = async (req, res) => {
     res.status(400).json(error);
   }
 };
+
+exports.getProductByName = async (req, res) => {
+  try {
+    console.log(req.query);
+    const regex = new RegExp(req.query.name, "i");
+    const products = await Product.find({ slug: { $regex: regex } });
+    res.status(200).json({
+      status: "success",
+      data: {
+        products,
+      },
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      message: error.message,
+    });
+  }
+};

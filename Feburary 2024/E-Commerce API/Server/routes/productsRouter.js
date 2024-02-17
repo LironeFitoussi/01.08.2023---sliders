@@ -6,9 +6,11 @@ const productsController = require("../controllers/productsController");
 const router = express.Router();
 router.route("/").get(productsController.getAllProducts);
 
-router.route("/:id").get(productsController.getSingleProduct);
 router
+  .get(productsController.getSingleProduct)
   .route("/:id")
   .patch(authController.isAdmin, productsController.updateProduct)
   .delete(authController.isAdmin, productsController.deleteProduct);
+
+router.route("/search").get(productsController.getProductByName);
 module.exports = router;
