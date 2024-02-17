@@ -101,7 +101,16 @@ exports.isAdmin = async (req, res, next) => {
 
 exports.userValidator = async (req, res, next) => {
   try {
-    const token = req.headers.authorization.split(" ")[1];
+    let token = req.headers.authorization;
+    if (!token) {
+      return res.status(401).json({
+        status: "error",
+        message: "Authorization token is missing",
+      });
+    }
+
+    token = token.split(" ")[1];
+
     if (!token) {
       return res.status(401).json({
         status: "error",

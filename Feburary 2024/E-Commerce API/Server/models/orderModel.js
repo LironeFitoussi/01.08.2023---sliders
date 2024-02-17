@@ -23,6 +23,24 @@ const orderSchema = new mongoose.Schema({
     type: String,
     default: "pending",
   },
+  paymentDetails: {
+    paymentMethod: {
+      type: String,
+      enum: ["credit_card", "debit_card", "paypal", "stripe", "bank_transfer"],
+    },
+    transactionId: {
+      type: String,
+    },
+    amount: {
+      type: Number,
+    },
+    currency: {
+      type: String,
+    },
+    paymentDate: {
+      type: Date,
+    },
+  },
 });
 
 const Order = mongoose.model("Order", orderSchema);
