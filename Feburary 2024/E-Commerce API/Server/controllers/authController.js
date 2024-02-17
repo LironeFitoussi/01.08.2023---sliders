@@ -101,29 +101,31 @@ exports.isAdmin = async (req, res, next) => {
 
 exports.userValidator = async (req, res, next) => {
   try {
-    let token;
-    if (
-      req.headers.authorization &&
-      req.headers.authorization.startsWith("Bearer")
-    ) {
-      token = req.headers.authorization.split(" ")[1];
-    }
-
+    const token = req.headers.authorization.split(" ")[1];
     if (!token) {
-      throw new Error("No token provided");
+      return res.status(401).json({
+        status: "error",
+        message: "Authorization token is missing",
+      });
     }
 
-    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-    const loggedUser = await User.findById(decoded.id);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.id);
 
-    if (!loggedUser === req.query.userId) {
-      throw new Error("User is not authorized");
+    if (!user) {
+      return res.status(401).json({
+        status: "error",
+        message: "Invalid token",
+      });
     }
+
+    req.user = user;
+    next();
   } catch (error) {
-    return res.status(401).json({
-      status: "fail",
-      message: error.message,
+    console.error(error);
+    return res.status(500).json({
+      status: "error",
+      message: "Internal server error",
     });
   }
-  next();
 };

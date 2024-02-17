@@ -1,7 +1,6 @@
 const Product = require("../models/productModel");
 const Order = require("../models/orderModel");
 const User = require("../models/userModel");
-const jwt = require("jsonwebtoken");
 
 exports.getAllProducts = async (req, res) => {
   try {
@@ -82,12 +81,7 @@ exports.getProductByName = async (req, res) => {
 
 exports.addToCart = async (req, res) => {
   try {
-    const token = req.headers.authorization.split(" ")[1];
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const userId = decoded.id;
-
-    const user = await User.findById(userId);
-
+    const user = req.user;
     if (!user.cart) {
       const newCart = new Order({ products: [] });
       user.cart = newCart;
@@ -107,6 +101,48 @@ exports.addToCart = async (req, res) => {
       order.products.push({ _id: req.params.id, quantity: 1 });
       await order.save();
     }
+
+    const product = await Product.findById(req.params.id);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        product,
+        updatedCart: order,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      status: "error",
+      message: "Internal server error",
+    });
+  }
+};
+
+exports.removeFromCart = async (req, res) => {
+  try {
+  } catch (error) {}
+};
+
+exports.removeFromCart = async (req, res) => {
+  try {
+    const orderId = req.user.cart;
+    const order = await Order.findById(orderId);
+
+    const existingProductIndex = order.products.findIndex((product) =>
+      product._id.equals(req.params.id)
+    );
+
+    if (existingProductIndex === -1) {
+      return res.status(404).json({
+        status: "error",
+        message: "Product not found in the cart",
+      });
+    }
+
+    order.products.splice(existingProductIndex, 1);
+    await order.save();
 
     const product = await Product.findById(req.params.id);
 
