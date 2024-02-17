@@ -88,28 +88,36 @@ exports.addToCart = async (req, res) => {
 
     const user = await User.findById(userId);
 
-    const orderId = user.cart;
+    if (!user.cart) {
+      const newCart = new Order({ products: [] });
+      user.cart = newCart;
+      await user.save();
+    }
 
-    const updatedCart = await Order.findByIdAndUpdate(
-      orderId,
-      {
-        $push: { products: { _id: req.params.id } },
-      },
-      { new: true }
+    const orderId = user.cart;
+    const order = await Order.findById(orderId);
+    const existingProductIndex = order.products.findIndex((product) =>
+      product._id.equals(req.params.id)
     );
+
+    if (existingProductIndex !== -1) {
+      order.products[existingProductIndex].quantity += 1;
+      await order.save();
+    } else {
+      order.products.push({ _id: req.params.id, quantity: 1 });
+      await order.save();
+    }
 
     const product = await Product.findById(req.params.id);
 
-    // Sending the response
     res.status(200).json({
       status: "success",
       data: {
         product,
-        updatedCart,
+        updatedCart: order,
       },
     });
   } catch (error) {
-    // Handling errors
     console.error(error);
     res.status(500).json({
       status: "error",
