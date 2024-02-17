@@ -7,10 +7,11 @@ const router = express.Router();
 router.route("/").get(productsController.getAllProducts);
 
 router
-  .get(productsController.getSingleProduct)
   .route("/:id")
+  .get(productsController.getSingleProduct)
   .patch(authController.isAdmin, productsController.updateProduct)
   .delete(authController.isAdmin, productsController.deleteProduct);
 
+router.route("/:id/addToCart").patch(productsController.addToCart);
 router.route("/search").get(productsController.getProductByName);
 module.exports = router;
