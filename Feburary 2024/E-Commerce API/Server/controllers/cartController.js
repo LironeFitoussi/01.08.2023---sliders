@@ -37,13 +37,11 @@ exports.addToCart = async (req, res) => {
       user.cart = newCart;
       await user.save();
     }
-
     const cartId = user.cart;
     const cart = await Cart.findById(cartId);
     const existingProductIndex = cart.products.findIndex((product) =>
       product._id.equals(req.params.id)
     );
-
     if (existingProductIndex !== -1) {
       cart.products[existingProductIndex].quantity += 1;
       await cart.save();
@@ -109,39 +107,51 @@ exports.removeFromCart = async (req, res) => {
 exports.pay = async (req, res) => {
   try {
     const { paymentMethod, transactionId, amount, currency } = req.body;
-
+    const user = req.user;
+    const cartId = user.cart;
+    const cart = await Cart.findById(cartId);
     if (!paymentMethod || !transactionId || !amount || !currency) {
       return res.status(400).json({ message: "Invalid payment details" });
     }
 
-    const user = req.user;
-    const orderId = user.cart;
-    const order = await Order.findById(orderId);
-    if (!order) {
-      return res.status(404).json({ message: "Order not found" });
+    if (!cart) {
+      return res.status(404).json({ message: "Cart not found" });
     }
 
-    order.status = "paid";
-    order.paymentDetails = {
-      paymentMethod,
-      transactionId,
-      amount,
-      currency,
-      paymentDate: Date.now(),
-    };
+    const newOrderProducts = await Promise.all(
+      cart.products.map(async (cartProduct) => {
+        const product = await Product.findById(cartProduct);
+        return {
+          _id: product._id,
+          price: product.price,
+          quantity: cartProduct.quantity,
+        };
+      })
+    );
 
-    await order.save();
+    console.log(newOrderProducts);
+
     const newOrder = await Order.create({
       user: user._id,
-      status: "pending",
-      products: [],
+      status: "paid",
+      products: newOrderProducts,
     });
 
-    await User.findOneAndUpdate(
-      { _id: user._id },
-      { $set: { cart: newOrder._id } },
-      { new: true }
-    );
+    // cart.paymentDetails = {
+    //   paymentMethod,
+    //   transactionId,
+    //   amount,
+    //   currency,
+    //   paymentDate: Date.now(),
+    // };
+
+    // await cart.save();
+
+    // await User.findOneAndUpdate(
+    //   { _id: user._id },
+    //   { $set: { cart: newOrder._id } },
+    //   { new: true }
+    // );
 
     res.status(200).json({ message: "Payment successful" });
   } catch (error) {

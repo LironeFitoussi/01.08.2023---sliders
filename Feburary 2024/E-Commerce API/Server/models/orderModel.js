@@ -8,9 +8,12 @@ const orderSchema = new mongoose.Schema({
   },
   products: [
     {
-      _id: {
+      product: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Product",
+      },
+      price: {
+        type: Number,
         required: true,
       },
       quantity: {
@@ -22,6 +25,13 @@ const orderSchema = new mongoose.Schema({
   status: {
     type: String,
     default: "pending",
+    enum: ["pending", "paid", "proccess", "shipped", "done"],
+  },
+  priceDiscount: {
+    type: Number,
+  },
+  totalPrice: {
+    type: Number,
   },
   paymentDetails: {
     paymentMethod: {
@@ -34,13 +44,18 @@ const orderSchema = new mongoose.Schema({
     amount: {
       type: Number,
     },
-    currency: {
-      type: String,
-    },
     paymentDate: {
       type: Date,
     },
   },
+});
+
+orderSchema.pre("save", function (next) {
+  this.totalPrice = this.products.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+  next();
 });
 
 const Order = mongoose.model("Order", orderSchema);
