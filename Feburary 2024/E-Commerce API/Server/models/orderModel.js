@@ -34,6 +34,10 @@ const orderSchema = new mongoose.Schema({
     type: Number,
   },
   paymentDetails: {
+    paymentId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Payment",
+    },
     paymentMethod: {
       type: String,
       enum: ["credit_card", "debit_card", "paypal", "stripe", "bank_transfer"],

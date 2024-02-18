@@ -1,7 +1,7 @@
 const Product = require("../models/productModel");
-const User = require("../models/userModel");
 const Cart = require("../models/cartModel");
 const Order = require("../models/orderModel");
+const Payment = require("../models/paymentModel");
 
 //? Done
 exports.getCart = async (req, res) => {
@@ -129,29 +129,27 @@ exports.pay = async (req, res) => {
       })
     );
 
-    console.log(newOrderProducts);
+    const newPayment = await Payment.create({
+      user: user._id,
+      paymentMethod,
+      transactionId,
+      amount,
+      currency,
+      paymentDate: Date.now(),
+    });
 
     const newOrder = await Order.create({
       user: user._id,
       status: "paid",
       products: newOrderProducts,
+      paymentDetails: {
+        paymentId: newPayment._id,
+        amount: newPayment.amount,
+      },
     });
 
-    // cart.paymentDetails = {
-    //   paymentMethod,
-    //   transactionId,
-    //   amount,
-    //   currency,
-    //   paymentDate: Date.now(),
-    // };
-
-    // await cart.save();
-
-    // await User.findOneAndUpdate(
-    //   { _id: user._id },
-    //   { $set: { cart: newOrder._id } },
-    //   { new: true }
-    // );
+    cart.products = [];
+    await cart.save();
 
     res.status(200).json({ message: "Payment successful" });
   } catch (error) {
