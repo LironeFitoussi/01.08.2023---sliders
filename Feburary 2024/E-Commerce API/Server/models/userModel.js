@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
-const Order = require("../models/orderModel");
+const Cart = require("../models/cartModel");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -26,7 +26,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please confirm your password"],
     validate: {
-      // This only works on CREATE and SAVE!!
       validator: function (val) {
         return val === this.password;
       },
@@ -50,12 +49,11 @@ userSchema.pre("save", async function (next) {
 
   this.passwordConfirm = undefined;
 
-  const newOrder = await Order.create({
+  const newCart = await Cart.create({
     user: this._id,
-    status: "pending",
     products: [],
   });
-  this.cart = newOrder._id;
+  this.cart = newCart._id;
   next();
 });
 
