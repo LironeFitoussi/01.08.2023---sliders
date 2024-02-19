@@ -45,11 +45,12 @@ function Authentication() {
     setIsRegistered(!isRegistered);
   };
 
+  // console.log(user.data);
   return (
     <div className={styles.authDiv}>
       {user ? (
         <div>
-          Hello user
+          Hello {user.name}
           <SignOut />
         </div>
       ) : (
