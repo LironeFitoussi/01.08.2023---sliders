@@ -46,11 +46,35 @@ exports.getAllGiftCards = async (req, res) => {
 };
 
 //? Done
+// get Gift Card by code (Admin Only)
+exports.getAllGiftCardsByCode = async (req, res) => {
+  console.log(req.params.id);
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({ message: "Invalid Gift Card details" });
+    }
+
+    const giftCard = await GiftCard.findById(id);
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        giftCard,
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching gift card:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+//? Done
 // Update Gift Card (Admin Only)
 exports.updateGiftCard = async (req, res) => {
   try {
-    const { code } = req.params;
-    if (!code) {
+    const { id } = req.params;
+    if (!id) {
       return res.status(400).json({ message: "Invalid Gift Card details" });
     }
 
@@ -60,7 +84,7 @@ exports.updateGiftCard = async (req, res) => {
     }
 
     const giftCard = await GiftCard.findByIdAndUpdate(
-      code,
+      id,
       {
         name,
         amount,
@@ -81,17 +105,16 @@ exports.updateGiftCard = async (req, res) => {
   }
 };
 
-//! Pending
-
+//? Done
 // Delete Gift Card (Admin Only)
 exports.deleteGiftCard = async (req, res) => {
   try {
-    const { code } = req.params;
-    if (!code) {
+    const { id } = req.params;
+    if (!id) {
       return res.status(400).json({ message: "Invalid Gift Card details" });
     }
 
-    const giftCard = await GiftCard.findByIdAndDelete(code);
+    const giftCard = await GiftCard.findByIdAndDelete(id);
 
     res.status(200).json({
       status: "success",

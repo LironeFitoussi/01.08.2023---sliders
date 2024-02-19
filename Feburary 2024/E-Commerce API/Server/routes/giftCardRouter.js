@@ -14,14 +14,19 @@ router
   .route("/admin/showAll")
   .get(authController.isAdmin, giftCardController.getAllGiftCards);
 
+// Get Gift Card by code
+router
+  .route("/admin/:id")
+  .get(authController.isAdmin, giftCardController.getAllGiftCardsByCode);
+
 // Delete Gift Card
 router
-  .route("/admin/:code/delete")
+  .route("/admin/:id/delete")
   .delete(authController.isAdmin, giftCardController.deleteGiftCard);
 
 // Update Gift Card
 router
-  .route("/admin/:code/update")
+  .route("/admin/:id/update")
   .patch(authController.isAdmin, giftCardController.updateGiftCard);
 
 // Validate gift code
