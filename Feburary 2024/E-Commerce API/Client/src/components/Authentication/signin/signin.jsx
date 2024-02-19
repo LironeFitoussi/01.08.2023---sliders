@@ -1,9 +1,12 @@
-import { useState} from "react";
+import { useState, useContext} from "react";
 import styles from "./signin.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../../context/User";
 
 const SignIn = () => {
+  const { fetchUser } = useContext(UserContext);
+
   const navigate = useNavigate();
   const [loginForm, setLoginForm] = useState({});
 
@@ -20,12 +23,12 @@ const SignIn = () => {
         loginForm
       );
       localStorage.setItem("userToken", res.data.token);
+      fetchUser();
       navigate("/");
     } catch (error) {
       console.error(error);
     }
   };
-
 
   return (
     <div className={styles.loginContainer}>
