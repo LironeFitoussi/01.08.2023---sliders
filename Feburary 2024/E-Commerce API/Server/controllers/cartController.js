@@ -3,6 +3,10 @@ const Cart = require("../models/cartModel");
 const Order = require("../models/orderModel");
 const Payment = require("../models/paymentModel");
 
+const percentageDiscount = (price, discount) => {
+  return (price * (100 - discount)) / 100;
+};
+
 //? Done
 exports.getCart = async (req, res) => {
   try {
@@ -106,10 +110,11 @@ exports.removeFromCart = async (req, res) => {
 //! Progressing
 exports.pay = async (req, res) => {
   try {
-    const { paymentMethod, transactionId, amount, currency } = req.body;
+    const { paymentMethod, transactionId, amount, currency, coupon } = req.body;
     const user = req.user;
     const cartId = user.cart;
     const cart = await Cart.findById(cartId);
+
     if (!paymentMethod || !transactionId || !amount || !currency) {
       return res.status(400).json({ message: "Invalid payment details" });
     }
@@ -118,9 +123,15 @@ exports.pay = async (req, res) => {
       return res.status(404).json({ message: "Cart not found" });
     }
 
+    let discountedAmount = amount;
+
+    if (coupon && coupon.discount) {
+      discountedAmount = (amount * (100 - coupon.discount)) / 100;
+    }
+
     const newOrderProducts = await Promise.all(
       cart.products.map(async (cartProduct) => {
-        const product = await Product.findById(cartProduct);
+        const product = await Product.findById(cartProduct._id);
         return {
           _id: product._id,
           price: product.price,
@@ -133,7 +144,7 @@ exports.pay = async (req, res) => {
       user: user._id,
       paymentMethod,
       transactionId,
-      amount,
+      amount: discountedAmount,
       currency,
       paymentDate: Date.now(),
     });
@@ -142,9 +153,11 @@ exports.pay = async (req, res) => {
       user: user._id,
       status: "paid",
       products: newOrderProducts,
+      priceDiscount: amount - discountedAmount,
+      totalPrice: discountedAmount,
       paymentDetails: {
         paymentId: newPayment._id,
-        amount: newPayment.amount,
+        amount: discountedAmount,
       },
     });
 
