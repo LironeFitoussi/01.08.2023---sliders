@@ -1,33 +1,12 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import SignIn from "../../components/Authentication/signin/signin";
 import SignUp from "../../components/Authentication/signup/signup";
-import SignOut from "../../components/signout/signout";
 import { UserContext } from "../../context/User";
 import styles from "./Authentication.module.css";
 
 function Authentication() {
   const { user, setUser } = useContext(UserContext);
-  const [newUser, setNewUser] = useState({});
   const [isRegistered, setIsRegistered] = useState(true);
-
-  const inputInfo = (e) => {
-    const { name, value } = e.target;
-    setNewUser({ ...newUser, [name]: value });
-  };
-
-  const submitLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/users/login",
-        newUser
-      );
-      setUser(res.data.token);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const submitSignUp = async (e) => {
     e.preventDefault();
@@ -46,12 +25,11 @@ function Authentication() {
     setIsRegistered(!isRegistered);
   };
 
-  // console.log(user.data);
   return (
     <div className={styles.authDiv}>
       <>
         {isRegistered ? (
-          <SignIn inputInfo={inputInfo} submitLogin={submitLogin} />
+          <SignIn />
         ) : (
           <SignUp inputInfo={inputInfo} submitSignUp={submitSignUp} />
         )}
