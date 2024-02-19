@@ -138,3 +138,12 @@ exports.userValidator = async (req, res, next) => {
     });
   }
 };
+
+exports.fetchUser = function (req, res) {
+  res.status(200).json({
+    status: "success",
+    data: {
+      user: req.user,
+    },
+  });
+};

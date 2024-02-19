@@ -6,5 +6,7 @@ const router = express.Router();
 router.route("/signup").post(authController.signup);
 router.route("/login").post(authController.login);
 router.route("/logout").post(authController.logUserOut);
-
+router
+  .route("/fetchUser")
+  .get(authController.userValidator, authController.fetchUser);
 module.exports = router;

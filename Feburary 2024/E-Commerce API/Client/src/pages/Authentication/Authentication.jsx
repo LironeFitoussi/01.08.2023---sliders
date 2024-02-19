@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import SignIn from "../../components/Authentication/signin/signin";
 import SignUp from "../../components/Authentication/signup/signup";
@@ -11,16 +11,21 @@ function Authentication() {
   const [newUser, setNewUser] = useState({});
   const [isRegistered, setIsRegistered] = useState(true);
 
-  console.log(user + " is registered");
   const inputInfo = (e) => {
-    setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setNewUser({ ...newUser, [name]: value });
+    console.log(newUser);
   };
 
   const submitLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/login", newUser);
-      setUser(res.data);
+      const res = await axios.post(
+        "http://localhost:3000/api/v1/users/login",
+        newUser
+      );
+      console.log(res.data);
+      setUser(res.data.token);
     } catch (error) {
       console.error(error);
     }
@@ -36,24 +41,19 @@ function Authentication() {
     }
   };
 
-  // TODO: Implement Sign Out functionality
-  // const signOutHandler = async () => {
-  //   // Implement sign out functionality
-  // };
-
   const toggleType = () => {
     setIsRegistered(!isRegistered);
   };
 
   return (
-    <>
+    <div className={styles.authDiv}>
       {user ? (
         <div>
           Hello user
-          <button onClick={signOutHandler}>Sign out</button>
+          <SignOut />
         </div>
       ) : (
-        <div className={styles.authDiv}>
+        <>
           {isRegistered ? (
             <SignIn inputInfo={inputInfo} submitLogin={submitLogin} />
           ) : (
@@ -68,9 +68,9 @@ function Authentication() {
               {isRegistered ? "Sign Up" : "Log In"}
             </span>{" "}
           </h3>
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 }
 
