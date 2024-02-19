@@ -110,12 +110,12 @@ exports.removeFromCart = async (req, res) => {
 //! Progressing
 exports.pay = async (req, res) => {
   try {
-    const { paymentMethod, transactionId, amount, currency, coupon } = req.body;
+    const { paymentMethod, transactionId, currency, coupon } = req.body;
     const user = req.user;
     const cartId = user.cart;
     const cart = await Cart.findById(cartId);
 
-    if (!paymentMethod || !transactionId || !amount || !currency) {
+    if (!paymentMethod || !transactionId || !currency) {
       return res.status(400).json({ message: "Invalid payment details" });
     }
 
@@ -123,22 +123,27 @@ exports.pay = async (req, res) => {
       return res.status(404).json({ message: "Cart not found" });
     }
 
-    let discountedAmount = amount;
-
-    if (coupon && coupon.discount) {
-      discountedAmount = (amount * (100 - coupon.discount)) / 100;
-    }
+    let totalAmount = 0;
 
     const newOrderProducts = await Promise.all(
       cart.products.map(async (cartProduct) => {
         const product = await Product.findById(cartProduct._id);
+        const productTotalPrice = product.price * cartProduct.quantity;
+        totalAmount += productTotalPrice; // Accumulate total amount
         return {
           _id: product._id,
           price: product.price,
           quantity: cartProduct.quantity,
+          total: productTotalPrice,
         };
       })
     );
+
+    let discountedAmount = totalAmount;
+
+    if (coupon && coupon.discount) {
+      discountedAmount = (totalAmount * (100 - coupon.discount)) / 100;
+    }
 
     const newPayment = await Payment.create({
       user: user._id,
@@ -153,7 +158,7 @@ exports.pay = async (req, res) => {
       user: user._id,
       status: "paid",
       products: newOrderProducts,
-      priceDiscount: amount - discountedAmount,
+      priceDiscount: totalAmount - discountedAmount,
       totalPrice: discountedAmount,
       paymentDetails: {
         paymentId: newPayment._id,
