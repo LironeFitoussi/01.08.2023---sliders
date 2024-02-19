@@ -1,13 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import { useState} from "react";
 import styles from "./signin.module.css";
-// import { UserContext } from "../../../context/User";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [loginForm, setLoginForm] = useState({});
-  // const { user, setUser } = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
