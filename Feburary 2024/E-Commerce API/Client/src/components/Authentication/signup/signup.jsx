@@ -1,9 +1,13 @@
 import styles from "./signup.module.css";
-import { useState} from "react";
+import { useState ,useContext} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../../context/User";
 
 const SignUp = () => {
+  const { fetchUser, setUserToken } = useContext(UserContext);
+
+
   const navigate = useNavigate();
   const [signupForm, setSignupForm] = useState({});
 
@@ -20,6 +24,8 @@ const SignUp = () => {
         signupForm
       );
       localStorage.setItem("userToken", res.data.token);
+      await setUserToken(localStorage.getItem("userToken"));
+      fetchUser();
       navigate("/");
     } catch (error) {
       console.error(error);

@@ -22,7 +22,6 @@ const SignIn = () => {
         "http://localhost:3000/api/v1/users/login",
         loginForm
       );
-      console.log(res.data.token);
       localStorage.setItem("userToken", res.data.token);
       await setUserToken(localStorage.getItem("userToken"));
       fetchUser();
