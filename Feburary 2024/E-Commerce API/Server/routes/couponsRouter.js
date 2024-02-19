@@ -20,6 +20,4 @@ router
 
 router.route("/:code/validate").get(couponController.validateCoupon);
 
-router;
-
 module.exports = router;
