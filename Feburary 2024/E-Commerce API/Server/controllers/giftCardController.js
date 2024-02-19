@@ -193,3 +193,42 @@ exports.buyGiftCard = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+// Middleware to check if the gift card received in req.params.id is valid
+exports.checkGiftCard = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({ message: "Invalid Gift Card details" });
+    }
+
+    const giftCard = await GiftCard.findById(id);
+
+    if (!giftCard) {
+      return res.status(404).json({ message: "Gift Card not found" });
+    }
+
+    req.giftCard = giftCard;
+    next();
+  } catch (error) {
+    console.error("Error checking gift card:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+// TODO last Stage before switching temporary to Front End
+// Add Gift Card To Cart
+
+exports.addGiftCard = async (req, res) => {
+  try {
+    const giftCard = req.giftCard;
+    console.log("Remembered");
+    res.status(200).json({
+      message: "Gift card added to cart successfully",
+      giftCard: giftCard,
+    });
+  } catch (error) {
+    console.error("Error adding gift card to cart:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
