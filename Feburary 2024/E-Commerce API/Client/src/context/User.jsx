@@ -22,7 +22,7 @@ export default function UserProvider({ children }) {
           );
           if (response.ok) {
             const userData = await response.json();
-            setUser(userData.data.user);
+            setUser(userData);
           } else {
             console.error("Failed to fetch user:", response.statusText);
           }
