@@ -1,8 +1,23 @@
-const SignOut = () => {
+import { useContext } from "react";
+import styles from "./signout.module.css";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/User";
+
+const SignOut =  () => {
+  const navigate = useNavigate();
+  const { fetchUser} = useContext(UserContext);
+
+  const handleSignOut =  (e) => {
+    e.preventDefault();
+    localStorage.removeItem("userToken");
+    fetchUser();
+    navigate("/");
+  };
+
   return (
-    <div>
-      <h1>This is the Sign out Component</h1>
-    </div>
+    <button className={styles["signout-button"]} onClick={handleSignOut}>
+      Sign Out
+    </button>
   );
 };
 

@@ -4,11 +4,10 @@ import { createContext } from "react";
 export const UserContext = createContext({});
 export default function UserProvider({ children }) {
   const [user, setUser] = useState(null);
-
-  const userToken = localStorage.getItem("userToken");
+  const [userToken, setUserToken] = useState(localStorage.getItem("userToken"));
 
   const fetchUser = async () => {
-    if (userToken) {
+    if (userToken !== null) {
       console.log("User Updated, fetching...");
       try {
         const response = await fetch(
@@ -30,18 +29,27 @@ export default function UserProvider({ children }) {
       } catch (error) {
         console.error("Error fetching user:", error);
       }
+    } else {
+      console.log(" no ");
+      setUser(null);
     }
   };
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [userToken]);
 
   useEffect(() => {
     user && console.log(user);
-  }, [user, setUser]);
+  }, [user]);
 
-  const shared = { user, setUser, fetchUser };
+  // Listen to changes in localStorage for userToken
+  useEffect(() => {
+    const token = localStorage.getItem("userToken");
+    setUserToken(token);
+  }, []);
+
+  const shared = { user, setUser, fetchUser, userToken, setUserToken };
 
   return <UserContext.Provider value={shared}>{children}</UserContext.Provider>;
 }

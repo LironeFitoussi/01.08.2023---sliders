@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/User";
 
 const SignIn = () => {
-  const { fetchUser } = useContext(UserContext);
+  const { fetchUser, setUserToken } = useContext(UserContext);
 
   const navigate = useNavigate();
   const [loginForm, setLoginForm] = useState({});
@@ -22,7 +22,9 @@ const SignIn = () => {
         "http://localhost:3000/api/v1/users/login",
         loginForm
       );
+      console.log(res.data.token);
       localStorage.setItem("userToken", res.data.token);
+      await setUserToken(localStorage.getItem("userToken"));
       fetchUser();
       navigate("/");
     } catch (error) {
