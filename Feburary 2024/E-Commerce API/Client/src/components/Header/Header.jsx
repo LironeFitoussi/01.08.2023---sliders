@@ -5,7 +5,7 @@ import SignOut from "../signout/signout";
 import styles from "./Header.module.css";
 
 export default function Header() {
-    const { user, userToken } = useContext(UserContext);
+    const { userToken } = useContext(UserContext);
 
     return (
         <header className={styles.header}>
@@ -13,6 +13,9 @@ export default function Header() {
                 <ul className={styles.ul}>
                     <li className={styles.li}>
                         <Link to="/" className={styles.link}>Home</Link>
+                    </li>
+                    <li className={styles.li}>
+                        <Link to="/products" className={styles.link}>Browse Store</Link>
                     </li>
                     {!userToken ? (
                         <li className={styles.li}>

@@ -4,7 +4,7 @@
 .header {
   background-color: #333;
   padding: 10px 0;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -17,8 +17,11 @@
 
 /* Styles for navigation ul */
 .ul {
+  display: flex;
+  flex-direction: row;
   list-style: none;
   padding: 0;
+  justify-content: center;
 }
 
 /* Styles for navigation li */
