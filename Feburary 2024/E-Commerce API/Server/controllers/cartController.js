@@ -7,7 +7,6 @@ const percentageDiscount = (price, discount) => {
   return (price * (100 - discount)) / 100;
 };
 
-//? Done
 exports.getCart = async (req, res) => {
   try {
     const userId = req.params.userId;
@@ -32,7 +31,6 @@ exports.getCart = async (req, res) => {
   }
 };
 
-//? Done
 exports.addToCart = async (req, res) => {
   try {
     const user = req.user;
@@ -72,7 +70,6 @@ exports.addToCart = async (req, res) => {
   }
 };
 
-//? Done
 exports.removeFromCart = async (req, res) => {
   try {
     const cartId = req.user.cart;
@@ -107,7 +104,6 @@ exports.removeFromCart = async (req, res) => {
   }
 };
 
-//! Progressing
 exports.pay = async (req, res) => {
   try {
     const { paymentMethod, transactionId, currency, coupon } = req.body;

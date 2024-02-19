@@ -1,6 +1,10 @@
 const GiftCard = require("../models/giftCardModel");
+const UserGiftCard = require("../models/userGiftCardModel");
+const Payment = require("../models/paymentModel");
+const Order = require("../models/orderModel");
 
-//? Done
+const { generateUniqueCode } = require("../utils/codeGenerator");
+
 // Create Gift Card (Admin Only)
 exports.createGiftCard = async (req, res) => {
   try {
@@ -27,7 +31,6 @@ exports.createGiftCard = async (req, res) => {
   }
 };
 
-//? Done
 // Get all Gift Cards (Admin Only)
 exports.getAllGiftCards = async (req, res) => {
   try {
@@ -45,7 +48,6 @@ exports.getAllGiftCards = async (req, res) => {
   }
 };
 
-//? Done
 // get Gift Card by code (Admin Only)
 exports.getAllGiftCardsByCode = async (req, res) => {
   console.log(req.params.id);
@@ -69,7 +71,6 @@ exports.getAllGiftCardsByCode = async (req, res) => {
   }
 };
 
-//? Done
 // Update Gift Card (Admin Only)
 exports.updateGiftCard = async (req, res) => {
   try {
@@ -105,7 +106,6 @@ exports.updateGiftCard = async (req, res) => {
   }
 };
 
-//? Done
 // Delete Gift Card (Admin Only)
 exports.deleteGiftCard = async (req, res) => {
   try {
@@ -124,6 +124,72 @@ exports.deleteGiftCard = async (req, res) => {
     });
   } catch (error) {
     console.error("Error deleting gift card:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+// Buy Gift Card
+exports.buyGiftCard = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = req.user;
+    const { paymentMethod, transactionId, currency, amount } = req.body;
+    const giftCardRef = await GiftCard.findById(id);
+
+    if (!paymentMethod || !transactionId || !currency || !amount) {
+      return res.status(400).json({ message: "Invalid payment details" });
+    }
+
+    if (!giftCardRef) {
+      return res.status(400).json({ message: "Invalid Gift Card details" });
+    }
+
+    const totalAmount = giftCardRef.price;
+
+    if (amount !== totalAmount) {
+      return res.status(400).json({
+        message: "Amount paid does not match the total amount of the gift card",
+      });
+    }
+
+    const newGiftCard = await UserGiftCard.create({
+      code: generateUniqueCode(12),
+      amount: giftCardRef.amount,
+    });
+
+    const newPayment = await Payment.create({
+      user: user._id,
+      paymentMethod,
+      transactionId,
+      amount: totalAmount,
+      currency,
+      paymentDate: Date.now(),
+    });
+
+    const newOrder = await Order.create({
+      user: user._id,
+      status: "paid",
+      products: [
+        {
+          price: totalAmount,
+          _id: newGiftCard._id,
+        },
+      ],
+      price: totalAmount,
+      paymentDetails: {
+        paymentId: newPayment._id,
+        amount: totalAmount,
+        quantity: 1,
+      },
+    });
+
+    res.status(200).json({
+      message: "Gift card purchased successfully",
+      order: newOrder,
+      GiftCard: newGiftCard.code,
+    });
+  } catch (error) {
+    console.error("Error creating gift card:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };

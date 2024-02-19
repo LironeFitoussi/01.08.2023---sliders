@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const giftCardController = require("../controllers/giftCardController");
 const authController = require("../controllers/authController");
+const { post } = require("./cartRoutes");
 
 //! All Admin Operations
 // Create a Gift Card
@@ -29,14 +30,15 @@ router
   .route("/admin/:id/update")
   .patch(authController.isAdmin, giftCardController.updateGiftCard);
 
-// Validate gift code
-// router
-//   .route("/admin/:code/validate")
-//   .get(authController.isAdmin, giftCardController.validateGiftCard);
+//! All Users Operations
+// Buy Gift Card
+router
+  .route("/:id/buy")
+  .post(authController.userValidator, giftCardController.buyGiftCard);
 
 // Empty route
-router.route("/").get((req, res) => {
-  res.send("Welcome to the homepage!");
-});
+// router.route("/").get((req, res) => {
+//   res.send("Welcome to the homepage!");
+// });
 
 module.exports = router;
