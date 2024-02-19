@@ -4,11 +4,10 @@ import { createContext } from "react";
 export const UserContext = createContext({});
 export default function UserProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [userData, setUserData] = useState();
 
+  const userToken = localStorage.getItem("userToken");
   useEffect(() => {
     const fetchUser = async () => {
-      const userToken = localStorage.getItem("userToken");
       if (userToken) {
         console.log("user Updated, fetching...");
         try {
@@ -23,7 +22,7 @@ export default function UserProvider({ children }) {
           );
           if (response.ok) {
             const fetchedUser = await response.json();
-            setUserData(fetchedUser.data.user);
+            setUser(fetchedUser.data.user);
           } else {
             console.error("Failed to fetch user:", response.statusText);
           }
@@ -34,11 +33,11 @@ export default function UserProvider({ children }) {
     };
 
     fetchUser();
-  }, []);
+  }, [userToken]);
 
   useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+    user && console.log(user);
+  }, [user]);
 
   const shared = { user, setUser };
 

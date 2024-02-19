@@ -1,13 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import styles from "./signin.module.css";
-import { UserContext } from "../../../context/User";
+// import { UserContext } from "../../../context/User";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [loginForm, setLoginForm] = useState({});
-  const { user, setUser } = useContext(UserContext);
+  // const { user, setUser } = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,16 +21,13 @@ const SignIn = () => {
         "http://localhost:3000/api/v1/users/login",
         loginForm
       );
-      setUser(res.data.token);
+      localStorage.setItem("userToken", res.data.token);
       navigate("/");
     } catch (error) {
       console.error(error);
     }
   };
 
-  useEffect(() => {
-    console.log(user);
-  }, []);
 
   return (
     <div className={styles.loginContainer}>
