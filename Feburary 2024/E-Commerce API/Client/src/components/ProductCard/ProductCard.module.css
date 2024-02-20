@@ -28,3 +28,7 @@
   font-size: 1rem;
   color: #555;
 }
+
+.productCard:hover {
+  cursor: pointer;
+}
