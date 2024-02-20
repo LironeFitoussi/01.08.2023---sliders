@@ -30,7 +30,7 @@ export default function UserProvider({ children }) {
         console.error("Error fetching user:", error);
       }
     } else {
-      console.log(" no ");
+      console.log("No Session Avtived!");
       setUser(null);
     }
   };
