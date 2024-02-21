@@ -4,7 +4,7 @@
       "price": 50,
       "priceDiscount": 0,
       "description": "A traditional Jewish lampstand with seven branches used during the Hanukkah holiday.",
-      "image": "menorah.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fmenorah.webp?alt=media&token=669b15b3-940c-4a26-aadd-8144255aed93",
       "slug": "menorah",
       "category": "Judaica",
       "stock": 100
@@ -14,7 +14,7 @@
       "price": 80,
       "priceDiscount": 0,
       "description": "A ram's horn blown like a trumpet, used for Jewish religious purposes, especially during Rosh Hashanah and Yom Kippur.",
-      "image": "shofar.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2FShofar-16-Zachi-Evenor.jpg?alt=media&token=39b638a7-9f81-4b80-8910-eedfd2d76392",
       "slug": "shofar",
       "category": "Judaica",
       "stock": 50
@@ -24,7 +24,7 @@
       "price": 10,
       "priceDiscount": 0,
       "description": "A small, hemispherical cap worn by Jewish men during prayer and religious ceremonies.",
-      "image": "kippah.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2FBenefits-of-Wearing-a-Kippah-500x291-1.jpg?alt=media&token=4db5455a-8295-4148-9601-9cbf9b5fe6fb",
       "slug": "kippah",
       "category": "Judaica",
       "stock": 200
@@ -34,7 +34,7 @@
       "price": 120,
       "priceDiscount": 0,
       "description": "A fringed garment traditionally worn by Jewish men during prayer, especially at morning prayers.",
-      "image": "tallit.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F%D7%94%D7%95%D7%A8%D7%93%D7%94.jpg?alt=media&token=179c798c-dffe-4b35-8ca0-d9bb65a031d6",
       "slug": "tallit",
       "category": "Judaica",
       "stock": 80
@@ -44,7 +44,7 @@
       "price": 25,
       "priceDiscount": 0,
       "description": "A palm-shaped amulet popular throughout the Middle East and North Africa, commonly used in jewelry and wall hangings.",
-      "image": "hamsa.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F5010%2Chamsa-dlya-podveshyvanyya-s-glazamy%2C-8-11%2C5-sm-550x550.jpg?alt=media&token=d15d418c-9219-4be5-bff8-3e63d730cb96",
       "slug": "hamsa",
       "category": "Judaica",
       "stock": 150
@@ -54,7 +54,7 @@
       "price": 35,
       "priceDiscount": 0,
       "description": "A special cup used in Jewish religious ceremonies, especially during the Kiddush blessing on Shabbat and Jewish holidays.",
-      "image": "kiddush_cup.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F46770.jpg?alt=media&token=5944bb0a-971e-4bb5-adb6-db1ae17511b8",
       "slug": "kiddush-cup",
       "category": "Judaica",
       "stock": 120
@@ -64,7 +64,7 @@
       "price": 20,
       "priceDiscount": 0,
       "description": "A small decorative case containing a scroll inscribed with specific Hebrew verses from the Torah, affixed to the doorframe of Jewish homes.",
-      "image": "mezuzah.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F78690-0000.jpg?alt=media&token=be1003b1-8ac0-4b0f-b3d7-3af3a89833d2",
       "slug": "mezuzah",
       "category": "Judaica",
       "stock": 100
@@ -74,7 +74,7 @@
       "price": 60,
       "priceDiscount": 0,
       "description": "A special board used for cutting challah bread, a traditional Jewish braided bread.",
-      "image": "challah_board.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F71wBHx7xqML._AC_UF894%2C1000_QL80_.jpg?alt=media&token=a999a59e-ab88-4b58-922c-b53ba6568d0e",
       "slug": "challah-board",
       "category": "Judaica",
       "stock": 70
@@ -84,7 +84,7 @@
       "price": 90,
       "priceDiscount": 0,
       "description": "A set of ceremonial items used during the Havdalah ritual marking the end of Shabbat.",
-      "image": "havdalah_set.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F40136.jpg?alt=media&token=17503bff-1d74-4dc6-8f7c-d7da32f2f29d",
       "slug": "havdalah-set",
       "category": "Judaica",
       "stock": 40
@@ -94,7 +94,7 @@
       "price": 30,
       "priceDiscount": 0,
       "description": "A Jewish prayer book containing a set order of daily prayers.",
-      "image": "siddur.jpg",
+      "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F93100100831.jpg?alt=media&token=b7775d60-92e3-4173-8e3b-9f5a451e85e0",
       "slug": "siddur",
       "category": "Judaica",
       "stock": 100

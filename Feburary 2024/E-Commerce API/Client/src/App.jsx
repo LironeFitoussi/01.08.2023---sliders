@@ -7,11 +7,12 @@ import Home from "./pages/Home/Home.jsx";
 import Products from "./pages/Products/Products.jsx";
 import Authentication from "./pages/Authentication/Authentication.jsx";
 import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
-
+import Admin from "./pages/Admin/Admin.jsx";
 import Header from "./components/Header/Header.jsx";
+import CreateProduct from "./pages/Admin/CreateProduct.jsx"; // Import the CreateProduct component
 
 function App() {
-  const { userToken } = useContext(UserContext);
+  const { userToken, user } = useContext(UserContext);
 
   return (
     <Router>
@@ -20,7 +21,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetail />} />
+        {user?.role === "admin" && userToken && (
+         <>
 
+          <Route path="/admin" element={<Admin />}/>
+          <Route path="/admin/create-product" element={<CreateProduct />}/>  
+         </>    
+        )}
         {!userToken && <Route path="/authentication" element={<Authentication />} />}
       </Routes>
     </Router>

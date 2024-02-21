@@ -5,7 +5,7 @@ import SignOut from "../signout/signout";
 import styles from "./Header.module.css";
 
 export default function Header() {
-    const { userToken } = useContext(UserContext);
+    const { userToken, user } = useContext(UserContext);
 
     return (
         <header className={styles.header}>
@@ -24,6 +24,11 @@ export default function Header() {
                     ) : (
                         <li className={styles.li}>
                             <SignOut />
+                        </li>
+                    )}
+                    {user?.role === "admin" && (
+                        <li className={styles.li}>
+                            <Link to="/admin" className={styles.link}>Admin</Link>
                         </li>
                     )}
                 </ul>

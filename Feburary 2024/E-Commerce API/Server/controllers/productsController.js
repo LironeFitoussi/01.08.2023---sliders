@@ -1,6 +1,6 @@
 const Product = require("../models/productModel");
-const Order = require("../models/orderModel");
-const User = require("../models/userModel");
+
+const slugify = require("slugify");
 
 exports.getAllProducts = async (req, res) => {
   try {
@@ -16,8 +16,12 @@ exports.getAllProducts = async (req, res) => {
   }
 };
 
+exports.uploadProductImage = async (req, res) => {};
 exports.createProduct = async (req, res) => {
   try {
+    const slug = slugify(req.body.name, { lower: true });
+    req.body.slug = slug;
+
     const product = await Product.create(req.body);
     res.status(200).json({
       status: "success",
@@ -26,9 +30,13 @@ exports.createProduct = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).json({
+      status: "error",
+      message: error.message,
+    });
   }
 };
+
 exports.getSingleProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
