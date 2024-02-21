@@ -5,10 +5,7 @@ import styles from './Admin.module.css';
 
 export default function Admin() {
     return (       
-        <main className={styles.mainContainer}>  
-            <p>test</p>
-            
-            <div className={styles.adminContent}>
+        <main className={styles.mainContainer}>              
                 <aside>
                     <h1>Admin Panel</h1>
                     <h3>👇Here is where all Admin Panel should be displayed👇</h3>
@@ -21,7 +18,6 @@ export default function Admin() {
                     }/>
                     <Route path='/create-product' element={<CreateProduct />} />
                 </Routes>
-            </div>
         </main>
     )
 }
