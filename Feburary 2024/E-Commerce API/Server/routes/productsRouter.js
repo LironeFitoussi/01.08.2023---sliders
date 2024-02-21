@@ -4,7 +4,10 @@ const authController = require("../controllers/authController");
 const productsController = require("../controllers/productsController");
 
 const router = express.Router();
-router.route("/").get(productsController.getAllProducts);
+router
+  .route("/")
+  .get(productsController.getAllProducts)
+  .post(authController.isAdmin, productsController.createProduct);
 
 router
   .route("/:id")
