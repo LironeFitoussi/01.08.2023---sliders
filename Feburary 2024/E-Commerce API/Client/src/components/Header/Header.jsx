@@ -6,8 +6,9 @@ import styles from "./Header.module.css";
 
 export default function Header() {
     const { userToken, user } = useContext(UserContext);
-    return ( user &&
-       ( <header className={styles.header}>
+
+    return (
+        <header className={styles.header}>
             <nav className={styles.nav}>
                 <ul className={styles.ul}>
                     <li className={styles.li}>
@@ -16,27 +17,31 @@ export default function Header() {
                     <li className={styles.li}>
                         <Link to="/products" className={styles.link}>Browse Store</Link>
                     </li>
-                    {user._id !== undefined && !userToken ? (
-                        <li className={styles.li}>
-                            <Link to="/authentication" className={styles.link}>Authentication</Link>
-                        </li>
-                    ) : (
+                    {user && ( // Check if user exists
                         <>
-                        <SignOut />
-                        <li className={styles.li}>
-                            <Link to={`/cart/${user._id}`} className={styles.link}>Cart</Link>
-                        </li>
-                        {user?.role === "admin" && (
-                        <li className={styles.li}>
-                            <Link to="/admin" className={styles.link}>Admin</Link>
-                        </li>
-                    )}
+                            {user._id !== undefined && !userToken ? ( // Check if user is authenticated
+                                <li className={styles.li}>
+                                    <Link to="/authentication" className={styles.link}>Authentication</Link>
+                                </li>
+                            ) : (
+                                <>
+                                    <SignOut />
+                                    {user.role !== "admin" && ( // Display Cart only if user is not admin
+                                        <li className={styles.li}>
+                                            <Link to={`/cart/${user._id}`} className={styles.link}>Cart</Link>
+                                        </li>
+                                    )}
+                                    {user.role === "admin" && ( // Check if user is admin
+                                        <li className={styles.li}>
+                                            <Link to="/admin" className={styles.link}>Admin</Link>
+                                        </li>
+                                    )}
+                                </>
+                            )}
                         </>
                     )}
-                    
-
                 </ul>
             </nav>
-        </header>)
+        </header>
     );
 }

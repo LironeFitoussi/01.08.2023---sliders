@@ -13,9 +13,9 @@ export default function Cart() {
                   Authorization: `Bearer ${userToken}` // Assuming your token is in the format "Bearer <token>"
                 }
               });
-            console.log(response.data.data.userCart);
+            console.log(response.data.data.userCart[0].products);
         } catch (error) {
-            console.log(error);
+            console.log(error.response.data);
         }
     }
     useEffect(() => {
