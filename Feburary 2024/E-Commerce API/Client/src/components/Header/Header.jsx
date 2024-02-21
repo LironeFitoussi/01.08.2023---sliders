@@ -6,9 +6,8 @@ import styles from "./Header.module.css";
 
 export default function Header() {
     const { userToken, user } = useContext(UserContext);
-
-    return (
-        <header className={styles.header}>
+    return ( user &&
+       ( <header className={styles.header}>
             <nav className={styles.nav}>
                 <ul className={styles.ul}>
                     <li className={styles.li}>
@@ -17,22 +16,27 @@ export default function Header() {
                     <li className={styles.li}>
                         <Link to="/products" className={styles.link}>Browse Store</Link>
                     </li>
-                    {!userToken ? (
+                    {user._id !== undefined && !userToken ? (
                         <li className={styles.li}>
                             <Link to="/authentication" className={styles.link}>Authentication</Link>
                         </li>
                     ) : (
+                        <>
+                        <SignOut />
                         <li className={styles.li}>
-                            <SignOut />
+                            <Link to={`/cart/${user._id}`} className={styles.link}>Cart</Link>
                         </li>
-                    )}
-                    {user?.role === "admin" && (
+                        {user?.role === "admin" && (
                         <li className={styles.li}>
                             <Link to="/admin" className={styles.link}>Admin</Link>
                         </li>
                     )}
+                        </>
+                    )}
+                    
+
                 </ul>
             </nav>
-        </header>
+        </header>)
     );
 }

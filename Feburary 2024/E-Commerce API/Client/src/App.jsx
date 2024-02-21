@@ -10,10 +10,9 @@ import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
 import Admin from "./pages/Admin/Admin.jsx";
 import Header from "./components/Header/Header.jsx";
 import CreateProduct from "./pages/Admin/CreateProduct.jsx"; // Import the CreateProduct component
-
+import Cart from "./pages/Cart/Cart.jsx";
 function App() {
   const { userToken, user } = useContext(UserContext);
-
   return (
     <Router>
       <Header />
@@ -21,14 +20,19 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetail />} />
-        {user?.role === "admin" && userToken && (
+        {user && 
+        (user.role === "admin" && userToken &&
          <>
-
           <Route path="/admin" element={<Admin />}/>
           <Route path="/admin/create-product" element={<CreateProduct />}/>  
          </>    
-        )}
-        {!userToken && <Route path="/authentication" element={<Authentication />} />}
+        )
+          &&
+          (
+            <Route path="/cart/:id" element={<Cart />} />
+          )
+        }
+        {!userToken && <Route path="/authentication" element={<Authentication />}/> }
       </Routes>
     </Router>
   );
