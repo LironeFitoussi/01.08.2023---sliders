@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./ProductCard.module.css";
-import AddToCart from "../addToCart/AddToCart";
+
 const ProductCard = ({ productData }) => {
   const navigate = useNavigate();
 
@@ -9,16 +9,11 @@ const ProductCard = ({ productData }) => {
   };
 
   return (
-    <div className={styles.productCard}>
+    <div className={styles.productCard} onClick={handleClick}>
       <h2>{productData.name}</h2>
-      <img
-        src={productData.image}
-        alt={productData.name}
-        onClick={handleClick}
-      />
+      <img src={productData.image} alt={productData.name} />
       <p>{productData.description}</p>
       <p>Price: {productData.price} NIS</p>
-      <AddToCart productId={productData._id} />
     </div>
   );
 };
