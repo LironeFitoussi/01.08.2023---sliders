@@ -8,11 +8,11 @@ const cartRouter = require("./routes/cartRoutes");
 const paymentRouter = require("./routes/paymentRouter");
 const cuponsRouter = require("./routes/couponsRouter");
 const giftCardRouter = require("./routes/giftCardRouter");
+const ordersRouter = require("./routes/ordersRoutes");
 
 const authController = require("./controllers/authController");
 
 const app = express();
-// const ordersRouter = require("./routes/ordersRoutes");
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -37,8 +37,8 @@ app.use("/api/v1/cart", authController.userValidator, cartRouter);
 app.use("/api/v1/payment", authController.isAdmin, paymentRouter);
 app.use("/api/v1/coupons", cuponsRouter);
 app.use("/api/v1/gift-card", giftCardRouter);
+app.use("/api/v1/orders", ordersRouter);
 
 // TODO: Configure rest api routes
-// app.use("/api/v1/orders", ordersRouter);
 
 module.exports = app;

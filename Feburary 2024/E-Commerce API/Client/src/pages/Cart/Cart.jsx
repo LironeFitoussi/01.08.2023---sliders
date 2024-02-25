@@ -157,7 +157,7 @@ export default function Cart() {
           <div className={styles.dialog}>
             <h2>Payment Form</h2>
             <form>
-              <label>Payment Method: <input type="text" value="credit_card" readOnly /></label><br />
+              <label>Payment Method: <input type="text" value="credit_card" /></label><br />
               <label>Transaction ID: <input type="text" value="1234567890" readOnly /></label><br />
               <label>Amount: <input type="text" value={cartTotalPrice.toFixed(2)} readOnly /></label><br />
               <label>Currency: <input type="text" value="NIS" readOnly /></label><br />

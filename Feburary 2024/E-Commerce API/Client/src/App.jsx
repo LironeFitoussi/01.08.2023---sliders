@@ -11,6 +11,7 @@ import Admin from "./pages/Admin/Admin.jsx";
 import Header from "./components/Header/Header.jsx";
 import CreateProduct from "./pages/Admin/CreateProduct.jsx"; // Import the CreateProduct component
 import Cart from "./pages/Cart/Cart.jsx";
+import Orders from "./pages/Orders/Orders.jsx";
 
 function App() {
   const { userToken, user } = useContext(UserContext);
@@ -32,7 +33,10 @@ function App() {
               </>
             )}
             {user.role !== "admin" && (
-              <Route path="/cart/:id" element={<Cart />} />
+              <>
+                <Route path="/cart/:id" element={<Cart />} />
+                <Route path="/user-orders" element={<Orders />} />
+              </>
             )}
           </>
         )}

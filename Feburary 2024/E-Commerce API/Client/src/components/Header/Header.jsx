@@ -36,6 +36,9 @@ export default function Header() {
                                             <Link to="/admin" className={styles.link}>Admin</Link>
                                         </li>
                                     )}
+                                    <li className={styles.li}>
+                                        <Link to="/user-orders" className={styles.link}>User Orders</Link>
+                                    </li>
                                 </>
                             )}
                         </>
