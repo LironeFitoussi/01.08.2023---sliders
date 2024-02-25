@@ -47,7 +47,7 @@ export const popularProducts = [
   },
   {
     id: 2,
-    img: "https://cdn.shopify.com/s/files/1/0101/4832/products/Angela_Natural_Tee.png?v=1606780388",
+    img: "https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F01%2F26%2F21%2F38%2F27%2F9e6ce5bb-4ee0-4618-9a58-00b9d4487c0b%2F129788_Ivanpratt.png?auto=format&ch=Width%2CDPR&crop=false&fm=png&w=558&h=669",
   },
   {
     id: 3,
@@ -55,7 +55,7 @@ export const popularProducts = [
   },
   {
     id: 4,
-    img: "https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+    img: "https://8d31acd9.flyingcdn.com/files/2072-PQC-Mamba-1.png?width=900",
   },
   {
     id: 5,
@@ -67,7 +67,7 @@ export const popularProducts = [
   },
   {
     id: 7,
-    img: "https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+    img: "https://www.dagnedover.com/cdn/shop/files/365-Dakota-DarkMoss-Large-1101_650x650.png?v=1691505114",
   },
   {
     id: 8,
