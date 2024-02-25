@@ -7,11 +7,16 @@ const percentageDiscount = (price, discount) => {
   return (price * (100 - discount)) / 100;
 };
 
+const Cart = require("../models/Cart"); // Import your Cart model
+
 exports.getCart = async (req, res) => {
   try {
     const userId = req.params.userId;
 
-    const userCart = await Cart.find({ user: userId }).populate("products");
+    const userCart = await Cart.find({ user: userId }).populate({
+      path: "products",
+      select: "name price description", // Select the fields you want to populate
+    });
 
     if (!userCart) {
       return res
