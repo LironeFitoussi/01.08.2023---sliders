@@ -7,8 +7,8 @@ export default function UserProvider({ children }) {
   const [userToken, setUserToken] = useState(localStorage.getItem("userToken"));
 
   const fetchUser = async () => {
-    if (userToken !== null) {
-      console.log("User Updated, fetching...");
+    if (!userToken) {
+      // console.log("User Updated, fetching...");
       try {
         const response = await fetch(
           "http://localhost:3000/api/v1/users/fetchUser",
@@ -22,7 +22,7 @@ export default function UserProvider({ children }) {
         if (response.ok) {
           const fetchedUser = await response.json();
           setUser(fetchedUser.data.user);
-          console.log("User fetched successfully!");
+          // console.log("User fetched successfully!");
         } else {
           console.error("Failed to fetch user:", response.statusText);
         }
@@ -37,16 +37,17 @@ export default function UserProvider({ children }) {
 
   useEffect(() => {
     fetchUser();
-  }, [userToken]);
+  }, []);
 
-  useEffect(() => {
-    user && console.log(user);
-  }, [user]);
+  // useEffect(() => {
+  //   user && console.log(user);
+  // }, [user]);
 
   // Listen to changes in localStorage for userToken
   useEffect(() => {
     const token = localStorage.getItem("userToken");
     setUserToken(token);
+    fetchUser(); // Fetch user data when userToken changes
   }, []);
 
   const shared = { user, setUser, fetchUser, userToken, setUserToken };
