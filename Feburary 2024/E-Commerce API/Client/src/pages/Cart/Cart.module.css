@@ -1,0 +1,78 @@
+.userCart {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.card {
+  display: flex;
+  width: 80vw;
+  padding: 2rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aliceblue;
+  border-radius: 1rem;
+}
+
+.card img {
+  width: 10vw;
+  height: 10vw;
+}
+
+/* Styles for the dialog */
+.dialog-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the dialog is on top of everything */
+}
+
+.dialog {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+.dialog h2 {
+  text-align: center;
+}
+
+.dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dialog form label {
+  display: block;
+}
+
+.dialog form input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.dialog form button {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.dialog form button:hover {
+  background-color: #0056b3;
+}
