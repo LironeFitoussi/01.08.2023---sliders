@@ -7,8 +7,6 @@ const percentageDiscount = (price, discount) => {
   return (price * (100 - discount)) / 100;
 };
 
-const Cart = require("../models/Cart"); // Import your Cart model
-
 exports.getCart = async (req, res) => {
   try {
     const userId = req.params.userId;
