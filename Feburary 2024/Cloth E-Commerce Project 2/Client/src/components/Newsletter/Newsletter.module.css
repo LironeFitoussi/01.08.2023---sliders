@@ -1,0 +1,39 @@
+.container {
+  height: 60vh;
+  background-color: #fcf5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: 4.5rem;
+}
+.description {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.inputContainer {
+  width: 50%;
+  height: 8vh;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  border: 1px solid lightgray;
+}
+.input {
+  border: none;
+  flex: 8;
+  padding-left: 2rem;
+}
+
+.button {
+  flex: 1;
+  border: none;
+  background-color: teal;
+  color: #fcf5f5;
+}
