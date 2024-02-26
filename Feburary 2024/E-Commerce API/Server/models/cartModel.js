@@ -8,7 +8,7 @@ const cartSchema = new mongoose.Schema({
   },
   products: [
     {
-      _id: {
+      product: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Product",
         required: true,
@@ -19,6 +19,12 @@ const cartSchema = new mongoose.Schema({
       },
     },
   ],
+});
+
+// Pre middleware to populate products before any find operation
+cartSchema.pre(/^find/, function (next) {
+  this.populate("products.product");
+  next();
 });
 
 const Cart = mongoose.model("Cart", cartSchema);

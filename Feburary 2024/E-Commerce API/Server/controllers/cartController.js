@@ -43,24 +43,27 @@ exports.addToCart = async (req, res) => {
       await user.save();
     }
     const cartId = user.cart;
-    const cart = await Cart.findById(cartId);
-    const existingProductIndex = cart.products.findIndex((product) =>
-      product._id.equals(req.params.id)
-    );
-    if (existingProductIndex !== -1) {
-      cart.products[existingProductIndex].quantity += 1;
-      await cart.save();
-    } else {
-      cart.products.push({ _id: req.params.id, quantity: 1 });
-      await cart.save();
-    }
+    const productId = req.params.id;
 
-    const product = await Product.findById(req.params.id);
+    let cart = await Cart.findOneAndUpdate(
+      { _id: cartId, "products.product": productId },
+      { $inc: { "products.$.quantity": 1 } },
+      { new: true }
+    );
+
+    if (!cart) {
+      const updatedCart = await Cart.findByIdAndUpdate(
+        cartId,
+        { $push: { products: { product: productId, quantity: 1 } } },
+        { new: true }
+      );
+      cart = updatedCart;
+      cart.save();
+    }
 
     res.status(200).json({
       status: "success",
       data: {
-        product,
         updatedCart: cart,
       },
     });
@@ -109,7 +112,7 @@ exports.removeFromCart = async (req, res) => {
 
 exports.pay = async (req, res) => {
   try {
-    const { paymentMethod, transactionId, currency, coupon } = req.body;
+    const { paymentMethod, transactionId, currency, amount, coupon } = req.body;
     const user = req.user;
     const cartId = user.cart;
     const cart = await Cart.findById(cartId);
@@ -125,14 +128,13 @@ exports.pay = async (req, res) => {
     let totalAmount = 0;
 
     const newOrderProducts = await Promise.all(
-      cart.products.map(async (cartProduct) => {
-        const product = await Product.findById(cartProduct._id);
-        const productTotalPrice = product.price * cartProduct.quantity;
+      cart.products.map(({ product, quantity }) => {
+        const productTotalPrice = product.price * quantity;
         totalAmount += productTotalPrice; // Accumulate total amount
         return {
           _id: product._id,
           price: product.price,
-          quantity: cartProduct.quantity,
+          quantity: quantity,
           total: productTotalPrice,
         };
       })
@@ -142,6 +144,10 @@ exports.pay = async (req, res) => {
 
     if (coupon && coupon.discount) {
       discountedAmount = (totalAmount * (100 - coupon.discount)) / 100;
+    }
+
+    if (amount !== discountedAmount) {
+      throw new Error("Total anount no wqual to order");
     }
 
     const newPayment = await Payment.create({
