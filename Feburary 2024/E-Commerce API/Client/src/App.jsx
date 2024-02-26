@@ -13,7 +13,7 @@ import CreateProduct from "./pages/Admin/CreateProduct.jsx"; // Import the Creat
 import Cart from "./pages/Cart/Cart.jsx";
 import Orders from "./pages/Orders/Orders.jsx";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
-
+import ResetPassword from "./pages/ResetPassword/ResetPassword.jsx";
 function App() {
   const { userToken, user } = useContext(UserContext);
 
@@ -45,6 +45,7 @@ function App() {
         {!user && (
           <>
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password/:tokenId" element={<ResetPassword />} />
             <Route path="/authentication" element={<Authentication />} />
           </>
         )}
