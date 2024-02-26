@@ -7,6 +7,7 @@ import Slider from "../../components/Slider/Slider";
 import Categories from "../../components/Categories/Categories";
 import Products from "../../components/Products/Products";
 import Newsletter from "../../components/Newsletter/Newsletter";
+import Footer from "../../components/Footer/Footer";
 export default function Home() {
   return (
     <div>
@@ -16,6 +17,7 @@ export default function Home() {
       <Categories />
       <Products />
       <Newsletter />
+      <Footer />
     </div>
   );
 }
