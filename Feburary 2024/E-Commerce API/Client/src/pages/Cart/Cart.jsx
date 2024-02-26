@@ -15,9 +15,9 @@ export default function Cart() {
     currency: "NIS",
   });
 
-
   const { userToken } = useContext(UserContext);
   const { id } = useParams();
+
   const fetchCart = async () => {
     try {
       const response = await axios.get(
@@ -30,12 +30,12 @@ export default function Cart() {
       );
       setUserCart(response.data.data.userCart[0].products);
       setCartTotalPrice(response.data.data.userCart[0].totalAmount);
-      
-      setPaymentData(prevData => ({
+
+      setPaymentData((prevData) => ({
         ...prevData,
-        amount: response.data.data.userCart[0].totalAmount
+        amount: response.data.data.userCart[0].totalAmount,
       }));
-      
+
       console.log(response.data.data.userCart[0].products);
     } catch (error) {
       console.log(error.response.data);
@@ -46,24 +46,20 @@ export default function Cart() {
     fetchCart();
   }, [id, userToken]);
 
-  const removeFromCart = (productId) => {
-    let config = {
-      method: "delete",
-      maxBodyLength: Infinity,
-      url: `http://localhost:3000/api/v1/cart/${productId}/removeFromCart`,
-      headers: {
-        Authorization: `Bearer ${userToken}`,
-      },
-    };
-
-    axios
-      .request(config)
-      .then((response) => {
-        setUserCart(userCart.filter((product) => product._id !== productId));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const removeFromCart = async (productId) => {
+    try {
+      await axios.delete(
+        `http://localhost:3000/api/v1/cart/${productId}/removeFromCart`,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+      await fetchCart(); // Refetch cart after deletion
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleCheckout = () => {
@@ -74,26 +70,24 @@ export default function Cart() {
     setShowDialog(false);
   };
 
-  const handlePayment = () => {
-    axios
-      .post(`http://localhost:3000/api/v1/cart/${id}/pay`, paymentData, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-          "Content-Type": "application/json",
-        },
-      })
-      .then((response) => {
-        console.log(JSON.stringify(response.data));
-        fetchCart();
-        setShowDialog(false);
-        return response;
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const handlePayment = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/api/v1/cart/${id}/pay`,
+        paymentData,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(JSON.stringify(response.data));
+      await fetchCart(); // Refetch cart after payment
+      setShowDialog(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

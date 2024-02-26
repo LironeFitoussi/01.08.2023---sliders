@@ -81,9 +81,14 @@ exports.removeFromCart = async (req, res) => {
     const cartId = req.user.cart;
     const cart = await Cart.findById(cartId);
 
-    const existingProductIndex = cart.products.findIndex((product) =>
-      product._id.equals(req.params.id)
-    );
+    let existingProductIndex = -1; // Initialize with -1 indicating not found
+
+    cart.products.forEach(({ product }, index) => {
+      if (product._id.equals(req.params.id)) {
+        existingProductIndex = index; // Set the index if the product is found
+        return; // Exit the loop once the product is found
+      }
+    });
 
     if (existingProductIndex === -1) {
       return res.status(404).json({
@@ -91,7 +96,6 @@ exports.removeFromCart = async (req, res) => {
         message: "Product not found in the cart",
       });
     }
-
     cart.products.splice(existingProductIndex, 1);
     await cart.save();
 
@@ -159,7 +163,7 @@ exports.pay = async (req, res) => {
       paymentDate: Date.now(),
     });
 
-    const newOrder = await Order.create({
+    await Order.create({
       user: user._id,
       status: "paid",
       products: newOrderProducts,
@@ -170,7 +174,6 @@ exports.pay = async (req, res) => {
         amount: discountedAmount,
       },
     });
-    console.log("test");
 
     cart.products = [];
     await cart.save();
