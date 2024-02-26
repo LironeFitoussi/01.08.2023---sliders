@@ -3,6 +3,7 @@ import styles from "./signin.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/User";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const { fetchUser, setUserToken } = useContext(UserContext);
@@ -47,6 +48,7 @@ const SignIn = () => {
           Login
         </button>
       </form>
+      <span>Forgot Password? reset <Link to='/forgot-password'>here</Link></span>
     </div>
   );
 };

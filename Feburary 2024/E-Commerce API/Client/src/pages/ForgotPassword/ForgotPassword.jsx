@@ -1,8 +1,8 @@
-import styles from './ResetPassword.module.css';
+import styles from './ForgotPassword.module.css';
 import { useState } from 'react';
 import axios from 'axios';
 
-export default function ResetPassword () {
+export default function ForgotPassword () {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [resetBtn, setResetBtn] = useState('Reset Password');
@@ -39,7 +39,7 @@ export default function ResetPassword () {
     };
     return (
         <div className={styles.resetPassword}>
-            <h1>Reset Password</h1>
+            <h1>Forgot Password</h1>
             <div>
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit}>
@@ -53,7 +53,7 @@ export default function ResetPassword () {
                     required
                 />
                 </div>
-                <button type="submit">{resetBtn}</button>
+                <button className={styles.resetBtn} type="submit">{resetBtn}</button>
             </form>
             </div>
         </div>
