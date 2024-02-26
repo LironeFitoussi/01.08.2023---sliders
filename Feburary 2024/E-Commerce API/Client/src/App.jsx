@@ -41,7 +41,7 @@ function App() {
           </>
         )}
 
-        {!userToken && <Route path="/authentication" element={<Authentication />} />}
+        {!user && <Route path="/authentication" element={<Authentication />} />}
       </Routes>
     </Router>
   );

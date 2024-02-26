@@ -3,7 +3,7 @@ import { createContext } from "react";
 
 export const UserContext = createContext({});
 export default function UserProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
   const [userToken, setUserToken] = useState(localStorage.getItem("userToken"));
 
   const fetchUser = async () => {

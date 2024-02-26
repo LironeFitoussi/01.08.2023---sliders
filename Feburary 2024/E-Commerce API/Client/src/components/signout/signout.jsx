@@ -5,12 +5,13 @@ import { UserContext } from "../../context/User";
 
 const SignOut =  () => {
   const navigate = useNavigate();
-  const { fetchUser, setUserToken } = useContext(UserContext);
+  const { setUser, setUserToken } = useContext(UserContext);
 
   const handleSignOut = async (e) => {
     e.preventDefault();
     localStorage.removeItem("userToken");
     await setUserToken(null)
+    setUser(undefined)
     fetchUser();
     navigate("/");
   };
