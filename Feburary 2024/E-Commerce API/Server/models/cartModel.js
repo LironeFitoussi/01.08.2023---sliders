@@ -27,6 +27,18 @@ cartSchema.pre(/^find/, function (next) {
   next();
 });
 
-const Cart = mongoose.model("Cart", cartSchema);
+// Define a virtual property for totalAmount
+cartSchema.virtual("totalAmount").get(function () {
+  let total = 0;
+  this.products.forEach((item) => {
+    total += item.product.price * item.quantity;
+  });
+  return total;
+});
 
+// Set toJSON and toObject options to include virtuals
+cartSchema.set("toJSON", { virtuals: true });
+cartSchema.set("toObject", { virtuals: true });
+
+const Cart = mongoose.model("Cart", cartSchema);
 module.exports = Cart;

@@ -14,37 +14,37 @@ export default function Cart() {
     amount: 0,
     currency: "NIS",
   });
-  const { userToken, user } = useContext(UserContext);
+
+
+  const { userToken } = useContext(UserContext);
   const { id } = useParams();
+  const fetchCart = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/api/v1/cart/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+      setUserCart(response.data.data.userCart[0].products);
+      setCartTotalPrice(response.data.data.userCart[0].totalAmount);
+      
+      setPaymentData(prevData => ({
+        ...prevData,
+        amount: response.data.data.userCart[0].totalAmount
+      }));
+      
+      console.log(response.data.data.userCart[0].products);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
 
   useEffect(() => {
-    const fetchCart = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:3000/api/v1/cart/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${userToken}`,
-            },
-          }
-        );
-        setUserCart(response.data.data.userCart[0].products);
-        console.log(response.data.data.userCart[0].products);
-      } catch (error) {
-        console.log(error.response.data);
-      }
-    };
-
-    fetchCart(); // Fetch cart data when the component mounts
+    fetchCart();
   }, [id, userToken]);
-
-  useEffect(() => {
-    // Calculate total price when userCart changes
-    const totalPrice = userCart.reduce((acc, product) => {
-      return acc + product.quantity * product.price;
-    }, 0);
-    setCartTotalPrice(totalPrice);
-  }, [userCart]);
 
   const removeFromCart = (productId) => {
     let config = {
@@ -59,7 +59,6 @@ export default function Cart() {
     axios
       .request(config)
       .then((response) => {
-        console.log(JSON.stringify(response.data));
         setUserCart(userCart.filter((product) => product._id !== productId));
       })
       .catch((error) => {
@@ -85,11 +84,12 @@ export default function Cart() {
       })
       .then((response) => {
         console.log(JSON.stringify(response.data));
+        fetchCart();
         setShowDialog(false);
         return response;
       })
       .then((response) => {
-        // After payment, you may want to update the cart or perform any necessary action
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);
@@ -118,7 +118,7 @@ export default function Cart() {
         ))}
 
         <div>
-          <p>Total Price: ${cartTotalPrice.toFixed(2)}</p>
+          <p>Total Price: {cartTotalPrice}</p>
           <button onClick={handleCheckout}>Checkout</button>
         </div>
       </main>

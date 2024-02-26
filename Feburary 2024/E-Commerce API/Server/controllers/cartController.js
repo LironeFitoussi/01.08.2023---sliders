@@ -170,6 +170,7 @@ exports.pay = async (req, res) => {
         amount: discountedAmount,
       },
     });
+    console.log("test");
 
     cart.products = [];
     await cart.save();
