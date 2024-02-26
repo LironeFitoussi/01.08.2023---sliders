@@ -12,6 +12,7 @@ import Header from "./components/Header/Header.jsx";
 import CreateProduct from "./pages/Admin/CreateProduct.jsx"; // Import the CreateProduct component
 import Cart from "./pages/Cart/Cart.jsx";
 import Orders from "./pages/Orders/Orders.jsx";
+import ResetPassword from "./pages/ResetPassword/ResetPassword.jsx";
 
 function App() {
   const { userToken, user } = useContext(UserContext);
@@ -41,7 +42,12 @@ function App() {
           </>
         )}
 
-        {!user && <Route path="/authentication" element={<Authentication />} />}
+        {!user && (
+          <>
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/authentication" element={<Authentication />} />
+          </>
+        )}
       </Routes>
     </Router>
   );
