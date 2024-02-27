@@ -21,6 +21,9 @@ export default function Admin() {
                                     <li className={styles.li}>
                                         <Link to="/admin/create-product" className={styles.link}>Create Product</Link>
                                     </li>
+                                    <li className={styles.li}>
+                                        <Link to="/admin/admin-stats" className={styles.link}>Stats</Link>
+                                    </li>
                                 </ul>
                             </nav>
                         </aside>

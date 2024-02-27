@@ -1,11 +1,12 @@
 import styles from "./AddToCart.module.css";
 import axios from "axios";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+
 // import { useParams } from "react-router-dom";
 import { UserContext } from "../../context/User";
 import { useContext } from "react";
 
 export default function AddToCart({ productId }) {
-  console.log(productId);
   const { userToken } = useContext(UserContext);
   //   const obj = useParams();
   //   console.log(obj);
@@ -29,5 +30,5 @@ export default function AddToCart({ productId }) {
       });
   };
 
-  return <button onClick={handleAddToCart}>Add to Cart ((Cart icon))</button>;
+  return <AddShoppingCartIcon onClick={handleAddToCart} />
 }

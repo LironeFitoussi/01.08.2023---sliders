@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserContext } from "./context/User.jsx";
+import './App.css'
 
 import Home from "./pages/Home/Home.jsx";
-import Products from "./pages/Products/Products.jsx";
+import ProductsPage from "./pages/ProductsPage/ProductsPage.jsx";
 import Authentication from "./pages/Authentication/Authentication.jsx";
 import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
 import Admin from "./pages/Admin/Admin.jsx";
@@ -32,7 +33,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/products" element={<ProductsPage />} />
         <Route path="/products/:id" element={<ProductDetail />} />
 
         {user && userToken && (
