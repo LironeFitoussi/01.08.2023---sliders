@@ -1,7 +1,7 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
-const sendEmail = require("../utils/email");
+const { sendEmail } = require("../utils/email");
 const crypto = require("crypto");
 
 const signToken = (id) => {
