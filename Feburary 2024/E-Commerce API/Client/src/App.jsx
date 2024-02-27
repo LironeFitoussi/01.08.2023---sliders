@@ -15,6 +15,7 @@ import Orders from "./pages/Orders/Orders.jsx";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "./pages/ResetPassword/ResetPassword.jsx";
 import OrderValidation from "./pages/Orders/OrderValidation.jsx";
+import AdminStats from "./pages/Admin/AdminStats.jsx";
 function App() {
   const { userToken, user } = useContext(UserContext);
 
@@ -32,6 +33,8 @@ function App() {
               <>
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/admin/create-product" element={<CreateProduct />} />
+                <Route path="/admin/admin-stats" element={<AdminStats />} />
+
               </>
             )}
             {user.role !== "admin" && (

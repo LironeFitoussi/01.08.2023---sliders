@@ -42,6 +42,7 @@ exports.validation = async (req, res) => {
       paymentDetails: {
         paymentId: cart.paySession,
         amount: cart.totalAmount,
+        paymentDate: Date.now(),
       },
     });
   };
