@@ -44,6 +44,10 @@ const SignUp = () => {
           <input type="email" name="email" onChange={handleChange} />
         </div>
         <div className={styles.inputField}>
+          <label>Birthday</label>
+          <input type="date" name="birthday" onChange={handleChange} />
+        </div>
+        <div className={styles.inputField}>
           <label>Password:</label>
           <input type="password" name="password" onChange={handleChange} />
         </div>

@@ -32,6 +32,7 @@ exports.signup = async (req, res) => {
       email: req.body.email,
       password: req.body.password,
       passwordConfirm: req.body.passwordConfirm,
+      birthday: req.body.birthday,
     });
 
     const token = signToken(newUser._id);
