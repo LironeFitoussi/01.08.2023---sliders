@@ -38,7 +38,25 @@ function sendMonthlyEmail(email) {
   });
 }
 
+function sendBirthdayEmail(email) {
+  const mailOptions = {
+    from: "E-Commerce API",
+    to: email,
+    subject: "Happy Birthday!",
+    text: "Happy Birthday! We hope you have a fantastic day filled with joy and happiness.",
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log("Error sending birthday email:", error);
+    } else {
+      console.log("Birthday email sent:", info.response);
+    }
+  });
+}
+
 module.exports = {
   sendMonthlyEmail,
+  sendBirthdayEmail,
   sendEmail,
 };
