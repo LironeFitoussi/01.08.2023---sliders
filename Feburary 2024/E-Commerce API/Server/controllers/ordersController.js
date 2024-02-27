@@ -26,13 +26,31 @@ exports.getOrders = async (req, res) => {
 };
 
 exports.validation = async (req, res) => {
-  console.log(req.query.cart);
   const cart = await Cart.findById(req.query.cart);
   console.log(cart);
   if (!cart) {
     return res.status(404).json({ error: "Cart not found" });
   }
   const sessionKey = cart.paySession;
+
+  const createOrder = async () => {
+    await Order.create({
+      user: cart.user,
+      status: "paid",
+      products: cart.products,
+      totalPrice: cart.totalAmount,
+      paymentDetails: {
+        paymentId: cart.paySession,
+        amount: cart.totalAmount,
+      },
+    });
+  };
+
+  const resetCart = () => {
+    cart.paySession = null;
+    cart.products = [];
+    cart.save();
+  };
 
   try {
     stripe.checkout.sessions.retrieve(sessionKey, function (err, session) {
@@ -47,6 +65,9 @@ exports.validation = async (req, res) => {
         if (paymentStatus === "paid" || paymentStatus === "completed") {
           console.log("Payment was successful!");
           res.status(200).json({ message: "Payment was successful!" });
+          console.log("test");
+          createOrder();
+          resetCart();
         } else {
           console.log("Payment was not successful.");
           res.status(400).json({ error: "Payment was not successful." });

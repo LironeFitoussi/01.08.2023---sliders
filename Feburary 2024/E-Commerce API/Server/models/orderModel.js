@@ -12,10 +12,6 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Product" || "UserGiftCard",
       },
-      price: {
-        type: Number,
-        required: true,
-      },
       quantity: {
         type: Number,
         default: 1,
@@ -35,8 +31,7 @@ const orderSchema = new mongoose.Schema({
   },
   paymentDetails: {
     paymentId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Payment",
+      type: String,
     },
     paymentMethod: {
       type: String,
