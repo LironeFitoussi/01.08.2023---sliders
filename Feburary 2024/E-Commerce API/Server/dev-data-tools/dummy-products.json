@@ -1,103 +1,202 @@
 [
-    {
-      "name": "Menorah",
+  {
+      "name": "Blue Velvet Dress",
       "price": 50,
       "priceDiscount": 0,
-      "description": "A traditional Jewish lampstand with seven branches used during the Hanukkah holiday.",
+      "description": "A stunning blue velvet dress perfect for evening events and parties.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fmenorah.webp?alt=media&token=669b15b3-940c-4a26-aadd-8144255aed93",
-      "slug": "menorah",
-      "category": "Judaica",
+      "slug": "blue-velvet-dress",
+      "category": "Women's Dresses",
       "stock": 100
-    },
-    {
-      "name": "Shofar",
+  },
+  {
+      "name": "Leather Jacket",
       "price": 80,
       "priceDiscount": 0,
-      "description": "A ram's horn blown like a trumpet, used for Jewish religious purposes, especially during Rosh Hashanah and Yom Kippur.",
+      "description": "A classic leather jacket suitable for both casual and formal occasions.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2FShofar-16-Zachi-Evenor.jpg?alt=media&token=39b638a7-9f81-4b80-8910-eedfd2d76392",
-      "slug": "shofar",
-      "category": "Judaica",
+      "slug": "leather-jacket",
+      "category": "Men's Jackets",
       "stock": 50
-    },
-    {
-      "name": "Kippah",
+  },
+  {
+      "name": "Striped Fedora Hat",
       "price": 10,
       "priceDiscount": 0,
-      "description": "A small, hemispherical cap worn by Jewish men during prayer and religious ceremonies.",
+      "description": "A stylish striped fedora hat, perfect for adding flair to any outfit.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2FBenefits-of-Wearing-a-Kippah-500x291-1.jpg?alt=media&token=4db5455a-8295-4148-9601-9cbf9b5fe6fb",
-      "slug": "kippah",
-      "category": "Judaica",
+      "slug": "striped-fedora-hat",
+      "category": "Hats",
       "stock": 200
-    },
-    {
-      "name": "Tallit",
+  },
+  {
+      "name": "Cashmere Scarf",
       "price": 120,
       "priceDiscount": 0,
-      "description": "A fringed garment traditionally worn by Jewish men during prayer, especially at morning prayers.",
+      "description": "A luxurious cashmere scarf perfect for keeping warm during chilly days.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F%D7%94%D7%95%D7%A8%D7%93%D7%94.jpg?alt=media&token=179c798c-dffe-4b35-8ca0-d9bb65a031d6",
-      "slug": "tallit",
-      "category": "Judaica",
+      "slug": "cashmere-scarf",
+      "category": "Scarves",
       "stock": 80
-    },
-    {
-      "name": "Hamsa",
+  },
+  {
+      "name": "Bohemian Necklace",
       "price": 25,
       "priceDiscount": 0,
-      "description": "A palm-shaped amulet popular throughout the Middle East and North Africa, commonly used in jewelry and wall hangings.",
+      "description": "A bohemian-style necklace featuring intricate designs, perfect for everyday wear.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F5010%2Chamsa-dlya-podveshyvanyya-s-glazamy%2C-8-11%2C5-sm-550x550.jpg?alt=media&token=d15d418c-9219-4be5-bff8-3e63d730cb96",
-      "slug": "hamsa",
-      "category": "Judaica",
+      "slug": "bohemian-necklace",
+      "category": "Jewelry",
       "stock": 150
-    },
-    {
-      "name": "Kiddush Cup",
+  },
+  {
+      "name": "Silver Bracelet",
       "price": 35,
       "priceDiscount": 0,
-      "description": "A special cup used in Jewish religious ceremonies, especially during the Kiddush blessing on Shabbat and Jewish holidays.",
+      "description": "An elegant silver bracelet that adds sophistication to any ensemble.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F46770.jpg?alt=media&token=5944bb0a-971e-4bb5-adb6-db1ae17511b8",
-      "slug": "kiddush-cup",
-      "category": "Judaica",
+      "slug": "silver-bracelet",
+      "category": "Jewelry",
       "stock": 120
-    },
-    {
-      "name": "Mezuzah",
+  },
+  {
+      "name": "Embroidered Handbag",
       "price": 20,
       "priceDiscount": 0,
-      "description": "A small decorative case containing a scroll inscribed with specific Hebrew verses from the Torah, affixed to the doorframe of Jewish homes.",
+      "description": "A beautifully embroidered handbag, perfect for adding a pop of color to any outfit.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F78690-0000.jpg?alt=media&token=be1003b1-8ac0-4b0f-b3d7-3af3a89833d2",
-      "slug": "mezuzah",
-      "category": "Judaica",
+      "slug": "embroidered-handbag",
+      "category": "Handbags",
       "stock": 100
-    },
-    {
-      "name": "Challah Board",
+  },
+  {
+      "name": "Chic Sunglasses",
       "price": 60,
       "priceDiscount": 0,
-      "description": "A special board used for cutting challah bread, a traditional Jewish braided bread.",
+      "description": "A pair of chic sunglasses that adds a touch of glamour to any look.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F71wBHx7xqML._AC_UF894%2C1000_QL80_.jpg?alt=media&token=a999a59e-ab88-4b58-922c-b53ba6568d0e",
-      "slug": "challah-board",
-      "category": "Judaica",
+      "slug": "chic-sunglasses",
+      "category": "Accessories",
       "stock": 70
-    },
-    {
-      "name": "Havdalah Set",
+  },
+  {
+      "name": "Elegant Watch",
       "price": 90,
       "priceDiscount": 0,
-      "description": "A set of ceremonial items used during the Havdalah ritual marking the end of Shabbat.",
+      "description": "An elegant watch that combines style and functionality seamlessly.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F40136.jpg?alt=media&token=17503bff-1d74-4dc6-8f7c-d7da32f2f29d",
-      "slug": "havdalah-set",
-      "category": "Judaica",
+      "slug": "elegant-watch",
+      "category": "Watches",
       "stock": 40
-    },
-    {
-      "name": "Siddur",
+  },
+  {
+      "name": "Silk Scarf",
       "price": 30,
       "priceDiscount": 0,
-      "description": "A Jewish prayer book containing a set order of daily prayers.",
+      "description": "A luxurious silk scarf featuring beautiful patterns and colors.",
       "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2F93100100831.jpg?alt=media&token=b7775d60-92e3-4173-8e3b-9f5a451e85e0",
-      "slug": "siddur",
-      "category": "Judaica",
+      "slug": "silk-scarf",
+      "category": "Scarves",
       "stock": 100
-    }
-  ]
-  
+  },
+  {
+    "name": "Vintage Lace Dress",
+    "price": 70,
+    "priceDiscount": 0,
+    "description": "A vintage-inspired lace dress perfect for romantic occasions and cocktail parties.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fvintage-lace-dress.jpg?alt=media&token=5d71f0d2-b5bf-4d5f-9c2c-301f59b1f9dc",
+    "slug": "vintage-lace-dress",
+    "category": "Women's Dresses",
+    "stock": 60
+},
+{
+    "name": "Denim Jacket",
+    "price": 90,
+    "priceDiscount": 0,
+    "description": "A classic denim jacket featuring distressed details for a trendy look.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fdenim-jacket.jpg?alt=media&token=9307b13b-01d8-46d6-9ff1-6c84d91c424f",
+    "slug": "denim-jacket",
+    "category": "Women's Jackets",
+    "stock": 30
+},
+{
+    "name": "Straw Fedora Hat",
+    "price": 15,
+    "priceDiscount": 0,
+    "description": "A trendy straw fedora hat perfect for sunny days and beach outings.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fstraw-fedora-hat.jpg?alt=media&token=7dc6b3bf-5fd4-45eb-b225-95d28a7ff92f",
+    "slug": "straw-fedora-hat",
+    "category": "Hats",
+    "stock": 100
+},
+{
+    "name": "Plaid Scarf",
+    "price": 25,
+    "priceDiscount": 0,
+    "description": "A cozy plaid scarf perfect for adding warmth and style to your winter wardrobe.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fplaid-scarf.jpg?alt=media&token=30b6b725-1ad8-49a4-aef5-507c4380ff68",
+    "slug": "plaid-scarf",
+    "category": "Scarves",
+    "stock": 80
+},
+{
+    "name": "Statement Necklace",
+    "price": 40,
+    "priceDiscount": 0,
+    "description": "A bold statement necklace featuring intricate designs and vibrant colors.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fstatement-necklace.jpg?alt=media&token=1907c146-7c1e-4e6b-b3cb-af13c144b20a",
+    "slug": "statement-necklace",
+    "category": "Jewelry",
+    "stock": 120
+},
+{
+    "name": "Pearl Earrings",
+    "price": 20,
+    "priceDiscount": 0,
+    "description": "Classic pearl earrings that add elegance to any ensemble.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fpearl-earrings.jpg?alt=media&token=87dc5e6a-f70d-4a43-9275-03c3bc1537e6",
+    "slug": "pearl-earrings",
+    "category": "Jewelry",
+    "stock": 150
+},
+{
+    "name": "Canvas Tote Bag",
+    "price": 30,
+    "priceDiscount": 0,
+    "description": "A durable canvas tote bag perfect for carrying your essentials with style.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fcanvas-tote-bag.jpg?alt=media&token=5e04b188-83a5-4f89-b54d-8c4304c7c9a1",
+    "slug": "canvas-tote-bag",
+    "category": "Bags",
+    "stock": 100
+},
+{
+    "name": "Cat Eye Sunglasses",
+    "price": 45,
+    "priceDiscount": 0,
+    "description": "A pair of stylish cat eye sunglasses that exude retro charm.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fcat-eye-sunglasses.jpg?alt=media&token=ef424144-71a7-41b6-8338-1d380b4b5f53",
+    "slug": "cat-eye-sunglasses",
+    "category": "Accessories",
+    "stock": 70
+},
+{
+    "name": "Leather Strap Watch",
+    "price": 70,
+    "priceDiscount": 0,
+    "description": "A stylish leather strap watch featuring a minimalist design.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fleather-strap-watch.jpg?alt=media&token=741fe6b7-2815-4f19-8342-011ccbe7eb67",
+    "slug": "leather-strap-watch",
+    "category": "Watches",
+    "stock": 40
+},
+{
+    "name": "Cashmere Gloves",
+    "price": 35,
+    "priceDiscount": 0,
+    "description": "Luxurious cashmere gloves that keep your hands warm in style.",
+    "image": "https://firebasestorage.googleapis.com/v0/b/e-commerce-project-e3962.appspot.com/o/images%2Fcashmere-gloves.jpg?alt=media&token=45ff63db-c493-42fd-9439-eb5b83a9a9a4",
+    "slug": "cashmere-gloves",
+    "category": "Gloves",
+    "stock": 100
+}
+]
