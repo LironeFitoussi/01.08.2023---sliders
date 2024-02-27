@@ -17,6 +17,8 @@ mongoose
     console.error("Error connecting to MongoDB:", err.message);
   });
 
+require("./utils/emailScheduler");
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App running on port ${port}`);
