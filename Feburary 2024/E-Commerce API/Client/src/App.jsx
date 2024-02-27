@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
 import { UserContext } from "./context/User.jsx";
 
 import Home from "./pages/Home/Home.jsx";
@@ -8,7 +7,7 @@ import Products from "./pages/Products/Products.jsx";
 import Authentication from "./pages/Authentication/Authentication.jsx";
 import ProductDetail from "./pages/ProductDetail/ProductDetail.jsx";
 import Admin from "./pages/Admin/Admin.jsx";
-import Header from "./components/Header/Header.jsx";
+// import Header from "./components/Header/Header.jsx";
 import CreateProduct from "./pages/Admin/CreateProduct.jsx"; // Import the CreateProduct component
 import Cart from "./pages/Cart/Cart.jsx";
 import Orders from "./pages/Orders/Orders.jsx";
@@ -16,12 +15,21 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "./pages/ResetPassword/ResetPassword.jsx";
 import OrderValidation from "./pages/Orders/OrderValidation.jsx";
 import AdminStats from "./pages/Admin/AdminStats.jsx";
+
+
+// Page components:
+import Navbar from "./components/Navbar/Navbar";
+import Announcement from "./components/Announcement/Announcement";
+import Newsletter from "./components/Newsletter/Newsletter";
+import Footer from "./components/Footer/Footer";
+
 function App() {
   const { userToken, user } = useContext(UserContext);
 
   return (
     <Router>
-      <Header />
+      <Announcement />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
@@ -55,6 +63,8 @@ function App() {
           </>
         )}
       </Routes>
+      <Newsletter />
+      <Footer />
     </Router>
   );
 }

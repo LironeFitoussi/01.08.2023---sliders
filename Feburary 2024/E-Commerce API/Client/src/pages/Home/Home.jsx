@@ -1,12 +1,17 @@
-import React from "react";
+import styles from "./Home.module.css";
 
-function Home() {
+// import components
+
+import Slider from "../../components/Slider/Slider";
+import Categories from "../../components/Categories/Categories";
+import Products from "../../components/Products/Products";
+
+export default function Home() {
   return (
     <div>
-      <h2>Welcome to the Home Page</h2>
-      <p>This is a basic home page component.</p>
+      <Slider />
+      <Categories />
+      <Products />
     </div>
   );
 }
-
-export default Home;
