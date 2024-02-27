@@ -9,7 +9,7 @@ const paymentRouter = require("./routes/paymentRouter");
 const cuponsRouter = require("./routes/couponsRouter");
 const giftCardRouter = require("./routes/giftCardRouter");
 const ordersRouter = require("./routes/ordersRoutes");
-
+const adminRouter = require("./routes/adminRouter");
 const authController = require("./controllers/authController");
 
 const app = express();
@@ -38,5 +38,6 @@ app.use("/api/v1/payment", authController.isAdmin, paymentRouter);
 app.use("/api/v1/coupons", cuponsRouter);
 app.use("/api/v1/gift-card", giftCardRouter);
 app.use("/api/v1/orders", ordersRouter);
+app.use("/api/v1/admin", authController.isAdmin, adminRouter);
 
 module.exports = app;

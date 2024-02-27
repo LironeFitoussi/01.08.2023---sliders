@@ -1,4 +1,3 @@
-const Product = require("../models/productModel");
 const Cart = require("../models/cartModel");
 const Order = require("../models/orderModel");
 const Payment = require("../models/paymentModel");
