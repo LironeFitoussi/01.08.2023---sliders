@@ -5,7 +5,7 @@ const authController = require("../controllers/authController");
 const router = express.Router();
 
 router.get(
-  `/order-validation/?cart=cartId&user=userId&prices=totalAmount`,
+  `/order-validation`,
   authController.userValidator,
   ordersController.validation
 );

@@ -26,23 +26,37 @@ exports.getOrders = async (req, res) => {
 };
 
 exports.validation = async (req, res) => {
-  const user = req.user;
+  console.log(req.query.cart);
   const cart = await Cart.findById(req.query.cart);
-  const price = req.query.price;
-
+  console.log(cart);
+  if (!cart) {
+    return res.status(404).json({ error: "Cart not found" });
+  }
   const sessionKey = cart.paySession;
 
-  stripe.checkout.sessions.retrieve(sessionKey, function (err, session) {
-    if (err) {
-      console.error("Error retrieving session:", err);
-    } else {
-      const paymentStatus = session.payment_status;
-
-      if (paymentStatus === "paid" || paymentStatus === "completed") {
-        console.log("Payment was successful!");
+  try {
+    stripe.checkout.sessions.retrieve(sessionKey, function (err, session) {
+      if (err) {
+        console.error("Error retrieving session:", err);
+        res.status(500).json({
+          error: "An error occurred while retrieving the payment session.",
+        });
       } else {
-        console.log("Payment was not successful.");
+        const paymentStatus = session.payment_status;
+
+        if (paymentStatus === "paid" || paymentStatus === "completed") {
+          console.log("Payment was successful!");
+          res.status(200).json({ message: "Payment was successful!" });
+        } else {
+          console.log("Payment was not successful.");
+          res.status(400).json({ error: "Payment was not successful." });
+        }
       }
-    }
-  });
+    });
+  } catch (error) {
+    console.error("Error retrieving session:", error);
+    res.status(500).json({
+      error: "An error occurred while processing the payment session.",
+    });
+  }
 };

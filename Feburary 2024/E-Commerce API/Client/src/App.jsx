@@ -14,6 +14,7 @@ import Cart from "./pages/Cart/Cart.jsx";
 import Orders from "./pages/Orders/Orders.jsx";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword.jsx";
 import ResetPassword from "./pages/ResetPassword/ResetPassword.jsx";
+import OrderValidation from "./pages/Orders/OrderValidation.jsx";
 function App() {
   const { userToken, user } = useContext(UserContext);
 
@@ -37,6 +38,7 @@ function App() {
               <>
                 <Route path="/cart/:id" element={<Cart />} />
                 <Route path="/user-orders" element={<Orders />} />
+                <Route path="/success" element={<OrderValidation />} />
               </>
             )}
           </>
