@@ -1,0 +1,16 @@
+/* OrderValidation.module.css */
+
+.success {
+  color: green;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.pending {
+  color: gray;
+  font-weight: bold;
+}
