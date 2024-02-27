@@ -39,6 +39,4 @@ app.use("/api/v1/coupons", cuponsRouter);
 app.use("/api/v1/gift-card", giftCardRouter);
 app.use("/api/v1/orders", ordersRouter);
 
-// TODO: Configure rest api routes
-
 module.exports = app;

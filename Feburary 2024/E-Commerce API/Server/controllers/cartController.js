@@ -2,6 +2,7 @@ const Product = require("../models/productModel");
 const Cart = require("../models/cartModel");
 const Order = require("../models/orderModel");
 const Payment = require("../models/paymentModel");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const percentageDiscount = (price, discount) => {
   return (price * (100 - discount)) / 100;
@@ -183,4 +184,38 @@ exports.pay = async (req, res) => {
     console.error("Error processing payment:", error);
     res.status(500).json({ message: "Internal server error" });
   }
+};
+
+exports.getCheckoutSession = async (req, res, next) => {
+  const cart = await Cart.findById(req.params.cartID);
+  console.log(cart);
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ["card"],
+    success_url: `${req.protocol}://localhost:5173/success/?cart=${req.params.cartID}&user=${req.user.id}&price=${cart.totalAmount}`,
+    cancel_url: `${req.protocol}://localhost:5173/cancel`,
+    customer_email: req.user.email,
+    client_reference_id: req.params.cartID,
+
+    line_items: cart.products.map(({ product, quantity }) => ({
+      price_data: {
+        currency: "ils",
+        product_data: {
+          name: product.name,
+        },
+        unit_amount: product.price * 100,
+      },
+      quantity: quantity,
+    })),
+    mode: "payment",
+  });
+
+  cart.paySession = session.id;
+  cart.save();
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      session,
+    },
+  });
 };

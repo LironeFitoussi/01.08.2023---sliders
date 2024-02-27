@@ -19,6 +19,9 @@ const cartSchema = new mongoose.Schema({
       },
     },
   ],
+  paySession: {
+    type: String,
+  },
 });
 
 // Pre middleware to populate products before any find operation

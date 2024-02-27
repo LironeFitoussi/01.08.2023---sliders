@@ -7,15 +7,9 @@ import styles from "./Cart.module.css";
 export default function Cart() {
   const [userCart, setUserCart] = useState([]);
   const [cartTotalPrice, setCartTotalPrice] = useState(0);
-  const [showDialog, setShowDialog] = useState(false);
-  const [paymentData, setPaymentData] = useState({
-    paymentMethod: "credit_card",
-    transactionId: "1234567890",
-    amount: 0,
-    currency: "NIS",
-  });
+  const [paymentProcessing, setPaymentProcessing] = useState(false);
 
-  const { userToken } = useContext(UserContext);
+  const { userToken, user } = useContext(UserContext);
   const { id } = useParams();
 
   const fetchCart = async () => {
@@ -30,13 +24,6 @@ export default function Cart() {
       );
       setUserCart(response.data.data.userCart[0].products);
       setCartTotalPrice(response.data.data.userCart[0].totalAmount);
-
-      setPaymentData((prevData) => ({
-        ...prevData,
-        amount: response.data.data.userCart[0].totalAmount,
-      }));
-
-      console.log(response.data.data.userCart[0].products);
     } catch (error) {
       console.log(error.response.data);
     }
@@ -62,32 +49,24 @@ export default function Cart() {
     }
   };
 
-  const handleCheckout = () => {
-    setShowDialog(true);
-  };
-
-  const handleCloseDialog = () => {
-    setShowDialog(false);
-  };
-
-  const handlePayment = async () => {
-    try {
-      const response = await axios.post(
-        `http://localhost:3000/api/v1/cart/${id}/pay`,
-        paymentData,
-        {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      console.log(JSON.stringify(response.data));
-      await fetchCart(); // Refetch cart after payment
-      setShowDialog(false);
-    } catch (error) {
-      console.log(error);
-    }
+  const handlePaymentWithStripe = async () => {
+    let config = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: `http://localhost:3000/api/v1/cart/checkout-session/${user.cart}`,
+      headers: { 
+        'Authorization': `Bearer ${userToken}`
+      }
+    };
+    
+    axios.request(config)
+    .then((response) => {
+      window.open(response.data.data.session.url, '_blank');
+      console.log((response.data.data.session));
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
   };
 
   return (
@@ -113,39 +92,11 @@ export default function Cart() {
 
         <div>
           <p>Total Price: {cartTotalPrice}</p>
-          <button onClick={handleCheckout}>Checkout</button>
+          <button onClick={handlePaymentWithStripe} disabled={paymentProcessing}>
+            {paymentProcessing ? "Processing..." : "Checkout with Stripe"}
+          </button>
         </div>
       </main>
-
-      {showDialog && (
-        <div className={styles["dialog-container"]}>
-          <div className={styles.dialog}>
-            <h2>Payment Form</h2>
-            <form>
-              <label>
-                Payment Method: <input type="text" value="credit_card" />
-              </label>
-              <br />
-              <label>
-                Transaction ID:{" "}
-                <input type="text" value="1234567890" readOnly />
-              </label>
-              <br />
-              <label>
-                Amount:{" "}
-                <input type="text" value={cartTotalPrice.toFixed(2)} readOnly />
-              </label>
-              <br />
-              <label>
-                Currency: <input type="text" value="NIS" readOnly />
-              </label>
-              <br />
-              <button onClick={handlePayment}>Submit Payment</button>
-            </form>
-            <button onClick={handleCloseDialog}>Close</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
