@@ -64,7 +64,9 @@ function App() {
           </>
         )}
       </Routes>
-      <Newsletter />
+      {user?.role !== "admin" && (
+        <Newsletter />
+      )}
       <Footer />
     </Router>
   );

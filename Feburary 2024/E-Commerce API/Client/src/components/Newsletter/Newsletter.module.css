@@ -1,5 +1,5 @@
 .container {
-  height: 60vh;
+  height: 25vh;
   width: 100vw;
   background-color: #fcf5f5;
   display: flex;
@@ -19,7 +19,7 @@
 
 .inputContainer {
   width: 50%;
-  height: 8vh;
+  height: 5vh;
   background-color: white;
   display: flex;
   justify-content: space-between;

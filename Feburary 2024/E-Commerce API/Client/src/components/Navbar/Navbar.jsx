@@ -63,17 +63,20 @@ export default function Navbar () {
                       </div>
                   )}
                   {user.role !== "admin" && ( // Display Cart only if user is not admin
+                    <>
                     <div className={styles.menuItem}>
                       <Link to="/user-orders" className={styles.link}>User Orders</Link>
                     </div>
-                  )}
-                  <div className={styles.menuItem}>
+                    <div className={styles.menuItem}>
                     <Badge badgeContent={cart} color="primary">
                       <Link to={`/cart/${user._id}`} className={styles.link}>
                         <ShoppingCartIcon />
                       </Link>
                     </Badge>
                   </div>
+                    </>
+                  )}
+                  
                   <SignOut />
               </>
           )}

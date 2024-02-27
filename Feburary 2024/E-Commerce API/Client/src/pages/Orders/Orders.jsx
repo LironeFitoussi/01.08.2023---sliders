@@ -36,21 +36,11 @@ const Orders = ({ userId }) => {
         <div className={styles.ordersContainer}>
             <h1>Your Orders</h1>
             <div className={styles.orders}>
-                {orders.map((order) => (
-                    <div key={order._id} className={styles.orderCard}>
-                        <h2>Order ID: {order._id}</h2>
-                        <p>Total Price: ${order.totalPrice}</p>
-                        <p>Status: {order.status}</p>
-                        <div className={styles.products}>
-                            <h3>Products:</h3>
-                            {order.products.map((product) => (
-                                <div key={product._id} className={styles.product}>
-                                    <p>Name: {product.name}</p>
-                                    <p>Price: ${product.price}</p>
-                                    <p>Quantity: {product.quantity}</p>
-                                </div>
-                            ))}
-                        </div>
+                {orders.map(({products, _id, totalPrice, status}) => (
+                    <div key={products._id} className={styles.orderCard}>
+                        <h2>Order ID: {_id}</h2>
+                        <p>Total Price: ${totalPrice}</p>
+                        <p>Status: {status}</p>
                     </div>
                 ))}
             </div>

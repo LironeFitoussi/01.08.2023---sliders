@@ -1,3 +1,24 @@
 h1 {
   color: #260707;
 }
+.ordersContainer {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.orders {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.orderCard {
+  background-color: aliceblue;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  width: 75vw;
+  justify-content: space-between;
+  align-items: center;
+}
