@@ -48,7 +48,7 @@ exports.validation = async (req, res) => {
   };
 
   const resetCart = () => {
-    cart.paySession = null;
+    cart.paySession = undefined;
     cart.products = [];
     cart.save();
   };

@@ -1,14 +1,38 @@
 const Product = require("../models/productModel");
 
 const slugify = require("slugify");
+const mongoose = require("mongoose");
+const { paginate } = require("mongoose-paginate-v2");
+Product.paginate = paginate;
 
 exports.getAllProducts = async (req, res) => {
   try {
-    const products = await Product.find();
+    // Set default values for page and limit
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+
+    // Use mongoose-paginate-v2 to paginate the results
+    const options = {
+      page,
+      limit,
+    };
+
+    const result = await Product.paginate({}, options);
+
     res.status(200).json({
       status: "success",
+      pagination: {
+        totalDocs: result.totalDocs,
+        totalPages: result.totalPages,
+        page: result.page,
+        limit: result.limit,
+        hasNextPage: result.hasNextPage,
+        hasPrevPage: result.hasPrevPage,
+        nextPage: result.nextPage,
+        prevPage: result.prevPage,
+      },
       data: {
-        products,
+        products: result.docs,
       },
     });
   } catch (error) {
