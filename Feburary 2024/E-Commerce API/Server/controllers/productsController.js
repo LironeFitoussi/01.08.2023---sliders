@@ -1,7 +1,6 @@
 const Product = require("../models/productModel");
 
 const slugify = require("slugify");
-const mongoose = require("mongoose");
 const { paginate } = require("mongoose-paginate-v2");
 Product.paginate = paginate;
 
