@@ -25,8 +25,6 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   const { userToken, user } = useContext(UserContext);
-  console.log(process.env.TEST);
-
   return (
     <Router>
       <Announcement />

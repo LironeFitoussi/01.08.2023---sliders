@@ -15,6 +15,7 @@ const SignUp = () => {
     setSignupForm({ ...signupForm, [name]: value });
   };
 
+  console.log(process.env);
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
