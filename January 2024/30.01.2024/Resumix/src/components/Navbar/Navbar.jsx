@@ -1,12 +1,14 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useContext } from "react"; // Add useContext import
+import { Link } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
-import styles from './Navbar.module.css';
-import userDataProvider from '../../context/UserData';
+import { FaBars } from "react-icons/fa"; // Import hamburger icon
+import styles from "./Navbar.module.css";
+import userDataProvider from "../../context/UserData";
 
 export default function Navbar() {
   const { currentUser } = useContext(userDataProvider);
-  // console.log(currentUser);
+  const [isOpen, setIsOpen] = useState(false); // State to manage mobile menu
+
   const handleLogout = () => {
     const auth = getAuth();
     signOut(auth)
@@ -17,18 +19,25 @@ export default function Navbar() {
       .catch((error) => {
         console.error("Error occurred during sign-out:", error.message);
       });
-  }
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className={styles.navbarContainer}>
-      <ul className={styles.navbar}>
-        <li className={styles.li}>
-          <Link to="/" className={styles.logo}>
-            <b>Resumix<span>Pro</span></b>
-          </Link>
-        </li>
-      </ul>
-      <ul className={styles.navbar}>
+      <div className={styles.logoContainer}>
+        <Link to="/" className={styles.logo}>
+          <b>
+            Resumix<span>Pro</span>
+          </b>
+        </Link>
+      </div>
+      <div className={styles.menuIcon} onClick={toggleMenu}>
+        <FaBars />
+      </div>
+      <ul className={`${styles.navbar} ${isOpen ? styles.active : ""}`}>
         <li className={styles.li}>
           <Link to="/create">Create Resume</Link>
         </li>
@@ -38,8 +47,6 @@ export default function Navbar() {
         <li className={styles.li}>
           <Link to="/apply-jobs">Apply Jobs</Link>
         </li>
-      </ul>
-      <ul className={styles.navbar}>
         {currentUser ? (
           <li className={styles.li}>
             <p className={styles.wbMsg}>
@@ -54,16 +61,16 @@ export default function Navbar() {
             </p>
           </li>
         ) : (
-          <div className={styles.navbar}>
-            <li >
-              <Link className={styles.li} to="/login">Sign in</Link>
-            </li>
-            <li >
-              <Link className={styles.registerBtn} to="/register">Start Free</Link>
-            </li>
-          </div>
+          <li className={styles.li}>
+            <Link to="/login">Sign in</Link>
+          </li>
         )}
       </ul>
+      {currentUser ? null : (
+        <Link className={styles.registerBtn} to="/register">
+          Start Free
+        </Link>
+      )}
     </nav>
   );
 }
