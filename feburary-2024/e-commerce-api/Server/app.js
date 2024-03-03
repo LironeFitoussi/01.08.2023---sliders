@@ -15,7 +15,7 @@ const authController = require("./controllers/authController");
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://e-commerce-react-app-01o3.onrender.com/",
   })
 );
 
