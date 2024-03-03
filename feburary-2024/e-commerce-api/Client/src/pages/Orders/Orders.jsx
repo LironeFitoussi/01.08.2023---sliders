@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../../context/User";
 import styles from "./Orders.module.css";
+import { apiUrl } from "../../config/apiConfig";
 
 const Orders = ({ userId }) => {
   const { userToken, user } = useContext(UserContext);
@@ -14,14 +15,11 @@ const Orders = ({ userId }) => {
       }
 
       try {
-        const response = await axios.get(
-          `${process.env.API_URL}api/v1/orders/${user._id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${userToken}`,
-            },
-          }
-        );
+        const response = await axios.get(`${apiUrl}api/v1/orders/${user._id}`, {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        });
         console.log(response.data.data.userOrders);
         setOrders(response.data.data.userOrders);
       } catch (error) {

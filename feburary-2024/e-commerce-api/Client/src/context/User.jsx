@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
+import { apiUrl } from "../../config/apiConfig";
 
 export const UserContext = createContext({});
 export default function UserProvider({ children }) {
@@ -10,15 +11,12 @@ export default function UserProvider({ children }) {
     if (userToken !== null) {
       console.log("User Updated, fetching...");
       try {
-        const response = await fetch(
-          `${process.env.API_URL}api/v1/users/fetchUser`,
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${userToken}`,
-            },
-          }
-        );
+        const response = await fetch(`${apiUrl}api/v1/users/fetchUser`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        });
         if (response.ok) {
           const fetchedUser = await response.json();
           setUser(fetchedUser.data.user);

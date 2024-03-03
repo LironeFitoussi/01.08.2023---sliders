@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../../context/User";
 import styles from "./ResetPassword.module.css";
+import { apiUrl } from "../../config/apiConfig";
 
 export default function ResetPassword() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function ResetPassword() {
     e.preventDefault();
     try {
       const response = await axios.patch(
-        `${process.env.API_URL}api/v1/users/resetPassword/${tokenId}`,
+        `${apiUrl}api/v1/users/resetPassword/${tokenId}`,
         {
           password: password,
           passwordConfirm: passwordConfirm,

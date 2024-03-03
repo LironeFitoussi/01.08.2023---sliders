@@ -3,6 +3,7 @@ import { UserContext } from "../../context/User";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import styles from "./OrderValidation.module.css";
+import { apiUrl } from "../../config/apiConfig";
 
 export default function OrderValidation() {
   const { userToken, user } = useContext(UserContext);
@@ -16,7 +17,7 @@ export default function OrderValidation() {
       let config = {
         method: "get",
         maxBodyLength: Infinity,
-        url: `${process.env.API_URL}api/v1/orders/order-validation`,
+        url: `${apiUrl}api/v1/orders/order-validation`,
         headers: {
           Authorization: `Bearer ${userToken}`,
           "Content-Type": "application/json",

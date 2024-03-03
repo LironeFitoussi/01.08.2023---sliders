@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/User";
+import { apiUrl } from "../../config/apiConfig";
 
 const SignUp = () => {
   const { fetchUser, setUserToken } = useContext(UserContext);
@@ -15,14 +16,10 @@ const SignUp = () => {
     setSignupForm({ ...signupForm, [name]: value });
   };
 
-  console.log(process.env);
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${process.env.API_URL}api/v1/users/signup`,
-        signupForm
-      );
+      const res = await axios.post(`${apiUrl}api/v1/users/signup`, signupForm);
       localStorage.setItem("userToken", res.data.token);
       await setUserToken(localStorage.getItem("userToken"));
       fetchUser();

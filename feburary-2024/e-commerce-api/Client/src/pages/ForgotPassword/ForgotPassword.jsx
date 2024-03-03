@@ -1,6 +1,7 @@
 import styles from "./ForgotPassword.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { apiUrl } from "../../config/apiConfig";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function ForgotPassword() {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: `${process.env.API_URL}api/v1/users/forgotPassword`,
+      url: `${apiUrl}api/v1/users/forgotPassword`,
       headers: {
         "Content-Type": "application/json",
       },

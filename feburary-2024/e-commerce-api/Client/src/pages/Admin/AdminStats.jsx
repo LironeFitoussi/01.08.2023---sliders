@@ -1,6 +1,7 @@
 import styles from "./AdminStats.module.css";
 import { PieChart } from "@mui/x-charts/PieChart";
 import { LineChart } from "@mui/x-charts/LineChart";
+import { apiUrl } from "../../config/apiConfig";
 
 import axios from "axios";
 import { useEffect, useContext, useState } from "react";
@@ -13,14 +14,11 @@ export default function AdminStats() {
 
   const fetchRoleCounts = async () => {
     try {
-      const response = await axios.get(
-        `${process.env.API_URL}api/v1/admin/get-roles`,
-        {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        }
-      );
+      const response = await axios.get(`${apiUrl}api/v1/admin/get-roles`, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
       setRoleCounts(response.data.roleCounts);
     } catch (error) {
       console.log(error.response.data);
@@ -29,14 +27,11 @@ export default function AdminStats() {
 
   const fetchOrdersStats = async () => {
     try {
-      const response = await axios.get(
-        `${process.env.API_URL}api/v1/admin/get-orders`,
-        {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        }
-      );
+      const response = await axios.get(`${apiUrl}api/v1/admin/get-orders`, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
       setOrdersStats(response.data.orderStats);
     } catch (error) {
       console.log(error.response.data);

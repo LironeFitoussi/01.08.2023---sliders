@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./ProductDetail.module.css";
+import { apiUrl } from "../../config/apiConfig";
 
 export default function ProductDetail() {
   const [productData, setProductData] = useState(null);
@@ -9,9 +10,7 @@ export default function ProductDetail() {
 
   const fetchProductData = async () => {
     try {
-      const res = await axios.get(
-        `${process.env.API_URL}api/v1/products/${id}`
-      );
+      const res = await axios.get(`${apiUrl}api/v1/products/${id}`);
       setProductData(res.data.data.product);
     } catch (error) {
       console.error(error);

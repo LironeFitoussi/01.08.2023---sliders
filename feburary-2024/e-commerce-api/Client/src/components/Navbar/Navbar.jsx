@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../context/User";
 import SignOut from "../signout/signout";
+import { apiUrl } from "../../config/apiConfig";
 
 export default function Navbar() {
   const { userToken, user } = useContext(UserContext);
@@ -17,7 +18,7 @@ export default function Navbar() {
       let config = {
         method: "get",
         maxBodyLength: Infinity,
-        url: `${process.env.API_URL}api/v1/cart/${user._id}`,
+        url: `${apiUrl}api/v1/cart/${user._id}`,
         headers: {
           Authorization: `Bearer ${userToken}`,
         },

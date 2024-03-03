@@ -2,6 +2,7 @@ import { useContext } from "react";
 import styles from "./signout.module.css";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/User";
+import { apiUrl } from "../../config/apiConfig";
 
 const SignOut = () => {
   const navigate = useNavigate();

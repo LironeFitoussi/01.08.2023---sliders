@@ -2,6 +2,7 @@ import styles from "./Products.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Product from "../Product/Product";
+import { apiUrl } from "../../config/apiConfig";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,7 @@ export default function Products() {
   const fetchProducts = async (page, limit) => {
     try {
       const response = await axios.get(
-        `${process.env.API_URL}api/v1/products?page=${page}&limit=${limit}`
+        `${apiUrl}api/v1/products?page=${page}&limit=${limit}`
       );
       setPagination(response.data.pagination);
       setProducts(response.data.data.products);

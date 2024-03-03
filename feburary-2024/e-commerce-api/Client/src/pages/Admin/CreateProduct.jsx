@@ -4,6 +4,8 @@ import styles from "./CreateProduct.module.css"; // Import CSS module
 import { UserContext } from "../../context/User";
 import { useNavigate } from "react-router-dom";
 import app from "../../config/firebase";
+import { apiUrl } from "../../config/apiConfig";
+
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"; // Import Firebase storage functions
 const CreateProduct = () => {
   const storage = getStorage();
@@ -40,15 +42,11 @@ const CreateProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `${process.env.API_URL}/api/v1/products`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${userToken}`, // Assuming your token is in the format "Bearer <token>"
-          },
-        }
-      );
+      const response = await axios.post(`${apiUrl}/api/v1/products`, formData, {
+        headers: {
+          Authorization: `Bearer ${userToken}`, // Assuming your token is in the format "Bearer <token>"
+        },
+      });
       console.log(response.data);
       setFormData({
         name: "",

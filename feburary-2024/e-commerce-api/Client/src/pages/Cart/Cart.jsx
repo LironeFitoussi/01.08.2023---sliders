@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../../context/User";
 import styles from "./Cart.module.css";
+import { apiUrl } from "../../config/apiConfig";
 
 export default function Cart() {
   const [userCart, setUserCart] = useState([]);
@@ -14,14 +15,11 @@ export default function Cart() {
 
   const fetchCart = async () => {
     try {
-      const response = await axios.get(
-        `${process.env.API_URL}api/v1/cart/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        }
-      );
+      const response = await axios.get(`${apiUrlL}api/v1/cart/${id}`, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
       setUserCart(response.data.data.userCart[0].products);
       setCartTotalPrice(response.data.data.userCart[0].totalAmount);
     } catch (error) {
@@ -35,14 +33,11 @@ export default function Cart() {
 
   const removeFromCart = async (productId) => {
     try {
-      await axios.delete(
-        `${process.env.API_URL}api/v1/cart/${productId}/removeFromCart`,
-        {
-          headers: {
-            Authorization: `Bearer ${userToken}`,
-          },
-        }
-      );
+      await axios.delete(`${apiUrl}api/v1/cart/${productId}/removeFromCart`, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
       await fetchCart(); // Refetch cart after deletion
     } catch (error) {
       console.log(error);
@@ -53,7 +48,7 @@ export default function Cart() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: `${process.env.API_URL}api/v1/cart/checkout-session/${user.cart}`,
+      url: `${apiUrl}api/v1/cart/checkout-session/${user.cart}`,
       headers: {
         Authorization: `Bearer ${userToken}`,
       },
