@@ -1,13 +1,9 @@
-let config;
+let apiUrl;
 
 if (process.env.NODE_ENV === "production") {
-  config = {
-    apiUrl: "https://e-commerce-api-mqlp.onrender.com/",
-  };
+  apiUrl = "https://e-commerce-api-mqlp.onrender.com/";
 } else {
-  config = {
-    apiUrl: "http://localhost:3000/",
-  };
+  apiUrl = "http://localhost:3000/";
 }
 
-export default config;
+export { apiUrl };

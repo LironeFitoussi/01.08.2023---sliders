@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/User";
 import { Link } from "react-router-dom";
-import { apiUrl } from "../../config/apiConfig";
+import { apiUrl } from "../../../config/apiConfig";
 
 const SignIn = () => {
   const { fetchUser, setUserToken } = useContext(UserContext);

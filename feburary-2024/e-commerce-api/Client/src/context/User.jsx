@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
-import { apiUrl } from "../../config/apiConfig";
+import { apiUrl } from "../config/apiConfig";
 
 export const UserContext = createContext({});
 export default function UserProvider({ children }) {

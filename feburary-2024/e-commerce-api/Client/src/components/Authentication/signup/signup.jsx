@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/User";
-import { apiUrl } from "../../config/apiConfig";
+import { apiUrl } from "../../../config/apiConfig";
 
 const SignUp = () => {
   const { fetchUser, setUserToken } = useContext(UserContext);
