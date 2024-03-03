@@ -13,11 +13,7 @@ const adminRouter = require("./routes/adminRouter");
 const authController = require("./controllers/authController");
 
 const app = express();
-app.use(
-  cors({
-    origin: "https://e-commerce-react-app-01o3.onrender.com/",
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 
