@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserContext } from "./context/User.jsx";
-import './App.css'
+import "./App.css";
 
 import Home from "./pages/Home/Home.jsx";
 import ProductsPage from "./pages/ProductsPage/ProductsPage.jsx";
@@ -17,7 +17,6 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword.jsx";
 import OrderValidation from "./pages/Orders/OrderValidation.jsx";
 import AdminStats from "./pages/Admin/AdminStats.jsx";
 
-
 // Page components:
 import Navbar from "./components/Navbar/Navbar";
 import Announcement from "./components/Announcement/Announcement";
@@ -26,6 +25,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   const { userToken, user } = useContext(UserContext);
+  console.log(process.env.TEST);
 
   return (
     <Router>
@@ -41,9 +41,11 @@ function App() {
             {user.role === "admin" && (
               <>
                 <Route path="/admin" element={<Admin />} />
-                <Route path="/admin/create-product" element={<CreateProduct />} />
+                <Route
+                  path="/admin/create-product"
+                  element={<CreateProduct />}
+                />
                 <Route path="/admin/admin-stats" element={<AdminStats />} />
-
               </>
             )}
             {user.role !== "admin" && (
@@ -59,14 +61,15 @@ function App() {
         {!user && (
           <>
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password/:tokenId" element={<ResetPassword />} />
+            <Route
+              path="/reset-password/:tokenId"
+              element={<ResetPassword />}
+            />
             <Route path="/authentication" element={<Authentication />} />
           </>
         )}
       </Routes>
-      {user?.role !== "admin" && (
-        <Newsletter />
-      )}
+      {user?.role !== "admin" && <Newsletter />}
       <Footer />
     </Router>
   );
