@@ -67,16 +67,20 @@ export default function Navbar() {
             </p>
           </li>
         ) : (
-          <li className={styles.li}>
-            <Link to="/login">Sign in</Link>
-          </li>
+          <>
+            <li className={styles.li}>
+              <Link to="/login">Sign in</Link>
+            </li>
+            <li className={styles.li}>
+              {currentUser ? null : (
+                <Link className={styles.registerBtn} to="/register">
+                  Start Free
+                </Link>
+              )}
+            </li>
+          </>
         )}
       </ul>
-      {currentUser ? null : (
-        <Link className={styles.registerBtn} to="/register">
-          Start Free
-        </Link>
-      )}
     </nav>
   );
 }

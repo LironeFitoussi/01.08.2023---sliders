@@ -95,7 +95,7 @@
   }
 
   .navbar.active {
-    max-height: 20rem; /* Adjust max height as needed */
+    max-height: 50rem; /* Adjust max height as needed */
   }
 
   .menuIcon {
