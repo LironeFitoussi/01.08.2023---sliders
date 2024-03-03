@@ -1,8 +1,15 @@
 .formInput {
-    display: flex;
-    flex-direction: row;
-    margin: 2rem 0;
-    width: 35vw;
-    gap: 1vh;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 0;
+  width: 35vw;
+  gap: 1vh;
+  align-items: center;
+}
+
+@media screen and (max-width: 425px) {
+  .formInput {
+    flex-direction: column;
+    width: 100%;
+  }
 }

@@ -1,152 +1,198 @@
 .container {
-    margin: 10vh 0;
-    padding: 2vh 5vw;
-    display: flex;
-    flex-direction: column;
-    background-color: #1ea5fc;
-    width: 80vw;
+  margin: 10vh 0;
+  padding: 2vh 5vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #1ea5fc;
+  width: 80vw;
 }
 
-.container>* {
-    color: white;
+.container > * {
+  color: white;
 }
 
 .headerContainer {
-    display: flex;
-    gap: 1vw;
-    align-items: center;
+  display: flex;
+  gap: 1vw;
+  align-items: center;
 }
 
 .headerContainer * {
-    color: aliceblue;
+  color: aliceblue;
 }
 
 .title {
-    align-self: center;
-    font-size: 3rem;
+  align-self: center;
+  font-size: 3rem;
 }
 
 .projectName {
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .projectName h3 {
-    color: aliceblue;
+  color: aliceblue;
 }
 
 .projectName input {
-    border: none;
-    background-color: transparent;
-    border-bottom: solid 2px #9ae8fa;
-    color: antiquewhite;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-
+  border: none;
+  background-color: transparent;
+  border-bottom: solid 2px #9ae8fa;
+  color: antiquewhite;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
 .stepIcon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    border: solid 3px rgb(255, 255, 255);
-    border-radius: 10rem;
-    padding: 1.5rem;
-    font-size: 2rem;
-    width: 1rem;
-    height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: solid 3px rgb(255, 255, 255);
+  border-radius: 10rem;
+  padding: 1.5rem;
+  font-size: 2rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .formHeader {
-    padding: 0 1vw;
-
+  padding: 0 1vw;
 }
 
 .formSection {
-    padding: 0 5vw;
+  padding: 0 5vw;
 }
 
 .formInput {
-    width: 20vw;
-    display: flex;
-    gap: 1vh;
-    flex-direction: column;
+  width: 20vw;
+  display: flex;
+  gap: 1vh;
+  flex-direction: column;
 }
 
 .label {
-    color: #9ae8fa;
+  color: #9ae8fa;
 }
 
 .formInput input {
-    border: none;
-    background-color: transparent;
-    border-bottom: solid 2px #9ae8fa;
-    /* background-color: black; */
+  border: none;
+  background-color: transparent;
+  border-bottom: solid 2px #9ae8fa;
+  /* background-color: black; */
 }
 
 .resumeForm form {
-    margin-left: 5vw;
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
+  margin-left: 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
 }
 
 .aboutMe {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    width: 55vw;
-    margin: 1rem;
-    gap: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 55vw;
+  margin: 1rem;
+  gap: 2vh;
 }
 
 .aboutMe h1 {
-    color: aliceblue;
-    align-self: center;
+  color: aliceblue;
+  align-self: center;
 }
 
 .aboutMe textarea {
-    font-family: 'Poppins', sans-serif;
-    background-color: rgba(250, 235, 215, 0.1);
-    border: none;
-    resize: none;
-    padding: 2rem;
-    color: aliceblue;
+  font-family: "Poppins", sans-serif;
+  background-color: rgba(250, 235, 215, 0.1);
+  border: none;
+  resize: none;
+  padding: 2rem;
+  color: aliceblue;
 }
 
 .aboutMe textarea::placeholder {
-    color: #9ae8fa;
-    font-family: 'Poppins', sans-serif;
+  color: #9ae8fa;
+  font-family: "Poppins", sans-serif;
 }
 
 .aboutMe button {
-    background: #dbf26e linear-gradient(319deg, #dbf26e 0%, #61fa74 37%, #1cfdd6 100%);
-    border: none;
-    color: white;
-    padding: 1rem;
-    border-radius: 2rem;
-    font-size: 1.5vw;
-    width: 50%;
-    align-self: center;
-    transition: background 1s;
-    /* Apply transition property only once */
+  background: #dbf26e
+    linear-gradient(319deg, #dbf26e 0%, #61fa74 37%, #1cfdd6 100%);
+  border: none;
+  color: white;
+  padding: 1rem;
+  border-radius: 2rem;
+  font-size: 1.5vw;
+  width: 50%;
+  align-self: center;
+  transition: background 1s;
+  /* Apply transition property only once */
 }
 
+.aboutMe button span {
+  color: aliceblue;
+}
 .aboutMe button:hover {
-    cursor: pointer;
-    background: linear-gradient(319deg, #1cfdd6 0%, #61fa74 37%, #dbf26e 100%);
-    /* Adjust the gradient stops */
+  cursor: pointer;
+  background: linear-gradient(319deg, #1cfdd6 0%, #61fa74 37%, #dbf26e 100%);
+  /* Adjust the gradient stops */
 }
 
 .magic {
-    width: 1.5vw;
+  width: 1.5vw;
 }
 
 .loader {
-    width: 10vw;
-    mix-blend-mode: multiply;
+  width: 10vw;
+  mix-blend-mode: multiply;
+}
+
+@media screen and (max-width: 425px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .projectName input {
+    width: 80%;
+  }
+
+  .aboutMe {
+    width: 80vw;
+  }
+
+  .aboutMe button {
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+  }
+
+  .aboutMe button img {
+    width: 10%;
+  }
+
+  .aboutMe button span {
+    font-size: 1rem;
+  }
+
+  .headerContainer * {
+    font-size: 1rem;
+  }
+
+  .stepIcon {
+    padding: 0.5rem;
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+  .formInput {
+    width: 70vw;
+  }
 }
