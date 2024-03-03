@@ -39,13 +39,19 @@ export default function Navbar() {
       </div>
       <ul className={`${styles.navbar} ${isOpen ? styles.active : ""}`}>
         <li className={styles.li}>
-          <Link to="/create">Create Resume</Link>
+          <Link to="/create" onClick={toggleMenu}>
+            Create Resume
+          </Link>
         </li>
         <li className={styles.li}>
-          <Link to="/your-creations">Your Creations</Link>
+          <Link to="/your-creations" onClick={toggleMenu}>
+            Your Creations
+          </Link>
         </li>
         <li className={styles.li}>
-          <Link to="/apply-jobs">Apply Jobs</Link>
+          <Link to="/apply-jobs" onClick={toggleMenu}>
+            Apply Jobs
+          </Link>
         </li>
         {currentUser ? (
           <li className={styles.li}>

@@ -79,6 +79,9 @@
 }
 
 @media screen and (max-width: 425px) {
+  .navbarContainer {
+    justify-content: space-between;
+  }
   .navbar {
     flex-direction: column; /* Stack items vertically on small screens */
     position: fixed;

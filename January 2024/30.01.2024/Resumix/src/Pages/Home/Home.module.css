@@ -69,3 +69,25 @@
 .socialLink {
   color: #fff;
 }
+
+@media screen and (max-width: 425px) {
+  .container {
+    flex-direction: column;
+    flex-grow: 1;
+    padding-bottom: 0;
+  }
+
+  .mainHeader h1 {
+    font-size: 10vw;
+  }
+
+  .mainHeader p {
+    text-align: center;
+    width: 100%;
+  }
+
+  .mainImg {
+    align-self: flex-end;
+    width: 50vw;
+  }
+}
