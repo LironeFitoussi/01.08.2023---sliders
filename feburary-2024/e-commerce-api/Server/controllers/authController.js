@@ -175,7 +175,7 @@ exports.forgotPassword = async (req, res, next) => {
     const resetToken = user.createPasswordResetToken();
     await user.save({ validateBeforeSave: false });
 
-    const resetURL = `${req.protocol}://localhost:5173/reset-password/${resetToken}`;
+    const resetURL = `https://e-commerce-react-app-01o3.onrender.com/reset-password/${resetToken}`;
     const message = `Forgot your password? Submit a PATCH request with your new password and passwordConfirm to: ${resetURL}.\nIf you didn't forget your password, please ignore this email!`;
 
     await sendEmail({
