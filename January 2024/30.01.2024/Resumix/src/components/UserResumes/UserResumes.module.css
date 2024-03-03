@@ -1,9 +1,15 @@
 .resumesContainer {
-    padding: 2rem;
-    display: flex;
-    flex-direction: row-reverse;
-    font-display: row;
-    gap: 2vw;
-    max-width: 85vw;
-    flex-wrap: wrap;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+  font-display: row;
+  gap: 2vw;
+  max-width: 85vw;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 425px) {
+  .resumesContainer {
+    flex-direction: column-reverse;
+  }
 }
