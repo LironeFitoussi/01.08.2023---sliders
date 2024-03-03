@@ -1,5 +1,5 @@
 import styles from "./signup.module.css";
-import { useState ,useContext} from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/User";
@@ -7,20 +7,19 @@ import { UserContext } from "../../../context/User";
 const SignUp = () => {
   const { fetchUser, setUserToken } = useContext(UserContext);
 
-
   const navigate = useNavigate();
   const [signupForm, setSignupForm] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setSignupForm({...signupForm, [name]: value });
+    setSignupForm({ ...signupForm, [name]: value });
   };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/users/signup",
+        `${process.env.API_URL}api/v1/users/signup`,
         signupForm
       );
       localStorage.setItem("userToken", res.data.token);
@@ -30,7 +29,7 @@ const SignUp = () => {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
   return (
     <div className={styles.signupContainer}>
       <h2>Sign Up</h2>
@@ -53,7 +52,11 @@ const SignUp = () => {
         </div>
         <div className={styles.inputField}>
           <label>Confirm Password:</label>
-          <input type="password" name="passwordConfirm" onChange={handleChange} />
+          <input
+            type="password"
+            name="passwordConfirm"
+            onChange={handleChange}
+          />
         </div>
         <button type="submit" className={styles.button}>
           Sign Up

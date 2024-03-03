@@ -10,7 +10,7 @@ export default function Products() {
   const fetchProducts = async (page, limit) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/products?page=${page}&limit=${limit}`
+        `${process.env.API_URL}api/v1/products?page=${page}&limit=${limit}`
       );
       setPagination(response.data.pagination);
       setProducts(response.data.data.products);

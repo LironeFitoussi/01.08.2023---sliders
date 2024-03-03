@@ -11,7 +11,7 @@ export default function UserProvider({ children }) {
       console.log("User Updated, fetching...");
       try {
         const response = await fetch(
-          "http://localhost:3000/api/v1/users/fetchUser",
+          `${process.env.API_URL}api/v1/users/fetchUser`,
           {
             method: "GET",
             headers: {

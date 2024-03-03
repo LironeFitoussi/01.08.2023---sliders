@@ -1,4 +1,4 @@
-import { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import styles from "./signin.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ const SignIn = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/users/login",
+        `${process.env.API_URL}api/v1/users/login`,
         loginForm
       );
       localStorage.setItem("userToken", res.data.token);
@@ -48,7 +48,9 @@ const SignIn = () => {
           Login
         </button>
       </form>
-      <span>Forgot Password? reset <Link to='/forgot-password'>here</Link></span>
+      <span>
+        Forgot Password? reset <Link to="/forgot-password">here</Link>
+      </span>
     </div>
   );
 };

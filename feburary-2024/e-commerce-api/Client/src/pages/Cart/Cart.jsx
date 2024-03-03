@@ -15,7 +15,7 @@ export default function Cart() {
   const fetchCart = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/cart/${id}`,
+        `${process.env.API_URL}api/v1/cart/${id}`,
         {
           headers: {
             Authorization: `Bearer ${userToken}`,
@@ -36,7 +36,7 @@ export default function Cart() {
   const removeFromCart = async (productId) => {
     try {
       await axios.delete(
-        `http://localhost:3000/api/v1/cart/${productId}/removeFromCart`,
+        `${process.env.API_URL}api/v1/cart/${productId}/removeFromCart`,
         {
           headers: {
             Authorization: `Bearer ${userToken}`,
@@ -51,22 +51,23 @@ export default function Cart() {
 
   const handlePaymentWithStripe = async () => {
     let config = {
-      method: 'get',
+      method: "get",
       maxBodyLength: Infinity,
-      url: `http://localhost:3000/api/v1/cart/checkout-session/${user.cart}`,
-      headers: { 
-        'Authorization': `Bearer ${userToken}`
-      }
+      url: `${process.env.API_URL}api/v1/cart/checkout-session/${user.cart}`,
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+      },
     };
-    
-    axios.request(config)
-    .then((response) => {
-      window.open(response.data.data.session.url, '_blank');
-      console.log((response.data.data.session));
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
+
+    axios
+      .request(config)
+      .then((response) => {
+        window.open(response.data.data.session.url, "_blank");
+        console.log(response.data.data.session);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -92,7 +93,10 @@ export default function Cart() {
 
         <div>
           <p>Total Price: {cartTotalPrice}</p>
-          <button onClick={handlePaymentWithStripe} disabled={paymentProcessing}>
+          <button
+            onClick={handlePaymentWithStripe}
+            disabled={paymentProcessing}
+          >
             {paymentProcessing ? "Processing..." : "Checkout with Stripe"}
           </button>
         </div>
