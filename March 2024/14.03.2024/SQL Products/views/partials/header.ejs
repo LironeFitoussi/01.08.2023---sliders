@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Permalist</title>
+    <script>
+        const sortOrders = {};
+
+        function sortTable(columnIndex) {
+            const table = document.getElementById("productTable");
+            const rows = Array.from(table.getElementsByTagName("tr"));
+
+            rows.shift(); // Remove the header row
+
+            if (!sortOrders[columnIndex]) {
+                sortOrders[columnIndex] = 'asc';
+            } else {
+                sortOrders[columnIndex] = sortOrders[columnIndex] === 'asc' ? 'desc' : 'asc';
+            }
+
+            rows.sort((a, b) => {
+                const aValue = a.getElementsByTagName("td")[columnIndex].innerText;
+                const bValue = b.getElementsByTagName("td")[columnIndex].innerText;
+
+                if (!isNaN(parseFloat(aValue)) && !isNaN(parseFloat(bValue))) {
+                    return sortOrders[columnIndex] === 'asc' ? parseFloat(aValue) - parseFloat(bValue) : parseFloat(bValue) - parseFloat(aValue);
+                } else {
+                    return sortOrders[columnIndex] === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+                }
+            });
+
+            const sortedTable = document.createElement("tbody");
+            rows.forEach((row) => sortedTable.appendChild(row));
+            table.appendChild(sortedTable);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Product List</h1>
+    <main>
